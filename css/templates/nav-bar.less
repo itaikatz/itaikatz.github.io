@@ -1,0 +1,96 @@
+.nav-bar {
+
+
+  
+   outline: 1px solid #323232;
+  outline-offset:3px;
+   margin: 5px auto;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  width: 22.7%;
+  float: left;
+
+ a {
+    text-decoration: none;
+  }
+
+  .panel {
+    text-align: center;      
+    width: 100%;    
+  }
+
+  .active {
+    height: 200px;
+
+    
+  }
+
+  .inactive {
+    height: 50px;
+
+    
+  }
+
+  .panel-1.active {
+    .Panel-factory(@panel-blue);
+  }
+  .panel-1.inactive {
+    .Panel-factory(desaturate(@panel-blue, 100%), @panel-blue);
+  }
+
+  .panel-2.active {
+    .Panel-factory(@panel-green);
+  }
+  .panel-2.inactive {
+    .Panel-factory(desaturate(@panel-green, 100%), @panel-green);
+  }
+
+  .panel-3.active {
+    .Panel-factory(@panel-orange);
+  }
+  .panel-3.inactive {
+    .Panel-factory(desaturate(@panel-orange, 100%), @panel-orange);
+  }
+
+  .panel-4.active {
+    .Panel-factory(@panel-red);
+  }
+  .panel-4.inactive {
+    .Panel-factory(desaturate(@panel-red, 100%), @panel-red);
+  }
+
+
+
+
+
+    
+    .panel h1 {
+    width: 80%;
+    margin: 0 auto;
+    
+    font-size: 20px;
+    position: relative;
+    top: 60%;
+    text-align: center;
+    color: white;
+    padding-bottom: 15px;
+    
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+  }
+   .panel h2, .panel a {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    position: relative;
+    top: 62.5%;
+    text-align: center;
+    color: white;
+    line-height: 25px;
+  }
+  .panel a {
+    text-decoration: none;
+  }
+  
+
+}
