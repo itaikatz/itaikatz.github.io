@@ -1,14 +1,7 @@
-.Panel-factory(@color, @color2: @color) {
+.Panel-factory-set(@color, @color2: @color) {
   background-color: @color;
   &:hover {
-    //background: linear-gradient(@color2, lighten(@color2, 5%));    
-
-    //background: -webkit-radial-gradient(bottom,red,yellow,green);
     background: radial-gradient(ellipse 150px 100px at bottom,lighten(@color2, 15%),lighten(@color2, 4%), @color);
-    //background: radial-gradient(circle 100px at bottom,lighten(@color2, 10%), lighten(@color2, 7%),  @color);
-
-    //background: -webkit-radial-gradient(bottom,red,yellow,green);
-    //background: radial-gradient(at bottom,lighten(@color2, 10%), @color);
       
     svg {
       circle {      
@@ -23,6 +16,18 @@
     h1 {
       //border-bottom-color: @color;    
     }
+  }
+  
+  h1 {
+    border-bottom-color: lighten(@color, 5%);    
+  }
+  overflow: hidden;
+}
+
+.Panel-factory-nav(@color, @color2: @color) {
+  background-color: @color;
+  &:hover {
+    background: radial-gradient(ellipse 150px 100px at right,lighten(@color2, 15%),lighten(@color2, 4%), @color);
   }
   
   h1 {

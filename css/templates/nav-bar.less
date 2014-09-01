@@ -2,8 +2,8 @@
 
 
   
-   outline: 1px solid #323232;
-  outline-offset:3px;
+//   outline: 1px solid #323232;
+ // outline-offset:3px;
    margin: 5px auto;
   margin-top: 10px;
   margin-bottom: 25px;
@@ -17,6 +17,8 @@
   .panel {
     text-align: center;      
     width: 100%;    
+    position: relative;
+    display: inline-block;
   }
 
   .active {
@@ -32,65 +34,98 @@
   }
 
   .panel-1.active {
-    .Panel-factory(@panel-blue);
+    .Panel-factory-nav(@panel-blue);
   }
   .panel-1.inactive {
-    .Panel-factory(desaturate(@panel-blue, 100%), @panel-blue);
+    .Panel-factory-nav(desaturate(@panel-blue, 100%), @panel-blue);
   }
 
   .panel-2.active {
-    .Panel-factory(@panel-green);
+    .Panel-factory-nav(@panel-green);
   }
   .panel-2.inactive {
-    .Panel-factory(desaturate(@panel-green, 100%), @panel-green);
+    //.Panel-factory(desaturate(@panel-green, 100%), @panel-green);
+    .Panel-factory-nav(@panel-green);
   }
 
   .panel-3.active {
-    .Panel-factory(@panel-orange);
+    .Panel-factory-nav(@panel-orange);
   }
   .panel-3.inactive {
-    .Panel-factory(desaturate(@panel-orange, 100%), @panel-orange);
+    .Panel-factory-nav(@panel-orange); 
+    //.Panel-factory(desaturate(@panel-orange, 100%), @panel-orange);
   }
 
   .panel-4.active {
-    .Panel-factory(@panel-red);
+    .Panel-factory-nav(@panel-red);
   }
   .panel-4.inactive {
-    .Panel-factory(desaturate(@panel-red, 100%), @panel-red);
+    .Panel-factory-nav(@panel-red);
+    //.Panel-factory(desaturate(@panel-red, 100%), @panel-red);
   }
 
+ 
 
+  .inactive h1 {
+    line-height: 50px;
+  }
 
-
+  .active h1 {
+    line-height: 200px;
+  }
 
     
     .panel h1 {
-    width: 80%;
-    margin: 0 auto;
-    
+    width: 90%;
+    margin: 0 auto;    
     font-size: 20px;
-    position: relative;
-    top: 60%;
-    text-align: center;
+   // position: relative;
+   // top: 25%;
+
+    display: inline-block;
+    vertical-align: middle;
+
+    text-align: right;
     color: white;
-    padding-bottom: 15px;
-    
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
+//    padding-bottom: 15px;
+    border-bottom: none;
+    //border-bottom-style: solid;
+    //border-bottom-width: 1px;
   }
-   .panel h2, .panel a {
-    margin: 0;
-    padding: 0;
-    font-size: 15px;
-    position: relative;
-    top: 62.5%;
-    text-align: center;
-    color: white;
-    line-height: 25px;
-  }
+
+  //.inactive:hover {          
+    .panel-2:hover, .panel-3:hover, .panel-4:hover {
+      h1:after {
+        float: left;
+        visibility: visible;
+        content: 'Coming soon!';
+        color: @panel-blue;
+      }      
+    }
+
   .panel a {
     text-decoration: none;
   }
   
-
+  /*
+.panel-2 {        
+    &:hover {      
+      
+      h2:after {
+        visibility: visible;
+        content: 'Coming soon!';
+        color: @panel-blue;
+        position: absolute;
+        font-size: 15px;
+        top: 50%;
+        text-align: left;
+        margin: 0 auto;
+        background-color: white;
+      }      
+    }
+  h2:after {
+      visibility: hidden;
+      }
+  }
+*/
 }
