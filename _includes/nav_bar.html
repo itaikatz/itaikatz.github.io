@@ -1,0 +1,44 @@
+<div class="nav-bar">
+
+ <a href="aboutme.html">
+ {% if page.active == 'aboutme' %}
+ 	<div class="panel-1 panel active">
+ {% else %}
+ 	<div class="panel-1 panel inactive">
+ {% endif %}
+  <h1>About</h1>
+ </div> 
+ </a>
+
+ <a href="research.html">
+ {% if page.active == 'research' %}
+ 	<div class="panel-2 panel active">
+ {% else %}
+ 	<div class="panel-2 panel inactive">
+ {% endif %}
+    <h1>Research</h1>
+    <h2></h2>
+  </div>
+  </a>
+
+<a href="blog.html">
+{% if page.active == 'blog' %}
+ 	<div class="panel-3 panel active">
+ {% else %}
+ 	<div class="panel-3 panel inactive">
+ {% endif %}
+  <h1>Blog</h1>
+</div>
+</a>
+
+<a href="tutorials.html">
+{% if page.active == 'tutorials' %}
+ 	<div class="panel-4 panel active">
+ {% else %}
+ 	<div class="panel-4 panel inactive">
+ {% endif %}
+  <h1>Tutorials</h1>
+</div>
+</a>
+
+</div> <!-- nav-bar -->

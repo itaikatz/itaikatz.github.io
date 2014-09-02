@@ -270,6 +270,38 @@ header span {
   width: 22.7%;
   float: left;
   /*
+  .panel-1.active {
+    .Panel-factory-nav(@panel-blue);
+  }
+  .panel-1.inactive {
+    .Panel-factory-nav(desaturate(@panel-blue, 100%), @panel-blue);
+  }
+
+  .panel-2.active {
+    .Panel-factory-nav(@panel-green);
+  }
+  .panel-2.inactive {
+    //.Panel-factory(desaturate(@panel-green, 100%), @panel-green);
+    .Panel-factory-nav(@panel-green);
+  }
+
+  .panel-3.active {
+    .Panel-factory-nav(@panel-orange);
+  }
+  .panel-3.inactive {
+    .Panel-factory-nav(@panel-orange); 
+    //.Panel-factory(desaturate(@panel-orange, 100%), @panel-orange);
+  }
+
+  .panel-4.active {
+    .Panel-factory-nav(@panel-red);
+  }
+  .panel-4.inactive {
+    .Panel-factory-nav(@panel-red);
+    //.Panel-factory(desaturate(@panel-red, 100%), @panel-red);
+  }
+*/
+  /*
 .panel-2 {        
     &:hover {      
       
@@ -306,84 +338,44 @@ header span {
 .nav-bar .inactive {
   height: 50px;
 }
-.nav-bar .panel-1.active {
+.nav-bar .panel-1 {
   background-color: #0084a9;
   overflow: hidden;
 }
-.nav-bar .panel-1.active:hover {
+.nav-bar .panel-1:hover {
   background: radial-gradient(ellipse 150px 100px at right, #00c0f5, #0094bd, #0084a9);
 }
-.nav-bar .panel-1.active h1 {
+.nav-bar .panel-1 h1 {
   border-bottom-color: #0098c3;
 }
-.nav-bar .panel-1.inactive {
-  background-color: #555555;
-  overflow: hidden;
-}
-.nav-bar .panel-1.inactive:hover {
-  background: radial-gradient(ellipse 150px 100px at right, #00c0f5, #0094bd, #555555);
-}
-.nav-bar .panel-1.inactive h1 {
-  border-bottom-color: #616161;
-}
-.nav-bar .panel-2.active {
+.nav-bar .panel-2 {
   background-color: #7a9d00;
   overflow: hidden;
 }
-.nav-bar .panel-2.active:hover {
+.nav-bar .panel-2:hover {
   background: radial-gradient(ellipse 150px 100px at right, #b5ea00, #8ab100, #7a9d00);
 }
-.nav-bar .panel-2.active h1 {
+.nav-bar .panel-2 h1 {
   border-bottom-color: #8eb700;
 }
-.nav-bar .panel-2.inactive {
-  background-color: #7a9d00;
-  overflow: hidden;
-}
-.nav-bar .panel-2.inactive:hover {
-  background: radial-gradient(ellipse 150px 100px at right, #b5ea00, #8ab100, #7a9d00);
-}
-.nav-bar .panel-2.inactive h1 {
-  border-bottom-color: #8eb700;
-}
-.nav-bar .panel-3.active {
+.nav-bar .panel-3 {
   background-color: #df9100;
   overflow: hidden;
 }
-.nav-bar .panel-3.active:hover {
+.nav-bar .panel-3:hover {
   background: radial-gradient(ellipse 150px 100px at right, #ffb52d, #f39e00, #df9100);
 }
-.nav-bar .panel-3.active h1 {
+.nav-bar .panel-3 h1 {
   border-bottom-color: #f9a200;
 }
-.nav-bar .panel-3.inactive {
-  background-color: #df9100;
-  overflow: hidden;
-}
-.nav-bar .panel-3.inactive:hover {
-  background: radial-gradient(ellipse 150px 100px at right, #ffb52d, #f39e00, #df9100);
-}
-.nav-bar .panel-3.inactive h1 {
-  border-bottom-color: #f9a200;
-}
-.nav-bar .panel-4.active {
+.nav-bar .panel-4 {
   background-color: #b23814;
   overflow: hidden;
 }
-.nav-bar .panel-4.active:hover {
+.nav-bar .panel-4:hover {
   background: radial-gradient(ellipse 150px 100px at right, #e7562b, #c43e16, #b23814);
 }
-.nav-bar .panel-4.active h1 {
-  border-bottom-color: #c93f17;
-}
-.nav-bar .panel-4.inactive {
-  background-color: #b23814;
-  overflow: hidden;
-}
-.nav-bar .panel-4.inactive:hover {
-  background: radial-gradient(ellipse 150px 100px at right, #e7562b, #c43e16, #b23814);
-}
-.nav-bar .panel-4.inactive h1 {
+.nav-bar .panel-4 h1 {
   border-bottom-color: #c93f17;
 }
 .nav-bar .inactive h1 {

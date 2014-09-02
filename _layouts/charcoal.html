@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--  <title>Itai Katz</title>-->
+  <title> {{ page.title }} </title>
+  {% include html_head.html %}  
+</head>
+
+<body>
+
+  </div>
+    <div class="wrapper">
+    <div class="pre-header"></div> <!-- top strip -->
+    <div class="content">
+
+    	{% include header.html %}
+    	{{ content }}
+  
+  </div>  <!-- content -->
+  <div class="push"></div>
+  </div> <!-- wrapper -->
+
+  {% include footer.html %}
+
+</body>
+</html>
