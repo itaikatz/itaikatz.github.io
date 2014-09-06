@@ -1,15 +1,16 @@
 .panel-set {
   width: 100%;  
+
+  height: 500px;
   height: 50vh;
-  min-height: 300px;
-  max-height: 500px;
+  max-height: 500px;  
   margin: 5px auto;
   margin-top: 10px;
   margin-bottom: 25px;
   max-width: 100%;
   min-width: 50%;      
   float: left;
-//}
+
 
 // Set panel background colors
   .panel-1 {
@@ -18,6 +19,7 @@
 
   .panel-2 {        
     .Panel-factory-set(@panel-green);
+    
     &:hover {      
       
       h2:after {
@@ -30,12 +32,13 @@
       visibility: visible;
       content: "Projects";      
       }
+    
   }
 
   .panel-3 {      
     .Panel-factory-set(@panel-orange);
-    &:hover {      
-      
+    
+    &:hover {            
       h2:after {
         visibility: visible;
         content: 'Coming soon!';
@@ -46,12 +49,13 @@
       visibility: visible;
       content: "Writing";      
       }
+    
   }
 
   .panel-4 {      
     .Panel-factory-set(@panel-red);
-&:hover {      
-      
+    
+&:hover {            
       h2:after {
         visibility: visible;
         content: 'Coming soon!';
@@ -62,11 +66,13 @@
       visibility: visible;
       content: "Teaching";      
       }
+
+    
   }
 
 
 .panel {
-  text-align: center;  
+ // text-align: center;  
   //float: left;
   display: inline-block;
 
@@ -77,14 +83,15 @@
   height: 100%;
   outline: 1px solid #323232;
   outline-offset:3px;
-
+  position: relative;
   
 
 
   -webkit-box-shadow: 0px 10px 5px -2px rgba(0,0,0,0.75);
   -moz-box-shadow: 0px 10px 5px -2px rgba(0,0,0,0.75);
   box-shadow: 0px 10px 5px -2px rgba(0,0,0,0.75);   
-  overflow: hidden;
+
+  //overflow: hidden;
 
    &:hover {
     svg {
@@ -97,48 +104,55 @@
       }
 
    }
-   
+
 }
 
 
 
 .panel h1 {
+  position: relative;
   width: 80%;
   margin: 0 auto;
-  
+  text-align: center;  
   font-size: 30px;
-  position: relative;
+    
   top: 60%;
-  text-align: center;
+  
   color: @light-gray;
   padding-bottom: 15px;    
   border-bottom-style: solid;
-  border-bottom-width: 1px;
+  border-bottom-width: 1px;  
+  
 }
-.panel h2, .panel a {
-  margin: 0;
+
+.panel h2, .panel a {  
+  margin: 0 auto;
   padding: 0;
-  font-size: 15px;
+  font-size: 20px;
   position: relative;
   top: 62.5%;
   text-align: center;  
   color: @light-gray;
   line-height: 25px;
 }
+
 .panel a {
   text-decoration: none;
 }
 
 
 .panel svg  {
-  position: relative;    
-  right: -0px;
-  top: -100px;
-
+  position: absolute;    
+  right: -50px;
+  top: -30px;  
   // float: right;
   circle { stroke: rgba(255,255,255,0.2); }        
   rect { fill: rgba(255,255,255,0.2);
          stroke: rgba(255,255,255,0.2); }
   path { fill: rgba(255,255,255,0.2); }
 }
+
+
 }
+
+

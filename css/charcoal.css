@@ -31,6 +31,9 @@ svg {
 .itai {
   font-weight: bold;
 }
+a {
+  text-decoration: none;
+}
 .pre-header {
   border-bottom: solid 1px #363636;
   width: 100%;
@@ -81,8 +84,8 @@ header span {
 }
 .panel-set {
   width: 100%;
+  height: 500px;
   height: 50vh;
-  min-height: 300px;
   max-height: 500px;
   margin: 5px auto;
   margin-top: 10px;
@@ -97,16 +100,21 @@ header span {
 }
 .panel-set .panel-1:hover {
   background: radial-gradient(ellipse 150px 100px at bottom, #00c0f5, #0094bd, #0084a9);
-}
-.panel-set .panel-1:hover svg circle {
-  stroke: rgba(255, 255, 255, 0.22);
-}
-.panel-set .panel-1:hover svg rect {
-  fill: rgba(255, 255, 255, 0.22);
-  stroke: rgba(255, 255, 255, 0.22);
-}
-.panel-set .panel-1:hover svg path {
-  fill: rgba(255, 255, 255, 0.22);
+  /*
+    svg {
+      circle {      
+      stroke: rgba(255,255,255,0.82); 
+      }
+      rect {
+        fill: rgba(255,255,255,0.82); 
+        stroke: rgba(255,255,255,0.82);
+      }
+      path { fill: rgba(255,255,255,0.82); }
+    }       
+    h1 {
+      //border-bottom-color: @color;    
+    }
+    */
 }
 .panel-set .panel-1 h1 {
   border-bottom-color: #0098c3;
@@ -117,16 +125,21 @@ header span {
 }
 .panel-set .panel-2:hover {
   background: radial-gradient(ellipse 150px 100px at bottom, #b5ea00, #8ab100, #7a9d00);
-}
-.panel-set .panel-2:hover svg circle {
-  stroke: rgba(255, 255, 255, 0.22);
-}
-.panel-set .panel-2:hover svg rect {
-  fill: rgba(255, 255, 255, 0.22);
-  stroke: rgba(255, 255, 255, 0.22);
-}
-.panel-set .panel-2:hover svg path {
-  fill: rgba(255, 255, 255, 0.22);
+  /*
+    svg {
+      circle {      
+      stroke: rgba(255,255,255,0.82); 
+      }
+      rect {
+        fill: rgba(255,255,255,0.82); 
+        stroke: rgba(255,255,255,0.82);
+      }
+      path { fill: rgba(255,255,255,0.82); }
+    }       
+    h1 {
+      //border-bottom-color: @color;    
+    }
+    */
 }
 .panel-set .panel-2 h1 {
   border-bottom-color: #8eb700;
@@ -146,16 +159,21 @@ header span {
 }
 .panel-set .panel-3:hover {
   background: radial-gradient(ellipse 150px 100px at bottom, #ffb52d, #f39e00, #df9100);
-}
-.panel-set .panel-3:hover svg circle {
-  stroke: rgba(255, 255, 255, 0.22);
-}
-.panel-set .panel-3:hover svg rect {
-  fill: rgba(255, 255, 255, 0.22);
-  stroke: rgba(255, 255, 255, 0.22);
-}
-.panel-set .panel-3:hover svg path {
-  fill: rgba(255, 255, 255, 0.22);
+  /*
+    svg {
+      circle {      
+      stroke: rgba(255,255,255,0.82); 
+      }
+      rect {
+        fill: rgba(255,255,255,0.82); 
+        stroke: rgba(255,255,255,0.82);
+      }
+      path { fill: rgba(255,255,255,0.82); }
+    }       
+    h1 {
+      //border-bottom-color: @color;    
+    }
+    */
 }
 .panel-set .panel-3 h1 {
   border-bottom-color: #f9a200;
@@ -175,16 +193,21 @@ header span {
 }
 .panel-set .panel-4:hover {
   background: radial-gradient(ellipse 150px 100px at bottom, #e7562b, #c43e16, #b23814);
-}
-.panel-set .panel-4:hover svg circle {
-  stroke: rgba(255, 255, 255, 0.22);
-}
-.panel-set .panel-4:hover svg rect {
-  fill: rgba(255, 255, 255, 0.22);
-  stroke: rgba(255, 255, 255, 0.22);
-}
-.panel-set .panel-4:hover svg path {
-  fill: rgba(255, 255, 255, 0.22);
+  /*
+    svg {
+      circle {      
+      stroke: rgba(255,255,255,0.82); 
+      }
+      rect {
+        fill: rgba(255,255,255,0.82); 
+        stroke: rgba(255,255,255,0.82);
+      }
+      path { fill: rgba(255,255,255,0.82); }
+    }       
+    h1 {
+      //border-bottom-color: @color;    
+    }
+    */
 }
 .panel-set .panel-4 h1 {
   border-bottom-color: #c93f17;
@@ -199,7 +222,6 @@ header span {
   content: "Teaching";
 }
 .panel-set .panel {
-  text-align: center;
   display: inline-block;
   width: 22.7%;
   margin-right: 1%;
@@ -207,10 +229,10 @@ header span {
   height: 100%;
   outline: 1px solid #323232;
   outline-offset: 3px;
+  position: relative;
   -webkit-box-shadow: 0px 10px 5px -2px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 10px 5px -2px rgba(0, 0, 0, 0.75);
   box-shadow: 0px 10px 5px -2px rgba(0, 0, 0, 0.75);
-  overflow: hidden;
 }
 .panel-set .panel:hover svg circle {
   stroke: rgba(255, 255, 255, 0.4);
@@ -223,12 +245,12 @@ header span {
   fill: rgba(255, 255, 255, 0.4);
 }
 .panel-set .panel h1 {
+  position: relative;
   width: 80%;
   margin: 0 auto;
-  font-size: 30px;
-  position: relative;
-  top: 60%;
   text-align: center;
+  font-size: 30px;
+  top: 60%;
   color: #e0e0e0;
   padding-bottom: 15px;
   border-bottom-style: solid;
@@ -236,9 +258,9 @@ header span {
 }
 .panel-set .panel h2,
 .panel-set .panel a {
-  margin: 0;
+  margin: 0 auto;
   padding: 0;
-  font-size: 15px;
+  font-size: 20px;
   position: relative;
   top: 62.5%;
   text-align: center;
@@ -249,9 +271,9 @@ header span {
   text-decoration: none;
 }
 .panel-set .panel svg {
-  position: relative;
-  right: 0px;
-  top: -100px;
+  position: absolute;
+  right: -50px;
+  top: -30px;
 }
 .panel-set .panel svg circle {
   stroke: rgba(255, 255, 255, 0.2);
@@ -269,38 +291,6 @@ header span {
   margin-bottom: 25px;
   width: 22.7%;
   float: left;
-  /*
-  .panel-1.active {
-    .Panel-factory-nav(@panel-blue);
-  }
-  .panel-1.inactive {
-    .Panel-factory-nav(desaturate(@panel-blue, 100%), @panel-blue);
-  }
-
-  .panel-2.active {
-    .Panel-factory-nav(@panel-green);
-  }
-  .panel-2.inactive {
-    //.Panel-factory(desaturate(@panel-green, 100%), @panel-green);
-    .Panel-factory-nav(@panel-green);
-  }
-
-  .panel-3.active {
-    .Panel-factory-nav(@panel-orange);
-  }
-  .panel-3.inactive {
-    .Panel-factory-nav(@panel-orange); 
-    //.Panel-factory(desaturate(@panel-orange, 100%), @panel-orange);
-  }
-
-  .panel-4.active {
-    .Panel-factory-nav(@panel-red);
-  }
-  .panel-4.inactive {
-    .Panel-factory-nav(@panel-red);
-    //.Panel-factory(desaturate(@panel-red, 100%), @panel-red);
-  }
-*/
   /*
 .panel-2 {        
     &:hover {      
