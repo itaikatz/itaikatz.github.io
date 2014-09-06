@@ -471,6 +471,11 @@ header span {
 .footer-wrapper svg {
   position: relative;
   top: 5px;
+  vertical-align: center;
+}
+.footer-wrapper img {
+  position: relative;
+  top: 5px;
 }
 /*
 .wrap2 {
