@@ -30,7 +30,7 @@ author: Itai Katz
 markdown: rdiscount
 
 # Makes pretty (descriptive) permalinks. See Jekyll docs for alternatives.
-permalink: pretty
+# permalink: pretty
 
 # How many articles do you wish to appear on the front page:
 paginate: 3

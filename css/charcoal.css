@@ -20,7 +20,7 @@ svg {
   float: left;
   padding-left: 10px;
   margin: 10px;
-  width: 50%;
+  width: 65%;
   color: #e0e0e0;
 }
 .right-column {
@@ -289,7 +289,7 @@ header span {
   margin: 5px auto;
   margin-top: 10px;
   margin-bottom: 25px;
-  width: 22.7%;
+  width: 15.7%;
   float: left;
   /*
 .panel-2 {        
@@ -476,6 +476,68 @@ header span {
 .footer-wrapper img {
   position: relative;
   top: 5px;
+}
+.about {
+  text-align: center;
+}
+.about p {
+  text-align: justify;
+}
+.about p + p {
+  margin-top: 10px;
+}
+.about h1 {
+  font-size: 50px;
+}
+.about h3 {
+  padding: 0;
+  margin: 0;
+  font-size: 20px;
+  color: #e0e0e0;
+}
+.about hr {
+  color: #0084a9;
+}
+.about .exp {
+  color: black;
+}
+.about ul {
+  padding: 0;
+}
+.about ul li {
+  list-style: none;
+}
+.about li + li {
+  margin-top: 10px;
+}
+.about .section {
+  text-align: left;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.about .date {
+  float: right;
+  text-align: right;
+  line-height: 20px;
+}
+.about .heading {
+  float: left;
+}
+.about .about-text {
+  margin-left: 120px;
+}
+.about .circle {
+  float: left;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  /* width and height can be anything, as long as they're equal */
+  background-color: #0084a9;
+  margin-right: 20px;
+  margin-top: 10px;
+  color: white;
+  text-align: center;
+  line-height: 100px;
 }
 /*
 .wrap2 {
