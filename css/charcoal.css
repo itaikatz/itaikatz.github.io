@@ -1,6 +1,6 @@
 * {
   margin: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto';
   font-weight: 400;
 }
 html,
@@ -47,7 +47,6 @@ header {
   width: 100%;
   display: inline-block;
   margin: 0 auto;
-  font-family: helvetica;
   position: relative;
 }
 header .contact {
@@ -87,6 +86,7 @@ header span {
   height: 500px;
   height: 50vh;
   max-height: 500px;
+  min-height: 300px;
   margin: 5px auto;
   margin-top: 10px;
   margin-bottom: 25px;
@@ -409,7 +409,6 @@ header span {
   font-size: 15px;
   font-weight: bold;
   line-height: 4em;
-  font-family: helvetica;
   background: linear-gradient(#2d2d2d, #252525);
   width: 100%;
   text-align: center;
@@ -496,15 +495,31 @@ header span {
   color: #e0e0e0;
 }
 .about hr {
-  color: #0084a9;
+  border: 1px solid #0084a9;
 }
 .about .exp {
-  color: black;
+  border: 1px solid #323232;
+}
+.about .experience {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.about .experience li {
+  list-style-position: inside;
+  color: #0084a9;
+  list-style-type: disc;
+  margin: 0;
+}
+.about .experience li span {
+  color: #e0e0e0;
+}
+.about .experience ul {
+  margin-top: 10px;
 }
 .about ul {
   padding: 0;
 }
-.about ul li {
+.about li {
   list-style: none;
 }
 .about li + li {
@@ -514,30 +529,32 @@ header span {
   text-align: left;
   margin-top: 20px;
   margin-bottom: 20px;
+  position: relative;
 }
 .about .date {
   float: right;
   text-align: right;
   line-height: 20px;
 }
-.about .heading {
-  float: left;
-}
 .about .about-text {
   margin-left: 120px;
 }
 .about .circle {
+  position: absolute;
+  margin-top: 20px;
   float: left;
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  /* width and height can be anything, as long as they're equal */
   background-color: #0084a9;
   margin-right: 20px;
-  margin-top: 10px;
   color: white;
   text-align: center;
   line-height: 100px;
+}
+.about .circle.centered {
+  top: 50%;
+  margin-top: -50px;
 }
 /*
 .wrap2 {

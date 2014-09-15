@@ -1,0 +1,502 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Abanda v. Coach USA</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <script src="js/modernizr.js"></script>
+    <link href="css/nv.d3.min.css" rel="stylesheet" type="text/css">
+    <script src="js/d3.min.js"></script>
+    <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+    <script src="js/nv.d3.min.js"></script>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script>
+    <style type="text/css">
+
+		#map {
+ 			height: 300px;    	
+		}
+
+  .caption { 
+  /*position: absolute; */
+ /*width: 283px;*/
+ /*
+ margin: 0 auto;
+ width: 90%;
+  height: 20px; 
+  bottom: 0px; 
+  left: 0px; 
+  color: #000; 
+  background: green; 
+  */
+  position: relative;
+  bottom: 20px;
+  text-align:center; 
+  font-weight:bold; 
+  
+}
+
+span.aside {
+  color: red;
+}
+
+
+    * {
+    margin: 0;
+    }
+    html, body {
+    height: 100%;
+    }
+    .wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -4em;
+    }
+    .footer, .push {
+    height: 4em;
+    }
+    .footer {
+    background-color: #eee;
+    text-align: center;
+  }
+
+    </style>
+  </head>
+  <body>
+  <div class="wrapper">
+
+  <div class="row">
+  <div class="small-12 columns">
+      	<h3>Video Analysis:</h3>
+        <h1>Abanda v. Coach USA</h1>
+        <p>
+        Evaluator: Itai Katz<br/>
+        Sept. 15, 2014<br/>
+        </p>
+  </div>
+  </div>
+
+  <div class="row">
+  <div class="small-12 columns">
+      <h3>Preprocessing</h3>
+      <p>File #34-357 contains a video sequence depicting surveillance video from a coach bus. The sequence includes footage from four internally mounted cameras, one of which points outwards towards the side of the vehicle. 
+      </p>
+
+      <p> To isolate the segment of interest the sequence is first preprocessed by demuxing and deinterlacing using the FFMPEG video processing tool as follows:<br/><br/>
+      <kbd> ffmpeg -i VTS_01_1.vob -vcodec rawvideo -t 40 -vf "cropvideo=360:240" output.avi </kbd>
+      </p>
+
+  </div>
+  </div>
+
+  <div class="row">
+      <div class="small-2 columns"> _</div>
+      <div class="small-4 columns">
+        <img src="imgs/raw.jpg"/>
+        <div class="caption">
+          <br>Fig. 1: Raw frame
+        </div> </div>
+
+      <div class="small-4 columns">
+        <img src="imgs/demux.jpg"/>
+        <div class="caption">
+          <br>Fig. 2: Demuxed/Deinterlaced frame
+        </div> </div>
+      <div class="small-2 columns"> _</div>
+  </div>
+
+
+     <div class="row">
+      <div class="small-12 columns">
+      <h3>Observations</h3>
+      On visual inspection the following points are noted:
+      <ul>
+      <li> The sequence is of poor quality, with the relevant images being only 360x240 pixels
+      <li> The sequence was recorded at 8:04pm, a few minutes after sunset at 8:00pm (for 08/19/11 at a lattitude of 39&degN) <span class=aside> [39&degN is an approximate central lattitude for the US; more specific city information is needed. ]</span></li>
+      <li> Moderate to heavy rain </li>
+      <li> No crosswalks or pedestrians are evident </li>
+      </ul>
+</div>
+</div>
+
+  <div class="row">
+  <div class="small-12  columns">
+  <h3>Velocity analysis</h3>
+  <p> A number of structures are visible from outside the window. In frame 576 a fire hydrant can be seen; because hydrant sizes are standardized we can use this as a fiducial to map pixel measurements in the image to real-world measurements in inches. Fire hydrant dimensions vary somewhat, but the common <a href="http://www.unitedwaterproducts.com/awwa-dry-barrel-fire-hydrants.html">AWWA standard C502</a> specifies a flange-to-tip height of 25". In the image below the hydrant is approximately 42 pixels tall, yielding a conversion ratio of 0.6 inches/pixel. By noting the apparent motion of fixed structures and using an NTSC framerate of 29.9 fps a velocity profile can be deduced. Calculations are provided in the attached <a href="forensic_data.xlsx">Excel spreadsheet</a>.
+
+  </div>
+  </div>
+
+  <div class="row">
+      <div class="small-2 columns"> _</div>
+      <div class="small-4 columns">
+        <img src="imgs/hydrant.jpg"/>
+        <div class="caption">
+          <br>Fig. 3: Hydrant visible in frame 576
+        </div> </div>
+
+      <div class="small-4 columns">
+        <a href="#" data-reveal-id="hydrantModal"><img style="margin: 0 auto;" src="imgs/hydrant_dimensions_small.png"/></a>
+        <div id="hydrantModal" class="reveal-modal" data-reveal>
+          <img src="imgs/hydrant_dimensions.png"/>
+          <a class="close-reveal-modal">&#215;</a>
+        </div>
+        <div class="caption">
+          <br>Fig. 4: Standard hydrant dimensions (click for full screen)
+        </div> </div>
+      <div class="small-2 columns"> _</div>
+  </div>
+
+
+<div class="row">
+  <div class="small-6 small-centered columns">
+ <table>
+      <thead>
+      <tr>
+          <th>Frame#</th>
+          <th>Time</th>
+          <th>Velocity (mph)</th>
+      </tr>
+    </thead>
+
+    <tbody>
+        <tr>
+            <td>217</td>
+            <td>08:04:33 PM</td>
+            <td>21.1</td>
+        </tr>
+        <tr>
+            <td>281</td>
+            <td>08:04:36 PM</td>
+            <td>21.6</td>
+        </tr>
+        <tr>
+            <td>444</td>
+            <td>08:04:41 PM</td>
+            <td>26.7</td>
+        </tr>
+        <tr>
+            <td>452</td>
+            <td>08:04:41 PM</td>
+            <td>24.9</td>
+        </tr>
+        <tr>
+            <td>526</td>
+            <td>08:04:44 PM</td>
+            <td>19.2</td>
+        </tr>
+        <tr>
+            <td>576</td>
+            <td>08:04:45 PM</td>
+            <td>12.2</td>
+        </tr>
+        <tr>
+            <td>613</td>
+            <td>08:04:47 PM</td>
+            <td>4.1</td>
+        </tr>
+        <tr>
+            <td>640</td>
+            <td>08:04:47 PM</td>
+            <td>0</td>
+        </tr>
+        <tr>
+            <td>700</td>
+            <td>08:04:49 PM</td>
+            <td>0</td>
+        </tr>
+
+    </tbody>
+</table>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+      <!--
+<div class="row">
+  <div class="small-6 large-centered columns">6 centered</div>
+</div>
+
+    <div class="row">
+    <div class="large-4 small-centered"><br />
+    <img src="imgs/raw.jpg"/>
+    </div>
+    <div class="large-4 text-center"><br />
+    <img src="imgs/demux.jpg"/>
+
+     <ul class="small-block-grid-3 text-center">
+      <li><img src="imgs/raw.jpg"/></li>
+      <li><img src="imgs/demux.jpg"/></li>
+      </ul>
+
+      </div>
+      </div>
+-->
+
+      <br/>
+ 
+
+      <div class="row">
+      <div class="small-12 columns">
+      <p>The panel below depicts an interactive panel summarizing the results of the video analysis. The upper left element contains the processed video, and the upper right element depicts the bus's speed over time. The lower panel contains a Google Maps widget depicting the bus's route during the video sequence. <span class="aside"> NOTE: The lower element (as well as the speed limit in the upper right) is MOCK DATA intended for demonstration pruposes. Additional location information is required for accurate presentation.</span>
+      </p>
+      </div>
+      </div>
+
+
+      <div class="row panel">
+
+      <div class="row">
+      
+        	<div class="small-6 medium-6 columns">
+
+			<div class="flex-video">
+					<video id="the-video" preload="" controls="controls" height="360" width="640">
+  					<source src="imgs/outfile.mp4">
+  					</video>
+  					</div>
+
+			</div>
+
+	        	<div class="large-6 medium-6 columns">
+	        	 	<div id="chart"> <svg style='height:300px'/></div>	        		
+	        	</div>
+
+	        </div>
+
+			<div class="row">
+        	<div class="large-12 medium-12 columns">
+	          <div id="map"></div>	        
+            </div>	
+	        </div>
+
+      	</div>
+      </div>
+     </div>
+
+  <div class="row">
+  <div class="small-12  columns">
+  <h3>Audio Analysis</h3>
+    <p> A preliminary audio analysis was attempted in order to improve intelligibility. A multi-band digital noise gate was applied after building a noise profile with a "blank" section of background noise. Speech is heard at 0:39 and 0:52-onwards:</p>
+    <audio controls>
+    <source src="imgs/abanda.mp3" type="audio/mpeg">    
+    Your browser does not support the audio element.
+    </audio> 
+  </div>
+  </div>
+
+  <div class="row">
+  <div class="small-12  columns">  
+  <h3>Appendix</h3>
+  <p>
+  Video analysis was performed with a custom script written in the MATLAB programming language (Mathworks MATLAB 2011a):
+  </p>
+
+  <a href="#" class="button" data-reveal-id="matlabModal"> MATLAB source code </a>
+        <div id="matlabModal" class="reveal-modal" data-reveal>
+<pre style='color:#000000;background:#ffffff;'><html><body style='color:#000000; background:#ffffff; '><pre>
+<span style='color:#800000; font-weight:bold; '>function</span> forensic
+<span style='color:#800000; font-weight:bold; '>global</span> i<span style='color:#808030; '>;</span>
+<span style='color:#800000; font-weight:bold; '>global</span> vid<span style='color:#808030; '>;</span>
+i<span style='color:#808030; '>=</span>100<span style='color:#808030; '>;</span>
+
+close <span style='color:#bb7977; '>all</span><span style='color:#808030; '>;</span>
+<span style='color:#696969; '>%vid = VideoReader('output.avi');</span>
+vid <span style='color:#808030; '>=</span> VideoReader<span style='color:#808030; '>(</span><span style='color:#800080; '>'raw.wmv'</span><span style='color:#808030; '>)</span><span style='color:#808030; '>;</span>
+<span style='color:#696969; '>%vid = VideoReader('vts_01_1.vob');</span>
+
+S<span style='color:#808030; '>.</span>fh <span style='color:#808030; '>=</span> <span style='color:#bb7977; '>figure</span><span style='color:#808030; '>(</span><span style='color:#800080; '>'menubar'</span><span style='color:#808030; '>,</span><span style='color:#800080; '>'none'</span><span style='color:#808030; '>,</span><span style='color:#808030; '>.</span><span style='color:#808030; '>.</span><span style='color:#808030; '>.</span>
+              <span style='color:#800080; '>'name'</span><span style='color:#808030; '>,</span><span style='color:#800080; '>'move_fig'</span><span style='color:#808030; '>,</span><span style='color:#808030; '>.</span><span style='color:#808030; '>.</span><span style='color:#808030; '>.</span>
+              <span style='color:#800080; '>'numbertitle'</span><span style='color:#808030; '>,</span><span style='color:#800080; '>'off'</span><span style='color:#808030; '>,</span><span style='color:#808030; '>.</span><span style='color:#808030; '>.</span><span style='color:#808030; '>.</span>
+              <span style='color:#800080; '>'resize'</span><span style='color:#808030; '>,</span><span style='color:#800080; '>'off'</span><span style='color:#808030; '>,</span><span style='color:#808030; '>.</span><span style='color:#808030; '>.</span><span style='color:#808030; '>.</span>
+              <span style='color:#800080; '>'keypressfcn'</span><span style='color:#808030; '>,</span>@key_fcn<span style='color:#808030; '>)</span><span style='color:#808030; '>;</span>
+<span style='color:#bb7977; '>hold</span> on<span style='color:#808030; '>;</span>
+imshow<span style='color:#808030; '>(</span>read<span style='color:#808030; '>(</span>vid<span style='color:#808030; '>,</span>i<span style='color:#808030; '>)</span><span style='color:#808030; '>)</span><span style='color:#808030; '>;</span>
+return<span style='color:#808030; '>;</span>
+
+<span style='color:#800000; font-weight:bold; '>function</span> <span style='color:#808030; '>[</span><span style='color:#808030; '>]</span> <span style='color:#808030; '>=</span> key_fcn<span style='color:#808030; '>(</span>H<span style='color:#808030; '>,</span>E<span style='color:#808030; '>)</span>
+<span style='color:#800000; font-weight:bold; '>global</span> i<span style='color:#808030; '>;</span>
+<span style='color:#800000; font-weight:bold; '>global</span> vid<span style='color:#808030; '>;</span>
+<span style='color:#800000; font-weight:bold; '>switch</span> E<span style='color:#808030; '>.</span>Key
+    <span style='color:#800000; font-weight:bold; '>case</span> <span style='color:#800080; '>'rightarrow'</span>
+        i <span style='color:#808030; '>=</span> i <span style='color:#808030; '>+</span> 1<span style='color:#808030; '>;</span>
+    <span style='color:#800000; font-weight:bold; '>case</span> <span style='color:#800080; '>'leftarrow'</span>
+        i <span style='color:#808030; '>=</span> i <span style='color:#808030; '>-</span> 1<span style='color:#808030; '>;</span>
+    <span style='color:#800000; font-weight:bold; '>otherwise</span>  
+<span style='color:#800000; font-weight:bold; '>end</span>
+imshow<span style='color:#808030; '>(</span>read<span style='color:#808030; '>(</span>vid<span style='color:#808030; '>,</span>i<span style='color:#808030; '>)</span><span style='color:#808030; '>)</span><span style='color:#808030; '>;</span>
+return<span style='color:#808030; '>;</span>
+</pre>
+          <a class="close-reveal-modal">&#215;</a>
+        </div>
+
+  <p>
+  Interactive mockup was written in Javascript:
+  </p>
+
+  <a href="#" class="button" data-reveal-id="javascriptModal"> Javascript source code </a>
+  <div id="javascriptModal" class="reveal-modal" data-reveal>
+    <pre style='color:#000000;background:#ffffff;'><html><body style='color:#000000; background:#ffffff; '><pre>
+<span style='color:#696969; '>/* GOOGLE MAPS */</span>
+
+<span style='color:#800000; font-weight:bold; '>var</span> map <span style='color:#808030; '>=</span> <span style='color:#800000; font-weight:bold; '>new</span> google<span style='color:#808030; '>.</span>maps<span style='color:#808030; '>.</span>Map<span style='color:#808030; '>(</span>d3<span style='color:#808030; '>.</span>select<span style='color:#808030; '>(</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>#map</span><span style='color:#800000; '>"</span><span style='color:#808030; '>)</span><span style='color:#808030; '>.</span>node<span style='color:#808030; '>(</span><span style='color:#808030; '>)</span><span style='color:#808030; '>,</span> <span style='color:#800080; '>{</span>
+  zoom<span style='color:#800080; '>:</span> <span style='color:#008c00; '>18</span><span style='color:#808030; '>,</span>
+  <span style='color:#696969; '>//center: new google.maps.LatLng(37.76487, -122.41948),</span>
+  center<span style='color:#800080; '>:</span> <span style='color:#800000; font-weight:bold; '>new</span> google<span style='color:#808030; '>.</span>maps<span style='color:#808030; '>.</span>LatLng<span style='color:#808030; '>(</span> <span style='color:#008000; '>38.9085108</span><span style='color:#808030; '>,</span> <span style='color:#808030; '>-</span><span style='color:#008000; '>77.0398785</span><span style='color:#808030; '>)</span><span style='color:#808030; '>,</span>  
+  mapTypeId<span style='color:#800080; '>:</span> google<span style='color:#808030; '>.</span>maps<span style='color:#808030; '>.</span>MapTypeId<span style='color:#808030; '>.</span>ROADMAP
+  <span style='color:#696969; '>//mapTypeId: google.maps.MapTypeId.HYBRID</span>
+<span style='color:#800080; '>}</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+
+
+
+<span style='color:#696969; '>/*These lines are all chart setup.  Pick and choose which chart features you want to utilize. */</span>
+nv<span style='color:#808030; '>.</span>addGraph<span style='color:#808030; '>(</span><span style='color:#800000; font-weight:bold; '>function</span><span style='color:#808030; '>(</span><span style='color:#808030; '>)</span> <span style='color:#800080; '>{</span>
+  <span style='color:#800000; font-weight:bold; '>var</span> chart <span style='color:#808030; '>=</span> nv<span style='color:#808030; '>.</span>models<span style='color:#808030; '>.</span>lineChart<span style='color:#808030; '>(</span><span style='color:#808030; '>)</span>
+                <span style='color:#808030; '>.</span>margin<span style='color:#808030; '>(</span><span style='color:#800080; '>{</span>left<span style='color:#800080; '>:</span> <span style='color:#008c00; '>100</span><span style='color:#800080; '>}</span><span style='color:#808030; '>)</span>  <span style='color:#696969; '>//Adjust chart margins to give the x-axis some breathing room.</span>
+                <span style='color:#808030; '>.</span>useInteractiveGuideline<span style='color:#808030; '>(</span><span style='color:#0f4d75; '>false</span><span style='color:#808030; '>)</span>  <span style='color:#696969; '>//We want nice looking tooltips and a guideline!</span>
+                <span style='color:#808030; '>.</span>transitionDuration<span style='color:#808030; '>(</span><span style='color:#008c00; '>350</span><span style='color:#808030; '>)</span>  <span style='color:#696969; '>//how fast do you want the lines to transition?</span>
+                <span style='color:#808030; '>.</span>showLegend<span style='color:#808030; '>(</span><span style='color:#0f4d75; '>true</span><span style='color:#808030; '>)</span>       <span style='color:#696969; '>//Show the legend, allowing users to turn on/off line series.</span>
+                <span style='color:#808030; '>.</span>showYAxis<span style='color:#808030; '>(</span><span style='color:#0f4d75; '>true</span><span style='color:#808030; '>)</span>        <span style='color:#696969; '>//Show the y-axis</span>
+                <span style='color:#808030; '>.</span>yDomain<span style='color:#808030; '>(</span><span style='color:#808030; '>[</span><span style='color:#008c00; '>0</span><span style='color:#808030; '>,</span> <span style='color:#008c00; '>65</span><span style='color:#808030; '>]</span><span style='color:#808030; '>)</span>
+                <span style='color:#808030; '>.</span>showXAxis<span style='color:#808030; '>(</span><span style='color:#0f4d75; '>true</span><span style='color:#808030; '>)</span>        <span style='color:#696969; '>//Show the x-axis   </span>
+                <span style='color:#808030; '>.</span>tooltips<span style='color:#808030; '>(</span><span style='color:#0f4d75; '>true</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+                
+                chart<span style='color:#808030; '>.</span>options<span style='color:#808030; '>(</span><span style='color:#800080; '>{</span>
+                tooltips<span style='color:#800080; '>:</span> <span style='color:#0f4d75; '>true</span><span style='color:#808030; '>,</span>
+                tooltipContent<span style='color:#800080; '>:</span> <span style='color:#800000; font-weight:bold; '>function</span> <span style='color:#808030; '>(</span>key<span style='color:#808030; '>,</span> x<span style='color:#808030; '>,</span> y<span style='color:#808030; '>,</span> e<span style='color:#808030; '>,</span> graph<span style='color:#808030; '>)</span> <span style='color:#800080; '>{</span>
+                  <span style='color:#800000; font-weight:bold; '>return</span> <span style='color:#0000e6; '>'&lt;h3>'</span> <span style='color:#808030; '>+</span> key <span style='color:#808030; '>+</span> <span style='color:#0000e6; '>'&lt;/h3>'</span> <span style='color:#808030; '>+</span>
+                        <span style='color:#0000e6; '>'&lt;p>'</span> <span style='color:#808030; '>+</span> e<span style='color:#808030; '>.</span>point<span style='color:#808030; '>.</span>y<span style='color:#808030; '>.</span><span style='color:#800000; font-weight:bold; '>toFixed</span><span style='color:#808030; '>(</span><span style='color:#008c00; '>0</span><span style='color:#808030; '>)</span> <span style='color:#808030; '>+</span> <span style='color:#0000e6; '>'mph at '</span> <span style='color:#808030; '>+</span> x <span style='color:#808030; '>+</span> <span style='color:#0000e6; '>'&lt;/p>'</span>
+                <span style='color:#800080; '>}</span>                                
+              <span style='color:#800080; '>}</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+                
+
+  chart<span style='color:#808030; '>.</span>xAxis     <span style='color:#696969; '>//Chart x-axis settings</span>
+      <span style='color:#808030; '>.</span>axisLabel<span style='color:#808030; '>(</span><span style='color:#0000e6; '>'Frame #'</span><span style='color:#808030; '>)</span>
+      <span style='color:#808030; '>.</span>tickFormat<span style='color:#808030; '>(</span>d3<span style='color:#808030; '>.</span>format<span style='color:#808030; '>(</span><span style='color:#0000e6; '>',r'</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+
+  chart<span style='color:#808030; '>.</span>yAxis     <span style='color:#696969; '>//Chart y-axis settings</span>
+      <span style='color:#808030; '>.</span>axisLabel<span style='color:#808030; '>(</span><span style='color:#0000e6; '>'Velocity (mph)'</span><span style='color:#808030; '>)</span>
+      <span style='color:#808030; '>.</span>tickFormat<span style='color:#808030; '>(</span>d3<span style='color:#808030; '>.</span>format<span style='color:#808030; '>(</span><span style='color:#0000e6; '>'.02f'</span><span style='color:#808030; '>)</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+
+  <span style='color:#696969; '>/* Done setting the chart up? Time to render it!*/</span>
+  <span style='color:#696969; '>//var myData = sinAndCos();   //You need data...</span>
+  <span style='color:#800000; font-weight:bold; '>var</span> myData <span style='color:#808030; '>=</span> getData<span style='color:#808030; '>(</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+
+  d3<span style='color:#808030; '>.</span>select<span style='color:#808030; '>(</span><span style='color:#0000e6; '>'#chart svg'</span><span style='color:#808030; '>)</span>    <span style='color:#696969; '>//Select the &lt;svg> element you want to render the chart in.   </span>
+      <span style='color:#808030; '>.</span>datum<span style='color:#808030; '>(</span>myData<span style='color:#808030; '>)</span>         <span style='color:#696969; '>//Populate the &lt;svg> element with chart data...</span>
+      <span style='color:#808030; '>.</span>call<span style='color:#808030; '>(</span>chart<span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>          <span style='color:#696969; '>//Finally, render the chart!</span>
+
+
+
+  <span style='color:#696969; '>//Update the chart when window resizes.</span>
+  nv<span style='color:#808030; '>.</span>utils<span style='color:#808030; '>.</span>windowResize<span style='color:#808030; '>(</span><span style='color:#800000; font-weight:bold; '>function</span><span style='color:#808030; '>(</span><span style='color:#808030; '>)</span> <span style='color:#800080; '>{</span> chart<span style='color:#808030; '>.</span>update<span style='color:#808030; '>(</span><span style='color:#808030; '>)</span> <span style='color:#800080; '>}</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+  <span style='color:#800000; font-weight:bold; '>return</span> chart<span style='color:#800080; '>;</span>
+<span style='color:#800080; '>}</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+<span style='color:#696969; '>/**************************************</span>
+<span style='color:#696969; '>&#xa0;* Simple test data generator</span>
+<span style='color:#696969; '>&#xa0;*/</span>
+
+<span style='color:#800000; font-weight:bold; '>function</span> getData<span style='color:#808030; '>(</span><span style='color:#808030; '>)</span> <span style='color:#800080; '>{</span>
+  <span style='color:#800000; font-weight:bold; '>var</span> data <span style='color:#808030; '>=</span> <span style='color:#808030; '>[</span><span style='color:#808030; '>]</span><span style='color:#800080; '>;</span>
+  data<span style='color:#808030; '>.</span>push<span style='color:#808030; '>(</span><span style='color:#800080; '>{</span>x<span style='color:#800080; '>:</span> <span style='color:#008c00; '>215</span><span style='color:#808030; '>,</span> y<span style='color:#800080; '>:</span> <span style='color:#008000; '>21.1249350972</span><span style='color:#800080; '>}</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+  data<span style='color:#808030; '>.</span>push<span style='color:#808030; '>(</span><span style='color:#800080; '>{</span>x<span style='color:#800080; '>:</span> <span style='color:#008c00; '>277</span><span style='color:#808030; '>,</span> y<span style='color:#800080; '>:</span> <span style='color:#008000; '>21.5594434154</span><span style='color:#800080; '>}</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+  data<span style='color:#808030; '>.</span>push<span style='color:#808030; '>(</span><span style='color:#800080; '>{</span>x<span style='color:#800080; '>:</span> <span style='color:#008c00; '>441</span><span style='color:#808030; '>,</span> y<span style='color:#800080; '>:</span> <span style='color:#008000; '>26.7137386364</span><span style='color:#800080; '>}</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+  data<span style='color:#808030; '>.</span>push<span style='color:#808030; '>(</span><span style='color:#800080; '>{</span>x<span style='color:#800080; '>:</span> <span style='color:#008c00; '>449</span><span style='color:#808030; '>,</span> y<span style='color:#800080; '>:</span> <span style='color:#008000; '>24.8678571297</span><span style='color:#800080; '>}</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+  data<span style='color:#808030; '>.</span>push<span style='color:#808030; '>(</span><span style='color:#800080; '>{</span>x<span style='color:#800080; '>:</span> <span style='color:#008c00; '>522</span><span style='color:#808030; '>,</span> y<span style='color:#800080; '>:</span> <span style='color:#008000; '>19.248163785</span><span style='color:#800080; '>}</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+  data<span style='color:#808030; '>.</span>push<span style='color:#808030; '>(</span><span style='color:#800080; '>{</span>x<span style='color:#800080; '>:</span> <span style='color:#008c00; '>570</span><span style='color:#808030; '>,</span> y<span style='color:#800080; '>:</span> <span style='color:#008000; '>12.2295549598</span><span style='color:#800080; '>}</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+  data<span style='color:#808030; '>.</span>push<span style='color:#808030; '>(</span><span style='color:#800080; '>{</span>x<span style='color:#800080; '>:</span> <span style='color:#008c00; '>611</span><span style='color:#808030; '>,</span> y<span style='color:#800080; '>:</span> <span style='color:#008000; '>4.0895923484</span><span style='color:#800080; '>}</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+  data<span style='color:#808030; '>.</span>push<span style='color:#808030; '>(</span><span style='color:#800080; '>{</span>x<span style='color:#800080; '>:</span> <span style='color:#008c00; '>640</span><span style='color:#808030; '>,</span> y<span style='color:#800080; '>:</span> <span style='color:#008c00; '>0</span><span style='color:#800080; '>}</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+  data<span style='color:#808030; '>.</span>push<span style='color:#808030; '>(</span><span style='color:#800080; '>{</span>x<span style='color:#800080; '>:</span> <span style='color:#008c00; '>700</span><span style='color:#808030; '>,</span> y<span style='color:#800080; '>:</span> <span style='color:#008c00; '>0</span><span style='color:#800080; '>}</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+
+  <span style='color:#800000; font-weight:bold; '>var</span> data2 <span style='color:#808030; '>=</span> <span style='color:#808030; '>[</span><span style='color:#808030; '>]</span><span style='color:#800080; '>;</span>
+  data2<span style='color:#808030; '>.</span>push<span style='color:#808030; '>(</span><span style='color:#800080; '>{</span>x<span style='color:#800080; '>:</span> <span style='color:#008c00; '>215</span><span style='color:#808030; '>,</span> y<span style='color:#800080; '>:</span> <span style='color:#008c00; '>35</span><span style='color:#800080; '>}</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+  data2<span style='color:#808030; '>.</span>push<span style='color:#808030; '>(</span><span style='color:#800080; '>{</span>x<span style='color:#800080; '>:</span> <span style='color:#008c00; '>700</span><span style='color:#808030; '>,</span> y<span style='color:#800080; '>:</span> <span style='color:#008c00; '>35</span><span style='color:#800080; '>}</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+
+  <span style='color:#800000; font-weight:bold; '>return</span> <span style='color:#808030; '>[</span>
+  <span style='color:#800080; '>{</span>
+    values<span style='color:#800080; '>:</span> data<span style='color:#808030; '>,</span>
+    key<span style='color:#800080; '>:</span> <span style='color:#0000e6; '>'Velocity'</span><span style='color:#808030; '>,</span>
+    color<span style='color:#800080; '>:</span> <span style='color:#0000e6; '>'#ff7f0e'</span>
+  <span style='color:#800080; '>}</span><span style='color:#808030; '>,</span>
+  <span style='color:#800080; '>{</span>
+    values<span style='color:#800080; '>:</span> data2<span style='color:#808030; '>,</span>
+    key<span style='color:#800080; '>:</span> <span style='color:#0000e6; '>'Speed limit'</span><span style='color:#808030; '>,</span>
+    color<span style='color:#800080; '>:</span> <span style='color:#0000e6; '>'#2ca02c'</span><span style='color:#808030; '>,</span>
+    dashed<span style='color:#800080; '>:</span> <span style='color:#0000e6; '>'true'</span>
+  <span style='color:#800080; '>}</span>
+  <span style='color:#808030; '>]</span><span style='color:#800080; '>;</span>
+<span style='color:#800080; '>}</span>
+
+<span style='color:#800000; font-weight:bold; '>function</span> sinAndCos<span style='color:#808030; '>(</span><span style='color:#808030; '>)</span> <span style='color:#800080; '>{</span>
+  <span style='color:#800000; font-weight:bold; '>var</span> <span style='color:#800000; font-weight:bold; '>sin</span> <span style='color:#808030; '>=</span> <span style='color:#808030; '>[</span><span style='color:#808030; '>]</span><span style='color:#808030; '>,</span>sin2 <span style='color:#808030; '>=</span> <span style='color:#808030; '>[</span><span style='color:#808030; '>]</span><span style='color:#808030; '>,</span>
+      <span style='color:#800000; font-weight:bold; '>cos</span> <span style='color:#808030; '>=</span> <span style='color:#808030; '>[</span><span style='color:#808030; '>]</span><span style='color:#800080; '>;</span>
+
+  <span style='color:#696969; '>//Data is represented as an array of {x,y} pairs.</span>
+  <span style='color:#800000; font-weight:bold; '>for</span> <span style='color:#808030; '>(</span><span style='color:#800000; font-weight:bold; '>var</span> i <span style='color:#808030; '>=</span> <span style='color:#008c00; '>0</span><span style='color:#800080; '>;</span> i <span style='color:#808030; '>&lt;</span> <span style='color:#008c00; '>100</span><span style='color:#800080; '>;</span> i<span style='color:#808030; '>++</span><span style='color:#808030; '>)</span> <span style='color:#800080; '>{</span>
+    <span style='color:#800000; font-weight:bold; '>sin</span><span style='color:#808030; '>.</span>push<span style='color:#808030; '>(</span><span style='color:#800080; '>{</span>x<span style='color:#800080; '>:</span> i<span style='color:#808030; '>,</span> y<span style='color:#800080; '>:</span> <span style='color:#797997; '>Math</span><span style='color:#808030; '>.</span><span style='color:#800000; font-weight:bold; '>sin</span><span style='color:#808030; '>(</span>i<span style='color:#808030; '>/</span><span style='color:#008c00; '>10</span><span style='color:#808030; '>)</span><span style='color:#800080; '>}</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+    sin2<span style='color:#808030; '>.</span>push<span style='color:#808030; '>(</span><span style='color:#800080; '>{</span>x<span style='color:#800080; '>:</span> i<span style='color:#808030; '>,</span> y<span style='color:#800080; '>:</span> <span style='color:#797997; '>Math</span><span style='color:#808030; '>.</span><span style='color:#800000; font-weight:bold; '>sin</span><span style='color:#808030; '>(</span>i<span style='color:#808030; '>/</span><span style='color:#008c00; '>10</span><span style='color:#808030; '>)</span> <span style='color:#808030; '>*</span><span style='color:#008000; '>0.25</span> <span style='color:#808030; '>+</span> <span style='color:#008000; '>0.5</span><span style='color:#800080; '>}</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+    <span style='color:#800000; font-weight:bold; '>cos</span><span style='color:#808030; '>.</span>push<span style='color:#808030; '>(</span><span style='color:#800080; '>{</span>x<span style='color:#800080; '>:</span> i<span style='color:#808030; '>,</span> y<span style='color:#800080; '>:</span> <span style='color:#008000; '>.5</span> <span style='color:#808030; '>*</span> <span style='color:#797997; '>Math</span><span style='color:#808030; '>.</span><span style='color:#800000; font-weight:bold; '>cos</span><span style='color:#808030; '>(</span>i<span style='color:#808030; '>/</span><span style='color:#008c00; '>10</span><span style='color:#808030; '>)</span><span style='color:#800080; '>}</span><span style='color:#808030; '>)</span><span style='color:#800080; '>;</span>
+  <span style='color:#800080; '>}</span>
+
+  <span style='color:#696969; '>//Line chart data should be sent as an array of series objects.</span>
+  <span style='color:#800000; font-weight:bold; '>return</span> <span style='color:#808030; '>[</span>
+    <span style='color:#800080; '>{</span>
+      values<span style='color:#800080; '>:</span> <span style='color:#800000; font-weight:bold; '>sin</span><span style='color:#808030; '>,</span>      <span style='color:#696969; '>//values - represents the array of {x,y} data points</span>
+      key<span style='color:#800080; '>:</span> <span style='color:#0000e6; '>'Sine Wave'</span><span style='color:#808030; '>,</span> <span style='color:#696969; '>//key  - the name of the series.</span>
+      color<span style='color:#800080; '>:</span> <span style='color:#0000e6; '>'#ff7f0e'</span>  <span style='color:#696969; '>//color - optional: choose your own line color.</span>
+    <span style='color:#800080; '>}</span><span style='color:#808030; '>,</span>
+    <span style='color:#800080; '>{</span>
+      values<span style='color:#800080; '>:</span> <span style='color:#800000; font-weight:bold; '>cos</span><span style='color:#808030; '>,</span>
+      key<span style='color:#800080; '>:</span> <span style='color:#0000e6; '>'Cosine Wave'</span><span style='color:#808030; '>,</span>
+      color<span style='color:#800080; '>:</span> <span style='color:#0000e6; '>'#2ca02c'</span>
+    <span style='color:#800080; '>}</span><span style='color:#808030; '>,</span>
+    <span style='color:#800080; '>{</span>
+      values<span style='color:#800080; '>:</span> sin2<span style='color:#808030; '>,</span>
+      key<span style='color:#800080; '>:</span> <span style='color:#0000e6; '>'Another sine wave'</span><span style='color:#808030; '>,</span>
+      color<span style='color:#800080; '>:</span> <span style='color:#0000e6; '>'#7777ff'</span><span style='color:#808030; '>,</span>
+      area<span style='color:#800080; '>:</span> <span style='color:#0f4d75; '>true</span>      <span style='color:#696969; '>//area - set to true if you want this line to turn into a filled area chart.</span>
+    <span style='color:#800080; '>}</span>
+  <span style='color:#808030; '>]</span><span style='color:#800080; '>;</span>
+<span style='color:#800080; '>}</span>
+</pre>
+    <a class="close-reveal-modal">&#215;</a>
+  </div>
+<!--
+<a href="#" class="button" data-dropdown="drop">Link Dropdown &raquo;</a> 
+  <ul id="drop" class="[tiny small medium large content]f-dropdown" data-dropdown-content> 
+    <li><a href="#">This is a link</a></li> 
+    <li><a href="#">This is another</a></li> 
+    <li><a href="#">Yet another</a></li> 
+  </ul>
+-->
+<!--
+<a href="#" class="button"  data-dropdown="drop">MATLAB source code &raquo;</a> 
+<ul id="drop" class="[tiny small medium large content]f-dropdown" data-dropdown-content> 
+<li><a href="#">This is a link</a></li> <li><a href="#">This is another</a></li> <li><a href="#">Yet another</a></li> </ul>
+-->
+</div>
+</div>
+
+<div class="push"></div>
+</div> <!-- closes 'wrapper' -->
+<div class="footer">
+  <p>Copyright (c) 2014 Itai Katz</p>
+</div>
+
+
+    <script src="js/jquery.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script>
+    	$(document).foundation();
+    </script>
+    <script src="mychart.js"></script>
+  </body>
+  </html>
