@@ -429,6 +429,7 @@ header span {
   position: absolute;
   left: 0;
   text-align: left;
+  line-height: 4em;
 }
 .footer-wrapper span {
   position: absolute;
@@ -437,6 +438,7 @@ header span {
   vertical-align: middle;
 }
 .footer-wrapper ul {
+  line-height: 4em;
   list-style-type: none;
   margin: 0;
   padding: 0;
@@ -470,12 +472,10 @@ header span {
 }
 .footer-wrapper svg {
   position: relative;
-  top: 5px;
   vertical-align: center;
 }
 .footer-wrapper img {
   position: relative;
-  top: 5px;
 }
 .about {
   text-align: center;
