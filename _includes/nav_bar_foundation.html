@@ -1,0 +1,37 @@
+	<div class="nav-bar2">
+	<ul>
+
+		<a href="aboutme.html">
+		{% if page.active == 'aboutme' %}
+		<li class="about active">About</li>	
+		{% else %}
+ 		<li class="about">About</li>	
+ 		{% endif %}
+ 		</a>
+
+ 		<a href="research.html">
+		{% if page.active == 'research' %}
+		<li class="research active">Research</li>
+		{% else %}
+		<li class="research">Research</li>
+		{% endif %}
+		</a>
+
+		<a href="blog.html">
+		{% if page.active == 'blog' %}
+		<li class="blog active">Blog</li>
+		{% else %}
+		<li class="blog">Blog</li>
+		{% endif %}		
+		</a>
+
+		<a href="tutorials.html">
+		{% if page.active == 'tutorials' %}
+		<li class="tutorials active">Tutorials</li>
+		{% else %}
+		<li class="tutorials">Tutorials</li>
+		{% endif %}		
+		</a>
+
+		</ul>
+	</div>

@@ -2,5 +2,16 @@
 layout: charcoal
 ---
 
-{% include nav_bar.html %}
-{{ content }}
+
+<div class="row">
+	<div class="small-2 columns">	
+		{% include nav_bar_foundation.html %}	
+	</div>
+	<div class="small-10 columns">		
+		{{ content }}
+	</div>
+</div>
+
+
+<!-- {/% include nav_bar.html %/} 
+     {/{ content }/} -->

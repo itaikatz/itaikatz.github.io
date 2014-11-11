@@ -9,29 +9,44 @@ body {
   background-color: #252525;
   color: white;
 }
+/*
 .content {
-  width: 1100px;
-  height: 100%;
-  margin: 0 auto;
+	//width: 70%;	
+	width: 1100px;
+	height: 100%;
+    margin: 0 auto;
+    //background-color: blue;
+    //background: green;
+
+    //display: block;
+
 }
+*/
 svg {
   fill: white;
 }
+/*
 .middle-column {
-  float: left;
-  padding-left: 10px;
-  margin: 10px;
-  width: 65%;
-  color: #e0e0e0;
+	float: left;
+	//  margin: 0px auto;
+	padding-left: 10px;
+	margin: 10px;
+	width: 65%;
+	color: @light-gray;
 }
+*/
+/*
 .right-column {
-  margin-top: 10px;
-  width: 23.7%;
-  float: left;
+	margin-top: 10px;
+	width: 23.7%;
+	float: left;
+//	background-color: green;
 }
+
 .itai {
-  font-weight: bold;
+	font-weight: bold;
 }
+*/
 a {
   text-decoration: none;
 }
@@ -44,21 +59,6 @@ a {
   background-size: 16px 16px;
   background-attachment: fixed;
 }
-header {
-  width: 100%;
-  display: inline-block;
-  margin: 0 auto;
-  position: relative;
-}
-header .contact {
-  position: absolute;
-  top: 40%;
-  right: 0;
-  color: #e0e0e0;
-}
-header .contact svg {
-  fill: #9f9f9f;
-}
 header h1 {
   padding: 0;
   margin-bottom: 0;
@@ -68,9 +68,6 @@ header h1 {
   color: #e0e0e0;
   font-family: 'Indie Flower', cursive;
 }
-header a {
-  text-decoration: none;
-}
 header h2 {
   padding: 0;
   padding-bottom: 10px;
@@ -78,213 +75,106 @@ header h2 {
   margin-top: -30px;
   float: left;
   color: #656565;
+  font-size: 25px;
 }
-header span {
-  color: #656565;
+header .contact {
+  position: relative;
+  top: 40px;
+  right: 0;
+  /* transform: translateY(-50%);*/
+  text-align: right;
+  color: #e0e0e0;
 }
-.panel-set {
+header .contact svg {
+  fill: #9f9f9f;
+}
+/*
+header {     
   width: 100%;
-  height: 500px;
-  height: 50vh;
-  max-height: 500px;
-  min-height: 300px;
-  margin: 5px auto;
-  margin-top: 10px;
-  margin-bottom: 25px;
-  max-width: 100%;
-  min-width: 50%;
-  float: left;
-}
-.panel-set .panel-1 {
-  background-color: #0084a9;
-  overflow: hidden;
-}
-.panel-set .panel-1:hover {
-  background: radial-gradient(ellipse 150px 100px at bottom, #00c0f5, #0094bd, #0084a9);
-  /*
-    svg {
-      circle {      
-      stroke: rgba(255,255,255,0.82); 
-      }
-      rect {
-        fill: rgba(255,255,255,0.82); 
-        stroke: rgba(255,255,255,0.82);
-      }
-      path { fill: rgba(255,255,255,0.82); }
-    }       
-    h1 {
-      //border-bottom-color: @color;    
-    }
-    */
-}
-.panel-set .panel-1 h1 {
-  border-bottom-color: #0098c3;
-}
-.panel-set .panel-2 {
-  background-color: #7a9d00;
-  overflow: hidden;
-}
-.panel-set .panel-2:hover {
-  background: radial-gradient(ellipse 150px 100px at bottom, #b5ea00, #8ab100, #7a9d00);
-  /*
-    svg {
-      circle {      
-      stroke: rgba(255,255,255,0.82); 
-      }
-      rect {
-        fill: rgba(255,255,255,0.82); 
-        stroke: rgba(255,255,255,0.82);
-      }
-      path { fill: rgba(255,255,255,0.82); }
-    }       
-    h1 {
-      //border-bottom-color: @color;    
-    }
-    */
-}
-.panel-set .panel-2 h1 {
-  border-bottom-color: #8eb700;
-}
-.panel-set .panel-2:hover h2:after {
-  visibility: visible;
-  content: 'Coming soon!';
-  color: #0084a9;
-}
-.panel-set .panel-2 h2:after {
-  visibility: visible;
-  content: "Projects";
-}
-.panel-set .panel-3 {
-  background-color: #df9100;
-  overflow: hidden;
-}
-.panel-set .panel-3:hover {
-  background: radial-gradient(ellipse 150px 100px at bottom, #ffb52d, #f39e00, #df9100);
-  /*
-    svg {
-      circle {      
-      stroke: rgba(255,255,255,0.82); 
-      }
-      rect {
-        fill: rgba(255,255,255,0.82); 
-        stroke: rgba(255,255,255,0.82);
-      }
-      path { fill: rgba(255,255,255,0.82); }
-    }       
-    h1 {
-      //border-bottom-color: @color;    
-    }
-    */
-}
-.panel-set .panel-3 h1 {
-  border-bottom-color: #f9a200;
-}
-.panel-set .panel-3:hover h2:after {
-  visibility: visible;
-  content: 'Coming soon!';
-  color: #0084a9;
-}
-.panel-set .panel-3 h2:after {
-  visibility: visible;
-  content: "Writing";
-}
-.panel-set .panel-4 {
-  background-color: #b23814;
-  overflow: hidden;
-}
-.panel-set .panel-4:hover {
-  background: radial-gradient(ellipse 150px 100px at bottom, #e7562b, #c43e16, #b23814);
-  /*
-    svg {
-      circle {      
-      stroke: rgba(255,255,255,0.82); 
-      }
-      rect {
-        fill: rgba(255,255,255,0.82); 
-        stroke: rgba(255,255,255,0.82);
-      }
-      path { fill: rgba(255,255,255,0.82); }
-    }       
-    h1 {
-      //border-bottom-color: @color;    
-    }
-    */
-}
-.panel-set .panel-4 h1 {
-  border-bottom-color: #c93f17;
-}
-.panel-set .panel-4:hover h2:after {
-  visibility: visible;
-  content: 'Coming soon!';
-  color: #0084a9;
-}
-.panel-set .panel-4 h2:after {
-  visibility: visible;
-  content: "Teaching";
-}
-.panel-set .panel {
   display: inline-block;
-  width: 22.7%;
-  margin-right: 1%;
-  margin-left: 1%;
-  height: 100%;
-  outline: 1px solid #323232;
-  outline-offset: 3px;
-  position: relative;
-  -webkit-box-shadow: 0px 10px 5px -2px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 10px 5px -2px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 10px 5px -2px rgba(0, 0, 0, 0.75);
+	margin: 0 auto;
+	//font-family: helvetica;
+   position: relative;
+
+ 
+  .contact {
+    position: absolute;
+    top: 40%;
+    right: 0;
+        color: @light-gray;
+
+   svg {
+      fill: @icon-color;      
+   }
+  }
+
+	h1 {
+ 		padding: 0;
+		margin-bottom: 0;
+    margin-right: 0;
+    //text-shadow: -2px -4px #111;
+  	font-size: 70px;
+    font-weight: 100;
+    color: @light-gray;
+    font-family: 'Indie Flower', cursive;
+	}
+  a {
+    text-decoration: none;    
+  }
+	h2 {
+//    position: absolute;
+ //   left: 0;
+  		padding: 0;
+      	padding-bottom: 10px;
+      	margin: 0;
+        margin-top: -30px;
+        float: left;
+      	color: @dark-gray;    
+
+  }
+  span {
+//    position: relative;
+  //  transform: translateY(-50%);
+	 // position: absolute;
+   // right: 0;
+   // top: 50%;
+    color: @dark-gray;
+     }
+  
 }
-.panel-set .panel:hover svg circle {
-  stroke: rgba(255, 255, 255, 0.4);
-}
-.panel-set .panel:hover svg rect {
-  fill: rgba(255, 255, 255, 0.4);
-  stroke: rgba(255, 255, 255, 0.4);
-}
-.panel-set .panel:hover svg path {
-  fill: rgba(255, 255, 255, 0.4);
-}
-.panel-set .panel h1 {
-  position: relative;
-  width: 80%;
-  margin: 0 auto;
-  text-align: center;
-  font-size: 30px;
-  top: 60%;
-  color: #e0e0e0;
-  padding-bottom: 15px;
-  border-bottom-style: solid;
-  border-bottom-width: 1px;
-}
-.panel-set .panel h2,
-.panel-set .panel a {
-  margin: 0 auto;
-  padding: 0;
-  font-size: 20px;
-  position: relative;
-  top: 62.5%;
-  text-align: center;
-  color: #e0e0e0;
-  line-height: 25px;
-}
-.panel-set .panel a {
+*/
+.nav-bar2 a {
   text-decoration: none;
+  color: #e0e0e0;
 }
-.panel-set .panel svg {
-  position: absolute;
-  right: -50px;
-  top: -30px;
+.nav-bar2 ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
-.panel-set .panel svg circle {
-  stroke: rgba(255, 255, 255, 0.2);
+.nav-bar2 li {
+  vertical-align: middle;
+  text-align: right;
+  margin: 10px 0;
+  border: 1px solid #e0e0e0;
+  line-height: 50px;
+  padding: 0 20px 0 0;
+  font-size: 20px;
 }
-.panel-set .panel svg rect {
-  fill: rgba(255, 255, 255, 0.2);
-  stroke: rgba(255, 255, 255, 0.2);
+.nav-bar2 .active {
+  line-height: 200px;
 }
-.panel-set .panel svg path {
-  fill: rgba(255, 255, 255, 0.2);
+.nav-bar2 .about {
+  background-color: #0084a9;
+}
+.nav-bar2 .research {
+  background-color: #7a9d00;
+}
+.nav-bar2 .blog {
+  background-color: #df9100;
+}
+.nav-bar2 .tutorials {
+  background-color: #b23814;
 }
 .nav-bar {
   margin: 5px auto;
@@ -322,6 +212,7 @@ header span {
   width: 100%;
   position: relative;
   display: inline-block;
+  font-size: 20px;
 }
 .nav-bar .active {
   height: 200px;
@@ -407,7 +298,7 @@ header span {
   clear: both;
 }
 .footer {
-  font-size: 15px;
+  font-size: 10px;
   font-weight: bold;
   line-height: 4em;
   background: linear-gradient(#2d2d2d, #252525);
@@ -421,7 +312,7 @@ header span {
 .footer-wrapper {
   width: 70%;
   margin: 0 auto;
-  font-size: 12px;
+  font-size: 10px;
   color: #656565;
   position: relative;
 }
@@ -477,6 +368,79 @@ header span {
 .footer-wrapper img {
   position: relative;
 }
+.index .panel2 {
+  height: 300px;
+  outline: 1px solid #323232;
+  outline-offset: 3px;
+  margin: 0;
+  padding: 0;
+  -webkit-box-shadow: 0px 10px 5px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 10px 5px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 10px 5px -2px rgba(0, 0, 0, 0.75);
+  position: relative;
+  overflow: hidden;
+}
+.index .panel2 svg {
+  position: absolute;
+  right: -50px;
+  top: -30px;
+}
+.index .panel2 svg circle {
+  stroke: rgba(255, 255, 255, 0.2);
+}
+.index .panel2 svg rect {
+  fill: rgba(255, 255, 255, 0.2);
+  stroke: rgba(255, 255, 255, 0.2);
+}
+.index .panel2 svg path {
+  fill: rgba(255, 255, 255, 0.2);
+}
+.index .panel-text {
+  position: relative;
+  top: 60%;
+}
+.index .heading1 {
+  font-size: 30px;
+  color: #e0e0e0;
+  margin: 0 auto;
+  text-align: center;
+  width: 80%;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+.index .heading2 {
+  font-size: 20px;
+  margin: 0 auto;
+  text-align: center;
+}
+.index a {
+  text-decoration: none;
+  color: #e0e0e0;
+}
+.index #about {
+  background-color: #0084a9;
+}
+.index #about .heading1 {
+  border-bottom-color: #0098c3;
+}
+.index #research {
+  background-color: #7a9d00;
+}
+.index #research .heading1 {
+  border-bottom-color: #8eb700;
+}
+.index #blog {
+  background-color: #df9100;
+}
+.index #blog .heading1 {
+  border-bottom-color: #f9a200;
+}
+.index #tutorials {
+  background-color: #b23814;
+}
+.index #tutorials .heading1 {
+  border-bottom-color: #c93f17;
+}
 .about {
   text-align: center;
 }
@@ -488,6 +452,7 @@ header span {
 }
 .about h1 {
   font-size: 50px;
+  color: #e0e0e0;
 }
 .about h3 {
   padding: 0;

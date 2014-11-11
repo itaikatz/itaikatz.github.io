@@ -1,12 +1,18 @@
 @template-dir: "templates";
 
+// Setup
 @import "@{template-dir}/colors.less";
 @import "@{template-dir}/mixins.less";
 @import "@{template-dir}/base.less";
+
+// Navigation elements
 @import "@{template-dir}/header.less";
-@import "@{template-dir}/panel-set.less";
 @import "@{template-dir}/nav-bar.less";
 @import "@{template-dir}/footer.less";
+//@import "@{template-dir}/panel-set.less";
+
+// Page-specific CSS
+@import "@{template-dir}/index.less";
 @import "@{template-dir}/about.less";
 
 /*
