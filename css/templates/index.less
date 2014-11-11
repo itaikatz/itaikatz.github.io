@@ -23,11 +23,24 @@
   right: -50px;
   top: -30px;  
   // float: right;
-  circle { stroke: rgba(255,255,255,0.2); }        
-  rect { fill: rgba(255,255,255,0.2);
-         stroke: rgba(255,255,255,0.2); }
-  path { fill: rgba(255,255,255,0.2); }
+  circle { stroke: rgba(255,255,255,0.1); }        
+  rect { fill: rgba(255,255,255,0.1);
+         stroke: rgba(255,255,255,0.1); }
+  path { fill: rgba(255,255,255,0.1); }
 }
+
+
+   &:hover {
+    svg {
+      circle { stroke: rgba(255,255,255,0.2); }
+      rect {
+        fill: rgba(255,255,255,0.2); 
+        stroke: rgba(255,255,255,0.2);
+      }
+      path { fill: rgba(255,255,255,0.2); }  
+      }
+
+   }
 
 }
 
@@ -67,6 +80,9 @@ a {
     .heading1 {
       border-bottom-color: lighten(@color_, 5%);                   
     }
+    &:hover {
+      background: radial-gradient(ellipse 150px 100px at bottom,lighten(@color_, 15%),lighten(@color_, 4%), @color_);
+    }
   }
 
   #research {    
@@ -75,6 +91,9 @@ a {
     .heading1 {
       border-bottom-color: lighten(@color_, 5%);         
     }
+    &:hover {
+      background: radial-gradient(ellipse 150px 100px at bottom,lighten(@color_, 15%),lighten(@color_, 4%), @color_);
+    }
   }
   #blog {
     @color_: @panel-orange;
@@ -82,12 +101,18 @@ a {
     .heading1 {
       border-bottom-color: lighten(@color_, 5%);         
     }
+    &:hover {
+      background: radial-gradient(ellipse 150px 100px at bottom,lighten(@color_, 15%),lighten(@color_, 4%), @color_);
+    }
   }
   #tutorials {
     @color_: @panel-red;
     background-color: @color_;
     .heading1 {
       border-bottom-color: lighten(@color_, 5%);         
+    }
+    &:hover {
+      background: radial-gradient(ellipse 150px 100px at bottom,lighten(@color_, 15%),lighten(@color_, 4%), @color_);
     }
   }
 

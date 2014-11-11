@@ -25,16 +25,32 @@
   }
 
   .about {
-    background-color: @panel-blue;
+    @color_: @panel-blue;
+    background-color: @color_;
+    &:hover {
+      background: radial-gradient(ellipse 150px 100px at right,lighten(@color_, 10%),lighten(@color_, 4%), @color_);
+    }
   }
-  .research {
-    background-color: @panel-green;
+  .research {    
+    @color_: @panel-green;
+    background-color: @color_;
+    &:hover {
+      background: radial-gradient(ellipse 150px 100px at right,lighten(@color_, 10%),lighten(@color_, 4%), @color_);
+    }
   }
   .blog {
-    background-color: @panel-orange;
+    @color_: @panel-orange;
+    background-color: @color_;
+    &:hover {
+      background: radial-gradient(ellipse 150px 100px at right,lighten(@color_, 10%),lighten(@color_, 4%), @color_);
+    }
   }
   .tutorials {
-    background-color: @panel-red;
+    @color_: @panel-red;
+    background-color: @color_;
+    &:hover {
+      background: radial-gradient(ellipse 150px 100px at right,lighten(@color_, 10%),lighten(@color_, 4%), @color_);
+    }
   }
 
 }

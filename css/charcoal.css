@@ -167,14 +167,26 @@ header {
 .nav-bar2 .about {
   background-color: #0084a9;
 }
+.nav-bar2 .about:hover {
+  background: radial-gradient(ellipse 150px 100px at right, #00acdc, #0094bd, #0084a9);
+}
 .nav-bar2 .research {
   background-color: #7a9d00;
+}
+.nav-bar2 .research:hover {
+  background: radial-gradient(ellipse 150px 100px at right, #a2d000, #8ab100, #7a9d00);
 }
 .nav-bar2 .blog {
   background-color: #df9100;
 }
+.nav-bar2 .blog:hover {
+  background: radial-gradient(ellipse 150px 100px at right, #ffac13, #f39e00, #df9100);
+}
 .nav-bar2 .tutorials {
   background-color: #b23814;
+}
+.nav-bar2 .tutorials:hover {
+  background: radial-gradient(ellipse 150px 100px at right, #e04619, #c43e16, #b23814);
 }
 .nav-bar {
   margin: 5px auto;
@@ -386,13 +398,23 @@ header {
   top: -30px;
 }
 .index .panel2 svg circle {
-  stroke: rgba(255, 255, 255, 0.2);
+  stroke: rgba(255, 255, 255, 0.1);
 }
 .index .panel2 svg rect {
+  fill: rgba(255, 255, 255, 0.1);
+  stroke: rgba(255, 255, 255, 0.1);
+}
+.index .panel2 svg path {
+  fill: rgba(255, 255, 255, 0.1);
+}
+.index .panel2:hover svg circle {
+  stroke: rgba(255, 255, 255, 0.2);
+}
+.index .panel2:hover svg rect {
   fill: rgba(255, 255, 255, 0.2);
   stroke: rgba(255, 255, 255, 0.2);
 }
-.index .panel2 svg path {
+.index .panel2:hover svg path {
   fill: rgba(255, 255, 255, 0.2);
 }
 .index .panel-text {
@@ -423,11 +445,17 @@ header {
 .index #about .heading1 {
   border-bottom-color: #0098c3;
 }
+.index #about:hover {
+  background: radial-gradient(ellipse 150px 100px at bottom, #00c0f5, #0094bd, #0084a9);
+}
 .index #research {
   background-color: #7a9d00;
 }
 .index #research .heading1 {
   border-bottom-color: #8eb700;
+}
+.index #research:hover {
+  background: radial-gradient(ellipse 150px 100px at bottom, #b5ea00, #8ab100, #7a9d00);
 }
 .index #blog {
   background-color: #df9100;
@@ -435,11 +463,17 @@ header {
 .index #blog .heading1 {
   border-bottom-color: #f9a200;
 }
+.index #blog:hover {
+  background: radial-gradient(ellipse 150px 100px at bottom, #ffb52d, #f39e00, #df9100);
+}
 .index #tutorials {
   background-color: #b23814;
 }
 .index #tutorials .heading1 {
   border-bottom-color: #c93f17;
+}
+.index #tutorials:hover {
+  background: radial-gradient(ellipse 150px 100px at bottom, #e7562b, #c43e16, #b23814);
 }
 .about {
   text-align: center;
