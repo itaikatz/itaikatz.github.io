@@ -1,7 +1,7 @@
 	<div class="nav-bar2">
 	<ul>
 
-		<a href="aboutme.html">
+		<a href="{{site.baseurl}}aboutme.html">
 		{% if page.active == 'aboutme' %}
 		<li class="about active">About</li>	
 		{% else %}
@@ -9,7 +9,7 @@
  		{% endif %}
  		</a>
 
- 		<a href="research.html">
+ 		<a href="{{site.baseurl}}research.html">
 		{% if page.active == 'research' %}
 		<li class="research active">Research</li>
 		{% else %}
@@ -17,7 +17,7 @@
 		{% endif %}
 		</a>
 
-		<a href="blog.html">
+		<a href="{{site.baseurl}}blog.html">
 		{% if page.active == 'blog' %}
 		<li class="blog active">Blog</li>
 		{% else %}
@@ -25,7 +25,7 @@
 		{% endif %}		
 		</a>
 
-		<a href="tutorials.html">
+		<a href="{{site.baseurl}}tutorials.html">
 		{% if page.active == 'tutorials' %}
 		<li class="tutorials active">Tutorials</li>
 		{% else %}

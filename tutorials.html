@@ -3,11 +3,46 @@ layout: charcoal_nav
 title: "Itai Katz: Tutorials"
 active: tutorials
 ---
-Coming soon!
-<!--
-<div class="middle-column">
-</div>
+<div class="tutorials">
 
-<div class="right-column">
+{% for post in site.posts %}
+{% if post.category contains 'tutorial' %}	
+
+  {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}  
+  {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
+  {% capture pyear %}{{ post.previous.date | date: '%Y' }}{% endcapture %}
+
+  {% if year != nyear %}
+    <hr>
+    <div class="row" >    
+    <div  class="medium-1 small-12 columns">
+        <div class="circle" style="font-size:23px; text-align: center;"> {{ year }}</div>           
+    </div>
+    <div class="medium-11 small-12 columns">
+  {% endif %}  
+
+  <div class="small-9 columns">
+    
+    {% if post.publish_title %} 
+      <a href="{{site.baseurl}}{{ post.url }}" title="{{ post.publish_title }}" >{{ post.publish_title }}</a> </br>
+    {% else %}
+      <a href="{{site.baseurl}}{{ post.url }}" title="{{ post.title }}" >{{ post.title }}</a> </br>
+    {% endif %}
+
+  </div>
+  <div class="small-3 columns" style="text-align: right">
+    <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%-d %B" }}</time>
+  </div>
+  
+  {% if forloop.last %}
+    </div></div>
+  {% else %}    
+    {% if year != pyear %}
+      </div></div>
+    {% else %}  <br>
+    {% endif %}  
+  {% endif %}
+
+{% endif %}
+{% endfor %}
 </div>
--->

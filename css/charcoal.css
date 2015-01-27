@@ -156,7 +156,7 @@ header {
   vertical-align: middle;
   text-align: right;
   margin: 10px 0;
-  border: 1px solid #e0e0e0;
+  border: 1px solid #939393;
   line-height: 50px;
   padding: 0 20px 0 0;
   font-size: 20px;
@@ -475,86 +475,323 @@ header {
 .index #tutorials:hover {
   background: radial-gradient(ellipse 150px 100px at bottom, #e7562b, #c43e16, #b23814);
 }
-.about {
+.about-foundation {
+  /*
+	li {
+		list-style-position: inside;
+		color: @panel-blue;		
+		list-style-type: disc;
+		margin: 0;
+	}
+*/
+}
+.about-foundation h1 {
   text-align: center;
-}
-.about p {
-  text-align: justify;
-}
-.about p + p {
-  margin-top: 10px;
-}
-.about h1 {
   font-size: 50px;
   color: #e0e0e0;
 }
-.about h3 {
+.about-foundation h2 {
+  font-size: 18px;
+  color: #e0e0e0;
+  margin-bottom: 0;
+}
+.about-foundation h3 {
   padding: 0;
   margin: 0;
   font-size: 20px;
   color: #e0e0e0;
 }
-.about hr {
+.about-foundation a {
+  color: #e0e0e0;
+  text-decoration: underline;
+}
+.about-foundation p {
+  text-align: justify;
+}
+.about-foundation hr {
   border: 1px solid #0084a9;
 }
-.about .exp {
-  border: 1px solid #323232;
-}
-.about .experience {
-  margin-top: 20px;
-  margin-bottom: 20px;
-}
-.about .experience li {
-  list-style-position: inside;
+.about-foundation .highlight {
   color: #0084a9;
-  list-style-type: disc;
-  margin: 0;
 }
-.about .experience li span {
-  color: #e0e0e0;
-}
-.about .experience ul {
-  margin-top: 10px;
-}
-.about ul {
-  padding: 0;
-}
-.about li {
-  list-style: none;
-}
-.about li + li {
-  margin-top: 10px;
-}
-.about .section {
-  text-align: left;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  position: relative;
-}
-.about .date {
+.about-foundation .date {
   float: right;
   text-align: right;
   line-height: 20px;
 }
-.about .about-text {
-  margin-left: 120px;
-}
-.about .circle {
-  position: absolute;
-  margin-top: 20px;
+.about-foundation .job-title {
   float: left;
+  text-align: left;
+  line-height: 20px;
+}
+.about-foundation .circle {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
   width: 100px;
   height: 100px;
   border-radius: 50%;
   background-color: #0084a9;
-  margin-right: 20px;
   color: white;
-  text-align: center;
+  font-size: 17px;
+  padding-left: 5px;
+  text-align: left;
   line-height: 100px;
 }
-.about .circle.centered {
+.about-foundation .circle.centered {
+  position: relative;
   top: 50%;
   margin-top: -50px;
+}
+@media only screen and (max-width: 40em) {
+  .about-foundation .circle {
+    position: static;
+    top: 0;
+    margin-left: 10px;
+  }
+  .about-foundation .circle.centered {
+    margin-top: 0px;
+  }
+}
+.about-foundation .sidebar hr {
+  margin: 7px 0 15px 0;
+  max-width: 300px;
+}
+.about-foundation .sidebar ul {
+  line-height: 1.2;
+  padding: 0;
+  margin: 0;
+}
+.about-foundation .sidebar li {
+  color: white;
+  list-style-type: none;
+}
+.about-foundation .sidebar .circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background-color: #0084a9;
+  margin: 0px 0 0px 0;
+  float: right;
+  text-align: center;
+  line-height: 70px;
+}
+.about-foundation .experience .highlight {
+  color: #0084a9;
+}
+.about-foundation .experience li {
+  list-style-position: inside;
+  color: #0084a9;
+  list-style-type: disc;
+  margin: 0;
+  line-height: 20px;
+  margin-top: 10px;
+}
+.about-foundation .experience p {
+  display: table-cell;
+  vertical-align: middle;
+}
+.about-foundation .experience li span {
+  color: #e0e0e0;
+}
+.about-foundation .experience ul {
+  margin: 0;
+}
+.about-foundation .publications .itai {
+  color: #0084a9;
+}
+/*
+.about {
+	
+	text-align: center;
+	p {
+		text-align: justify;
+	}
+
+	p + p {
+		margin-top: 10px;		
+	}
+
+	h1 {
+		font-size: 50px;
+		color: @light-gray;		
+	}
+
+	h3 {
+		padding: 0;
+		margin: 0;
+		font-size: 20px;	
+		color: @light-gray;		
+	}
+
+	hr {
+		//color: @panel-blue;
+		border: 1px solid @panel-blue;
+	}
+
+	.exp {
+		//color: @bg-color;		
+		border: 1px solid lighten(@bg-color, 5%);
+	}
+
+	
+	.experience {
+		margin-top: 20px;
+		margin-bottom: 20px;
+	}
+
+	.experience li {
+		list-style-position: inside;
+		color: @panel-blue;		
+		list-style-type: disc;
+		margin: 0;
+	}
+
+	.experience li span {
+		color: @light-gray;		
+	}
+
+	.experience ul {
+		margin-top: 10px;
+	}
+	ul {
+		padding: 0;		
+	}
+
+	li {
+		list-style: none;			
+	}
+
+	li+li {
+		margin-top: 10px;		
+	}
+
+	.section {		
+		text-align: left;
+		margin-top: 20px;
+		margin-bottom: 20px;	
+		position: relative;
+		//background-color: green;
+		}
+
+
+	.date {
+		//background-color: blue;
+		float: right;
+		text-align: right;
+		line-height: 20px;
+	}
+
+	.about-text {
+		//float: right;
+		//background-color: green;
+		margin-left: 120px;
+
+
+	}
+
+	.circle {
+		&.centered {    		
+    		top: 50%;
+		    margin-top: -50px;	
+    	}
+		position: absolute;
+    	margin-top: 20px;
+    	
+		float: left;
+		width: 100px;
+		height: 100px; 
+		border-radius: 50%;		
+		background-color: @panel-blue;		
+		margin-right: 20px;	
+		color: white;    	
+    	text-align: center;
+    	line-height: 100px;
+
+
+	}
+
+}
+*/
+.blog {
+  /*
+	.circle {
+		&.centered {    		
+    		top: 50%;
+		    margin-top: -50px;	
+    	}
+		position: absolute;
+    	margin-top: 20px;
+    	
+		float: left;
+		width: 100px;
+		height: 100px; 
+		border-radius: 50%;		
+		background-color: @panel-blue;		
+		margin-right: 20px;	
+		color: white;    	
+    	text-align: center;
+    	line-height: 100px;
+
+
+	}
+	*/
+}
+.blog .circle {
+  background-color: #df9100;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+}
+.tutorials {
+  /*
+	.circle {
+		&.centered {    		
+    		top: 50%;
+		    margin-top: -50px;	
+    	}
+		position: absolute;
+    	margin-top: 20px;
+    	
+		float: left;
+		width: 100px;
+		height: 100px; 
+		border-radius: 50%;		
+		background-color: @panel-blue;		
+		margin-right: 20px;	
+		color: white;    	
+    	text-align: center;
+    	line-height: 100px;
+
+
+	}
+	*/
+}
+.tutorials .circle {
+  background-color: #b23814;
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  line-height: 70px;
+}
+.blog_post h1 {
+  color: #e0e0e0;
+}
+.blog_post h2 {
+  color: #e0e0e0;
+}
+.blog_post h3 {
+  color: #e0e0e0;
+}
+.blog_post .autoResizeImage {
+  max-width: 100%;
+  height: auto;
+  width: 100%;
+}
+.blog_post .caption {
+  text-align: center;
 }
 /*
 .wrap2 {

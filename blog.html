@@ -3,41 +3,147 @@ layout: charcoal_nav
 title: "Itai Katz: Blog"
 active: blog
 ---
+<div class="blog">
 
-Coming soon!
+{% for post in site.posts %}
+{% if post.category contains 'blog' %}
+
+  {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}  
+  {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
+  {% capture pyear %}{{ post.previous.date | date: '%Y' }}{% endcapture %}
+
+  {% if year != nyear %}
+    <hr>
+    <div class="row" >    
+    <div  class="medium-1 small-12 columns">
+        <div class="circle" style="font-size:23px; text-align: center;"> {{ year }}</div>           
+    </div>
+    <div class="medium-11 small-12 columns">
+  {% endif %}  
+
+  <div class="small-9 columns">
+    
+    {% if post.publish_title %} 
+      <a href="{{site.baseurl}}{{ post.url }}" title="{{ post.publish_title }}" >{{ post.publish_title }}</a> </br>
+    {% else %}
+      <a href="{{site.baseurl}}{{ post.url }}" title="{{ post.title }}" >{{ post.title }}</a> </br>
+    {% endif %}
+
+  </div>
+  <div class="small-3 columns" style="text-align: right">
+    <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%-d %B" }}</time>
+  </div>
+
+<!--
+  {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+  {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
+
+  {% if year != nyear %}
+  {% endif %}
+-->
+  
+  {% if forloop.last %}
+    </div></div>
+  {% else %}    
+    {% if year != pyear %}
+      </div></div>
+    {% else %}  <br>
+    {% endif %}  
+  {% endif %}
+
+  {% assign pyear = year %}
+
+{% endif %}
+{% endfor %}
+</div>
+<!--
+{% for post in site.posts %}
+
+  {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+  {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
+
+  <br>
+  <div class="row" >    
+  
+  {% if year != nyear %}
+    <hr>
+    <div style=" text-align: center; margin: 0; padding: 0;" class="small-1 columns">        
+      <div class="circle" style="font-size:23px; text-align: center;"> {{ post.date | date: '%Y' }}</div>     
+    </div>
+
+    <div class="small-9 columns">
+  {% else %}
+    <div class="small-9 small-offset-1 columns">
+  {% endif %}
+    
+    {% if post.publish_title %} 
+      <a href="{{site.baseurl}}{{ post.url }}" title="{{ post.publish_title }}" >{{ post.publish_title }}</a> </br>
+    {% else %}
+      <a href="{{site.baseurl}}{{ post.url }}" title="{{ post.title }}" >{{ post.title }}</a> </br>
+    {% endif %}
+
+    </div>
+
+    <div class="small-2 columns" style="text-align: right">
+      <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%-d %B" }}</time>
+    </div>
+  </div>
+{% endfor %}
+<br><br><br>
+-->
+
+
+
+<!--
+{% for post in site.posts %}
+  {% if post.thumbnail %}
+    <img src="{{site.baseurl}}{{ post.thumbnail }}" style="height: 100px" align="center" />
+  {% else %}
+    <img src="/images/nothumbnail.jpg" style="height: 100px" align="center" />
+  {% endif %}
+
+  {% if post.publish_title %} 
+    <a href="{{site.baseurl}}{{ post.url }}" title="{{ post.publish_title }}" >{{ post.publish_title }}</a> </br>
+  {% else %}
+    <a href="{{site.baseurl}}{{ post.url }}" title="{{ post.title }}" >{{ post.title }}</a> </br>
+  {% endif %}
+
+{% endfor %}
+-->
+
 
 <!--
 <section class="archive">
 {% for post in site.posts %}
-{% unless post.next %}
+  {% unless post.next %}
 
-{% unless forloop.first %}</div></div>{% endunless %}
+  {% unless forloop.first %}</div></div>{% endunless %}
 
-  <div class="bundle row gutters fadeInDown animated">
+    <div class="bundle row gutters fadeInDown animated">
     <h2 class="post-year col span_2">{{ post.date | date: '%Y' }}</h2>
     <div class="posts-by-year col span_10">
 
-{% else %}
-{% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
-{% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
-{% if year != nyear %}
+  {% else %}
+    {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
+    {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
+    {% if year != nyear %}
 
-{% unless forloop.first %}</div></div>{% endunless %}
+      {% unless forloop.first %}</div></div>{% endunless %}
+      <div class="bundle row gutters fadeInDown animated">
+      <h2 class="post-year col span_2">{{ post.date | date: '%Y' }}</h2>
+      <div class="posts-by-year col span_10">
 
-  <div class="bundle row gutters fadeInDown animated">
-    <h2 class="post-year col span_2">{{ post.date | date: '%Y' }}</h2>
-    <div class="posts-by-year col span_10">
-{% endif %}
-{% endunless %}
+    {% endif %}
+  {% endunless %}
 
   <article class="row gutters">
-    <a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}" class="col span_8">{{ post.title }}</a>
-    <div class="post-date col span_4">
-      <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%-d %B" }}</time>
-    </div>
+  <a href="{{ site.baseurl }}{{ post.url }}" title="{{ post.title }}" class="col span_8">{{ post.title }}</a>
+  <div class="post-date col span_4">
+  <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%-d %B" }}</time>
+  </div>
   </article>
 
-{% if forloop.last %}</div></div>{% endif %}
+  {% if forloop.last %}</div></div>{% endif %}
 
 {% endfor %}
 </section>

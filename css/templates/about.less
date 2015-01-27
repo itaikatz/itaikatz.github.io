@@ -1,3 +1,162 @@
+.about-foundation {
+	h1 {
+		text-align: center;
+		font-size: 50px;
+		color: @light-gray;		
+	}
+
+	h2 {
+		font-size: 18px;	
+		color: @light-gray;
+		margin-bottom: 0;		
+	}
+
+	h3 {
+		padding: 0;
+		margin: 0;
+		font-size: 20px;	
+		color: @light-gray;		
+	}
+
+	a {
+		color: @light-gray;
+		text-decoration: underline;		
+	}
+
+	p {
+		text-align: justify;
+	}
+
+	hr {	
+		border: 1px solid @panel-blue;
+	}
+
+	.highlight {
+		color: @panel-blue;
+	}
+
+/*
+	li {
+		list-style-position: inside;
+		color: @panel-blue;		
+		list-style-type: disc;
+		margin: 0;
+	}
+*/
+	.date {
+		float: right;
+		text-align: right;
+		line-height: 20px;
+	}
+	.job-title {
+		float: left;
+		text-align: left;
+		line-height: 20px;
+	}
+
+
+	.circle {
+		&.centered {    		
+			position: relative;
+    		top: 50%;
+		    margin-top: -50px;			   		    
+    	}
+    	margin-top: 20px;
+    	margin-bottom: 20px;
+    	margin-left: auto;
+    	margin-right: auto;    	
+
+		width: 100px;
+		height: 100px; 		
+		border-radius: 50%;		
+		background-color: @panel-blue;				
+		color: white;   
+		font-size: 17px; 	
+		padding-left: 5px;
+    	text-align: left;
+    	line-height: 100px;
+
+		@media only screen and (max-width: 40em) { 			
+			position: static;
+			top: 0;	
+			&.centered {		
+				margin-top: 0px;
+			}
+			margin-left: 10px;
+		}
+	}
+
+	.sidebar {			
+		hr {
+			margin: 7px 0 15px 0;
+			max-width: 300px;
+		}	
+		ul {
+			line-height: 1.2;
+			padding: 0; 
+			margin: 0;
+		}
+		li {
+			color: white;
+			list-style-type: none;
+		}
+		.circle {
+			width: 70px;
+			height: 70px; 		
+			border-radius: 50%;		
+			background-color: @panel-blue;
+			margin: 0px 0 0px 0;		
+			float: right;
+	    	text-align: center;
+	    	line-height: 70px;
+    	}
+	}
+
+	.experience .highlight {
+		color: @panel-blue;		
+	}
+
+
+	.experience li {
+		list-style-position: inside;
+		color: @panel-blue;		
+		list-style-type: disc;
+		margin: 0;
+		line-height: 20px;
+		margin-top: 10px;		
+	}
+
+	.experience p {
+		display: table-cell; 
+  		vertical-align: middle; 
+  		//text-align: center; 
+	}
+
+	.experience img {
+	//	float: right;
+	//	width: 200px;
+	//	margin: 10px;
+	}
+
+
+	.experience li span {
+		color: @light-gray;		
+	}
+
+
+	.experience ul {
+		//margin-top: 10px;
+		margin: 0;
+	}
+
+	.publications .itai {
+		color:  @panel-blue;
+	}
+
+}
+
+
+/*
 .about {
 	
 	text-align: center;
@@ -109,3 +268,4 @@
 	}
 
 }
+*/

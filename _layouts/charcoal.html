@@ -9,7 +9,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <title> {{ page.title }} </title>
-  {% include html_head.html %}  
+  {% include html_head.html %}
+
+
+
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+
+
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    },
+    
+/*
+    "HTML-CSS": {
+    scale: 300
+    }
+    */
+
+     SVG: {
+    scale: 100
+  },
+  styles: {
+".MathJax_Display": {
+  color: "#FFF"
+},
+/*
+ ".MathJax_SVG_Display": {
+    "background-color": "#FFFF88",
+    color:   "#FFFF00",
+    fill: "#FF0000",
+    stroke: "#FF0000",
+    border:  "1px solid #00FF00",
+    padding: "1px 3px",
+    "font-style": "normal",
+    "font-size":  "90%"
+  }
+*/
+".MathJax_SVG svg > g, .MathJax_SVG_Display svg > g": {
+      fill: "#FFF",
+      stroke: "#FFF"
+    }
+
+/*  ".MathJax_Display": {*/
+/*    ".MathJax_SVG_Display": {*/
+  /*
+    ".MathJax_SVG": {
+    "text-align": "right",
+    margin:       "1em 0em",
+    color: "red"
+  
+    
+  }
+*/
+  
+    
+  }
+  });
+
+</script>
+
+  <script type="text/javascript"
+    src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script src='http://d3js.org/d3.v3.min.js'></script>
 </head>
 
 <body>
@@ -19,7 +83,7 @@
     <div class="pre-header"></div> <!-- top strip -->
     <div class="content">
 
-    	{% include header.html %}
+    	{% include header.html %}      
     	{{ content }}
   
   </div>  <!-- content -->
@@ -45,5 +109,13 @@
 
 -->
 
+  <script>
+    $(document).foundation();
+ </script>
+
+  {% if page.js %}    
+    <script src="{% asset_path steg.js %}"></script>    
+  {% endif %}
+  
 </body>
 </html>
