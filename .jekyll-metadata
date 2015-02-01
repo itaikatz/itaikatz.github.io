@@ -1,0 +1,515 @@
+---
+c:/WWW/itaikatz.github.io/_posts/2012-12-31-my-second-post-awesome.md:
+  mtime: 2015-01-02 18:06:40.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/_posts/2013-06-31-my-2.5-post-awesome.md:
+  mtime: 2015-01-02 18:06:51.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/_posts/2013-12-31-my-third-post-awesome.md:
+  mtime: 2015-01-27 22:36:09.000000000 -05:00
+  deps:
+  - c:/WWW/itaikatz.github.io/_includes/nav_bar_foundation.html
+  - "/WWW/itaikatz.github.io/_layouts/charcoal_nav.html"
+  - c:/WWW/itaikatz.github.io/_includes/html_head.html
+  - c:/WWW/itaikatz.github.io/_includes/header.html
+  - c:/WWW/itaikatz.github.io/_includes/svg/email_icon.svg
+  - c:/WWW/itaikatz.github.io/_includes/footer.html
+  - c:/WWW/itaikatz.github.io/_includes/svg/facebook_icon.svg
+  - c:/WWW/itaikatz.github.io/_includes/svg/twitter_icon.svg
+  - c:/WWW/itaikatz.github.io/_includes/svg/linkedin_icon.svg
+  - c:/WWW/itaikatz.github.io/_includes/svg/youtube_icon.svg
+  - "/WWW/itaikatz.github.io/_layouts/charcoal.html"
+c:/WWW/itaikatz.github.io/_posts/2014-11-23-steganography.md:
+  mtime: 2015-01-27 22:29:40.000000000 -05:00
+  deps:
+  - c:/WWW/itaikatz.github.io/_includes/nav_bar_foundation.html
+  - "/WWW/itaikatz.github.io/_layouts/blog_post.html"
+  - c:/WWW/itaikatz.github.io/_includes/html_head.html
+  - c:/WWW/itaikatz.github.io/_includes/header.html
+  - c:/WWW/itaikatz.github.io/_includes/svg/email_icon.svg
+  - c:/WWW/itaikatz.github.io/_includes/footer.html
+  - c:/WWW/itaikatz.github.io/_includes/svg/facebook_icon.svg
+  - c:/WWW/itaikatz.github.io/_includes/svg/twitter_icon.svg
+  - c:/WWW/itaikatz.github.io/_includes/svg/linkedin_icon.svg
+  - c:/WWW/itaikatz.github.io/_includes/svg/youtube_icon.svg
+  - "/WWW/itaikatz.github.io/_layouts/charcoal.html"
+c:/WWW/itaikatz.github.io/aboutme.html:
+  mtime: 2015-02-01 17:55:20.000000000 -05:00
+  deps:
+  - c:/WWW/itaikatz.github.io/_includes/nav_bar_foundation.html
+  - "/WWW/itaikatz.github.io/_layouts/charcoal_nav.html"
+  - c:/WWW/itaikatz.github.io/_includes/html_head.html
+  - c:/WWW/itaikatz.github.io/_includes/header.html
+  - c:/WWW/itaikatz.github.io/_includes/svg/email_icon.svg
+  - c:/WWW/itaikatz.github.io/_includes/footer.html
+  - c:/WWW/itaikatz.github.io/_includes/svg/facebook_icon.svg
+  - c:/WWW/itaikatz.github.io/_includes/svg/twitter_icon.svg
+  - c:/WWW/itaikatz.github.io/_includes/svg/linkedin_icon.svg
+  - c:/WWW/itaikatz.github.io/_includes/svg/youtube_icon.svg
+  - "/WWW/itaikatz.github.io/_layouts/charcoal.html"
+c:/WWW/itaikatz.github.io/blog.html:
+  mtime: 2014-12-31 10:47:35.000000000 -05:00
+  deps:
+  - c:/WWW/itaikatz.github.io/_includes/nav_bar_foundation.html
+  - "/WWW/itaikatz.github.io/_layouts/charcoal_nav.html"
+  - c:/WWW/itaikatz.github.io/_includes/html_head.html
+  - c:/WWW/itaikatz.github.io/_includes/header.html
+  - c:/WWW/itaikatz.github.io/_includes/svg/email_icon.svg
+  - c:/WWW/itaikatz.github.io/_includes/footer.html
+  - c:/WWW/itaikatz.github.io/_includes/svg/facebook_icon.svg
+  - c:/WWW/itaikatz.github.io/_includes/svg/twitter_icon.svg
+  - c:/WWW/itaikatz.github.io/_includes/svg/linkedin_icon.svg
+  - c:/WWW/itaikatz.github.io/_includes/svg/youtube_icon.svg
+  - "/WWW/itaikatz.github.io/_layouts/charcoal.html"
+c:/WWW/itaikatz.github.io/index.html:
+  mtime: 2015-01-27 22:32:16.000000000 -05:00
+  deps:
+  - c:/WWW/itaikatz.github.io/_includes/svg/info.svg
+  - c:/WWW/itaikatz.github.io/_includes/svg/beaker.svg
+  - c:/WWW/itaikatz.github.io/_includes/svg/book.svg
+  - c:/WWW/itaikatz.github.io/_includes/svg/lightbulb.svg
+  - c:/WWW/itaikatz.github.io/_includes/html_head.html
+  - c:/WWW/itaikatz.github.io/_includes/header.html
+  - c:/WWW/itaikatz.github.io/_includes/svg/email_icon.svg
+  - c:/WWW/itaikatz.github.io/_includes/footer.html
+  - c:/WWW/itaikatz.github.io/_includes/svg/facebook_icon.svg
+  - c:/WWW/itaikatz.github.io/_includes/svg/twitter_icon.svg
+  - c:/WWW/itaikatz.github.io/_includes/svg/linkedin_icon.svg
+  - c:/WWW/itaikatz.github.io/_includes/svg/youtube_icon.svg
+  - "/WWW/itaikatz.github.io/_layouts/charcoal.html"
+c:/WWW/itaikatz.github.io/research.html:
+  mtime: 2014-11-19 20:49:03.000000000 -05:00
+  deps:
+  - c:/WWW/itaikatz.github.io/_includes/nav_bar_foundation.html
+  - "/WWW/itaikatz.github.io/_layouts/charcoal_nav.html"
+  - c:/WWW/itaikatz.github.io/_includes/html_head.html
+  - c:/WWW/itaikatz.github.io/_includes/header.html
+  - c:/WWW/itaikatz.github.io/_includes/svg/email_icon.svg
+  - c:/WWW/itaikatz.github.io/_includes/footer.html
+  - c:/WWW/itaikatz.github.io/_includes/svg/facebook_icon.svg
+  - c:/WWW/itaikatz.github.io/_includes/svg/twitter_icon.svg
+  - c:/WWW/itaikatz.github.io/_includes/svg/linkedin_icon.svg
+  - c:/WWW/itaikatz.github.io/_includes/svg/youtube_icon.svg
+  - "/WWW/itaikatz.github.io/_layouts/charcoal.html"
+c:/WWW/itaikatz.github.io/tutorials.html:
+  mtime: 2015-01-02 17:49:49.000000000 -05:00
+  deps:
+  - c:/WWW/itaikatz.github.io/_includes/nav_bar_foundation.html
+  - "/WWW/itaikatz.github.io/_layouts/charcoal_nav.html"
+  - c:/WWW/itaikatz.github.io/_includes/html_head.html
+  - c:/WWW/itaikatz.github.io/_includes/header.html
+  - c:/WWW/itaikatz.github.io/_includes/svg/email_icon.svg
+  - c:/WWW/itaikatz.github.io/_includes/footer.html
+  - c:/WWW/itaikatz.github.io/_includes/svg/facebook_icon.svg
+  - c:/WWW/itaikatz.github.io/_includes/svg/twitter_icon.svg
+  - c:/WWW/itaikatz.github.io/_includes/svg/linkedin_icon.svg
+  - c:/WWW/itaikatz.github.io/_includes/svg/youtube_icon.svg
+  - "/WWW/itaikatz.github.io/_layouts/charcoal.html"
+c:/WWW/itaikatz.github.io/abanda/css/foundation.css:
+  mtime: 2014-08-21 23:50:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/abanda/css/foundation.min.css:
+  mtime: 2014-08-21 23:50:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/abanda/css/normalize.css:
+  mtime: 2014-08-21 23:50:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/abanda/css/nv.d3.min.css:
+  mtime: 2014-09-15 10:40:36.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/abanda/forensic_data.xlsx:
+  mtime: 2014-09-15 18:01:14.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/abanda/imgs/abanda.mp3:
+  mtime: 2014-09-15 16:56:42.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/abanda/imgs/demux.jpg:
+  mtime: 2014-09-15 12:54:43.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/abanda/imgs/hydrant.jpg:
+  mtime: 2014-09-09 20:31:03.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/abanda/imgs/hydrant_dimensions.png:
+  mtime: 2014-09-15 15:24:08.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/abanda/imgs/hydrant_dimensions_small.png:
+  mtime: 2014-09-15 17:49:52.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/abanda/imgs/outfile.mp4:
+  mtime: 2014-09-15 11:53:33.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/abanda/imgs/raw.jpg:
+  mtime: 2014-09-15 12:54:24.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/abanda/index.html:
+  mtime: 2014-09-15 18:03:52.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/abanda/js/d3.min.js:
+  mtime: 2014-09-14 22:32:59.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/abanda/js/foundation.min.js:
+  mtime: 2014-08-21 23:50:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/abanda/js/jquery.js:
+  mtime: 2014-08-21 23:50:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/abanda/js/modernizr.js:
+  mtime: 2014-08-21 23:50:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/abanda/js/nv.d3.min.js:
+  mtime: 2014-09-15 10:40:36.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/abanda/mychart.js:
+  mtime: 2014-09-15 17:45:02.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/abanda/waypoints.json:
+  mtime: 2014-09-15 17:45:23.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/iacjs.pdf:
+  mtime: 2015-01-25 20:56:27.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/ikatz_thesis_FINAL_DRAFT-augmented.pdf:
+  mtime: 2015-01-26 22:11:43.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/my-third-post-awesome/montage2.jpg:
+  mtime: 2014-11-23 17:36:45.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/Eye_of_Horus.jpg:
+  mtime: 2014-12-28 15:55:50.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/Eye_of_Horus.svg:
+  mtime: 2014-12-29 23:11:25.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/abcde_diagram.jpg:
+  mtime: 2014-12-01 20:18:20.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/bpcs_diagram.jpg:
+  mtime: 2014-11-30 20:54:39.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/bpcs_house.jpg:
+  mtime: 2014-11-30 21:13:01.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/check_bpcs.jpg:
+  mtime: 2014-12-01 20:19:10.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/check_orig.jpg:
+  mtime: 2014-12-01 20:19:05.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/hidden.jpg:
+  mtime: 2014-12-09 20:56:34.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/house_orig.jpg:
+  mtime: 2014-11-30 21:12:57.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/iadct_jpg.jpg:
+  mtime: 2014-12-01 20:32:52.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/iadct_jpg_stem.jpg:
+  mtime: 2014-12-01 20:36:11.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/iadct_resize.jpg:
+  mtime: 2014-12-01 20:31:56.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/iadct_resize_stem.jpg:
+  mtime: 2014-12-01 20:35:16.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/img0273.png:
+  mtime: 2014-12-01 21:39:16.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/lena_0.jpg:
+  mtime: 2014-11-23 17:55:35.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/lena_1.jpg:
+  mtime: 2014-11-23 17:55:41.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/lena_2.jpg:
+  mtime: 2014-11-23 17:55:44.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/lena_3.jpg:
+  mtime: 2014-11-23 17:55:49.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/lena_4.jpg:
+  mtime: 2014-11-23 17:55:52.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/lena_5.jpg:
+  mtime: 2014-11-23 17:55:55.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/lena_6.jpg:
+  mtime: 2014-11-23 17:55:58.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/lena_7.jpg:
+  mtime: 2014-11-23 17:56:02.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/lena_8.jpg:
+  mtime: 2014-11-23 17:56:06.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/lena_ycbcr.jpg:
+  mtime: 2014-11-30 20:45:56.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/mandrill_abcde.jpg:
+  mtime: 2014-12-01 20:21:16.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/mandrill_orig.jpg:
+  mtime: 2014-12-01 20:21:10.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/mask.jpg:
+  mtime: 2014-11-23 17:52:12.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/moRy14.gif:
+  mtime: 2014-12-01 21:46:05.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/montage2.jpg:
+  mtime: 2014-11-23 17:40:30.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/palette.jpg:
+  mtime: 2014-11-23 17:52:20.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/peppers_orig.jpg:
+  mtime: 2014-12-01 20:29:30.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/pixels.svg:
+  mtime: 2014-12-29 23:53:36.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/pixels.svg.2014_12_28_15_23_43.0.svg:
+  mtime: 2014-12-28 15:23:43.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/pixels_grid.jpg:
+  mtime: 2014-12-09 22:08:13.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/spread_error.jpg:
+  mtime: 2014-12-01 20:30:22.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/spread_jpeg_stem2.jpg:
+  mtime: 2014-12-01 20:33:27.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/spread_peppers.jpg:
+  mtime: 2014-12-01 20:29:55.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/spread_resize_stem2.jpg:
+  mtime: 2014-12-01 20:32:23.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/src/block_image.m:
+  mtime: 2014-12-28 16:01:38.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/src/lsb_insertion.m:
+  mtime: 2014-12-17 22:24:03.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/posts/steganography/steg.js:
+  mtime: 2015-01-03 11:18:03.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/thumbnails/lena.png:
+  mtime: 2014-11-21 17:52:32.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/assets/thumbnails/steg.jpg:
+  mtime: 2014-11-21 17:59:18.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/charcoal.html:
+  mtime: 2014-10-18 18:42:13.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/css/charcoal.css:
+  mtime: 2015-02-01 17:55:24.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/css/charcoal.less:
+  mtime: 2015-01-02 17:50:52.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/css/foundation/foundation.css:
+  mtime: 2014-10-09 22:54:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/css/foundation/foundation.min.css:
+  mtime: 2014-10-09 22:54:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/css/foundation/normalize.css:
+  mtime: 2014-10-09 22:54:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/css/less.min.js:
+  mtime: 2014-08-10 15:52:13.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/css/normalize.css:
+  mtime: 2014-09-06 10:52:06.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/css/templates/about.less:
+  mtime: 2015-01-25 23:16:09.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/css/templates/base.less:
+  mtime: 2014-11-11 12:51:27.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/css/templates/blog.less:
+  mtime: 2014-12-30 19:43:33.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/css/templates/blog_post.less:
+  mtime: 2014-11-30 20:32:20.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/css/templates/colors.less:
+  mtime: 2014-08-23 12:19:42.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/css/templates/footer.less:
+  mtime: 2014-11-11 17:01:00.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/css/templates/header.less:
+  mtime: 2014-11-11 16:58:11.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/css/templates/index.less:
+  mtime: 2014-11-11 17:20:08.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/css/templates/mixins.less:
+  mtime: 2014-09-06 11:19:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/css/templates/nav-bar.less:
+  mtime: 2014-11-11 17:45:33.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/css/templates/panel-set.less:
+  mtime: 2014-11-11 14:05:11.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/css/templates/tutorials.less:
+  mtime: 2015-01-02 17:50:46.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/docs/ikatz_cv_spr04.doc:
+  mtime: 2014-11-02 14:23:28.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/img/email_icon.svg:
+  mtime: 2014-09-06 18:17:46.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/img/facebook_icon.svg:
+  mtime: 2014-09-06 18:18:28.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/img/iacjs.jpg:
+  mtime: 2015-01-25 21:04:10.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/img/icons.svg:
+  mtime: 2014-09-06 17:58:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/img/linkedin_icon.svg:
+  mtime: 2014-09-06 18:18:33.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/img/ngus.jpg:
+  mtime: 2015-01-25 18:36:06.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/img/twitter_icon.svg:
+  mtime: 2014-09-06 18:18:39.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/img/wsnl.png:
+  mtime: 2015-01-26 22:17:24.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/img/youtube_icon.svg:
+  mtime: 2014-09-06 18:18:44.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/js/foundation.min.js:
+  mtime: 2014-10-09 22:54:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/js/foundation/foundation.abide.js:
+  mtime: 2014-10-09 22:54:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/js/foundation/foundation.accordion.js:
+  mtime: 2014-10-09 22:54:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/js/foundation/foundation.alert.js:
+  mtime: 2014-10-09 22:54:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/js/foundation/foundation.clearing.js:
+  mtime: 2014-10-09 22:54:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/js/foundation/foundation.dropdown.js:
+  mtime: 2014-10-09 22:54:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/js/foundation/foundation.equalizer.js:
+  mtime: 2014-10-09 22:54:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/js/foundation/foundation.interchange.js:
+  mtime: 2014-10-09 22:54:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/js/foundation/foundation.joyride.js:
+  mtime: 2014-10-09 22:54:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/js/foundation/foundation.js:
+  mtime: 2014-10-09 22:54:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/js/foundation/foundation.magellan.js:
+  mtime: 2014-10-09 22:54:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/js/foundation/foundation.offcanvas.js:
+  mtime: 2014-10-09 22:54:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/js/foundation/foundation.orbit.js:
+  mtime: 2014-10-09 22:54:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/js/foundation/foundation.reveal.js:
+  mtime: 2014-10-09 22:54:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/js/foundation/foundation.slider.js:
+  mtime: 2014-10-09 22:54:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/js/foundation/foundation.tab.js:
+  mtime: 2014-10-09 22:54:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/js/foundation/foundation.tooltip.js:
+  mtime: 2014-10-09 22:54:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/js/foundation/foundation.topbar.js:
+  mtime: 2014-10-09 22:54:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/js/svg4everybody.ie8.min.js:
+  mtime: 2014-09-01 22:01:54.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/js/vendor/fastclick.js:
+  mtime: 2014-10-09 22:54:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/js/vendor/jquery.cookie.js:
+  mtime: 2014-10-09 22:54:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/js/vendor/jquery.js:
+  mtime: 2014-10-09 22:54:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/js/vendor/modernizr.js:
+  mtime: 2014-10-09 22:54:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/js/vendor/placeholder.js:
+  mtime: 2014-10-09 22:54:30.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/_includes/nav_bar_foundation.html:
+  mtime: 2014-12-30 13:50:09.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/_includes/svg/info.svg:
+  mtime: 2014-09-06 18:06:43.000000000 -04:00
+  deps: []
+"/WWW/itaikatz.github.io/_layouts/charcoal_nav.html":
+  mtime: 2014-12-30 20:40:04.000000000 -05:00
+  deps: []
+"/WWW/itaikatz.github.io/_layouts/blog_post.html":
+  mtime: 2014-11-30 14:41:45.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/_includes/svg/beaker.svg:
+  mtime: 2014-09-06 18:05:00.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/_includes/html_head.html:
+  mtime: 2015-01-19 11:28:59.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/_includes/svg/book.svg:
+  mtime: 2014-09-06 18:03:23.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/_includes/header.html:
+  mtime: 2015-01-27 22:31:27.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/_includes/svg/lightbulb.svg:
+  mtime: 2014-09-01 21:54:08.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/_includes/svg/email_icon.svg:
+  mtime: 2014-09-06 18:17:46.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/_includes/footer.html:
+  mtime: 2015-01-27 22:32:50.000000000 -05:00
+  deps: []
+c:/WWW/itaikatz.github.io/_includes/svg/facebook_icon.svg:
+  mtime: 2014-09-06 18:18:28.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/_includes/svg/twitter_icon.svg:
+  mtime: 2014-09-06 18:18:39.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/_includes/svg/linkedin_icon.svg:
+  mtime: 2014-09-06 18:18:33.000000000 -04:00
+  deps: []
+c:/WWW/itaikatz.github.io/_includes/svg/youtube_icon.svg:
+  mtime: 2014-09-06 18:18:44.000000000 -04:00
+  deps: []
+"/WWW/itaikatz.github.io/_layouts/charcoal.html":
+  mtime: 2015-01-27 22:26:08.000000000 -05:00
+  deps: []
