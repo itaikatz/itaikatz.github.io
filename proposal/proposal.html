@@ -1,0 +1,319 @@
+---
+layout:
+title: Blogging Like a Hacker
+---
+
+  <!DOCTYPE html>
+  <html class="no-js" lang="en">
+  <head>    
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BackGrid</title>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/css/normalize.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/css/foundation.min.css">
+
+    <link rel="stylesheet" type="text/css" href="backgrid.min.css">
+
+    <style>
+    /*
+      body {
+        background: rgb(255,0,0);
+      }
+      .row {
+        background: rgb(255,255,255);
+      }
+      */
+      
+      body {
+        background-image: linear-gradient(rgba(255, 255, 128, 0.1), rgba(255, 255, 128, 0.1)), url("bg.png");
+        color: #3c3c3c;
+      }
+      h2 {
+        color: #3c3c3c;
+      }
+      h3 {
+        color: #3c3c3c;
+      }
+      .wrapper {     
+        padding: 20px;   
+        position: relative;
+        box-shadow: 0 0 24px rgba(0, 0, 0, 0.6);        
+        background-color: white;
+      }
+
+      .header {
+        padding: 20px;   
+        position: relative;
+        box-shadow: 0 0 24px rgba(0, 0, 0, 0.6);
+        z-index: 1;        
+        color: #eee;
+      }
+      .header h1 {
+        color: #eee;
+        text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+      }
+      .backgrid {
+        margin-bottom: 0;
+      }
+      .backgrid th {
+        color: blue;
+      }    
+      .backgrid tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      .backgrid .integer-cell {
+        width: 10%;
+      }
+      .backgrid .number-cell {
+        text-align: center;
+      }
+
+      #trl-diagram .integer-cell {
+        text-align: center;
+      }
+      #trl-diagram .string-cell {
+        text-align: center;
+      }
+      figure {
+        margin: 0;
+      }
+      figcaption {
+        font-weight: bold;
+        font-size: 85%;
+      }
+    </style>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/vendor/modernizr.js"></script>
+  </head>
+
+  <body>
+    
+    <!-- Include a markdown file -->
+    {% capture my-include %}{% include proposal.md %}{% endcapture %}
+    {{ my-include | markdownify }}
+
+    <!--<div id="example-1-result"></div>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+    <!--             
+    <script src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
+    <script src="http://documentcloud.github.io/backbone/backbone-min.js"></script>
+    -->
+    <script src="backgrid.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.0/js/foundation.min.js"></script>
+    <!--    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/foundation/5.5.1/js/foundation/foundation.reveal.min.js"</script>
+    -->
+
+    <script type="text/javascript">
+      $(document).foundation();
+      console.log('here')
+
+    /*
+      var Territory = Backbone.Model.extend({});
+      var Territories = Backbone.Collection.extend({
+        model: Territory,
+        url: "territories.json"
+      });
+      var territories = new Territories();
+
+      var columns = [{
+        name: "id", // The key of the model attribute
+        label: "ID", // The name to display in the header
+        editable: false, // By default every cell in a column is editable, but *ID* shouldn't be
+        // Defines a cell type, and ID is displayed as an integer without the ',' separating 1000s.
+        cell: Backgrid.IntegerCell.extend({
+          orderSeparator: ''
+        })
+        }, {
+        name: "name",
+        label: "Name",
+        // The cell type can be a reference of a Backgrid.Cell subclass, any Backgrid.Cell subclass instances like *id* above, or a string
+        cell: "string" // This is converted to "StringCell" and a corresponding class in the Backgrid package namespace is looked up
+        }, {
+        name: "pop",
+        label: "Population",
+        cell: "integer" // An integer cell is a number cell that displays humanized integers
+        }, {
+        name: "percentage",
+        label: "% of World Population",
+        cell: "number" // A cell type for floating point value, defaults to have a precision 2 decimal numbers
+        }, {
+        name: "date",
+        label: "Date",
+        cell: "date"
+        }, {
+        name: "url",
+        label: "URL",
+        cell: "uri" // Renders the value in an HTML anchor element
+      }];
+
+    // Initialize a new Grid instance
+    var grid = new Backgrid.Grid({
+      columns: columns,
+      collection: territories
+    });
+
+    // Render the grid and attach the root to your HTML document
+    $("#example-1-result").append(grid.render().el);
+
+    // Fetch some countries from the url
+    territories.fetch({reset: true});
+*/
+
+    var TrlRow = Backbone.Model.extend();
+    var TrlRows = Backbone.Collection.extend({
+      model: TrlRow
+    })
+    var trlRows = new TrlRows();
+    var trlCols = [
+    {
+      name: "trl",
+      label: "TRL",
+      cell: "integer"
+    },
+    {
+      name: "desc",
+      label: "Description",
+      cell: "string"
+    }
+    ]
+
+    // Initialize a new Grid instance
+    var trlGrid = new Backgrid.Grid({
+      columns: trlCols,
+      collection: trlRows
+    });
+
+    // Render the grid and attach the root to your HTML document
+    $("#trl-diagram").append(trlGrid.render().el);
+
+    // Fetch some countries from the url
+   // rows.fetch({reset: true});
+
+    data = [    
+    {
+        "trl": 9,
+        "desc": "System successfully deployed",        
+    },
+    {
+        "trl": 8,
+        "desc": "System ready for deployment",        
+    },
+    {
+        "trl": 7,
+        "desc": "System demonstration in-situ",        
+    },
+    {
+        "trl": 6,
+        "desc": "System demonstration in lab",        
+    },
+    {
+        "trl": 5,
+        "desc": "Component validation in-situ",        
+    },
+    {
+        "trl": 4,
+        "desc": "Component validation in lab",        
+    },
+    {
+        "trl": 3,
+        "desc": "Characteristic proof-of-concept",        
+    },
+    {
+        "trl": 2,
+        "desc": "Technology concept formulated",        
+    },
+    {
+        "trl": 1,
+        "desc": "Basic principles observed",        
+    }];    
+    trlGrid.insertRow(data);
+
+
+    var Row = Backbone.Model.extend({});
+    var Rows = Backbone.Collection.extend({
+      model: Row,
+      url: 'data.json'
+    });
+    var rows = new Rows();
+
+    var columns2 = [
+      {
+        name: "month",
+        label: "Month",
+        cell: "integer"
+      },
+      {
+        name: "equip",
+        label: "Equipment",
+        cell: "number"
+      },
+      {
+        name: "personnel",
+        label: "Personnel",
+        cell: "number"
+      },
+      {
+        name: "r&d",
+        label: "R&D",
+        cell: "number"
+      }
+    ];
+
+    // Initialize a new Grid instance
+    var grid2 = new Backgrid.Grid({
+      columns: columns2,
+      collection: rows
+    });
+
+    // Render the grid and attach the root to your HTML document
+    $("#rev-model").append(grid2.render().el);
+
+    // Fetch some countries from the url
+   // rows.fetch({reset: true});
+
+    data = [
+    {
+        "month": 0,
+        "equip": 0,
+        "personnel": 0,
+        "r&d": 0        
+    },
+    {
+        "month": 1,
+        "equip": 0,
+        "personnel": 0,
+        "r&d": 0        
+    },
+    {
+        "month": 2,
+        "equip": 0,
+        "personnel": 0,
+        "r&d": 0        
+    },
+    {
+        "month": 3,
+        "equip": 0,
+        "personnel": 0,
+        "r&d": 0        
+    }
+];            
+    rows.add({
+      'month': 5,
+      'equip': 20,
+      'personnel': 30,
+      'r&d': 10
+    });
+    
+    grid2.insertRow(data);
+    
+    </script>
+
+  </body>
+  </html>
+            

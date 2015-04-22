@@ -1,0 +1,24 @@
+---
+layout: charcoal_foundation
+title: Company name
+css: css/home.css
+---
+
+{% assign panel-ids  = "aboutme|research|blog|tutorials"    | split: "|" %}
+{% assign heading    = "About|Research|Blog|Tutorials"      | split: "|" %}
+{% assign subheading = "About me|Projects|Writing|Teaching" | split: "|" %}
+{% assign icon       = "info|beaker|book|lightbulb"         | split: "|" %}
+
+<div class="row">
+{% for panel-id in panel-ids %}
+	<div class="small-3 columns"> 
+		<div class="nav-panel" id="{{ panel-id }}">
+			<div class="panel-text">
+				<h1> {{ heading[forloop.index0] }} </h1>
+				<h2> {{ subheading[forloop.index0] }} </h2>
+				<svg class="icon" height="300" width="300"><use xlink:href="icons.svg#{{ icon[forloop.index0] }}"/></svg>
+			</div>
+		</div>
+	</div>
+{% endfor %}
+</div>

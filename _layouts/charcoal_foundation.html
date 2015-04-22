@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" >
+<!--<html>-->
+
+<head>
+  <meta charset="utf-8">
+  <!-- If you delete this meta tag World War Z will become a reality -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title> {{ page.title }} </title>
+  <link rel="stylesheet" type="text/css" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/foundation/foundation.css">
+  <link rel="stylesheet" type="text/css" href="css/charcoal_foundation.css">
+
+  {% for css in page.css %}
+    <link rel="stylesheet" type="text/css" href="{{ css }}">
+  {% endfor %}
+
+  {% if page.inline_css %}
+  <style type="text/css">
+    {{ page.inline_css }}
+  </style>
+  {% endif %}  
+
+</head>
+
+<body>
+
+  </div>
+    <div class="wrapper">
+    <div class="pre-header"></div> <!-- top strip -->
+    <div class="content">
+      <header>
+        <div class="row">
+          
+          <div class="small-6 columns"> 
+          <a href="{{site.baseurl}}index.html"><h1>Lacuna Labs</h1></a>   
+          <a href="{{site.baseurl}}index.html"><h2>Practical computer vision</h2></a>
+          </div>
+
+          <div class="small-6 columns contact">    
+          {% include svg/email_icon.svg %}
+          self@address.com
+          </div>
+
+        </div>
+      </header>
+
+
+    	{{ content }}
+  
+      {% for tag in page.tags %}
+        tag value: {{ tag }}  </br>
+      {% endfor %}
+  </div>  <!-- content -->
+  <div class="push"></div>
+  
+  </div> <!-- wrapper -->
+  
+  <div class="footer">
+  <div class="row">          
+    <div class="small-6 columns">   
+      <p>Copyright (c) 2014 Lacuna Labs, LLC</p>
+    </div>
+    <div class="small-6 columns">
+      <ul>
+        <li> Connect </li>        
+        <li> <img src="../img/facebook_icon.svg"/> </li>
+        <li> <img src="../img/twitter_icon.svg"/>  </li>              
+        <li> <img src="../img/linkedin_icon.svg"/> </li>
+        <li> <img src="../img/youtube_icon.svg"/>  </li>
+      </ul>
+    </div>
+  </div>
+  </div>
+
+
+  <script src="../js/vendor/modernizr.js"></script>
+
+  {% for js in page.js %}
+    <script src="{{ js }}"></script>
+  {% endfor %}
+
+<!--
+  <script src="../js/vendor/jquery.js"></script>
+  <script src="../js/foundation/foundation.js"></script>
+  -->
+  <script>
+   $(document).foundation();
+ </script>
+
+</body>
+</html>

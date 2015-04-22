@@ -1,0 +1,81 @@
+.columns {
+  padding: 0;
+}
+.nav-panel {
+  outline: 1px solid #323232;
+  outline-offset: 3px;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 10px 5px -2px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 10px 5px -2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 10px 5px -2px rgba(0, 0, 0, 0.75);
+}
+.nav-panel .panel-text {
+  position: relative;
+  top: 60%;
+  text-align: center;
+}
+.nav-panel h1 {
+  color: #e0e0e0;
+  font-size: 30px;
+  width: 80%;
+  margin: 0 auto;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+.nav-panel h2 {
+  color: #e0e0e0;
+  font-size: 20px;
+}
+.nav-panel svg {
+  position: absolute;
+  right: -50px;
+  top: -210px;
+  stroke: rgba(255, 255, 255, 0.1);
+  fill: rgba(255, 255, 255, 0.1);
+}
+.nav-panel:hover svg {
+  stroke: rgba(255, 255, 255, 0.2);
+  fill: rgba(255, 255, 255, 0.2);
+}
+#aboutme {
+  background-color: #0084a9;
+  margin: 10px 24px 0 0;
+}
+#aboutme h1 {
+  border-bottom-color: #0098c3;
+}
+#aboutme:hover {
+  background: radial-gradient(ellipse 150px 100px at bottom, #00c0f5, #0094bd, #0084a9);
+}
+#research {
+  background-color: #7a9d00;
+  margin: 10px 16px 0 8px;
+}
+#research h1 {
+  border-bottom-color: #8eb700;
+}
+#research:hover {
+  background: radial-gradient(ellipse 150px 100px at bottom, #b5ea00, #8ab100, #7a9d00);
+}
+#blog {
+  background-color: #df9100;
+  margin: 10px 8px 0 16px;
+}
+#blog h1 {
+  border-bottom-color: #f9a200;
+}
+#blog:hover {
+  background: radial-gradient(ellipse 150px 100px at bottom, #ffb52d, #f39e00, #df9100);
+}
+#tutorials {
+  background-color: #b23814;
+  margin: 10px 0 0 24px;
+}
+#tutorials h1 {
+  border-bottom-color: #c93f17;
+}
+#tutorials:hover {
+  background: radial-gradient(ellipse 150px 100px at bottom, #e7562b, #c43e16, #b23814);
+}
