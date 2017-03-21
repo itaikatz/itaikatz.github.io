@@ -176,7 +176,10 @@ test
 <div id="ui"></div>
 
 <div id="outer">
-<svg class="map"></svg>
+<svg class="map">
+<image class="bg" href="{{site.baseurl}}assets/posts/RF_prop_sim/hill-relief.jpg")></image>
+<image class="fg" href="{{site.baseurl}}assets/posts/RF_prop_sim/hill-relief.jpg")></image>
+</svg>
 <canvas class="inner" id="myCanvas" width="960" height="600"></canvas>
 <div class="tooltip"></div>
 </div>
