@@ -156,26 +156,11 @@ hsv_merge.py \
  
 ~~~
 
-<!--
+
 <div id="layout"></div>
 <div id="ui"></div>
 
-<div id="outer">
-<svg class="inner"></svg>
-
-<canvas class="inner" id="myCanvas" width="960" height="600"></canvas>
-<svg class="predictor inner"></svg>
-
-<div class="tooltip"></div>
-</div>
-
-<script src="{{site.baseurl}}assets/posts/RF_prop_sim/rf.js" type="text/javascript"></script> 
--->
-test2
-<div id="layout"></div>
-<div id="ui"></div>
-
-<div id="outer">
+<div id="outer" style="width: 100%">
 <svg class="map">
 <image class="bg" xlink:href="{{site.baseurl}}assets/posts/RF_prop_sim/hill-relief.jpg" />
 <image class="fg" xlink:href="{{site.baseurl}}assets/posts/RF_prop_sim/hill-relief.jpg" />
