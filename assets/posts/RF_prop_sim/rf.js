@@ -15,7 +15,6 @@
    var svg = d3.select("svg.map")
     .attr("width", width)
     .attr("height", height);
-
 /*
   var svg_predictor = d3.select("svg.predictor")
     .attr("width", width)
@@ -87,7 +86,7 @@
         var terrainKernel = new TerrainKernel(100, array, {'x':960, 'y':600}); // extent, heightmap, heightmap dimensions
         var rfmap = new RFmap(width, height, terrainKernel, ctx);
  
-        var predictor = new Predictor(svg_predictor);
+       // var predictor = new Predictor(svg_predictor);
 
       //  var rfmap2 = new RFmap(width, height, terrainKernel, ctx2);
       
