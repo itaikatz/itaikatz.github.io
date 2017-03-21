@@ -26,12 +26,12 @@
  
     var costarica = topojson.object(data, data.objects.costarica);
 
-
-    svg.append("image")
-      .attr("xlink:href", "https://crossorigin.me/https://itaikatz.github.io/assets/posts/RF_prop_sim/hill-relief.jpg")
+    svg.select("image.bg")
+//    svg.append("image")
+  //    .attr("xlink:href", "https://crossorigin.me/https://itaikatz.github.io/assets/posts/RF_prop_sim/hill-relief.jpg")
       .attr("width", width)
-      .attr("height", height)
-      .attr("class", "bg");
+      .attr("height", height);
+   //   .attr("class", "bg");
 
     svg.selectAll(".cr-subunit")
       .data(costarica.geometries)
@@ -45,12 +45,13 @@
     .append("use")
       .attr("xlink:href", "#CRI");
 
-    svg.append("image")
+    svg.select("image.fg")
+//    svg.append("image")
       .attr("clip-path", "url(#clip)")
-      .attr("xlink:href", "https://crossorigin.me/https://itaikatz.github.io/assets/posts/RF_prop_sim/hill-relief.jpg")
+ //     .attr("xlink:href", "https://crossorigin.me/https://itaikatz.github.io/assets/posts/RF_prop_sim/hill-relief.jpg")
       .attr("width", width)
-      .attr("height", height)
-      .attr("class", "fg");
+      .attr("height", height);
+  //    .attr("class", "fg");
 
           cursor = svg.append("circle")
               .attr("r", 10)
