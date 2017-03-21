@@ -130,7 +130,7 @@
         // rows:[
         container:"layout", //corresponds to the ID of the div block 
         cols:[
-          { view: "accordion", multi: true, width:400, paddingX: 10, paddingY: 20, rows:[
+          { view: "accordion", multi: true, width:200, paddingX: 10, paddingY: 20, rows:[
                     { view: "accordion", multi: true,
           rows:[
                 { header:"RF Sources", height:400, body: {
@@ -180,7 +180,7 @@
               ]     
       } 
           ]},
-          { view: "accordion", width:1000, paddingX: 10, paddingY: 20, rows: [
+          { view: "accordion", width:500, paddingX: 10, paddingY: 20, rows: [
             { header: "Shuttle Radar Topography [Costa Rica]", height: 660, body: {view: "template", content: "outer"} }]
           }
         ]
