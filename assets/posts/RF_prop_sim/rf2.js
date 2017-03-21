@@ -24,7 +24,7 @@
 
    webix.ready(function(){
   
-  d3.json("http://itaikatz.github.io/assets/posts/RF_prop_sim/costarica_min_topo.txt", function(error, data) {
+  d3.json("https://itaikatz.github.io/assets/posts/RF_prop_sim/costarica_min_topo.txt", function(error, data) {
  
     var costarica = topojson.object(data, data.objects.costarica);
 
