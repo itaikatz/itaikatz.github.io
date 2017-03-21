@@ -8,12 +8,13 @@ RF Propagation Over Varying Terrain
 ==
 <link rel="stylesheet" href="{{site.baseurl}}assets/posts/RF_prop_sim/css/webix.css" type="text/css"> 
 <style>
-<!--
 
+<!--
   body {
     /*box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) inset;*/
     background: #DDD;
   }
+  -->
   path#CRI {
     fill: none;
     stroke: #000;
@@ -97,7 +98,6 @@ RF Propagation Over Varying Terrain
 svg.predictor {
   pointer-events: none;      
 }
-  -->
 
 </style>
 
