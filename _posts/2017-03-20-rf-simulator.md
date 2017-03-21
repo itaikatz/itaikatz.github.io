@@ -72,7 +72,7 @@ path#CRI {
     /*width:1000px; height:400px;*/
     position: relative;
   }
-/*
+
  .webix_view.webix_accordionitem.vertical {
     border-radius: 10px;
 }
@@ -97,7 +97,7 @@ path#CRI {
 svg.predictor {
   pointer-events: none;      
 }
-*/
+
 </style>
 
 <script src="{{site.baseurl}}assets/posts/RF_prop_sim/js/d3.v4.min.js"></script>
