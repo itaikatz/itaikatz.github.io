@@ -14,7 +14,6 @@ RF Propagation Over Varying Terrain
     /*box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) inset;*/
     background: #DDD;
   }
-  -->
   path#CRI {
     fill: none;
     stroke: #000;
@@ -98,6 +97,8 @@ RF Propagation Over Varying Terrain
 svg.predictor {
   pointer-events: none;      
 }
+  -->
+
 </style>
 
 <script src="{{site.baseurl}}assets/posts/RF_prop_sim/js/d3.v4.min.js"></script>
