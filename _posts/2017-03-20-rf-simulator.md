@@ -156,7 +156,7 @@ hsv_merge.py \
  
 ~~~
 
-
+<!--
 <div id="layout"></div>
 <div id="ui"></div>
 
@@ -166,6 +166,18 @@ hsv_merge.py \
 <canvas class="inner" id="myCanvas" width="960" height="600"></canvas>
 <svg class="predictor inner"></svg>
 
+<div class="tooltip"></div>
+</div>
+
+<script src="{{site.baseurl}}assets/posts/RF_prop_sim/rf.js" type="text/javascript"></script> 
+-->
+
+<div id="layout"></div>
+<div id="ui"></div>
+
+<div id="outer">
+<svg class="map"></svg>
+<canvas class="inner" id="myCanvas" width="960" height="600"></canvas>
 <div class="tooltip"></div>
 </div>
 
