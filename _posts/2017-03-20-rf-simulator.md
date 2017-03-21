@@ -6,7 +6,98 @@ category: blog
 
 RF Propagation Over Varying Terrain
 ==
+<link rel="stylesheet" href="{{site.baseurl}}assets/posts/RF_prop_sim/css/webix.css" type="text/css"> 
 
+<style>
+
+  body {
+    /*box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) inset;*/
+    background: #DDD;
+  }
+  path#CRI {
+    fill: none;
+    stroke: #000;
+  }
+  image.bg {
+    opacity: 0.2;
+  }
+  div.tooltip {   
+
+  border-radius: 8px 8px 8px 0;    
+  font: 20px sans-serif; 
+  width:100px;
+  /*background: lightsteelblue;*/
+      background: #3498db;
+  color: white;
+   text-align: center;
+    position: relative;
+    height: 28px;    
+    line-height: 28px;
+ pointer-events: none;        
+  padding: 2px;        
+  border: 0;
+}
+
+  circle.active {
+    fill: blue;
+  }
+
+  circle.cursor {
+    fill: none;
+    stroke: blue;
+    stroke-width: 4px;
+    opacity: 0.5;
+  }
+
+  svg {
+    position: absolute;
+  }
+  canvas {
+    position: absolute;
+    pointer-events:none;
+  }
+
+  #ui {
+    width:1000px; height:1000px; margin:20px;  
+    position: relative;
+  }
+
+  #layout {
+    height: 1000px;
+    width: 1400px;
+    margin: 0 auto;
+  }
+
+  #outer{
+    /*width:1000px; height:400px;*/
+    position: relative;
+  }
+
+ .webix_view.webix_accordionitem.vertical {
+    border-radius: 10px;
+}
+
+  .webix_accordionitem_label {
+    font-size: 23px;
+  }
+
+  .webix_accordionitem_header {
+    height: 45px;
+  }
+
+  .webix_inp_label, .webix_inp_top_label, .webix_label_right {
+    font-size: 20px;
+}
+
+.webix_el_radio .webix_label_right {
+    color: #666666;
+    font-size: 18px;
+}
+
+svg.predictor {
+  pointer-events: none;      
+}
+</style>
 <script src="{{site.baseurl}}assets/posts/RF_prop_sim/js/d3.v4.min.js"></script>
 <script src="{{site.baseurl}}assets/posts/RF_prop_sim/js/topojson.v0.min.js"></script>
 <script src="{{site.baseurl}}assets/posts/RF_prop_sim/js/geotiff.min.js"></script>
@@ -57,3 +148,14 @@ These files are combined using the program hsv_merge.py:
 
 Here's some more text
 
+<div id="layout"></div>
+<div id="ui"></div>
+
+<div id="outer">
+<svg class="inner"></svg>
+
+<canvas class="inner" id="myCanvas" width="960" height="600"></canvas>
+<svg class="predictor inner"></svg>
+
+<div class="tooltip"></div>
+</div>
