@@ -12,16 +12,15 @@
   var path = d3.geoPath()
     .projection(projection);
 
-   var svg = d3.select("svg.inner")
- // var svg = d3.select("body").append("svg")
-    .attr("class", "map")
+   var svg = d3.select("svg.map")
     .attr("width", width)
     .attr("height", height);
 
+/*
   var svg_predictor = d3.select("svg.predictor")
     .attr("width", width)
     .attr("height", height);
-
+*/
    webix.ready(function(){
   
   d3.json("https://crossorigin.me/https://itaikatz.github.io/assets/posts/RF_prop_sim/costarica_min_topo.txt", function(error, data) {
