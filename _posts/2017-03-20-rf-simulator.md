@@ -157,7 +157,7 @@ hsv_merge.py \
 ~~~
 
 
-<div id="layout"></div>
+<div id="layout" style="width:50%"></div>
 <div id="ui"></div>
 
 <div id="outer" style="width: 100%">
