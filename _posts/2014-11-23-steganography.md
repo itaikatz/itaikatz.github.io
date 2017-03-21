@@ -12,6 +12,8 @@ In plain sight: A survey of staganography techniques (Part I)
 
 <img src="{{site.baseurl}}assets/posts/steganography/montage2.jpg" alt="My Image" />
 
+[note: post in progress!] 
+
 The past decade has seen an information explosion of unprecedented magnitude. The internet and high-density storage media have made data transfer fast and often anonymous. When we want to keep our data a secret there are lots of standard encryption techniques. One of these, AES-128 will take a string of text:
 
 > This is the dawning of the age of Aquarius. 
@@ -46,7 +48,6 @@ Steganography has a rich and sometimes disturbing history. It was particularly u
 		</tbody>
 	</table>
 </div>
-(convert this link to a gif: https://www.youtube.com/watch?v=BgelmcOdS38)
 
 Today modern steganography has entered the information age. In the rest of this tutorial we'll describe several algorithms to digitally hide one message inside another. For simplicity, we'll conceal one (payload) image inside another (target) image. These techniques can be generalized to different types of data such as text or audio. We'll conclude with several real-world applications.
 
@@ -220,7 +221,6 @@ Additional applications
 
 Motivation
 --
-
 
 
 Watermarking is not a new phenomenon. For nearly one thousand years, watermarks on paper have been used to identify a particular brand (in the case of publishers) and to discourage conterfeiting (in the case of stamps and currency) [11]. In the modern era, proving authenticity is becoming increasingly important as more of the world's information is stored as readily transferable bits. Digital watermarking is a process whereby arbitrary information is encoded into an image in such a way that the additional payload is imperceptible to the image observer.
@@ -653,7 +653,6 @@ The field of watermarking is vast. Judging by the overwhelming number of publica
 Source code
 --
 
-some stuff
 
 References
 --
