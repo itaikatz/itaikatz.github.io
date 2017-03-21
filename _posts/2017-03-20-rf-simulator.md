@@ -132,7 +132,7 @@ Step 2 is to create, from this GeoTiff file, two images: one, grayscale, that re
 >   hillshade \
 >   relief.tiff \
 >   hill-relief-shaded.tiff \
->   -z 4 -az 20
+>   -z 4 -az 20 
 
 The second image is a "color relief" that maps certain colors to certain elevations. The color_relief.txt file provides this information in the format: elevation r g b.
 
