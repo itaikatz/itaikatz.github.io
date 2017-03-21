@@ -14,6 +14,7 @@ RF Propagation Over Varying Terrain
   body {
     background: #DDD;
   }
+*/
 
 path#CRI {
     fill: none;
@@ -48,7 +49,7 @@ path#CRI {
     stroke-width: 4px;
     opacity: 0.5;
   }
-
+/*
   svg {
     position: absolute;
   }
