@@ -30,7 +30,7 @@
 
 
     svg.append("image")
-      .attr("xlink:href", "hill-relief.jpg")
+      .attr("xlink:href", "https://crossorigin.me/https://itaikatz.github.io/assets/posts/RF_prop_sim/hill-relief.jpg")
       .attr("width", width)
       .attr("height", height)
       .attr("class", "bg");
@@ -49,7 +49,7 @@
 
     svg.append("image")
       .attr("clip-path", "url(#clip)")
-      .attr("xlink:href", "hill-relief.jpg")
+      .attr("xlink:href", "https://crossorigin.me/https://itaikatz.github.io/assets/posts/RF_prop_sim/hill-relief.jpg")
       .attr("width", width)
       .attr("height", height)
       .attr("class", "fg");
@@ -73,7 +73,7 @@
 
 
       var xhr = new XMLHttpRequest();
-      xhr.open('GET', "relief.tiff", true);
+      xhr.open('GET', "https://crossorigin.me/https://itaikatz.github.io/assets/posts/RF_prop_sim/relief.tiff", true);
       xhr.responseType = 'arraybuffer';
 
     
