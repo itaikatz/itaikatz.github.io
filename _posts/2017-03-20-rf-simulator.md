@@ -177,8 +177,8 @@ test2
 
 <div id="outer">
 <svg class="map">
-<image class="bg" xlink:href="{{site.baseurl}}assets/posts/RF_prop_sim/hill-relief.jpg") />
-<image class="fg" xlink:href="{{site.baseurl}}assets/posts/RF_prop_sim/hill-relief.jpg") />
+<image class="bg" xlink:href="{{site.baseurl}}assets/posts/RF_prop_sim/hill-relief.jpg" />
+<image class="fg" xlink:href="{{site.baseurl}}assets/posts/RF_prop_sim/hill-relief.jpg" />
 </svg>
 <canvas class="inner" id="myCanvas" width="960" height="600"></canvas>
 <div class="tooltip"></div>
