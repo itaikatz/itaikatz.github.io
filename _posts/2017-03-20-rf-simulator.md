@@ -14,7 +14,7 @@ RF Propagation Over Varying Terrain
   body {
     background: #DDD;
   }
-*/
+
 path#CRI {
     fill: none;
     stroke: #000;
@@ -27,7 +27,6 @@ path#CRI {
   border-radius: 8px 8px 8px 0;    
   font: 20px sans-serif; 
   width:100px;
-  /*background: lightsteelblue;*/
       background: #3498db;
   color: white;
    text-align: center;
@@ -68,12 +67,12 @@ path#CRI {
     width: 1400px;
     margin: 0 auto;
   }
-
+*/
   #outer{
     /*width:1000px; height:400px;*/
     position: relative;
   }
-
+/*
  .webix_view.webix_accordionitem.vertical {
     border-radius: 10px;
 }
@@ -98,7 +97,7 @@ path#CRI {
 svg.predictor {
   pointer-events: none;      
 }
-
+*/
 </style>
 
 <script src="{{site.baseurl}}assets/posts/RF_prop_sim/js/d3.v4.min.js"></script>
