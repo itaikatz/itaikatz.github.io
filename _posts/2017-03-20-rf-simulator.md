@@ -111,8 +111,8 @@ This is an example of how to create a shaded relief raster with a vector map ove
 
 Step 1 was to create the raster. I used tiled GeoTiffs from the SRTM project, downloading four tiles that completed a map of Costa Rica. To combine the tiff files into a single raster with the correct projection and dimensions, I used gdalwarp:
 
-> gdalwarp \
->   -r lanczos \
+> gdalwarp \ <br />
+>   -r lanczos \ <br />
 >   -te -250000 -156250 250000 156250 \
 >   -t_srs "+proj=aea +lat_1=8 +lat_2=11.5 +lat_0=9.7 +lon_0=-84.2 +x_0=0 +y_0=0" \
 >   -ts 960 0 \
