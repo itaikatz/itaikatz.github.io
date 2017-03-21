@@ -1,11 +1,17 @@
 ---
-title: RF Propagation Simulator
+title: RF_prop_sim
 layout: charcoal_nav
 category: blog
 ---
 
 RF Propagation Over Varying Terrain
 ==
+
+<script src="{{site.baseurl}}assets/posts/RF_prop_sim/js/d3.v4.min.js"></script>
+<script src="{{site.baseurl}}assets/posts/RF_prop_sim/js/topojson.v0.min.js"></script>
+<script src="{{site.baseurl}}assets/posts/RF_prop_sim/js/geotiff.min.js"></script>
+<script src="{{site.baseurl}}assets/posts/RF_prop_sim/js/webix.js" type="text/javascript"></script>  
+<script src="{{site.baseurl}}assets/posts/RF_prop_sim/js/skin.js" type="text/javascript"></script>  
 
 This is an example of how to create a shaded relief raster with a vector map overlay (using SVG and d3.js).
 
@@ -50,3 +56,4 @@ These files are combined using the program hsv_merge.py:
 >   hill-relief-merged.tiff
 
 Here's some more text
+
