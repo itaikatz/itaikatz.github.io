@@ -117,8 +117,8 @@ gdalwarp \
  -ts 960 0 \
  srtm_19_10.tif srtm_20_10.tif srtm_19_11.tif srtm_20_11.tif \
  relief.tiff
+ 
 ~~~~
-
 
 The t_srs option sets an albers equal area projection that will center on Costa Rica. The te option defines the extent of the map, using SRS coordinates. I don't fully understand how this works and used some trial and error. Note that the x/y has a ratio of 1.6, the same as the intended output resolution (960x600).
 
@@ -132,8 +132,8 @@ gdaldem \
  relief.tiff \
  hill-relief-shaded.tiff \
  -z 4 -az 20 
+ 
 ~~~
-
 
 The second image is a "color relief" that maps certain colors to certain elevations. The color_relief.txt file provides this information in the format: elevation r g b.
 
@@ -143,8 +143,8 @@ gdaldem \
  relief.tiff \
  color_relief.txt \
  hill-relief-c.tiff \
+ 
 ~~~
-
 
 These files are combined using the program hsv_merge.py:
 
@@ -153,10 +153,9 @@ hsv_merge.py \
  hill-relief-c.tiff \
  hill-relief-shaded.tiff \
  hill-relief-merged.tiff
+ 
 ~~~
 
-
-Here's some more text
 
 <div id="layout"></div>
 <div id="ui"></div>
@@ -171,4 +170,3 @@ Here's some more text
 </div>
 
 <script src="{{site.baseurl}}assets/posts/RF_prop_sim/rf.js" type="text/javascript"></script> 
-svg goes here
