@@ -1,4 +1,5 @@
-  var width = 960,
+//  var width = 960,
+    var width = 300,
       height = 600;
     
   var projection = d3.geoAlbers()
