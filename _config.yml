@@ -19,7 +19,7 @@ author: Itai Katz
 # Example, you must use http://localhost:4000/path/to/blog
 #baseurl: /path/to/blog
 #baseurl: file:///C:/WWW/itaikatz.github.io/_site/
-baseurl: 
+baseurl: https://itaikatz.github.io/
 
 # The URL of your actual domain. This will be used to make absolute links in the RSS feed.
 #url: http://yourdomain.com/
