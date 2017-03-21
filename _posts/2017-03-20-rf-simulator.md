@@ -1,6 +1,6 @@
 ---
 title: RF Propagation Simulator
-layout: default
+layout: charcoal_nav
 category: blog
 ---
 
