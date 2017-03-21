@@ -160,7 +160,7 @@ hsv_merge.py \
 <div id="layout" style="width:50%"></div>
 <div id="ui"></div>
 
-<div id="outer" style="width: 100%">
+<div id="outer">
 <svg class="map">
 <image class="bg" xlink:href="{{site.baseurl}}assets/posts/RF_prop_sim/hill-relief.jpg" />
 <image class="fg" xlink:href="{{site.baseurl}}assets/posts/RF_prop_sim/hill-relief.jpg" />
