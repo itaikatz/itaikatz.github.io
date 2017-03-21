@@ -10,7 +10,7 @@ RF Propagation Over Varying Terrain
 <link rel="stylesheet" href="{{site.baseurl}}assets/posts/RF_prop_sim/css/webix.css" type="text/css"> 
 -->
 <style>
-/*  
+/*
   body {
     background: #DDD;
   }
@@ -49,7 +49,7 @@ path#CRI {
     stroke-width: 4px;
     opacity: 0.5;
   }
-/*
+
   svg {
     position: absolute;
   }
@@ -68,8 +68,8 @@ path#CRI {
     width: 1400px;
     margin: 0 auto;
   }
-*/
-  #outer{
+
+#outer{
     /*width:1000px; height:400px;*/
     position: relative;
   }
