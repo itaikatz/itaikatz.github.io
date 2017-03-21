@@ -9,6 +9,14 @@ body {
   background-color: #252525;
   color: white;
 }
+
+/* ITAI 03/21/2017 */
+code {
+   background-color: #252525;
+   color: white;
+   border-style: none;
+
+}
 /*
 .content {
 	//width: 70%;	
