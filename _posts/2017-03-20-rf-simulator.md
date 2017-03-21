@@ -1,6 +1,6 @@
 ---
 title: RF_prop_sim
-layout: charcoal_nav
+layout: blog_post
 category: blog
 ---
 
