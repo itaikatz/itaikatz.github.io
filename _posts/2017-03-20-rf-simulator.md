@@ -7,13 +7,14 @@ category: blog
 RF Propagation Over Varying Terrain
 ==
 <link rel="stylesheet" href="{{site.baseurl}}assets/posts/RF_prop_sim/css/webix.css" type="text/css"> 
-<!--
 <style>
+<!--
 
   body {
     /*box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) inset;*/
     background: #DDD;
   }
+  -->
   path#CRI {
     fill: none;
     stroke: #000;
@@ -98,7 +99,7 @@ svg.predictor {
   pointer-events: none;      
 }
 </style>
--->
+
 <script src="{{site.baseurl}}assets/posts/RF_prop_sim/js/d3.v4.min.js"></script>
 <script src="{{site.baseurl}}assets/posts/RF_prop_sim/js/topojson.v0.min.js"></script>
 <script src="{{site.baseurl}}assets/posts/RF_prop_sim/js/geotiff.min.js"></script>
