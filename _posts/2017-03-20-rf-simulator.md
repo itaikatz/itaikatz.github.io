@@ -162,5 +162,5 @@ Here's some more text
 
 <div class="tooltip"></div>
 </div>
-<script src="{{site.baseurl}}assets/posts/RF_prop_sim/rf.js" type="text/javascript"></script> 
+
 svg goes here
