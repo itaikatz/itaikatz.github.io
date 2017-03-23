@@ -1,10 +1,12 @@
 window.onload = function() { 
 
+    var maxWidth = 1100;
     webix.ready(function(){
    		webix.ui({
 
    			container: "layout",
-   			cols: [
+			maxWidth: maxWidth,
+			cols: [
 	   			{
 		   			view: "accordion",
 		   			multi:true,
@@ -18,7 +20,7 @@ window.onload = function() {
 	   			{	   			
 	   				view: "accordion",
 		   			multi:true,
-		   			width: 400,
+		   			width: 600,
 		   			cols: [
 		   				{ 
 		   				  header: "Shuttle Radar Topography [Costa Rica]", 
@@ -31,8 +33,9 @@ window.onload = function() {
 
    	   }) //webix.ui
 
+	d3.select("div#layout").style("max-width", maxWidth + "px");
 	d3.select("div.outer")
-	  .style("width", "380px")
+	  .style("width", "580px")
 	  .style("height", "560px")
 //	  .style("border", "1px solid black")
 	  .style("position", "relative");
