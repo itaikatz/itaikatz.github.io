@@ -30,6 +30,7 @@ path#CRI {
  pointer-events: none;        
   padding: 2px;        
   border: 0;
+  z-index: 10;
 }
 
   circle.active {
