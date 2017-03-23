@@ -154,8 +154,8 @@ hsv_merge.py \
 <div id="layout"></div>
 <div class="outer" id="outer">
 	<svg class="map">
-		<image class="bg" xlink:href="hill-relief.jpg" />
-		<image class="fg" xlink:href="hill-relief.jpg" />
+		<image class="bg" xlink:href="{{site.baseurl}}assets/posts/RF_prop_sim/hill-relief.jpg" />
+		<image class="fg" xlink:href="{{site.baseurl}}assets/posts/RF_prop_sim/hill-relief.jpg" />
 	</svg>
 	<canvas class="inner" id="myCanvas"></canvas>
 	<div class="tooltip"></div>
