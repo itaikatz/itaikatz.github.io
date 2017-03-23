@@ -1,6 +1,6 @@
 window.onload = function() { 
 
-    var maxWidth = 1100;
+    var maxWidth = 900;
     webix.ready(function(){
    		webix.ui({
 
