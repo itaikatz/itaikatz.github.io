@@ -102,6 +102,7 @@ function GIS(div_class) {
 		var tooltip = d3.select("div.tooltip");
 
         svg.on("mousemove", function() {
+		console.log("mousemove");
           var x = d3.mouse(this)[0],
           	  y = d3.mouse(this)[1];
           var xScaled = Math.round((1.0/scale) * x),
@@ -115,6 +116,7 @@ function GIS(div_class) {
           tooltip.transition().duration(100).style("opacity", 0);   
 
           timeout = setTimeout(function() {
+		console.log("mousemove timeout");  
 	        var idx = Math.round(yScaled)*width + Math.round(xScaled);
 	        var altitude = Math.max(array[idx], 0);
 	        tooltip.transition().duration(200).style("opacity", .9);
