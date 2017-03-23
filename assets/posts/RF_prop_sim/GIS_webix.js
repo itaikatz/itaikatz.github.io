@@ -8,7 +8,7 @@ window.onload = function() {
 	   			{
 		   			view: "accordion",
 		   			multi:true,
-		   			width: 300,
+		   			width: 200,
 		   			rows: [
 		   				{ header: "col1", body: "content1"},
 		   				{ header: "col2", body: "content2"},
@@ -18,7 +18,7 @@ window.onload = function() {
 	   			{	   			
 	   				view: "accordion",
 		   			multi:true,
-		   			width: 700,
+		   			width: 400,
 		   			cols: [
 		   				{ 
 		   				  header: "Shuttle Radar Topography [Costa Rica]", 
@@ -32,7 +32,7 @@ window.onload = function() {
    	   }) //webix.ui
 
 	d3.select("div.outer")
-	  .style("width", "660px")
+	  .style("width", "380px")
 	  .style("height", "560px")
 //	  .style("border", "1px solid black")
 	  .style("position", "relative");
