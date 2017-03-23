@@ -58,7 +58,7 @@ function GIS(div_class) {
 	ctx.stroke();
 
 
-	d3.json("costarica_min_topo.txt", function(error, data) {
+	d3.json("https://crossorigin.me/https://itaikatz.github.io/assets/posts/RF_prop_sim/costarica_min_topo.txt", function(error, data) {
 		var costarica = topojson.object(data, data.objects.costarica);
 
 		var projection = d3.geoAlbers()
@@ -90,7 +90,7 @@ function GIS(div_class) {
 	});
 
 	var xhr = new XMLHttpRequest();
-    xhr.open('GET', "relief.tiff", true);
+    xhr.open('GET', "https://crossorigin.me/https://itaikatz.github.io/assets/posts/RF_prop_sim/relief.tiff", true);
     xhr.responseType = 'arraybuffer';
 
     xhr.onload = function(e) {
