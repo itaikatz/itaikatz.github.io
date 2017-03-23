@@ -8,11 +8,6 @@ RF Propagation Over Varying Terrain
 ==
 <link rel="stylesheet" href="{{site.baseurl}}assets/posts/RF_prop_sim/css/webix.css" type="text/css"> 
 <style>
-/*
-  body {
-    background: #DDD;
-  }
-*/
 
 path#CRI {
     fill: none;
@@ -156,10 +151,20 @@ hsv_merge.py \
  
 ~~~
 
+<div id="layout"></div>
+<div class="outer" id="outer">
+	<svg class="map">
+		<image class="bg" xlink:href="hill-relief.jpg" />
+		<image class="fg" xlink:href="hill-relief.jpg" />
+	</svg>
+	<canvas class="inner" id="myCanvas"></canvas>
+	<div class="tooltip"></div>
+</div>
+
 test2
 <div id="layout" style="width:50%"></div>
 <div id="ui"></div>
-
+<!--
 <div id="outer">
 <svg class="map">
 <image class="bg" xlink:href="{{site.baseurl}}assets/posts/RF_prop_sim/hill-relief.jpg" />
@@ -168,5 +173,6 @@ test2
 <canvas class="inner" id="myCanvas" width="960" height="600"></canvas>
 <div class="tooltip"></div>
 </div>
-
+-->
 <script src="{{site.baseurl}}assets/posts/RF_prop_sim/rf.js" type="text/javascript"></script>  
+<script src="{{site.baseurl}}assets/posts/RF_prop_sim/GIS_webix.js" type="text/javascript"></script>
