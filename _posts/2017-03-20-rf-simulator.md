@@ -150,7 +150,7 @@ hsv_merge.py \
  hill-relief-merged.tiff
  
 ~~~
-test3
+test4
 
 <div id="layout"></div>
 <div class="outer" id="outer">
