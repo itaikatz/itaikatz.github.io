@@ -161,10 +161,10 @@ hsv_merge.py \
 	<div class="tooltip"></div>
 </div>
 
-test2
+<!--
+
 <div id="layout" style="width:50%"></div>
 <div id="ui"></div>
-<!--
 <div id="outer">
 <svg class="map">
 <image class="bg" xlink:href="{{site.baseurl}}assets/posts/RF_prop_sim/hill-relief.jpg" />
