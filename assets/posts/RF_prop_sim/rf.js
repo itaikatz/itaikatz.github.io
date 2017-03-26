@@ -9,7 +9,7 @@ function computeSvgScale(imWidth, imHeight, divWidth, divHeight) {
 
 }
 
-function GIS(div_class) {
+function GIS(div_class, updateTableFunc, path_file, relief_file ) {
 	var width = 960,
 	  height = 600;
 
@@ -58,8 +58,7 @@ function GIS(div_class) {
 	// ctx.strokeStyle ="red"
 	// ctx.stroke();
 
-//	d3.json("costarica_min_topo.txt", function(error, data) {
-	d3.json("https://crossorigin.me/https://itaikatz.github.io/assets/posts/RF_prop_sim/costarica_min_topo.txt", function(error, data) {
+	d3.json(path_file, function(error, data) {
 		var costarica = topojson.object(data, data.objects.costarica);
 
 		var projection = d3.geoAlbers()
@@ -91,18 +90,22 @@ function GIS(div_class) {
 	});
 
 	var xhr = new XMLHttpRequest();
-//	xhr.open('GET', "relief.tiff", true);
-    xhr.open('GET', "https://crossorigin.me/https://itaikatz.github.io/assets/posts/RF_prop_sim/relief.tiff", true);
+	xhr.open('GET', relief_file, true);
     xhr.responseType = 'arraybuffer';
+
+    var distKernel = new DistanceKernel(); // extent, sigma, amplitude  
+// terrainKernel = new TerrainKernel(array, {'x':960, 'y':600}); // extent, heightmap, heightmap dimensions
+  	var terrainKernel = new TerrainKernel(); // extent, heightmap, heightmap dimensions
+    var rfmap = new RFmap(scale, ctx, terrainKernel);
 
     xhr.onload = function(e) {
     	var tiff = GeoTIFF.parse(this.response);
         var image = tiff.getImage();
         var array = image.readRasters({interleave: true});
 
-        var distKernel = new DistanceKernel(); // extent, sigma, amplitude  
-        var terrainKernel = new TerrainKernel(array, {'x':960, 'y':600}); // extent, heightmap, heightmap dimensions
-        var rfmap = new RFmap(scale, terrainKernel, ctx);
+    	terrainKernel.setHeightmap(array);
+    	terrainKernel.setHeightmapSize( {'x':width, 'y':height } );
+      //  var rfmap = new RFmap(scale, terrainKernel, ctx);
 
 
 		var timeout;
@@ -146,11 +149,25 @@ function GIS(div_class) {
                 yScaled = Math.round((1.0/scale) * y);
 
             source_id = rfmap.addSource(xScaled, yScaled);
+            updateTableFunc(source_id, xScaled, yScaled);
     	})
+
+
 
     }    
     xhr.send();
 
+	this.changeKernel = function(kernelName) {
+		if( kernelName=="Distance" ) {
+    		rfmap.changeKernel(distKernel);
+		}
+		else if( kernelName=="Terrain" ) {
+			rfmap.changeKernel(terrainKernel);
+		}
+	}
+	this.removeSource = function(id) {
+		rfmap.removeSource(id);
+	}
 
 }
 
@@ -190,12 +207,23 @@ function DistanceKernel() {
   function TerrainKernel(heightmap, heightmapSize) {
   	Kernel.call(this);
 
+    this.bresenham = [];
 	this.id = "TerrainKernel";
     this.buffer = new Float32Array(Math.pow(this.size, 2));
-    this.heightmap = heightmap;
-    this.heightmapSize = heightmapSize;
-    //this.bresenham = new Int16Array(this.size * this.size);
-    this.bresenham = [];
+
+//    this.heightmap = heightmap;
+ //   this.heightmapSize = heightmapSize;
+ 	heightmap ? this.heightmap = heightmap : this.heightmap = [];
+ 	heightmapSize ? this.heightmapSize = heightmapSize : this.heightmapSize = [];
+
+
+    this.setHeightmap = function(heightmap) {
+    	this.heightmap = heightmap;
+    }
+
+    this.setHeightmapSize = function(heightmapSize) {
+    	this.heightmapSize = heightmapSize;
+    }
 
     this.precomputeBresenham = function(x0, y0, x1, y1) {
       var path = [];
@@ -285,19 +313,19 @@ function DistanceKernel() {
 
   }
 
-  function RFmap( scale, kernel, ctx ) {    // Maintains a map of signal strength
+  function RFmap( scale, ctx, kernel ) {    // Maintains a map of signal strength
     this.width       = ctx.canvas.clientWidth;
     this.height      = ctx.canvas.clientHeight;
     this.kernel      = kernel;
     this.scale       = scale;
     this.strengthMap = new Float32Array(this.width * this.height);
     this.colorMap    = new Uint8ClampedArray(this.width * this.height * 4);  
-
+    
     // Initialize
+    this.id = 0;
     this.ctx   = ctx;
     this.idata = ctx.createImageData(this.width, this.height);      // create imageData object
     this.sources = []
-    this.numSources = 0;
 
     console.log('canvas size: ' + this.width + ', ' + this.height)
 
@@ -319,9 +347,10 @@ function DistanceKernel() {
     }
 
     this.addSource = function( x_offset, y_offset ) {
-      this.numSources += 1;
       console.log('add source: ' + x_offset + ', ' + y_offset)
-      this.sources.push({ x: x_offset, y: y_offset, id: this.numSources });
+
+      this.id += 1;
+      this.sources.push({ x: x_offset, y: y_offset, id: this.id });
       this.updateStrength();
       this.updateColor();
 
