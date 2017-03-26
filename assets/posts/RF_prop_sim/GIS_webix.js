@@ -99,11 +99,11 @@ window.onload = function() {
 	  .style("height", "600px")
 	  .style("position", "relative");
 
-	gis = new GIS("outer", updateTableFunc, 
-		           "costarica_min_topo.txt", "relief.tiff");
-	// gis = new GIS("outer", updateTableFunc,
-	// 	  		  "https://crossorigin.me/https://itaikatz.github.io/assets/posts/RF_prop_sim/costarica_min_topo.txt",
-	// 	  		  "https://crossorigin.me/https://itaikatz.github.io/assets/posts/RF_prop_sim/relief.tiff");
+//	gis = new GIS("outer", updateTableFunc, 
+//		           "costarica_min_topo.txt", "relief.tiff");
+	 gis = new GIS("outer", updateTableFunc,
+	 	  		  "https://crossorigin.me/https://itaikatz.github.io/assets/posts/RF_prop_sim/costarica_min_topo.txt",
+	 	  		  "https://crossorigin.me/https://itaikatz.github.io/assets/posts/RF_prop_sim/relief.tiff");
 
 
 	$$("propModel").attachEvent("onChange", function(newv, oldv){
