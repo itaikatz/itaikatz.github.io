@@ -112,6 +112,7 @@ function GIS(div_class, updateTableFunc, path_file, relief_file ) {
 		var tooltip = d3.select("div.tooltip");
 
         svg.on("mousemove", function() {
+			tooltip.attr("visibility", "visible");
 	      var x = d3.mouse(this)[0],
           	  y = d3.mouse(this)[1];
           var xScaled = Math.round((1.0/scale) * x),
@@ -122,7 +123,7 @@ function GIS(div_class, updateTableFunc, path_file, relief_file ) {
                 .attr("visibility", "visible");
               
           clearTimeout(timeout);
-          tooltip.transition().duration(100).style("opacity", 0);   
+//          tooltip.transition().duration(100).style("opacity", 0);   
 
           timeout = setTimeout(function() {
 	 
