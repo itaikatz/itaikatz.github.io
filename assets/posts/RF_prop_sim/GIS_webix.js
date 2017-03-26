@@ -35,9 +35,8 @@ window.onload = function() {
 
 	d3.select("div#layout").style("max-width", maxWidth + "px");
 	d3.select("div.outer")
-	  .style("width", "580px")
-	  .style("height", "560px")
-//	  .style("border", "1px solid black")
+	  .style("width", "560px")
+	  .style("height", "600px")
 	  .style("position", "relative");
 
 	gis = new GIS("outer");

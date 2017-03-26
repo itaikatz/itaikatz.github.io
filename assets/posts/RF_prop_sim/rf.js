@@ -51,14 +51,15 @@ function GIS(div_class) {
 
 
 	ctx = document.getElementById("myCanvas").getContext('2d');
+
 	ctx.scale(scale, scale)
-	ctx.rect(0,0,960,600);
-	ctx.lineWidth = "2";
-	ctx.strokeStyle ="blue"
-	ctx.stroke();
+	// ctx.rect(0,0,960,600);
+	// ctx.lineWidth = "2";
+	// ctx.strokeStyle ="red"
+	// ctx.stroke();
 
-
-	d3.json("https://crossorigin.me/https://itaikatz.github.io/assets/posts/RF_prop_sim/costarica_min_topo.txt", function(error, data) {
+	d3.json("costarica_min_topo.txt", function(error, data) {
+//	d3.json("https://crossorigin.me/https://itaikatz.github.io/assets/posts/RF_prop_sim/costarica_min_topo.txt", function(error, data) {
 		var costarica = topojson.object(data, data.objects.costarica);
 
 		var projection = d3.geoAlbers()
@@ -90,7 +91,8 @@ function GIS(div_class) {
 	});
 
 	var xhr = new XMLHttpRequest();
-    xhr.open('GET', "https://crossorigin.me/https://itaikatz.github.io/assets/posts/RF_prop_sim/relief.tiff", true);
+	xhr.open('GET', "relief.tiff", true);
+    //xhr.open('GET', "https://crossorigin.me/https://itaikatz.github.io/assets/posts/RF_prop_sim/relief.tiff", true);
     xhr.responseType = 'arraybuffer';
 
     xhr.onload = function(e) {
@@ -98,12 +100,16 @@ function GIS(div_class) {
         var image = tiff.getImage();
         var array = image.readRasters({interleave: true});
 
+        var distKernel = new DistanceKernel(); // extent, sigma, amplitude  
+        var terrainKernel = new TerrainKernel(array, {'x':960, 'y':600}); // extent, heightmap, heightmap dimensions
+        var rfmap = new RFmap(scale, terrainKernel, ctx);
+
+
 		var timeout;
 		var tooltip = d3.select("div.tooltip");
 
         svg.on("mousemove", function() {
-		console.log("mousemove");
-          var x = d3.mouse(this)[0],
+	      var x = d3.mouse(this)[0],
           	  y = d3.mouse(this)[1];
           var xScaled = Math.round((1.0/scale) * x),
               yScaled = Math.round((1.0/scale) * y);
@@ -116,7 +122,7 @@ function GIS(div_class) {
           tooltip.transition().duration(100).style("opacity", 0);   
 
           timeout = setTimeout(function() {
-		console.log("mousemove timeout");  
+	 
 	        var idx = Math.round(yScaled)*width + Math.round(xScaled);
 	        var altitude = Math.max(array[idx], 0);
 	        tooltip.transition().duration(200).style("opacity", .9);
@@ -139,9 +145,7 @@ function GIS(div_class) {
 	        var xScaled = Math.round((1.0/scale) * x),
                 yScaled = Math.round((1.0/scale) * y);
 
-            ctx.beginPath();
-            ctx.arc(xScaled, yScaled, scale*20, 0, 2*Math.PI);
-            ctx.stroke();    
+            source_id = rfmap.addSource(xScaled, yScaled);
     	})
 
     }    
@@ -162,65 +166,140 @@ function Kernel() {
 
 function DistanceKernel() {
 	Kernel.call(this);
-
+	  
 	this.id = "DistanceKernel";
+	this.buffer = new Float32Array(Math.pow(this.size, 2)); 
+
+	centerPos = this.extent*this.size + this.extent;
+    centerX = centerPos % this.size;
+    centerY = Math.floor(centerPos / this.size);
+
+    for( i=0; i < this.buffer.length; i++ ) {
+      localX = i % this.size;
+      localY = Math.floor(i / this.size);
+      var dist = Math.sqrt(Math.pow(localX-centerX, 2) + Math.pow(localY-centerY, 2));
+
+      this.buffer[i] = Math.pow(0.98, dist);
+  	}
+
+  	this.compute = function(x, y) {
+      return this.buffer;
+    }
 }
 
-function TerrainKernel() {
-	Kernel.call(this);
+  function TerrainKernel(heightmap, heightmapSize) {
+  	Kernel.call(this);
 
 	this.id = "TerrainKernel";
-}
+    this.buffer = new Float32Array(Math.pow(this.size, 2));
+    this.heightmap = heightmap;
+    this.heightmapSize = heightmapSize;
+    //this.bresenham = new Int16Array(this.size * this.size);
+    this.bresenham = [];
 
-k1 = new Kernel();
-k2 = new DistanceKernel();
-k3 = new TerrainKernel();
+    this.precomputeBresenham = function(x0, y0, x1, y1) {
+      var path = [];
 
-k1.whoami();
-k2.whoami();
-k3.whoami();
+      var dx = Math.abs(x1-x0);
+      var dy = Math.abs(y1-y0);
+      var sx = (x0 < x1) ? 1 : -1;
+      var sy = (y0 < y1) ? 1 : -1;
+      var err = dx-dy;
 
-  // function DistanceKernel(extent, sigma, amplitude) {
-  //   var t0 = performance.now();
-    
-  //   this.sigma = sigma;
-  //   this.extent = extent;
-  //   this.size = 2*extent+1; // length of one side of the kernel, in pixels
-  //   this.amplitude = amplitude;
-  //   this.buffer = new Float32Array(Math.pow(this.size, 2)); 
-  //   this.id = "DistanceKernel";
+      while(true){
+        currIdx = y0*this.size+x0;
+        path.push(currIdx);
+
+        if ((x0==x1) && (y0==y1)) break;
+        var e2 = 2*err;
+        if (e2 >-dy){ err -= dy; x0  += sx; }
+        if (e2 < dx){ err += dx; y0  += sy; }
+      }
    
-  //   centerPos = this.extent*this.size + this.extent;
-  //   centerX = centerPos % this.size;
-  //   centerY = Math.floor(centerPos / this.size);
+      return path;
+    }
 
-  //   for( i=0; i < this.buffer.length; i++ ) {
-  //     localX = i % this.size;
-  //     localY = Math.floor(i / this.size);
-  //     var dist = Math.sqrt(Math.pow(localX-centerX, 2) + Math.pow(localY-centerY, 2));
+    for( x=0; x<this.size; x++ ) {
+    for( y=0; y<this.size; y++ ) {
+      var pos = y*this.size + x;
+      this.bresenham[pos] = this.precomputeBresenham(this.extent, this.extent, x,y);
+    }
+    }
+ 
+    this.compute = function(x, y) {
+      var t0 = performance.now();
 
-  //     this.buffer[i] = Math.pow(0.98, dist);
-  //   }
-  //   var t1 = performance.now();
-  //   // console.log('distance kernel creation time: ' + (t1-t0))
+      // Get ROI of heightmap
+      var i=0;
+      var maxh = 0;
+      var height = new Int16Array(this.size * this.size);
+      for( y_ = y-this.extent; y_ <= y+this.extent; y_++) {
+      for( x_ = x-this.extent; x_ <= x+this.extent; x_++) {
+        pos = y_*this.heightmapSize.x + x_;
+        height[i] = this.heightmap[pos];
+        if( height[i] > maxh ) maxh = height[i];
+        i++
+      }
+      }
 
-  //   this.compute = function(x, y) {
-  //     return this.buffer;
-  //   }
-  // }
+      centerPos = this.extent*this.size + this.extent;
+      centerX = centerPos % this.size;
+      centerY = Math.floor(centerPos / this.size);
+   
+      var h0 = height[this.extent*this.size + this.extent];
+      h0 = Math.max(h0, 0); // ocean (and no data) is coded as -32768
 
-  function RFmap(  kernel, ctx ) {    // Maintains a map of signal strength
+      for( i=0; i < this.bresenham.length; i++ ) {
+        localX = i % this.size;
+        localY = Math.floor(i / this.size);
+        var dist = Math.sqrt(Math.pow(localX-centerX, 2) + Math.pow(localY-centerY, 2));
+
+        // Line-of-sight version       
+        var h1 = height[i];
+        h1 = Math.max(h1, 0); // ocean (and no data) is coded as -32768
+        var slope = (h1-h0) / this.bresenham[i].length;
+        var currHeight = h0;
+        var aboveGrade = belowGrade = 0;
+
+        for( j=0; j < this.bresenham[i].length; j++ ) {
+          if( height[this.bresenham[i][j]] > currHeight ) {
+            belowGrade++;
+          } else {
+            aboveGrade++           
+          }
+          currHeight += slope;
+        }  
+        var aboveGradeNorm = dist * (aboveGrade / this.bresenham[i].length); 
+        var belowGradeNorm = dist * (belowGrade / this.bresenham[i].length); 
+
+	    this.buffer[i] = Math.pow(.98, aboveGradeNorm) * Math.pow(.96, belowGradeNorm);
+
+      }
+
+      // return this.buffer;
+      var t1 = performance.now();
+      console.log('terrain kernel compute time: ' + (t1-t0))
+      return this.buffer; 
+
+    }
+
+  }
+
+  function RFmap( scale, kernel, ctx ) {    // Maintains a map of signal strength
     this.width       = ctx.canvas.clientWidth;
     this.height      = ctx.canvas.clientHeight;
     this.kernel      = kernel;
-    this.strengthMap = new Float32Array(width * height);
-    this.colorMap    = new Uint8ClampedArray(width * height * 4);  
+    this.scale       = scale;
+    this.strengthMap = new Float32Array(this.width * this.height);
+    this.colorMap    = new Uint8ClampedArray(this.width * this.height * 4);  
 
     // Initialize
     this.ctx   = ctx;
-    this.idata = ctx.createImageData(width, height);      // create imageData object
+    this.idata = ctx.createImageData(this.width, this.height);      // create imageData object
     this.sources = []
-    this.id = 0;
+    this.numSources = 0;
+
+    console.log('canvas size: ' + this.width + ', ' + this.height)
 
     var colorScale = d3.scaleLinear()
                         .domain([1, 0.7, 0.45, 0.35, 0])
@@ -239,43 +318,10 @@ k3.whoami();
       return this;
     }
 
-  // function wait(ms) {
-  //     var d = new Date();
-  //     var d2 = null;
-  //     do { d2 = new Date(); }
-  //     while(d2-d < ms);
-  // }
-
-    // this.interpolate = function() {
-    //   // start/end
-    //   var x1 = d3.scaleLinear().domain([0,1]).range([100,200]);
-    //   var y1 = d3.scaleLinear().domain([0,1]).range([100,200]);
-
-    //   s1 = this.addSource(100,100);
-    //   for( var i=0; i <= 1; i+=.1) {
-    //     // update
-    //     idx1 = this.sources.find( function(value) {return value.id === s1; })
-    //     console.log('id: ' + s1 + ', ' + idx1.id)
-    //     idx1.x = x1(i);
-    //     idx1.y = y1(i);
-    //     console.log(idx1.x + ", " + idx1.y)
-
-    //     // draw
-    //     this.updateStrength();
-    //     this.updateColor();
-
-    //     // wait
-    //     wait(100);
-
-
-    //   }
-
-    // }
-
     this.addSource = function( x_offset, y_offset ) {
-      this.id += 1;
+      this.numSources += 1;
       console.log('add source: ' + x_offset + ', ' + y_offset)
-      this.sources.push({ x: (1.0/scale)*x_offset, y: (1.0/scale)*y_offset, id: this.id });
+      this.sources.push({ x: x_offset, y: y_offset, id: this.numSources });
       this.updateStrength();
       this.updateColor();
 
@@ -296,16 +342,16 @@ k3.whoami();
 
     this.updateStrength = function() {
       var t0 = performance.now();
-      this.strengthMap = new Float32Array(width * height);
+      this.strengthMap = new Float32Array(this.width * this.height);
       for(idx = 0; idx < this.sources.length; idx++) {
-        
+
         var i = 0;
         var source = this.sources[idx];
         var kernBuffer = this.kernel.compute(source.x, source.y);
         
         for(var y = -this.kernel.extent; y <= this.kernel.extent; y++) {
         for(var x = -this.kernel.extent; x <= this.kernel.extent; x++) {
-          var pos = ((y+source.y) * width + (x+source.x)); // position in buffer based on x and y
+          var pos = ((y+source.y) * this.width + (x+source.x)); // position in buffer based on x and y
           if( kernBuffer[i] > this.strengthMap[pos] ) this.strengthMap[pos] = kernBuffer[i];        
           i++;
         }
@@ -316,37 +362,56 @@ k3.whoami();
     }
 
     this.getColor = function(x,y) {
-        var posC = (y * width + x) * 4;
-        var posS = (y * width + x)
+        var posC = (y * this.width + x) * 4;
+        var posS = (y * this.width + x)
         return [this.colorMap[posC], this.colorMap[posC+1], this.colorMap[posC+2], this.strengthMap[posS]];
     }
 
     this.updateColor = function() {
       var t0 = performance.now();
 
-      this.colorMap = new Uint8ClampedArray(width * height * 4);
+      this.colorMap = new Uint8ClampedArray(this.width * this.height * 4);
       for(idx = 0; idx < this.sources.length; idx++) {
         
         var source = this.sources[idx];
         
+        console.log('---------')
+        console.log(this.kernel.extent)
+		console.log(source.x + ', ' + source.y)
+        console.log(-this.kernel.extent + source.x + ', ' + (this.kernel.extent + source.x))
+      	console.log(-this.kernel.extent + source.y + ', ' + (this.kernel.extent + source.y))
+        console.log('---------')
+
         for(var y = -this.kernel.extent; y <= this.kernel.extent; y++) {
         for(var x = -this.kernel.extent; x <= this.kernel.extent; x++) {
-          var posC = ((y+source.y) * width + (x+source.x)) * 4;  // position in    colormap based on x and y
-          var posS = ((y+source.y) * width + (x+source.x));      // position in strengthmap based on x and y
-          var color = d3.color(colorScale(this.strengthMap[posS]));
-          var alpha = alphaScale(this.strengthMap[posS]);
-          this.colorMap[posC  ] = color.r;          // some R value [0, 255]
-          this.colorMap[posC+1] = color.g;             // some G value
-          this.colorMap[posC+2] = color.b;             // some B value
-          this.colorMap[posC+3] = alpha;           // set alpha channel
+	          var posC = ((y+source.y) * this.width + (x+source.x)) * 4;  // position in    colormap based on x and y
+	          var posS = ((y+source.y) * this.width + (x+source.x));      // position in strengthmap based on x and y
+	          var color = d3.color(colorScale(this.strengthMap[posS]));
+	          var alpha = alphaScale(this.strengthMap[posS]);
+	          this.colorMap[posC  ] = color.r;          // some R value [0, 255]
+	          this.colorMap[posC+1] = color.g;             // some G value
+	          this.colorMap[posC+2] = color.b;             // some B value
+	          this.colorMap[posC+3] = alpha;           // set alpha channel
           }
         }
       }
-      this.idata.data.set(this.colorMap);
-      this.ctx.putImageData(this.idata, 0, 0);
+//      this.idata.data.set(this.colorMap);
+ //     this.ctx.putImageData(this.idata, 0, 0);
+	var t1 = performance.now();
+	var newCanvas = document.createElement('canvas')
+	newCanvas.width = this.idata.width;
+	newCanvas.height = this.idata.height;
 
-      var t1 = performance.now();
-      console.log('updateColor time: ' + (t1-t0))
+	this.idata.data.set(this.colorMap)
+	newCanvas.getContext("2d").putImageData(this.idata, 0, 0);
+
+	//this.ctx.scale(this.scale, this.scale);
+	this.ctx.clearRect(0, 0, this.width, this.height);
+	this.ctx.drawImage(newCanvas, 0, 0);
+
+      var t2 = performance.now();
+      console.log('canvas update time: ' + (t2-t1))
+      console.log('total updateColor time: ' + (t2-t0))
       }
   }
  
