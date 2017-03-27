@@ -131,8 +131,8 @@ function GIS(div_class, updateTableFunc, path_file, relief_file ) {
 	        var altitude = Math.max(array[idx], 0);
 	        tooltip.transition().duration(200).style("opacity", .9);
 	        tooltip.html('<i class="fa fa-arrows-v" aria-hidden="true"></i> ' + altitude + ' m')
-	            .style("left", x + "px")     
-	            .style("top", (y-50) + "px");    
+	            .style("left", (x+10) + "px")     
+	            .style("top", (y-40) + "px");    
 	          
 	        }, 500);
     	});
