@@ -67,7 +67,7 @@ path#CRI {
     /*width:1000px; height:400px;*/
     position: relative;
   }
-
+/*
  .webix_view.webix_accordionitem.vertical {
     border-radius: 10px;
 }
@@ -88,10 +88,7 @@ path#CRI {
     color: #666666;
     font-size: 18px;
 }
-
-svg.predictor {
-  pointer-events: none;      
-}
+*/
 
 </style>
 
