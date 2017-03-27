@@ -27,7 +27,7 @@ div.tooltip {
   height: 28px;    
   line-height: 28px;
   pointer-events: none;        
-  padding: 2px;        
+  padding: 4px;        
   border: 0;
   display: inline;
 }
