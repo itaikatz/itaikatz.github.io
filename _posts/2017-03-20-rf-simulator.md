@@ -16,21 +16,20 @@ path#CRI {
   image.bg {
     opacity: 0.2;
   }
-  div.tooltip {   
-
+div.tooltip {   
   border-radius: 8px 8px 8px 0;    
   font: 20px sans-serif; 
   width:100px;
-      background: #3498db;
+  background: #3498db;
   color: white;
-   text-align: center;
-    position: relative;
-    height: 28px;    
-    line-height: 28px;
- pointer-events: none;        
+  text-align: center;
+  position: relative;
+  height: 28px;    
+  line-height: 28px;
+  pointer-events: none;        
   padding: 2px;        
   border: 0;
-  z-index: 10;
+  display: inline;
 }
 
   circle.active {
