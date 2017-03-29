@@ -8,4 +8,4 @@ layout: blog_post
 Visualizing Digital Elevation Maps
 ==
 
-<img src="{{site.baseurl}}assets/posts/topographyglobal_dem.jpg" />
+<img src="{{site.baseurl}}assets/posts/topography/global_dem.jpg" />
