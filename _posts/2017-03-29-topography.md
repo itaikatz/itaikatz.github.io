@@ -12,11 +12,41 @@ Visualizing Digital Elevation Maps
 
 In this post we'll demonstrate how to convert a Digital Elevation Map (DEM) into a visualization suitable for use in a website or other application. A DEM is simply a 3D representation of a terrain's surface. Typically these are used for mapping the Earth's surface, but the same principle applies to mapping the Moon, other planets, or even microscopic surfaces. You may have encountered a similar concept in computer graphics, where it's referred to as a heightmap. 
 
-Here's what a DEM of the earth looks like. White regions represent higher elevation. Note the prominence of the Rockies, Andes, and Himalayan mountain ranges:
+Here's what a DEM of the earth looks like (white regions represent higher elevation). Note the prominence of the Rockies, Andes, and Himalayan mountain ranges:
 
-<img src="{{site.baseurl}}assets/posts/topography/global_dem.jpg" style="width: 50%; display: block; margin: 0 auto;"/>
+<img src="{{site.baseurl}}assets/posts/topography/global_dem.jpg" style="width: 75%; display: block; margin: 0 auto;"/>
 
 
 Applications
 
 For this example we'll use a DEM to create a topographic map of Costa Rica. Costa Rica is an especially interesting example as it contains a variety of surface features ranging from relatively flat plains to prominent mountain ranges.
+
+# Stitch multiple tiles together and project
+# -------------------------------------------
+gdalwarp -r lanczos -te -250000 -156250 250000 156250 -t_srs "+proj=aea +lat_1=8 +lat_2=11.5 +lat_0=9.7 +lon_0=-84.2 +x_0=0 +y_0=0"  -ts 960 0 srtm_19_10.tif srtm_20_10.tif srtm_19_11.tif srtm_20_11.tif relief.tiff
+
+# Create shaded relief map (simulating light coming from an angle)
+# -----------------------------------------------------------------
+gdaldem hillshade relief.tiff hill-relief-shaded.tiff -z 4 -az 20
+
+# Create color relief map
+# -----------------------
+gdaldem color-relief relief.tiff color_relief.txt hill-relief-c.tiff
+
+# Merge shade and color
+# ---------------------
+hsv_merge.py hill-relief-c.tiff hill-relief-shaded.tiff hill-relief-merged.tiff
+
+# Get costa rica geographic data
+# ------------------------------
+curl -o CRI_adm.zip http://gadm.org/data/shp/CRI_adm.zip
+
+# Convert SHP to JSON
+# -------------------
+ogr2ogr -f GeoJSON costarica.json CRI_adm0.shp
+
+# topoJSON
+# ---------
+topojson -p name=NAME -p name -q 1e4 -o costarica_min_topo.json costarica.json
+
+putting it together with D3js
