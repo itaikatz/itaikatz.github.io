@@ -14,7 +14,7 @@ In this post we'll demonstrate how to convert a Digital Elevation Map (DEM) into
 
 Here's what a DEM of the earth looks like. White regions represent higher elevation. Note the prominence of the Rockies, Andes, and Himalayan mountain ranges:
 
-<img src="{{site.baseurl}}assets/posts/topography/global_dem.jpg" style="width: 50%; position: absolute; margin: 0 auto;"/>
+<img src="{{site.baseurl}}assets/posts/topography/global_dem.jpg" style="width: 50%; position: relative; margin: 0 auto;"/>
 
 
 Applications
