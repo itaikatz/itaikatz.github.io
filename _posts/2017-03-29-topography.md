@@ -173,19 +173,11 @@ gdaldem
 ~~~
 
 Where color_relief.txt contains the following values:
-<!--
-65535 255 255 255
-5800 254 254 254
-3000 121 117 10
-1500 151 106 47
-800 127 166 122
-500 213 213 149
-1 201 213 166
--->
-<table id="command_table">
+
+<table>
   <thead>
   <tr>
-  <td>Elevation</td><td>Red</td><td>Green</td><td>Blue</td>
+  <td>Elevation (m)</td><td>Red</td><td>Green</td><td>Blue</td>
   </tr>
   </thead>
   <tr>
@@ -211,6 +203,8 @@ Where color_relief.txt contains the following values:
   </tr>
 </table>
 
+<img src="{{site.baseurl}}assets/posts/topography/hill-relief-c.jpg" style="width: 75%; display: block; margin: 0 auto;"/>
+
 
 ### 3. Create a shaded relief map
 
@@ -224,7 +218,7 @@ gdaldem
   -z 4 -az 20
 ~~~
 
-
+<img src="{{site.baseurl}}assets/posts/topography/hill-relief-shaded.jpg" style="width: 75%; display: block; margin: 0 auto;"/>
 
 
 ### 4. Merge shade and color
@@ -235,6 +229,8 @@ hsv_merge.py
   hill-relief-shaded.tiff 
   hill-relief-merged.tiff
 ~~~
+
+<img src="{{site.baseurl}}assets/posts/topography/hill-relief-merged.jpg" style="width: 75%; display: block; margin: 0 auto;"/>
 
 ### 5. Get costa rica geographic data
 
