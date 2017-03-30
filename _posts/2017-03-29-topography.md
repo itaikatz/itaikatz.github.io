@@ -241,7 +241,7 @@ hsv_merge.py
 <figcaption>Merged relief map</figcaption>
 </figure>
 
-### 5. Get costa rica geographic data
+### 5. Add costa rica geographic data
 
 Looking pretty good! As a last step let's incorporate geographic data so we can clearly see the country's boundaries. To do this, we'll use get Costa Rica's administrative boundaries from [GADM.org](gadm.org), and convert them into a format suitable for use on the web, namely TopoJSON. 
 
@@ -252,6 +252,8 @@ curl -o CRI_adm.zip http://gadm.org/data/shp/CRI_adm.zip
 ogr2ogr -f GeoJSON costarica.json CRI_adm0.shp
 topojson -p name=NAME -p name -q 1e4 -o costarica_min_topo.json costarica.json
 ~~~
+
+### End result
 
 With a a little D3js magic (the topic of a future tutorial, i.e. "left as an exercise for the reader") we can combine the geographic data with the merged relief map:
 
