@@ -83,14 +83,17 @@ Step 1 was to create the raster. I used tiled GeoTiffs from the SRTM project, do
 #command_table tr.alt, 
 #command_table tr:nth-of-type(even) {
   background-color: inherit;
+  padding: 0;
 }
 
-#command_table td {
+#command_table {
+td {
   color: white;
 }
-#command_table #command {
+#command {
     font-family: Consolas, "Liberation Mono", Courier, monospace;
 } 
+}
 </style>
 
 <table id="command_table">
