@@ -112,7 +112,7 @@ function GIS(div_class, updateTableFunc, path_file, relief_file ) {
 		var tooltip = d3.select("div.tooltip");
 
         svg.on("mousemove", function() {
-			tooltip.attr("visibility", "visible");
+        	tooltip.style("opacity", 0)
 	      var x = d3.mouse(this)[0],
           	  y = d3.mouse(this)[1];
           var xScaled = Math.round((1.0/scale) * x),
@@ -140,7 +140,7 @@ function GIS(div_class, updateTableFunc, path_file, relief_file ) {
     	svg.on("mouseout", function() {
     		clearTimeout(timeout);
     		cursor.attr("visibility", "hidden");
-    		tooltip.attr("visibility", "hidden");
+    		//tooltip.attr("visibility", "hidden");
     	});
 
     	svg.on("click", function() {
@@ -186,22 +186,24 @@ function DistanceKernel() {
 	Kernel.call(this);
 	  
 	this.id = "DistanceKernel";
-	this.buffer = new Float32Array(Math.pow(this.size, 2)); 
-
-	centerPos = this.extent*this.size + this.extent;
-    centerX = centerPos % this.size;
-    centerY = Math.floor(centerPos / this.size);
-
-    for( i=0; i < this.buffer.length; i++ ) {
-      localX = i % this.size;
-      localY = Math.floor(i / this.size);
-      var dist = Math.sqrt(Math.pow(localX-centerX, 2) + Math.pow(localY-centerY, 2));
-
-      this.buffer[i] = Math.pow(0.98, dist);
-  	}
 
   	this.compute = function(x, y) {
-      return this.buffer;
+  		var buffer = new Float32Array(Math.pow(this.size, 2));
+
+		centerPos = this.extent*this.size + this.extent;
+	    centerX = centerPos % this.size;
+	    centerY = Math.floor(centerPos / this.size);
+
+	    for( i=0; i < buffer.length; i++ ) {
+	      localX = i % this.size;
+	      localY = Math.floor(i / this.size);
+	      var dist = Math.sqrt(Math.pow(localX-centerX, 2) + Math.pow(localY-centerY, 2));
+
+	      buffer[i] = Math.pow(0.98, dist);
+	  	}
+
+	  console.log("dist kernel compute")
+      return buffer;
     }
 }
 
@@ -210,13 +212,8 @@ function DistanceKernel() {
 
     this.bresenham = [];
 	this.id = "TerrainKernel";
-    this.buffer = new Float32Array(Math.pow(this.size, 2));
-
-//    this.heightmap = heightmap;
- //   this.heightmapSize = heightmapSize;
  	heightmap ? this.heightmap = heightmap : this.heightmap = [];
  	heightmapSize ? this.heightmapSize = heightmapSize : this.heightmapSize = [];
-
 
     this.setHeightmap = function(heightmap) {
     	this.heightmap = heightmap;
@@ -257,6 +254,8 @@ function DistanceKernel() {
  
     this.compute = function(x, y) {
       var t0 = performance.now();
+
+      var buffer = new Float32Array(Math.pow(this.size, 2));
 
       // Get ROI of heightmap
       var i=0;
@@ -301,14 +300,14 @@ function DistanceKernel() {
         var aboveGradeNorm = dist * (aboveGrade / this.bresenham[i].length); 
         var belowGradeNorm = dist * (belowGrade / this.bresenham[i].length); 
 
-	    this.buffer[i] = Math.pow(.98, aboveGradeNorm) * Math.pow(.96, belowGradeNorm);
+	    buffer[i] = Math.pow(.98, aboveGradeNorm) * Math.pow(.96, belowGradeNorm);
 
       }
 
       // return this.buffer;
       var t1 = performance.now();
       console.log('terrain kernel compute time: ' + (t1-t0))
-      return this.buffer; 
+      return buffer; 
 
     }
 
@@ -340,20 +339,34 @@ function DistanceKernel() {
 
     this.changeKernel = function(kernel) {
       this.kernel = kernel;
+
+	  this.strengthMap = new Float32Array(this.width * this.height);
+	  this.colorMap    = new Uint8ClampedArray(this.width * this.height * 4);  	  
+      //this.strengthMap.forEach( function(s) { s = 0; }); // Clear strength map
+      for(var i = 0; i < this.sources.length; i++) { 
+      	this.sources[i].stale = true;
+      	this.sources[i].buffer = this.kernel.compute(this.sources[i].x, this.sources[i].y);
+      }
       this.updateStrength();
       this.updateColor();
-      console.log('Kernel updated')
+      this.sources.forEach(function(s) { s.stale = false; });
 
       return this;
     }
 
-    this.addSource = function( x_offset, y_offset ) {
-      console.log('add source: ' + x_offset + ', ' + y_offset)
+    this.addSource = function( x, y ) {
+      console.log('add source: ' + x + ', ' + y)
 
       this.id += 1;
-      this.sources.push({ x: x_offset, y: y_offset, id: this.id });
+      this.sources.push({ x: x, 
+      	                  y: y, 
+      	                  id: this.id, 
+      	                  stale: true,
+      	                  buffer: this.kernel.compute(x, y) });
+      
       this.updateStrength();
       this.updateColor();
+      this.sources.forEach(function(s) { s.stale = false; });
 
       return this.id;
     }
@@ -365,22 +378,31 @@ function DistanceKernel() {
           break;
         }
       }
+
+      this.sources.forEach(function(s) { s.stale = true; });
+      this.strengthMap = new Float32Array(this.width * this.height);
+	  this.colorMap    = new Uint8ClampedArray(this.width * this.height * 4);  
       this.updateStrength();
       this.updateColor();
-
+      this.sources.forEach(function(s) { s.stale = false; });
     }
 
     this.updateStrength = function() {
       var t0 = performance.now();
-      this.strengthMap = new Float32Array(this.width * this.height);
-      for(idx = 0; idx < this.sources.length; idx++) {
+      //this.strengthMap = new Float32Array(this.width * this.height);
+      for(var idx = 0; idx < this.sources.length; idx++) {
+      	if( !this.sources[idx].stale ) continue;
 
         var i = 0;
         var source = this.sources[idx];
-        var kernBuffer = this.kernel.compute(source.x, source.y);
-        
+        kernBuffer = source.buffer;
+
         for(var y = -this.kernel.extent; y <= this.kernel.extent; y++) {
         for(var x = -this.kernel.extent; x <= this.kernel.extent; x++) {
+       	  if( (x+source.x) >= this.width || (x+source.x) < 0) {
+       	  	i++;
+       	  	continue;
+       	  }
           var pos = ((y+source.y) * this.width + (x+source.x)); // position in buffer based on x and y
           if( kernBuffer[i] > this.strengthMap[pos] ) this.strengthMap[pos] = kernBuffer[i];        
           i++;
@@ -400,18 +422,12 @@ function DistanceKernel() {
     this.updateColor = function() {
       var t0 = performance.now();
 
-      this.colorMap = new Uint8ClampedArray(this.width * this.height * 4);
+      //this.colorMap = new Uint8ClampedArray(this.width * this.height * 4);
       for(idx = 0; idx < this.sources.length; idx++) {
-        
+      	if( !this.sources[idx].stale ) continue;    
+
         var source = this.sources[idx];
         
-        console.log('---------')
-        console.log(this.kernel.extent)
-		console.log(source.x + ', ' + source.y)
-        console.log(-this.kernel.extent + source.x + ', ' + (this.kernel.extent + source.x))
-      	console.log(-this.kernel.extent + source.y + ', ' + (this.kernel.extent + source.y))
-        console.log('---------')
-
         for(var y = -this.kernel.extent; y <= this.kernel.extent; y++) {
         for(var x = -this.kernel.extent; x <= this.kernel.extent; x++) {
 	          var posC = ((y+source.y) * this.width + (x+source.x)) * 4;  // position in    colormap based on x and y
@@ -425,8 +441,7 @@ function DistanceKernel() {
           }
         }
       }
-//      this.idata.data.set(this.colorMap);
- //     this.ctx.putImageData(this.idata, 0, 0);
+
 	var t1 = performance.now();
 	var newCanvas = document.createElement('canvas')
 	newCanvas.width = this.idata.width;
@@ -440,7 +455,6 @@ function DistanceKernel() {
 	this.ctx.drawImage(newCanvas, 0, 0);
 
       var t2 = performance.now();
-      console.log('canvas update time: ' + (t2-t1))
       console.log('total updateColor time: ' + (t2-t0))
       }
   }

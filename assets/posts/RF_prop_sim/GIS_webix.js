@@ -11,6 +11,7 @@ window.onload = function() {
 		   			view: "accordion",
 		   			multi:true,
 		   			width: 300,
+		   			// type: "clean",
 		   			rows: [
 		   			               
 
@@ -28,7 +29,7 @@ window.onload = function() {
 						  } 
 						},
 
-		   				{ header: "RF Sources", height: 300, 
+		   				{ header: "RF Sources", height: 330, 
 		   				  body: {
 		   				  	view:"datatable", id:"datatable", select:false, scroll: 'y',
 		   				  	columns: [
@@ -45,39 +46,18 @@ window.onload = function() {
                        		}
 		   				  }
 		   				}
-		   				// ,
-		   				// { header: "col2", body: "content2"},
-		   				// { header: "col3", body: "content3"}   
-
-
-		   				           //     view:"datatable", id:"datatable", select:true, paddingY: 30, scroll: 'y', columns:[
-                    //     { id:"id", header: "ID", width: 50}, {id: "lat", header: "Latitude" }, { id:"lon", header: "Longitude"},
-                    //     // { id:"trash", header:"", template:"{common.trashIcon()}"}
-                    //     { id:"trash", header:"", template:"<input type='button' value='Delete' class='details_button'>"}
-                    //    ],
-                    //    onClick:{
-                    //      details_button:function(ev, id){
-                    //       rfmap.removeSource(id.row);
-                    //       $$("datatable").remove(id.row);
-                    //      }
-                    //    },
-                    //    minWidth:100,
-                    //    select: false
-                    // }
-
-
-
 		   			]
 	   			},
 	   			{	   			
 	   				view: "accordion",
 		   			multi:true,
-		   			width: 600,
+		   			width: 580,
 		   			cols: [
 		   				{ 
 		   				  header: "Shuttle Radar Topography [Costa Rica]", 
-		   				  height: 400,
-		   				  body: { view: "template", content: "outer" }}   				   				
+		   				  height: 420,
+		   				  body: { view: "template", content: "outer" }
+		   				}   				   				
 	   				]
 	   			}
 
@@ -99,11 +79,11 @@ window.onload = function() {
 	  .style("height", "600px")
 	  .style("position", "relative");
 
-//	gis = new GIS("outer", updateTableFunc, 
-//		           "costarica_min_topo.txt", "relief.tiff");
-	 gis = new GIS("outer", updateTableFunc,
-	 	  		  "https://crossorigin.me/https://itaikatz.github.io/assets/posts/RF_prop_sim/costarica_min_topo.txt",
-	 	  		  "https://crossorigin.me/https://itaikatz.github.io/assets/posts/RF_prop_sim/relief.tiff");
+	gis = new GIS("outer", updateTableFunc, 
+		           "costarica_min_topo.txt", "relief.tiff");
+	// gis = new GIS("outer", updateTableFunc,
+	// 	  		  "https://crossorigin.me/https://itaikatz.github.io/assets/posts/RF_prop_sim/costarica_min_topo.txt",
+	// 	  		  "https://crossorigin.me/https://itaikatz.github.io/assets/posts/RF_prop_sim/relief.tiff");
 
 
 	$$("propModel").attachEvent("onChange", function(newv, oldv){
