@@ -52,6 +52,19 @@ The first step is to download the data, which comes in the form of "tiles" of ap
   <img src="{{site.baseurl}}assets/posts/topography/global_dem.jpg"/>
   <figcaption>srtm_19_10.tif</figcaption>
   </figure>
+    <figure id="image_grid_element">
+  <img src="{{site.baseurl}}assets/posts/topography/global_dem.jpg"/>
+  <figcaption>srtm_19_10.tif</figcaption>
+  </figure>
+    <figure id="image_grid_element">
+  <img src="{{site.baseurl}}assets/posts/topography/global_dem.jpg"/>
+  <figcaption>srtm_19_10.tif</figcaption>
+  </figure>
+    <figure id="image_grid_element">
+  <img src="{{site.baseurl}}assets/posts/topography/global_dem.jpg"/>
+  <figcaption>srtm_19_10.tif</figcaption>
+  </figure>
+<!--  
   <div id="image_grid_element">
   <img src="{{site.baseurl}}assets/posts/topography/global_dem.jpg"/>
   </div>
@@ -61,7 +74,10 @@ The first step is to download the data, which comes in the form of "tiles" of ap
   <div id="image_grid_element">
   <img src="{{site.baseurl}}assets/posts/topography/global_dem.jpg"/>
   </div>
-
+  <div id="image_grid_element">
+  <img src="{{site.baseurl}}assets/posts/topography/global_dem.jpg"/>
+  </div>
+-->
 </div>
 
 
