@@ -77,23 +77,31 @@ To combine them with the correct cartographic projection we'll use the _gdalwarp
 Step 1 was to create the raster. I used tiled GeoTiffs from the SRTM project, downloading four tiles that completed a map of Costa # Rica. To combine the tiff files into a single raster with the correct projection and dimensions, I used gdalwarp:
 
 <style>
-table {
+#command_table,
+#command_table tr,
+#command_table tr.even, 
+#command_table tr.alt, 
+#command_table tr:nth-of-type(even) {
   background-color: inherit;
 }
-tr {
-  background-color: inherit;
+td {
+  color: white;
+ 
+  #command {
+    font-family: Consolas, "Liberation Mono", Courier, monospace;
+  } 
 }
 </style>
 
-<table>
+<table id="command_table">
   <tr>
-    <td>gdalwarp</td><td></td>
+    <td id="command">gdalwarp</td><td></td>
   </tr>
   <tr>
-    <td>  -r lanczos</td><td>Some explanation</td>
+    <td id="command">  -r lanczos</td><td>Some explanation</td>
   </tr>
   <tr>
-    <td>   -te -250000 -156250 250000 156250</td><td>Another explanation</td>
+    <td id="command">   -te -250000 -156250 250000 156250</td><td>Another explanation</td>
   </tr>
 </table>
 
