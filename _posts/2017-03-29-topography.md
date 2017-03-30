@@ -129,13 +129,14 @@ The t_srs option sets an albers equal area projection that will center on Costa 
 <style>
 .highlighter-rouge, code {
    background-color: #2b2b2b;
-   -moz-box-shadow:    inset 0 0 10px #000000;
-   -webkit-box-shadow: inset 0 0 10px #000000;
-   box-shadow:         inset 0 0 10px #000000;
 }
 .highlighter-rouge {
    border-radius: 5px;
    padding: 10px;
+   -moz-box-shadow:    inset 0 0 10px #000000;
+   -webkit-box-shadow: inset 0 0 10px #000000;
+   box-shadow:         inset 0 0 10px #000000;
+
 }
 </style>
 
