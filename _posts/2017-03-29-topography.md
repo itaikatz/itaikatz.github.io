@@ -7,8 +7,18 @@ layout: blog_post
 
 Visualizing Digital Elevation Maps
 ==
+<style>
+figcaption {
+  text-align: center;
+  font-style: italic;
+  font-size: 75%;
+}
+<style>
 
-<img src="{{site.baseurl}}assets/posts/topography/cr_mountain_crop.jpg" />
+<figure>
+  <img src="{{site.baseurl}}assets/posts/topography/cr_mountain_crop.jpg" />
+  <figcaption>Orosí valley, Costa Rica</figcaption>
+</figure>
 
 What is the highest geographic point in your country? The lowest? What if you could answer both questions at a glance?
 
@@ -45,11 +55,6 @@ The first step is to download the data, which comes in the form of "tiles" of ap
   width: 48%;
   padding-bottom: 0;
   margin: 1%;
-}
-figcaption {
-  text-align: center;
-  font-style: italic;
-  font-size: 75%;
 }
 </style>
 <div id="image_grid">
