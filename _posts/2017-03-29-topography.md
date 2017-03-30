@@ -259,6 +259,8 @@ With a a little D3js magic (the topic of a future tutorial, i.e. "left as an exe
 
 <img src="{{site.baseurl}}assets/posts/topography/final.jpg" style="width: 100%; display: block; margin: 0 auto;"/>
 
+[Click here]({{site.baseurl}}assets/posts/topography/dem.zip) to download all the files associated with this project. You should be able to load index.html and see an SVG version of the end result. If you have any questions or comments, feel free to send me an email.
+
 <!--
 <style>
   path#CRI {
