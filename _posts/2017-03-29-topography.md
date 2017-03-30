@@ -48,7 +48,7 @@ div > div {
   padding-bottom: 48%;
   margin: 1%;
 }
-<style>
+</style>
 <div id="big_wrap image_grid">
   <div id="image_grid">
   <img src="{{site.baseurl}}assets/posts/topography/global_dem.jpg" style="width: 75%; display: block; margin: 0 auto;"/>
