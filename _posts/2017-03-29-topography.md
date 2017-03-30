@@ -201,4 +201,4 @@ topojson -p name=NAME -p name -q 1e4 -o costarica_min_topo.json costarica.json
 
 ### 6. Putting it all together with D3js
 
-putting it together with D3js
+putting it together with D3js.
