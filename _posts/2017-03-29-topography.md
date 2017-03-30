@@ -253,7 +253,7 @@ ogr2ogr -f GeoJSON costarica.json CRI_adm0.shp
 topojson -p name=NAME -p name -q 1e4 -o costarica_min_topo.json costarica.json
 ~~~
 
-### End result
+## End result
 
 With a a little D3js magic (the topic of a future tutorial, i.e. "left as an exercise for the reader") we can combine the geographic data with the merged relief map:
 
