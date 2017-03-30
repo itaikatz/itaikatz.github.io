@@ -13,7 +13,7 @@ figcaption {
   font-style: italic;
   font-size: 75%;
 }
-<style>
+</style>
 
 <figure>
   <img src="{{site.baseurl}}assets/posts/topography/cr_mountain_crop.jpg" />
