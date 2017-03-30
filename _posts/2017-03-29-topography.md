@@ -31,12 +31,12 @@ To begin, we'll need to collect raw topographical data. Fortunately, NASA has ta
 
 1. Create a heightmap
 
-The first step is to download the data, which comes in the form of "tiles" of approximately 300,000 km^2. A complete map of Costa Rica spans four tiles: srtm_19_10.tif, srtm_20_10.tif, srtm_19_11.tif, and srtm_20_11.tif.
+The first step is to download the data, which comes in the form of "tiles" of approximately 300,000 km<sup>2</sup>. A complete map of Costa Rica spans four tiles:
 
 <style>
 
 #image_grid {
-  width: 50%; 
+  width: 75%; 
   margin: 0 auto;
   overflow: hidden;
 }
