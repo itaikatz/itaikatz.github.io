@@ -257,6 +257,9 @@ topojson -p name=NAME -p name -q 1e4 -o costarica_min_topo.json costarica.json
 
 With a a little D3js magic (the topic of a future tutorial, i.e. "left as an exercise for the reader") we can combine the geographic data with the merged relief map:
 
+<img src="{{site.baseurl}}assets/posts/topography/final.jpg" style="width: 100%; display: block; margin: 0 auto;"/>
+
+<!--
 <style>
   path#CRI {
     fill: none;
@@ -323,3 +326,4 @@ With a a little D3js magic (the topic of a future tutorial, i.e. "left as an exe
   // Script here...
 </script>
 
+-->
