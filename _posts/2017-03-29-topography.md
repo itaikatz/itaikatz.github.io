@@ -13,6 +13,19 @@ figcaption {
   font-style: italic;
   font-size: 75%;
 }
+
+.highlighter-rouge, code {
+   background-color: #2b2b2b;
+}
+.highlighter-rouge {
+   border-radius: 5px;
+   padding: 10px;
+   margin-bottom: 30px;
+   -moz-box-shadow:    inset 0 0 10px #161616;
+   -webkit-box-shadow: inset 0 0 10px #161616;
+   box-shadow:         inset 0 0 10px #161616;
+
+}
 </style>
 
 <figure>
@@ -67,15 +80,15 @@ The first step is to download the data, which comes in the form of "tiles" of ap
   </figure>
     <figure id="image_grid_element">
   <img src="{{site.baseurl}}assets/posts/topography/srtm_20_10_small.jpg"/>
-  <figcaption>srtm_19_10.tif</figcaption>
+  <figcaption>srtm_20_10.tif</figcaption>
   </figure>
     <figure id="image_grid_element">
   <img src="{{site.baseurl}}assets/posts/topography/srtm_19_11_small.jpg"/>
-  <figcaption>srtm_19_10.tif</figcaption>
+  <figcaption>srtm_19_11.tif</figcaption>
   </figure>
     <figure id="image_grid_element">
   <img src="{{site.baseurl}}assets/posts/topography/srtm_20_11_small.jpg"/>
-  <figcaption>srtm_19_10.tif</figcaption>
+  <figcaption>srtm_20_11.tif</figcaption>
   </figure>
 </div>
 
@@ -131,20 +144,6 @@ To combine them with the correct cartographic projection we'll use the _gdalwarp
   </tr>
 </table>
 -->
-
-<style>
-.highlighter-rouge, code {
-   background-color: #2b2b2b;
-}
-.highlighter-rouge {
-   border-radius: 5px;
-   padding: 10px;
-   -moz-box-shadow:    inset 0 0 10px #161616;
-   -webkit-box-shadow: inset 0 0 10px #161616;
-   box-shadow:         inset 0 0 10px #161616;
-
-}
-</style>
 
 ~~~
 gdalwarp
@@ -203,12 +202,16 @@ Where color_relief.txt contains the following values:
   </tr>
 </table>
 
-<img src="{{site.baseurl}}assets/posts/topography/hill-relief-c.jpg" style="width: 75%; display: block; margin: 0 auto;"/>
 
+<figure>
+<img src="{{site.baseurl}}assets/posts/topography/hill-relief-c.jpg" style="width: 75%; display: block; margin: 0 auto;"/>
+<figcaption>Color relief map</figcaption>
+</figure>
 
 ### 3. Create a shaded relief map
 
-simulating light coming from an angle
+To add a bit more visual interest we can create a shaded relief map that simulates the appearance of light coming from an angle
+simulating light coming from an angle. We turn again to the _gdaldem_ utility, this time with the <span style="font-family: Consolas, 'Liberation Mono', Courier, monospace;">hillshade</span> option.
 
 ~~~
 gdaldem 
@@ -218,11 +221,14 @@ gdaldem
   -z 4 -az 20
 ~~~
 
+<figure>
 <img src="{{site.baseurl}}assets/posts/topography/hill-relief-shaded.jpg" style="width: 75%; display: block; margin: 0 auto;"/>
-
+<figcaption>Shaded relief map</figcaption>
+</figure>
 
 ### 4. Merge shade and color
 
+Next we'll combine the color and shaded relief maps with a simply python script (see the end of this tutorial for the code):
 ~~~
 hsv_merge.py 
   hill-relief-c.tiff 
@@ -230,7 +236,10 @@ hsv_merge.py
   hill-relief-merged.tiff
 ~~~
 
+<figure>
 <img src="{{site.baseurl}}assets/posts/topography/hill-relief-merged.jpg" style="width: 75%; display: block; margin: 0 auto;"/>
+<figcaption>Merged relief map</figcaption>
+</figure>
 
 ### 5. Get costa rica geographic data
 
