@@ -11,7 +11,7 @@ Visualizing Digital Elevation Maps
 figcaption {
   text-align: center;
   font-style: italic;
-  font-size: 75%;
+  font-size: 100%;
 }
 
 .highlighter-rouge, code {
@@ -228,7 +228,7 @@ gdaldem
 
 ### 4. Merge shade and color
 
-Next we'll combine the color and shaded relief maps with a simply python script (see the end of this tutorial for the code):
+Next we'll combine the color and shaded relief maps with a simple python script (see the end of this tutorial for the code):
 ~~~
 hsv_merge.py 
   hill-relief-c.tiff 
@@ -243,9 +243,9 @@ hsv_merge.py
 
 ### 5. Get costa rica geographic data
 
-1. download data
-2. convert SHP to JSON
-3. convert JSON to topoJSON
+Looking pretty good! As a last step let's incorporate geographic data so we can clearly see the country's boundaries. To do this, we'll use get Costa Rica's administrative boundaries from [GADM.org](gadm.org), and convert them into a format suitable for use on the web, namely TopoJSON. 
+
+For reasons that aren't terribly interesting we'll have to first convert from GADL's shapefile format to GeoJSON and then to TopoJSON using GDAL's ogr2ogr and [Mike Bostock's topojson](https://github.com/topojson/topojson) utilities, respectively:
 
 ~~~
 curl -o CRI_adm.zip http://gadm.org/data/shp/CRI_adm.zip
