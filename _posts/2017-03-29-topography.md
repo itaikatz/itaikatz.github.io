@@ -46,7 +46,7 @@ The first step is to download the data, which comes in the form of "tiles" of ap
 <style>
 
 #image_grid {
-  width: 75%; 
+  width: 50%; 
   margin: 0 auto;
   overflow: hidden;
 }
@@ -56,6 +56,9 @@ The first step is to download the data, which comes in the form of "tiles" of ap
   padding-bottom: 0;
   margin: 1%;
 }
+#image_grid_element image {
+  width: 100%
+}
 </style>
 <div id="image_grid">
   <figure id="image_grid_element">
@@ -63,15 +66,15 @@ The first step is to download the data, which comes in the form of "tiles" of ap
   <figcaption>srtm_19_10.tif</figcaption>
   </figure>
     <figure id="image_grid_element">
-  <img src="{{site.baseurl}}assets/posts/topography/srtm_19_10_small.jpg"/>
+  <img src="{{site.baseurl}}assets/posts/topography/srtm_19_11_small.jpg"/>
   <figcaption>srtm_19_10.tif</figcaption>
   </figure>
     <figure id="image_grid_element">
-  <img src="{{site.baseurl}}assets/posts/topography/srtm_19_10_small.jpg"/>
+  <img src="{{site.baseurl}}assets/posts/topography/srtm_20_10_small.jpg"/>
   <figcaption>srtm_19_10.tif</figcaption>
   </figure>
     <figure id="image_grid_element">
-  <img src="{{site.baseurl}}assets/posts/topography/srtm_19_10_small.jpg"/>
+  <img src="{{site.baseurl}}assets/posts/topography/srtm_20_11_small.jpg"/>
   <figcaption>srtm_19_10.tif</figcaption>
   </figure>
 </div>
