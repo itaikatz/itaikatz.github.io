@@ -289,7 +289,7 @@ With a a little D3js magic (the topic of a future tutorial, i.e. "left as an exe
     .attr("width", width)
     .attr("height", height);
 
-  d3.json("{{site.baseurl}}assets/posts/topography/costarica_min_topo.json", function(error, data) {
+  d3.json("{{site.baseurl}}assets/posts/topography/costarica_min_topo.txt", function(error, data) {
     var costarica = topojson.object(data, data.objects.costarica);
 
     svg.append("image")
