@@ -129,8 +129,6 @@ To combine them with the correct cartographic projection we'll use the _gdalwarp
 </table>
 -->
 
-The t_srs option sets an albers equal area projection that will center on Costa Rica. The te option defines the extent of the map, using SRS coordinates. I don't fully understand how this works and used some trial and error. Note that the x/y has a ratio of 1.6, the same as the intended output resolution (960x600).
-
 <style>
 .highlighter-rouge, code {
    background-color: #2b2b2b;
@@ -154,6 +152,8 @@ gdalwarp
   srtm_19_10.tif srtm_20_10.tif srtm_19_11.tif srtm_20_11.tif
   relief.tiff
 ~~~
+
+The t_srs option sets an albers equal area projection that will center on Costa Rica. The te option defines the extent of the map, using Spatial Reference System (SRS) coordinates. Lastly, the ts option specifies the output image size in pixels. Here's what the resulting heightmap looks like:
 
 <img src="{{site.baseurl}}assets/posts/topography/relief.jpg" style="width: 75%; display: block; margin: 0 auto;"/>
 
