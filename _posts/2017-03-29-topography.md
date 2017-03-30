@@ -34,33 +34,30 @@ To begin, we'll need to collect raw topographical data. Fortunately, NASA has ta
 The first step is to download the data, which comes in the form of "tiles" of approximately 300,000 km^2. A complete map of Costa Rica spans four tiles: srtm_19_10.tif, srtm_20_10.tif, srtm_19_11.tif, and srtm_20_11.tif.
 
 <style>
+
 #image_grid {
-  float: left;
-} 
-div > div {
-  background: #2C3E50;
-}
-#big_wrap {
   width: 50%; 
+  margin: 0 auto;
 }
-#big_wrap > div {
+#image_grid_element {
+  float: left;
   width: 48%;
   padding-bottom: 48%;
   margin: 1%;
 }
 </style>
-<div id="big_wrap image_grid">
-  <div id="image_grid">
-  <img src="{{site.baseurl}}assets/posts/topography/global_dem.jpg" style="width: 75%; display: block; margin: 0 auto;"/>
+<div id="image_grid">
+  <div id="image_grid_element">
+  <img src="{{site.baseurl}}assets/posts/topography/global_dem.jpg"/>
   </div>
-  <div id="image_grid">
-  <img src="{{site.baseurl}}assets/posts/topography/global_dem.jpg" style="width: 75%; display: block; margin: 0 auto;"/>
+  <div id="image_grid_element">
+  <img src="{{site.baseurl}}assets/posts/topography/global_dem.jpg"/>
   </div>
-  <div id="image_grid">
-  <img src="{{site.baseurl}}assets/posts/topography/global_dem.jpg" style="width: 75%; display: block; margin: 0 auto;"/>
+  <div id="image_grid_element">
+  <img src="{{site.baseurl}}assets/posts/topography/global_dem.jpg"/>
   </div>
-  <div id="image_grid">
-  <img src="{{site.baseurl}}assets/posts/topography/global_dem.jpg" style="width: 75%; display: block; margin: 0 auto;"/>
+  <div id="image_grid_element">
+  <img src="{{site.baseurl}}assets/posts/topography/global_dem.jpg"/>
   </div>
 </div>
 
