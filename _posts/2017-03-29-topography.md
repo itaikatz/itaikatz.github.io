@@ -132,8 +132,9 @@ The t_srs option sets an albers equal area projection that will center on Costa 
    border-radius: 5px;
 }
 </style>
-<div id="code_block">
+
 ~~~
+<div id="code_block">
 gdalwarp \
  -r lanczos \
  -te -250000 -156250 250000 156250 \
@@ -141,8 +142,9 @@ gdalwarp \
  -ts 960 0 \
  srtm_19_10.tif srtm_20_10.tif srtm_19_11.tif srtm_20_11.tif \
  relief.tiff
-~~~
 </div>
+~~~
+
 
 # Stitch multiple tiles together and project
 # ----------
