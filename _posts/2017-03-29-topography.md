@@ -74,8 +74,6 @@ figcaption {
 
 To combine them with the correct cartographic projection we'll use the _gdalwarp_ function, part of the [Geospatial Data Abstraction Library](http://www.gdal.org/), an open-source package for manipulating geospatial data formats.
 
-Step 1 was to create the raster. I used tiled GeoTiffs from the SRTM project, downloading four tiles that completed a map of Costa # Rica. To combine the tiff files into a single raster with the correct projection and dimensions, I used gdalwarp:
-
 <style>
 #command_table {
   border: none;
@@ -105,16 +103,16 @@ Step 1 was to create the raster. I used tiled GeoTiffs from the SRTM project, do
     <td id="command">gdalwarp</td><td></td>
   </tr>
   <tr>
-    <td id="command">&nbsp;&nbsp; -r lanczos \</td><td>Select projection type</td>
+    <td id="command">&nbsp;&nbsp; -r lanczos \</td><td>Interpolation method</td>
   </tr>
   <tr>
-    <td id="command">&nbsp;&nbsp; -te -250000 -156250 250000 156250 \</td><td>Another explanation</td>
+    <td id="command">&nbsp;&nbsp; -te -250000 -156250 250000 156250 \</td><td>Georeferenced extents of output file to be created</td>
   </tr>
   <tr>
-    <td id="command">&nbsp;&nbsp; -t_srs "+proj=aea +lat_1=8 +lat_2=11.5 +lat_0=9.7 +lon_0=-84.2 +x_0=0 +y_0=0" \</td><td>Another explanation</td>
+    <td id="command">&nbsp;&nbsp; -t_srs "+proj=aea +lat_1=8 +lat_2=11.5 +lat_0=9.7 +lon_0=-84.2 +x_0=0 +y_0=0" \</td><td>Output lat/long</td>
   </tr>
   <tr>
-    <td id="command">&nbsp;&nbsp; -ts 960 0 \</td><td>Another explanation</td>
+    <td id="command">&nbsp;&nbsp; -ts 960 0 \</td><td>Output dimensions in pixels [0=computed]</td>
   </tr>
   <tr>
     <td id="command">&nbsp;&nbsp; srtm_19_10.tif srtm_20_10.tif srtm_19_11.tif srtm_20_11.tif \</td><td>Source files</td>
