@@ -38,11 +38,12 @@ The first step is to download the data, which comes in the form of "tiles" of ap
 #image_grid {
   width: 50%; 
   margin: 0 auto;
+  overflow: hidden;
 }
 #image_grid_element {
   float: left;
   width: 48%;
-  padding-bottom: 48%;
+  padding-bottom: 0;
   margin: 1%;
 }
 </style>
