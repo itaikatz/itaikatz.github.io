@@ -10,16 +10,22 @@ Visualizing Digital Elevation Maps
 
 <img src="{{site.baseurl}}assets/posts/topography/cr_mountain_crop.jpg" />
 
-In this post we'll demonstrate how to convert a Digital Elevation Map (DEM) into a visualization suitable for use in a website or other application. A DEM is simply a 3D representation of a terrain's surface. Typically these are used for mapping the Earth's surface, but the same principle applies to mapping the Moon, other planets, or even microscopic surfaces. You may have encountered a similar concept in computer graphics, where it's referred to as a heightmap. 
+What is the highest geographic point in your country? The lowest? What if you could answer both questions at a glance?
+
+In this tutorial we'll demonstrate how to convert a [Digital Elevation Model](https://en.wikipedia.org/wiki/Digital_elevation_model) (DEM) into a visualization suitable for use in a website or other application. A DEM is simply a 3D representation of a terrain's surface. Typically these are used for mapping the Earth's surface, but the same principle applies to mapping the Moon, other planets, or even microscopic surfaces. You may have encountered a similar concept in computer graphics, where it's referred to as a [heightmap](https://en.wikipedia.org/wiki/Heightmap). 
 
 Here's what a DEM of the earth looks like (white regions represent higher elevation). Note the prominence of the Rockies, Andes, and Himalayan mountain ranges:
 
 <img src="{{site.baseurl}}assets/posts/topography/global_dem.jpg" style="width: 75%; display: block; margin: 0 auto;"/>
 
+DEMs have many applications:
+* Estimating potential sites for avalanches or landslides
+* Modeling water flow for hydrology
+* Digital flight planning
+* Improving satellite navigation, such as GPS
+* Optimizing position of RF sources (e.g. cell towers)
 
-Applications
-
-For this example we'll use a DEM to create a topographic map of Costa Rica. Costa Rica is an especially interesting example as it contains a variety of surface features ranging from relatively flat plains to prominent mountain ranges.
+For this example we'll use a DEM to create a topographic map of Costa Rica. Costa Rica is an especially interesting example as it contains a variety of surface features ranging from relatively flat plains to rugged peaks. To begin, we'll need to collect raw topographical data. Fortunately, NASA has taken care of this for us with the [Shuttle Radar Topography Mission](http://www2.jpl.nasa.gov/srtm/) (SRTM), a research effort that collected global elevation data with a resolution of 30 m per pixel. Data can be downloaded directly from the SRTM website or, more interactively, with the [SRTM Tile Grabber](http://dwtkns.com/srtm/) (note that the latter resource provides 90 m per pixel resolution). 
 
 # Stitch multiple tiles together and project
 # -------------------------------------------
