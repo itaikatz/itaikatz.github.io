@@ -156,7 +156,7 @@ gdalwarp
   heightmap.tiff
 ~~~
 
-The t_srs option sets an albers equal area projection that will center on Costa Rica. The te option defines the extent of the map, using Spatial Reference System (SRS) coordinates. Lastly, the ts option specifies the output image size in pixels. Here's what the resulting heightmap looks like:
+The t_srs option sets an albers equal area projection that will center on Costa Rica. The te option defines the extent of the map, using Spatial Reference System (SRS) coordinates. Lastly, the ts option specifies the output image size in pixels. Here's what the merged and projected heightmap looks like:
 
 <img src="{{site.baseurl}}assets/posts/topography/relief.jpg" style="width: 75%; display: block; margin: 0 auto;"/>
 
@@ -183,11 +183,31 @@ Where color_relief.txt contains the following values:
 1 201 213 166
 -->
 <table id="command_table">
+  <thead>
+  <tr>
+  <td>Elevation</td><td>Red</td><td>Green</td><td>Blue</td>
+  </tr>
+  </thead>
   <tr>
     <td>65535</td><td>255</td><td>255</td><td>255</td>
   </tr>
   <tr>
     <td>5800</td><td>254</td><td>254</td><td>254</td>
+  </tr>
+  <tr>
+    <td>3000</td><td>121</td><td>117</td><td>10</td>
+  </tr>
+  <tr>
+    <td>1500</td><td>151</td><td>106</td><td>47</td>
+  </tr>
+  <tr>
+    <td>800</td><td>127</td><td>166</td><td>122</td>
+  </tr>
+  <tr>
+    <td>500</td><td>213</td><td>213</td><td>149</td>
+  </tr>
+  <tr>
+    <td>1</td><td>201</td><td>213</td><td>166</td>
   </tr>
 </table>
 
