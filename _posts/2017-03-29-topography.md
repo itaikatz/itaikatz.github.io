@@ -76,6 +76,12 @@ To combine them with the correct cartographic projection we'll use the _gdalwarp
 
 Step 1 was to create the raster. I used tiled GeoTiffs from the SRTM project, downloading four tiles that completed a map of Costa # Rica. To combine the tiff files into a single raster with the correct projection and dimensions, I used gdalwarp:
 
+<style>
+tr {
+  background-color: inherit;
+}
+</style>
+
 <table>
   <tr>
     <td>gdalwarp</td><td></td>
