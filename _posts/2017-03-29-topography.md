@@ -77,6 +77,10 @@ To combine them with the correct cartographic projection we'll use the _gdalwarp
 Step 1 was to create the raster. I used tiled GeoTiffs from the SRTM project, downloading four tiles that completed a map of Costa # Rica. To combine the tiff files into a single raster with the correct projection and dimensions, I used gdalwarp:
 
 <style>
+#command_table {
+  border: none;
+}
+
 #command_table,
 #command_table tr,
 #command_table tr.even, 
@@ -86,14 +90,14 @@ Step 1 was to create the raster. I used tiled GeoTiffs from the SRTM project, do
   padding: 0;
 }
 
-#command_table {
-td {
+#command_table td {
+  padding: 0
   color: white;
 }
-#command {
+#command_table #command {
     font-family: Consolas, "Liberation Mono", Courier, monospace;
 } 
-}
+
 </style>
 
 <table id="command_table">
