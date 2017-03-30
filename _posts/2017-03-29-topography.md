@@ -46,6 +46,11 @@ The first step is to download the data, which comes in the form of "tiles" of ap
   padding-bottom: 0;
   margin: 1%;
 }
+figcaption {
+  text-align: center;
+  font-style: italic;
+  font-size: 75%;
+}
 </style>
 <div id="image_grid">
   <figure id="image_grid_element">
