@@ -33,6 +33,38 @@ To begin, we'll need to collect raw topographical data. Fortunately, NASA has ta
 
 The first step is to download the data, which comes in the form of "tiles" of approximately 300,000 km^2. A complete map of Costa Rica spans four tiles: srtm_19_10.tif, srtm_20_10.tif, srtm_19_11.tif, and srtm_20_11.tif.
 
+<style>
+#image_grid {
+  float: left;
+} 
+div > div {
+  background: #2C3E50;
+}
+#big_wrap {
+  width: 50%; 
+}
+#big_wrap > div {
+  width: 48%;
+  padding-bottom: 48%;
+  margin: 1%;
+}
+<style>
+<div id="big_wrap image_grid">
+  <div id="image_grid">
+  <img src="{{site.baseurl}}assets/posts/topography/global_dem.jpg" style="width: 75%; display: block; margin: 0 auto;"/>
+  </div>
+  <div id="image_grid">
+  <img src="{{site.baseurl}}assets/posts/topography/global_dem.jpg" style="width: 75%; display: block; margin: 0 auto;"/>
+  </div>
+  <div id="image_grid">
+  <img src="{{site.baseurl}}assets/posts/topography/global_dem.jpg" style="width: 75%; display: block; margin: 0 auto;"/>
+  </div>
+  <div id="image_grid">
+  <img src="{{site.baseurl}}assets/posts/topography/global_dem.jpg" style="width: 75%; display: block; margin: 0 auto;"/>
+  </div>
+</div>
+
+
 To combine them with the correct cartographic projection we'll use the _gdalwarp_ function, part of the [Geospatial Data Abstraction Library](http://www.gdal.org/), an open-source package for manipulating geospatial data formats.
 
 Step 1 was to create the raster. I used tiled GeoTiffs from the SRTM project, downloading four tiles that completed a map of Costa # Rica. To combine the tiff files into a single raster with the correct projection and dimensions, I used gdalwarp:
