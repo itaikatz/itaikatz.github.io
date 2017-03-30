@@ -17,6 +17,9 @@ code {
    border-style: none;
 
 }
+.footer-wrapper p {
+   margin-bottom: 0;
+}
 /*
 .content {
 	//width: 70%;	
