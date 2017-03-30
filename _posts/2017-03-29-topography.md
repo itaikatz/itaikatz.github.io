@@ -153,14 +153,46 @@ gdalwarp
   -t_srs "+proj=aea +lat_1=8 +lat_2=11.5 +lat_0=9.7 +lon_0=-84.2 +x_0=0 +y_0=0"
   -ts 960 0
   srtm_19_10.tif srtm_20_10.tif srtm_19_11.tif srtm_20_11.tif
-  relief.tiff
+  heightmap.tiff
 ~~~
 
 The t_srs option sets an albers equal area projection that will center on Costa Rica. The te option defines the extent of the map, using Spatial Reference System (SRS) coordinates. Lastly, the ts option specifies the output image size in pixels. Here's what the resulting heightmap looks like:
 
 <img src="{{site.baseurl}}assets/posts/topography/relief.jpg" style="width: 75%; display: block; margin: 0 auto;"/>
 
-### 2. Create a shaded relief map
+### 2. Create color relief map
+
+Next let's add some color. We'll do this with the GDAL utility _gdaldem_ which will combine the heightmap we generated with a list of colors. The colors are defined as a list of _elevation x y z_ tuples, which _gdaldem_ will interpolate. We'll choose green for low elevation and brown for high elevation, but the choice of colors is arbitrary. 
+
+~~~
+gdaldem
+  color-relief 
+  heightmap.tiff 
+  color_relief.txt 
+  hill-relief-c.tiff
+~~~
+
+Where color_relief.txt contains the following values:
+<!--
+65535 255 255 255
+5800 254 254 254
+3000 121 117 10
+1500 151 106 47
+800 127 166 122
+500 213 213 149
+1 201 213 166
+-->
+<table id="command_table">
+  <tr>
+    <td>65535</td><td>255</td><td>255</td><td>255</td>
+  </tr>
+  <tr>
+    <td>5800</td><td>254</td><td>254</td><td>254</td>
+  </tr>
+</table>
+
+
+### 3. Create a shaded relief map
 
 simulating light coming from an angle
 
@@ -173,15 +205,7 @@ gdaldem
 ~~~
 
 
-### 3. Create color relief map
 
-~~~
-gdaldem
-  color-relief 
-  relief.tiff 
-  color_relief.txt 
-  hill-relief-c.tiff
-~~~
 
 ### 4. Merge shade and color
 
