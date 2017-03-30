@@ -98,9 +98,11 @@ div.tooltip {
 <script src="{{site.baseurl}}assets/posts/RF_prop_sim/js/skin.js" type="text/javascript"></script>  
 
 <!--
+[introduce problem] 
+
 [In a previous tutorial]({{ site.baseurl }}{% link _posts/2017-03-29-topography.md %}) we showed how to generate a visualization of a Digital Elevation Model (DEM). In this post we'll show how 
 -->
-
+test
 <div id="layout"></div>
 <div class="outer" id="outer">
 	<svg class="map">
