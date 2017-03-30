@@ -88,6 +88,7 @@ td {
   color: white;
  
   #command {
+    color: white;
     font-family: Consolas, "Liberation Mono", Courier, monospace;
   } 
 }
