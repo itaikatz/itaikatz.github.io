@@ -267,8 +267,8 @@ With a a little D3js magic (the topic of a future tutorial, i.e. "left as an exe
 
 <div id="merged-map"></div>
 
-<script src="http://d3js.org/d3.v3.min.js"></script>
-<script src="http://d3js.org/topojson.v0.min.js"></script>
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="https://d3js.org/topojson.v0.min.js"></script>
 <script>
   var width = 960,
       height = 600;
