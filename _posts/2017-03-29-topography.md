@@ -142,41 +142,58 @@ The t_srs option sets an albers equal area projection that will center on Costa 
 
 ~~~
 gdalwarp
- -r lanczos
- -te -250000 -156250 250000 156250
- -t_srs "+proj=aea +lat_1=8 +lat_2=11.5 +lat_0=9.7 +lon_0=-84.2 +x_0=0 +y_0=0"
- -ts 960 0
- srtm_19_10.tif srtm_20_10.tif srtm_19_11.tif srtm_20_11.tif
- relief.tiff
+  -r lanczos
+  -te -250000 -156250 250000 156250
+  -t_srs "+proj=aea +lat_1=8 +lat_2=11.5 +lat_0=9.7 +lon_0=-84.2 +x_0=0 +y_0=0"
+  -ts 960 0
+  srtm_19_10.tif srtm_20_10.tif srtm_19_11.tif srtm_20_11.tif
+  relief.tiff
+~~~
+
+### 2. Create a shaded relief map
+
+simulating light coming from an angle
+
+~~~
+gdaldem 
+  hillshade 
+  relief.tiff 
+  hill-relief-shaded.tiff 
+  -z 4 -az 20
 ~~~
 
 
-# Stitch multiple tiles together and project
-# ----------
-gdalwarp -r lanczos -te -250000 -156250 250000 156250 -t_srs "+proj=aea +lat_1=8 +lat_2=11.5 +lat_0=9.7 +lon_0=-84.2 +x_0=0 +y_0=0"  -ts 960 0 srtm_19_10.tif srtm_20_10.tif srtm_19_11.tif srtm_20_11.tif relief.tiff
+### 3. Create color relief map
 
-# Create shaded relief map (simulating light coming from an angle)
-# ----------
-gdaldem hillshade relief.tiff hill-relief-shaded.tiff -z 4 -az 20
+~~~
+gdaldem
+  color-relief 
+  relief.tiff 
+  color_relief.txt 
+  hill-relief-c.tiff
+~~~
 
-# Create color relief map
-# -----------------------
-gdaldem color-relief relief.tiff color_relief.txt hill-relief-c.tiff
+### 4. Merge shade and color
 
-# Merge shade and color
-# ---------------------
-hsv_merge.py hill-relief-c.tiff hill-relief-shaded.tiff hill-relief-merged.tiff
+~~~
+hsv_merge.py 
+  hill-relief-c.tiff 
+  hill-relief-shaded.tiff 
+  hill-relief-merged.tiff
+~~~
 
-# Get costa rica geographic data
-# ------------------------------
+### 5. Get costa rica geographic data
+
+1. download data
+2. convert SHP to JSON
+3. convert JSON to topoJSON
+
+~~~
 curl -o CRI_adm.zip http://gadm.org/data/shp/CRI_adm.zip
-
-# Convert SHP to JSON
-# -------------------
 ogr2ogr -f GeoJSON costarica.json CRI_adm0.shp
-
-# topoJSON
-# ---------
 topojson -p name=NAME -p name -q 1e4 -o costarica_min_topo.json costarica.json
+~~~
+
+### 6. Putting it all together with D3js
 
 putting it together with D3js
