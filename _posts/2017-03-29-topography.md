@@ -99,11 +99,11 @@ gdalwarp \
  relief.tiff
 
 # Stitch multiple tiles together and project
-# -------------------------------------------
+# ----------
 gdalwarp -r lanczos -te -250000 -156250 250000 156250 -t_srs "+proj=aea +lat_1=8 +lat_2=11.5 +lat_0=9.7 +lon_0=-84.2 +x_0=0 +y_0=0"  -ts 960 0 srtm_19_10.tif srtm_20_10.tif srtm_19_11.tif srtm_20_11.tif relief.tiff
 
 # Create shaded relief map (simulating light coming from an angle)
-# -----------------------------------------------------------------
+# ----------
 gdaldem hillshade relief.tiff hill-relief-shaded.tiff -z 4 -az 20
 
 # Create color relief map
