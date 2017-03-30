@@ -66,11 +66,11 @@ The first step is to download the data, which comes in the form of "tiles" of ap
   <figcaption>srtm_19_10.tif</figcaption>
   </figure>
     <figure id="image_grid_element">
-  <img src="{{site.baseurl}}assets/posts/topography/srtm_19_11_small.jpg"/>
+  <img src="{{site.baseurl}}assets/posts/topography/srtm_20_10_small.jpg"/>
   <figcaption>srtm_19_10.tif</figcaption>
   </figure>
     <figure id="image_grid_element">
-  <img src="{{site.baseurl}}assets/posts/topography/srtm_20_10_small.jpg"/>
+  <img src="{{site.baseurl}}assets/posts/topography/srtm_19_11_small.jpg"/>
   <figcaption>srtm_19_10.tif</figcaption>
   </figure>
     <figure id="image_grid_element">
@@ -162,7 +162,7 @@ The t_srs option sets an albers equal area projection that will center on Costa 
 
 ### 2. Create color relief map
 
-Next let's add some color. We'll do this with the GDAL utility _gdaldem_ which will combine the heightmap we generated with a list of colors. The colors are defined as a list of _elevation x y z_ tuples, which _gdaldem_ will interpolate. We'll choose green for low elevation and brown for high elevation, but the choice of colors is arbitrary. 
+Next let's add some color. We'll do this with the GDAL utility _gdaldem_ which will combine the heightmap we generated with a list of colors. The colors are defined as a list of [_elevation x y z_] tuples, which _gdaldem_ will interpolate. We'll choose green for low elevation and brown for high elevation, but the choice of colors is arbitrary. 
 
 ~~~
 gdaldem
