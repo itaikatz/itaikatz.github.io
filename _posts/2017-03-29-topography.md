@@ -92,6 +92,7 @@ Step 1 was to create the raster. I used tiled GeoTiffs from the SRTM project, do
 #command_table td {
   padding: 0;
   color: white;
+  font-size: 100%;
 }
 #command_table #command {
     font-family: Consolas, "Liberation Mono", Courier, monospace;
