@@ -43,7 +43,7 @@ div.tooltip {
     opacity: 0.5;
   }
 
-  svg {
+  svg .map {
     position: absolute;
   }
   canvas {
