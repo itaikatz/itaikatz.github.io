@@ -127,24 +127,23 @@ To combine them with the correct cartographic projection we'll use the _gdalwarp
 The t_srs option sets an albers equal area projection that will center on Costa Rica. The te option defines the extent of the map, using SRS coordinates. I don't fully understand how this works and used some trial and error. Note that the x/y has a ratio of 1.6, the same as the intended output resolution (960x600).
 
 <style>
-#highlighter-rouge, code {
+.highlighter-rouge, code {
    background-color: #545454;
 }
-#highlighter-rouge {
+.highlighter-rouge {
    border-radius: 5px;
+   padding: 10px;
 }
 </style>
 
 ~~~
-<div id="code_block">
-gdalwarp \
- -r lanczos \
- -te -250000 -156250 250000 156250 \
- -t_srs "+proj=aea +lat_1=8 +lat_2=11.5 +lat_0=9.7 +lon_0=-84.2 +x_0=0 +y_0=0" \
- -ts 960 0 \
- srtm_19_10.tif srtm_20_10.tif srtm_19_11.tif srtm_20_11.tif \
+gdalwarp
+ -r lanczos
+ -te -250000 -156250 250000 156250
+ -t_srs "+proj=aea +lat_1=8 +lat_2=11.5 +lat_0=9.7 +lon_0=-84.2 +x_0=0 +y_0=0"
+ -ts 960 0
+ srtm_19_10.tif srtm_20_10.tif srtm_19_11.tif srtm_20_11.tif
  relief.tiff
-</div>
 ~~~
 
 
