@@ -25,7 +25,25 @@ DEMs have many applications:
 * Improving satellite navigation, such as GPS
 * Optimizing position of RF sources (e.g. cell towers)
 
-For this example we'll use a DEM to create a topographic map of Costa Rica. Costa Rica is an especially interesting example as it contains a variety of surface features ranging from relatively flat plains to rugged peaks. To begin, we'll need to collect raw topographical data. Fortunately, NASA has taken care of this for us with the [Shuttle Radar Topography Mission](http://www2.jpl.nasa.gov/srtm/) (SRTM), a research effort that collected global elevation data with a resolution of 30 m per pixel. Data can be downloaded directly from the SRTM website or, more interactively, with the [SRTM Tile Grabber](http://dwtkns.com/srtm/) (note that the latter resource provides 90 m per pixel resolution). 
+For this example we'll use a DEM to create a topographic map of Costa Rica. Costa Rica is an especially interesting example as it contains a variety of surface features ranging from relatively flat plains to rugged peaks. After collecting 
+
+To begin, we'll need to collect raw topographical data. Fortunately, NASA has taken care of this for us with the [Shuttle Radar Topography Mission](http://www2.jpl.nasa.gov/srtm/) (SRTM), a research effort that collected global elevation data with a resolution of 30 m per pixel. Data can be downloaded directly from the SRTM website or, more interactively, with the [SRTM Tile Grabber](http://dwtkns.com/srtm/) (note that the latter resource provides 90 m per pixel resolution). 
+
+1. Create a heightmap
+
+The first step is to download the data, which comes in the form of "tiles" of approximately 300,000 km^2. A complete map of Costa Rica spans four tiles: srtm_19_10.tif, srtm_20_10.tif, srtm_19_11.tif, and srtm_20_11.tif.
+
+To combine them with the correct cartographic projection we'll use the _gdalwarp_ function, part of the [Geospatial Data Abstraction Library](http://www.gdal.org/), an open-source package for manipulating geospatial data formats.
+
+Step 1 was to create the raster. I used tiled GeoTiffs from the SRTM project, downloading four tiles that completed a map of Costa # Rica. To combine the tiff files into a single raster with the correct projection and dimensions, I used gdalwarp:
+
+gdalwarp \
+ -r lanczos \
+ -te -250000 -156250 250000 156250 \
+ -t_srs "+proj=aea +lat_1=8 +lat_2=11.5 +lat_0=9.7 +lon_0=-84.2 +x_0=0 +y_0=0" \
+ -ts 960 0 \
+ srtm_19_10.tif srtm_20_10.tif srtm_19_11.tif srtm_20_11.tif \
+ relief.tiff
 
 # Stitch multiple tiles together and project
 # -------------------------------------------
