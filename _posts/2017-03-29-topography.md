@@ -253,6 +253,71 @@ ogr2ogr -f GeoJSON costarica.json CRI_adm0.shp
 topojson -p name=NAME -p name -q 1e4 -o costarica_min_topo.json costarica.json
 ~~~
 
-### 6. Putting it all together with D3js
+With a a little D3js magic (the topic of a future tutorial, i.e. "left as an exercise for the reader") we can combine the geographic data with the merged relief map:
 
-putting it together with D3js.
+<style>
+  path#CRI {
+    fill: none;
+    stroke: #000;
+  }
+  image.bg {
+    opacity: 0.2;
+  }
+</style>
+
+<div id="merged-map"></div>
+
+<script src="http://d3js.org/d3.v3.min.js"></script>
+<script src="http://d3js.org/topojson.v0.min.js"></script>
+<script>
+  var width = 960,
+      height = 600;
+
+  var projection = d3.geo.albers()
+    .center([0, 9.7])
+    .rotate([84.2,0])
+    .parallels([8, 11.5])
+    //.scale(10200)
+    .scale(12240)
+    .translate([width / 2, height / 2]);
+
+  var path = d3.geo.path()
+    .projection(projection);
+
+  var svg = d3.select("#merged-map").append("svg")
+    .attr("class", "map")
+    .attr("width", width)
+    .attr("height", height);
+
+  d3.json("{{site.baseurl}}assets/posts/topography/costarica_min_topo.json", function(error, data) {
+    var costarica = topojson.object(data, data.objects.costarica);
+
+    svg.append("image")
+      //.attr("clip-path", "url(#clip)")
+      .attr("xlink:href", "{{site.baseurl}}assets/posts/topography/hill-relief.jpg")
+      .attr("width", width)
+      .attr("height", height)
+      .attr("class", "bg");
+
+    svg.selectAll(".cr-subunit")
+      .data(costarica.geometries)
+    .enter().append("path")
+      .attr("id", function(d) { return "CRI"; })
+      .attr("d", path);
+
+    svg.append("clipPath")
+      .attr("id", "clip")
+    .append("use")
+      .attr("xlink:href", "#CRI");
+
+    svg.append("image")
+      .attr("clip-path", "url(#clip)")
+      .attr("xlink:href", "{{site.baseurl}}assets/posts/topography/hill-relief.jpg")
+      .attr("width", width)
+      .attr("height", height)
+      .attr("class", "fg");
+  });
+
+  // Script here...
+</script>
+
