@@ -59,19 +59,19 @@ The first step is to download the data, which comes in the form of "tiles" of ap
 </style>
 <div id="image_grid">
   <figure id="image_grid_element">
-  <img src="{{site.baseurl}}assets/posts/topography/global_dem.jpg"/>
+  <img src="{{site.baseurl}}assets/posts/topography/srtm_19_10_small.jpg"/>
   <figcaption>srtm_19_10.tif</figcaption>
   </figure>
     <figure id="image_grid_element">
-  <img src="{{site.baseurl}}assets/posts/topography/global_dem.jpg"/>
+  <img src="{{site.baseurl}}assets/posts/topography/srtm_19_10_small.jpg"/>
   <figcaption>srtm_19_10.tif</figcaption>
   </figure>
     <figure id="image_grid_element">
-  <img src="{{site.baseurl}}assets/posts/topography/global_dem.jpg"/>
+  <img src="{{site.baseurl}}assets/posts/topography/srtm_19_10_small.jpg"/>
   <figcaption>srtm_19_10.tif</figcaption>
   </figure>
     <figure id="image_grid_element">
-  <img src="{{site.baseurl}}assets/posts/topography/global_dem.jpg"/>
+  <img src="{{site.baseurl}}assets/posts/topography/srtm_19_10_small.jpg"/>
   <figcaption>srtm_19_10.tif</figcaption>
   </figure>
 </div>
@@ -154,6 +154,8 @@ gdalwarp
   srtm_19_10.tif srtm_20_10.tif srtm_19_11.tif srtm_20_11.tif
   relief.tiff
 ~~~
+
+<img src="{{site.baseurl}}assets/posts/topography/relief.jpg" style="width: 75%; display: block; margin: 0 auto;"/>
 
 ### 2. Create a shaded relief map
 
