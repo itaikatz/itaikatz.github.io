@@ -29,7 +29,7 @@ For this example we'll use a DEM to create a topographic map of Costa Rica. Cost
 
 To begin, we'll need to collect raw topographical data. Fortunately, NASA has taken care of this for us with the [Shuttle Radar Topography Mission](http://www2.jpl.nasa.gov/srtm/) (SRTM), a research effort that collected global elevation data with a resolution of 30 m per pixel. 
 
-1. Create a heightmap
+## 1. Create a heightmap
 
 The first step is to download the data, which comes in the form of "tiles" of approximately 300,000 km<sup>2</sup>. This data can be downloaded directly from the SRTM website or, more interactively, with the [SRTM Tile Grabber](http://dwtkns.com/srtm/). A complete map of Costa Rica spans four tiles:
 
@@ -74,6 +74,7 @@ figcaption {
 
 To combine them with the correct cartographic projection we'll use the _gdalwarp_ function, part of the [Geospatial Data Abstraction Library](http://www.gdal.org/), an open-source package for manipulating geospatial data formats.
 
+<!--
 <style>
 #command_table {
   border: none;
@@ -121,9 +122,17 @@ To combine them with the correct cartographic projection we'll use the _gdalwarp
     <td id="command">&nbsp;&nbsp; relief.tiff </td><td>Output file</td>
   </tr>
 </table>
-
+-->
 
 The t_srs option sets an albers equal area projection that will center on Costa Rica. The te option defines the extent of the map, using SRS coordinates. I don't fully understand how this works and used some trial and error. Note that the x/y has a ratio of 1.6, the same as the intended output resolution (960x600).
+
+<style>
+#code_block {
+   background-color: green;
+   border-radius: 5px;
+}
+</style>
+<div id="code_block">
 ~~~
 gdalwarp \
  -r lanczos \
@@ -133,6 +142,7 @@ gdalwarp \
  srtm_19_10.tif srtm_20_10.tif srtm_19_11.tif srtm_20_11.tif \
  relief.tiff
 ~~~
+</div>
 
 # Stitch multiple tiles together and project
 # ----------
