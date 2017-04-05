@@ -2,9 +2,9 @@
   "name": "itai-katz",
   "version": "0.1.0",
   "devDependencies": {
-    "grunt": "~0.4.1",
-    "grunt-contrib-concat": "~0.5.0",
-    "grunt-contrib-less": "~0.11.4",
-    "grunt-jekyll": "~0.4.2"
+    "grunt": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-less": "*",
+    "grunt-jekyll": "*"
   }
 }

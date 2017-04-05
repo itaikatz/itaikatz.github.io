@@ -9,7 +9,7 @@ body {
 .header {
   padding-top: 50px;
   padding-bottom: 50px;
-  color: #ffffff;
+  color: #fff;
 }
 .content {
   background-color: white;
@@ -18,8 +18,8 @@ body {
   height: 300px;
 }
 .carousel {
-  -webkit-filter: drop-shadow(0 0 20px #000000);
-  filter: drop-shadow(0 0 20px #000000);
+  -webkit-filter: drop-shadow(0 0 20px black);
+  filter: drop-shadow(0 0 20px black);
 }
 footer {
   background-color: #232323;

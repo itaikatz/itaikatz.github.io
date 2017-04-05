@@ -14,10 +14,11 @@ module.exports = function(grunt) {
             default: {                 
             files: {
                 'css/charcoal.css': 'css/charcoal.less',
-                'css/lacuna.css': 'css/lacuna.less',
-                'corporate/css/charcoal_foundation.css': 'corporate/css/charcoal_foundation.less',
-                'corporate/css/home.css': 'corporate/css/home.less',
-                'corporate/lacuna_index.css': 'corporate/lacuna_index.less'
+                //'css/lacuna.css': 'css/lacuna.less',
+                //'corporate/css/charcoal_foundation.css': 'corporate/css/charcoal_foundation.less',
+                //'corporate/css/home.css': 'corporate/css/home.less',
+                //'corporate/lacuna_index.css': 'corporate/lacuna_index.less',
+                'index2.css' : 'index2.less'
             }
             }
         },
@@ -26,6 +27,7 @@ module.exports = function(grunt) {
             options: {                          // Universal options
                 //bundleExec: true,
                 //src : '<%= app %>'
+                incremental: true
             },
             default: {   
             }
