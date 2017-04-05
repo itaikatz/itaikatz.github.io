@@ -1,5 +1,5 @@
 # Use CDN? Otherwise rely on local sources (e.g. for offline editing)
-work_offline: false
+work_offline: true
 
 # Name of your blog (this will show up at the top of your page and in the RSS feed)
 name: Itai Katz

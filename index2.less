@@ -31,6 +31,12 @@ body {
 	background-color: @bg-color;
     color: white;
   	margin-bottom: 60px;  /* Margin bottom by footer height */
+
+  
+  	// background-color: @bg-color;
+	background-color: #262626;
+	background-image: url("https://www.transparenttextures.com/patterns/classy-fabric.png");
+	/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
 svg {
@@ -66,12 +72,30 @@ a {
 		outline: 1px solid #323232;
         outline-offset:3px;
 
+        overflow: hidden;
 	@media screen and (min-width: @med-width ) { /* medium (48em/768px) and up */
 		width: 100%;
 		padding-bottom: 130%;
 		// height: 300px;
 		margin-top: 0;
 		margin-bottom: 0;
+	}
+
+	&:hover {
+ 	   svg {
+	      path   { fill: rgba(255,255,255,0.4); }  
+	      circle { stroke: rgba(255,255,255,0.4); }
+	      rect   { fill: rgba(255,255,255,0.4); 
+	               stroke: rgba(255,255,255,0.4); }
+      }
+  	}
+
+	svg  {
+	  position: absolute;    
+	  right: -50px;
+	  top: -30px;
+	  stroke: rgba(255,255,255,0.2);           
+	  fill: rgba(255,255,255,0.2);
 	}
 
 	.panel-text {
@@ -84,9 +108,6 @@ a {
 	    color: @light-gray;
 
 	    .heading1 {
-	//     	font-size: 200%;
-	//     	// font-size: 30px;
-
 	    	border-bottom-style: solid;
             border-bottom-width: 1px; 
 			font-size: 2em;
@@ -107,12 +128,8 @@ a {
 
 .nav-panel-factory(@color) {
   background-color: @color;
-  &:hover {
-    background: radial-gradient(ellipse 150px 100px at bottom,lighten(@color, 15%),lighten(@color, 4%), @color);
-  }
-  .heading1 {
-    border-bottom-color: lighten(@color, 5%);    
-  }
+  &:hover { background: radial-gradient(ellipse 150px 100px at bottom,lighten(@color, 15%),lighten(@color, 4%), @color); }
+  .heading1 { border-bottom-color: lighten(@color, 5%); }
 }
 
 #about    { .nav-panel-factory(@panel-blue);   }
@@ -122,18 +139,25 @@ a {
 
 .footer {
 	.footer-wrapper {
-		// @media (min-width: @sm-width ) { /* medium (48em/768px) and up */
-			width: 80%;
-		// } 
+		width: 80%;
 		margin: 0 auto;	
 		height: 100%;	
-//		position: relative;
 	}
 	ul {
-// 		 // li:first-child {
-// 	  //       border-right: 1px solid;
-// 	  //       padding: 10px;
-// 	  //   }
+		li {
+			padding-top: 5px;
+			padding-bottom: 5px;
+			font-size: 1rem;
+			color: @icon-color;
+			@media (min-width: @sm-width ) { font-size: 2rem; }
+		   }
+
+		
+		 // li:first-child {
+		 // 	font-size: 1em;
+	  //       border-right: 1px solid;
+	  //       padding-right: 10px;
+	  //   }
 		margin: 0;	
 	}
 	// clear: both;

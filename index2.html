@@ -62,30 +62,6 @@ title: Itai Katz
 	</div>
 	</header>
 
-<!-- 	<div class="container">
-	<div class="card">
-		<div class="card-block">
-		This is some text within a card block.
-		</div>
-	</div>
-	<div class="card">
-		<div class="card-block">
-		This is some text within a card block.
-		</div>
-	</div>
-	<div class="card">
-		<div class="card-block">
-		This is some text within a card block.
-		</div>
-	</div>
-	<div class="card">
-		<div class="card-block">
-		This is some text within a card block.
-		</div>
-	</div>
-	</div>
- -->			
-<!-- <div class="panel-set">  -->
 	<div class="container panel-set">
 		<div class="row justify-content-center">
 			<div class="col-6 col-md-3"> 
@@ -96,6 +72,7 @@ title: Itai Katz
 						<div class="heading1">About</div>
 						<div class="heading2">About me</div>    
 					</div>
+					{% include svg/info.svg %}
 				</div>
 				</a>
 			</div>
@@ -105,6 +82,7 @@ title: Itai Katz
 						<div class="heading1">Research</div>
 						<div class="heading2">Projects</div>    
 					</div>
+					{% include svg/beaker.svg %}
 				</div>
 			</div>
 			<div class="col-6 col-md-3">
@@ -113,6 +91,7 @@ title: Itai Katz
 						<div class="heading1">Blog</div>
 						<div class="heading2">Writing</div>    
 					</div>
+					{% include svg/book.svg %}
 				</div>
 			</div>
 
@@ -122,6 +101,7 @@ title: Itai Katz
 						<div class="heading1">Tutorials</div>
 						<div class="heading2">Teaching</div>    
 					</div>
+					{% include svg/lightbulb.svg %}
 				</div>
 			</div>		
 		</div>
@@ -129,28 +109,22 @@ title: Itai Katz
 	<!-- </div> -->
 	
     <footer class="footer">
-    		<!-- <p class="text-muted">Place sticky footer content here.</p> -->
-	    <!-- <div class="footer-wrapper d-flex align-items-center block"> -->
-		<!-- <div class="footer-wrapper d-flex align-items-center"> -->
-<!-- 			<span class="float-left align-middle">Left text</span>
-	    	<span class="float-right">Right text</span>
- -->
 	 <div class="footer-wrapper d-flex">
 	      <div class="container align-self-center">
 	      <div class="row">
-			<div class="col-12 col-sm-6 text-center text-sm-left">
+			<div class="col-12 col-sm-6 text-center text-sm-left align-self-center">
 				Copyright &copy;  
 				<script type="text/javascript">
 				document.write(new Date().getFullYear());
 				</script>
 				Itai Katz
 			</div>
-			<div class="col-12 col-sm-6 text-center text-sm-right">
+			<div class="col-12 col-sm-6 text-center text-sm-right align-self-center">
 				<ul class="list-inline">
-				<li class="list-inline-item">Connect</li>
-				<li class="list-inline-item">[LI]</li>
-				<li class="list-inline-item">[GH]</li>										
-				<li class="list-inline-item">[YT]</li>									
+				<!-- <li class="list-inline-item hidden-xs-down">Connect</li> -->
+				<li class="list-inline-item"><i class="fa fa-linkedin-square" aria-hidden="true"></i></li>
+				<li class="list-inline-item"><i class="fa fa-github-square" aria-hidden="true"></i></li>
+				<li class="list-inline-item"><i class="fa fa-youtube-square" aria-hidden="true"></i></li>					
 				</ul>
 			</div>
 		  </div>
