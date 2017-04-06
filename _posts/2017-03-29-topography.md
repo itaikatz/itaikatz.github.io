@@ -2,7 +2,7 @@
 title: Topography
 publish_title: "Visualizing Digital Elevation Maps"
 category: tutorial
-layout: blog_post
+layout: charcoal2
 ---
 
 Visualizing Digital Elevation Maps

@@ -25,6 +25,7 @@ a {
   text-decoration: none;
 }
 .panel-set {
+  width: 80%;
   padding-bottom: 40px;
 }
 .nav-panel {
@@ -160,9 +161,13 @@ a {
 }
 .footer .footer-wrapper {
   width: 80%;
-  margin: 0 auto;
   height: 100%;
-  font-size: 1.2em;
+  font-size: 0.8em;
+}
+@media (min-width: 48em) {
+  .footer .footer-wrapper {
+    font-size: 1.2rem;
+  }
 }
 .footer ul {
   margin: 0;
@@ -170,13 +175,8 @@ a {
 .footer ul li {
   padding-top: 5px;
   padding-bottom: 5px;
-  font-size: 1rem;
+  font-size: 2rem;
   color: #9f9f9f;
-}
-@media (min-width: 34em) {
-  .footer ul li {
-    font-size: 2rem;
-  }
 }
 .header {
   width: 80%;
@@ -220,4 +220,74 @@ a {
     /* medium (48em/768px) and up */
     font-size: 25px;
   }
+}
+.content-wrapper {
+  width: 80%;
+}
+.sidebar ul {
+  padding: 0;
+}
+.sidebar li {
+  display: inline-block;
+  list-style-type: none;
+  border: 1px solid rgba(147, 147, 147, 0.7);
+  text-align: center;
+  width: 23%;
+  margin-right: 1%;
+  border-radius: 3px;
+}
+.sidebar li.about {
+  background-color: #0084a9;
+}
+.sidebar li.research {
+  background-color: #7a9d00;
+}
+.sidebar li.blog {
+  background-color: #df9100;
+}
+.sidebar li.tutorial {
+  background-color: #b23814;
+}
+@media (max-width: 48em) {
+  .sidebar li:not(.active).about {
+    background-color: rgba(0, 132, 169, 0);
+  }
+  .sidebar li:not(.active).research {
+    background-color: rgba(122, 157, 0, 0);
+  }
+  .sidebar li:not(.active).blog {
+    background-color: rgba(223, 145, 0, 0);
+  }
+  .sidebar li:not(.active).tutorial {
+    background-color: rgba(178, 56, 20, 0);
+  }
+}
+@media (min-width: 48em) {
+  .sidebar li {
+    color: white;
+    display: block;
+    text-align: right;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    font-size: 1.7vw;
+    padding-right: 10%;
+    padding-bottom: 10%;
+    padding-top: 10%;
+  }
+  .sidebar li.active {
+    padding-bottom: 60%;
+    padding-top: 60%;
+  }
+}
+.sidebar a {
+  text-decoration: none;
+  color: white;
+}
+nav a {
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.5rem !important;
+  padding: 0 !important;
+  font-weight: bold;
 }

@@ -8,17 +8,21 @@ module.exports = function(grunt) {
         less: { 
             options: {
                 //paths: ["css/pages"]
-                cleancss: false // minify CSS?
+                cleancss: true // minify CSS?
             },
             
             default: {                 
             files: {
-                'css/charcoal.css': 'css/charcoal.less',
-                //'css/lacuna.css': 'css/lacuna.less',
-                //'corporate/css/charcoal_foundation.css': 'corporate/css/charcoal_foundation.less',
-                //'corporate/css/home.css': 'corporate/css/home.less',
-                //'corporate/lacuna_index.css': 'corporate/lacuna_index.less',
-                'index2.css' : 'index2.less'
+                
+                // //'css/lacuna.css': 'css/lacuna.less',
+                // //'corporate/css/charcoal_foundation.css': 'corporate/css/charcoal_foundation.less',
+                // //'corporate/css/home.css': 'corporate/css/home.less',
+                // //'corporate/lacuna_index.css': 'corporate/lacuna_index.less',
+
+                //'css/charcoal.css': 'css/charcoal.less',
+                //'index2.css' : 'index2.less',
+                'css/charcoal2.css' : 'css/charcoal2.less'
+
             }
             }
         },

@@ -1,4 +1,5 @@
-<svg version="1.1" height="300" width="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<!-- <svg version="1.1" height="300" width="300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"> -->
+<svg version="1.1" viewbox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <g transform="scale(0.55) translate(-30, 120) rotate(-45, 150, 150)">		
 			<path d="M352,368H160c-8.844,0-16-7.156-16-16s7.156-16,16-16h192c8.844,0,16,7.156,16,16S360.844,368,352,368z M368,400
 		  c0-8.844-7.156-16-16-16H160c-8.844,0-16,7.156-16,16s7.156,16,16,16h192C360.844,416,368,408.844,368,400z M336,448
