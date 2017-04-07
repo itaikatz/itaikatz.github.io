@@ -13,9 +13,11 @@ html {
 }
 body {
   background-color: #252525;
-  color: white;
   margin-bottom: 60px;
   /* Margin bottom by footer height */
+  color: #e0e0e0;
+  font-family: 'Indie Flower', Arial, sans-serif;
+  background-image: url("https://www.transparenttextures.com/patterns/classy-fabric.png");
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 svg {
@@ -23,6 +25,18 @@ svg {
 }
 a {
   text-decoration: none;
+}
+.highlight.about {
+  color: #0084a9;
+}
+.highlight.research {
+  color: #7a9d00;
+}
+.highlight.blog {
+  color: #df9100;
+}
+.highlight.tutorial {
+  color: #b23814;
 }
 .panel-set {
   width: 80%;

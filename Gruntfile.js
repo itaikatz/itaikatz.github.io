@@ -21,7 +21,8 @@ module.exports = function(grunt) {
 
                 //'css/charcoal.css': 'css/charcoal.less',
                 //'index2.css' : 'index2.less',
-                'css/charcoal2.css' : 'css/charcoal2.less'
+                'css/charcoal2.css' : 'css/charcoal2.less',
+                'aboutme.css' : 'aboutme.less'
 
             }
             }

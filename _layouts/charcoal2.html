@@ -38,6 +38,12 @@
 	{% endif %}
 
 	<link rel="stylesheet" type="text/css" href="{{baseurl}}/css/charcoal2.css">
+
+	{% if page.custom_css %}
+	  {% for stylesheet in page.custom_css %}
+	  <link rel="stylesheet" href="{{baseurl}}{{ stylesheet }}" media="screen" type="text/css">
+	  {% endfor %}
+	{% endif %}
 </head>
 
 <body>
@@ -105,22 +111,22 @@
 		<div class="row">
 			<div class="col-12 col-md-2 nav-bar hidden-xs-down sidebar"> 
 				<ul>
-				{% if page.type == 'about' %}
+				{% if page.category == 'about' %}
 				<a href="{{baseurl}}/aboutme.html"><li class="about active">About</li></a>
 				{% else %}
 				<a href="{{baseurl}}/aboutme.html"><li class="about">About</li></a>
 				{% endif %}				
-				{% if page.type == 'research' %}
+				{% if page.category == 'research' %}
 				<li class="research active">Research</li>
 				{% else %}
 				<li class="research">Research</li>
 				{% endif %}
-				{% if page.type == 'blog' %}
+				{% if page.category == 'blog' %}
 				<li class="blog active">Blog</li>
 				{% else %}		
 				<li class="blog">Blog</li>						
 				{% endif %}
-				{% if page.type == 'tutorial' %}
+				{% if page.category == 'tutorial' %}
 				<li class="tutorial active">Tutorials</li>
 				{% else %}				
 				<li class="tutorial">Tutorials</li>				
@@ -128,7 +134,9 @@
 				</ul>
 			</div>
 			<div class="col-12 col-md-10"> 
-				{{ content }}
+				<div class="main-content">
+					{{ content }}
+				</div>
 			</div>
 		</div>
 	</div>

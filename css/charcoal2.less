@@ -1,19 +1,4 @@
-// Colors
-@light-gray:	  #e0e0e0;
-@dark-gray: 	  #656565;
-@bg-color:	  	  #252525;
-@icon-color:      #9f9f9f;
-
-@panel-blue:	  #0084a9;
-@panel-green:     #7a9d00;
-@panel-orange:    #df9100;
-@panel-red:       #b23814;
-
-// Media Breakpoints
-@sm-width:  34em;  /* 544 px */
-@med-width: 48em;  /* 768 px */
-@lg-width:  62em;  /* 992 px */
-@xl-width:  75em;  /* 1200 px */
+@import "templates/site_variables.less";
 
 * {
 	margin: 0;
@@ -29,16 +14,25 @@ html {
 
 body {
 	background-color: @bg-color;
-    color: white;
   	margin-bottom: 60px;  /* Margin bottom by footer height */
 
-	// background-color: #262626;
-	// background-image: url("https://www.transparenttextures.com/patterns/classy-fabric.png");
+    color: @light-gray;	
+ 	font-family: 'Indie Flower', Arial,sans-serif;
+
+	 // background-color: #262626;
+	 background-image: url("https://www.transparenttextures.com/patterns/classy-fabric.png");
 	/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
 svg { fill: white; }
 a { text-decoration: none; }
+
+.highlight {
+	&.about    { color: @panel-blue;   }
+	&.research { color: @panel-green;  }
+	&.blog     { color: @panel-orange; }
+	&.tutorial { color: @panel-red;    }
+}
 
 .panel-set {
 	width: 80%; 
