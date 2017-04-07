@@ -1,8 +1,10 @@
+{% comment %}
 {% if site.work_offline %}
 	{% assign baseurl = site.offline_baseurl %}	
 {% else %}
 	{% assign baseurl = site.online_baseurl %}	
 {% endif %}
+{% endcomment %}
 
 <!DOCTYPE html>
 <!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
@@ -41,7 +43,7 @@
 
 	{% if page.custom_css %}
 	  {% for stylesheet in page.custom_css %}
-	  <link rel="stylesheet" href="{{baseurl}}{{ stylesheet }}" media="screen" type="text/css">
+	  <link rel="stylesheet" href="{{baseurl}}/{{ stylesheet }}" media="screen" type="text/css">
 	  {% endfor %}
 	{% endif %}
 </head>
@@ -105,7 +107,7 @@
 
 
 	{% if page.title == "index" %}
-		{{ content }}
+		{{ content  }}
 	{% else %}
  	<div class="container content-wrapper">
 		<div class="row">

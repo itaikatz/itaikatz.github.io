@@ -5,9 +5,14 @@ category: about
 custom_css: aboutme.css
 ---
 
+{% capture highlight %}
+<span class="highlight {{page.category}}">
+{% endcapture %}
+{% assign endhighlight = '</span>' %}
+
 <div class="row">
 	<div class="col-sm-10 offset-sm-2">
-		<h1> Curriculum Vitae</h1>
+		<h1> Curriculum Vitae </h1>
 	</div>
 </div>
 <div class="row">
@@ -16,7 +21,7 @@ custom_css: aboutme.css
 	</div> 
 	
 	<div class="col-sm-10 ">
-		<p class="text-justify"> I'm a researcher studying {% highlight robotics, computer vision, and machine learning%}. As a child I was captivated by visions of sci-fi utopias. Today I'm privileged to live in a time where many of these technologies are coming to fruition.</p>
+		<p class="text-justify"> I'm a researcher studying {{highlight}}robotics, computer vision, and machine learning{{endhighlight}}. As a child I was captivated by visions of sci-fi utopias. Today I'm privileged to live in a time where many of these technologies are coming to fruition.</p>
 
 		<p class="text-justify">My primary research interest is in autonomous robotics; in the past I've worked on autonomous ground and underwater vehicles as well as more niche applications like robotic construction and interplanetary exploration. Along the way I've collaborated with a number of labs including those at Stanford University, Jet Propulsion Laboratory (JPL), the University of Maryland, and the National Institute of Standards and Technology (NIST), as well as commercial R&D facilities.  </p>
 	</div>
@@ -30,19 +35,19 @@ custom_css: aboutme.css
 	</div> 
 	
 	<div class="col-sm-7 ">
-		<h2>Ph.D. in Electrical Engineering, {% highlight Stanford University%} <span style="font-style: italic;">2010</span></h2>
+		<h2>Ph.D. in Electrical Engineering, {{highlight}}Stanford University{{endhighlight}} <span style="font-style: italic;">2010</span></h2>
 		<div style="margin: 0 0 15px 15px">
 		<span class="highlight">Thesis:</span> <a href="https://stacks.stanford.edu/file/druid:tc682mz5708/ikatz_thesis_FINAL_DRAFT-augmented.pdf">Design and Performance of Multi-Camera Networks.</a>
 		<br/>
 		I studied the performance characteristics and limtations of <span style="font-style: italic;">camera networks</span>, a sensing modality that uses a collection of cameras to track objects in three dimensions. I used machine learning techniques to optimize system variables (camera parameters, placement, etc.) for arbitrary environments and validated this design with emperical experiments.
 		</div>
 
-		<h2>M.S. in Electrical Engineering, {% highlight Stanford University%}</span> <span style="font-style: italic;">2006</span></h2>
+		<h2>M.S. in Electrical Engineering, {{highlight}}Stanford University{{endhighlight}}</span> <span style="font-style: italic;">2006</span></h2>
 		<div style="margin: 0 0 15px 15px">
 		I worked with Prof. Sebastian Thrun on computer vision for autonomous vehicles, including DARPA's <a href="http://en.wikipedia.org/wiki/DARPA_LAGR_Program">Learning Applied to Ground Robotics (LAGR)</a> program and a prototype vehicle for the <a href="http://en.wikipedia.org/wiki/DARPA_Grand_Challenge#2007_Urban_Challenge">DARPA Urban Challenge</a>.
 		</div>
 
-		<h2>B.S. in Computer Engineering, {% highlight %}Univ. of Maryland</span> <span style="font-style: italic;">2004</span></h2>
+		<h2>B.S. in Computer Engineering, {{highlight}}Univ. of Maryland{{endhighlight}} <span style="font-style: italic;">2004</span></h2>
 	</div>
 
 	<div class="col-sm-3">
@@ -85,7 +90,7 @@ custom_css: aboutme.css
 	<div class="col-sm-10">
 		<div class="row">	
 			<div class="col-sm-9">
-				<p>	{% highlight Northrop Grumman - Undersea Systems Innovation Lab%} 
+				<p>	{{highlight}}Northrop Grumman - Undersea Systems Innovation Lab{{endhighlight}} 
 				<br/>
 				I helped extablish a concept lab for undersea robotics using open source tools (ROS, PCL, OpenCV, MoveIt). Designed of a comprehensive robotic platform including sensing, manipulation, and user interfaces. Routinely presented to top-level management, government, defense customers. Won the Northrop Grumman President’s Leadership Award.
 				</p>
@@ -99,8 +104,8 @@ custom_css: aboutme.css
 				img
 			</div>
 			<div class="col-sm-9">
-				<p>	{% highlight National Institute of Standards and Technology (NIST)
-				<br/>Construction Metrology and Automation Group%}
+				<p>	{{highlight}}National Institute of Standards and Technology (NIST)
+				<br/>Construction Metrology and Automation Group{{endhighlight}}
 				<br/> 
 				I applied 3D sensing modalities (flash LADAR, camera networks, laser scanners) to the construction and industrial automation environments. Characterized sensor performance and established metrics for measuring uncertainty. Developed 3D point cloud-based object detection algorithms. Evaluted prototype machine translation systems as part of the DARPA BOLT program.
 				</p>
@@ -108,7 +113,7 @@ custom_css: aboutme.css
 		</div>
 		<div class="row">	
 			<div class="col-sm-9">
-				<p>	{% highlight Independent Research %}
+				<p>	{{endhighlight}}Independent Research {{endhighlight}}
 				<br/>
 				I provided consulting services for civil litigation cases. Applied computer vision techniques to forensic analysis of surveillance videos. Developed scientific data visualizations for jury trials using D3js, Google Maps, and other web-based APIs.
 				</p>	
@@ -122,7 +127,7 @@ custom_css: aboutme.css
 				img
 			</div>
 			<div class="col-sm-9">
-				<p>	{% highlight Stanford University - Wireless Sensor Networks Lab %}</span> 
+				<p>	{{endhighlight}}Stanford University - Wireless Sensor Networks Lab{{endhighlight}}}</span> 
 				<br/>
 				I explored the use of calibrated camera networks and computer vision algorithms for future consumer applications. Used a Bayesian approach to infer human behavior from multiple camera views.
 				</p>
