@@ -22,7 +22,7 @@ author: Itai Katz
 # Example, you must use http://localhost:4000/path/to/blog
 #baseurl: /path/to/blog
 offline_baseurl: 
-online_baseurl: https://itaikatz.github.io
+online_baseurl: https://itaikatz.github.io/_site
 baseurl: https://itaikatz.github.io/
 
 
