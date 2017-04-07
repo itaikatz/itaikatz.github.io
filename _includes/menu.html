@@ -1,0 +1,51 @@
+{% unless site.categories contains {{include.category}} %}
+Coming soon!
+{% endunless %}
+
+{% for post in site.categories[{{include.category}}] %}
+
+	{% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}  
+
+	{% unless forloop.first %}
+	{% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
+	{% capture pyear %}{{ post.previous.date | date: '%Y' }}{% endcapture %}
+	{% endunless %}
+
+
+  {% if year != nyear %}
+    {% unless forloop.first %}
+      <hr class="{{include.category}}">
+    {% endunless %} 
+     
+    <div class="row" >    
+    <div  class="col-1">
+        <div class="circle {{include.category}}"> {{ year }}</div>
+    </div>
+    <div class="col-11">
+  {% endif %} 
+
+  		<div class="row">
+		<div class="col-12 col-sm-9">
+			{% if post.publish_title %} 
+			<a href="{{site.baseurl}}{{ post.url }}" title="{{ post.publish_title }}" class="highlight {{include.category}}">{{ post.title }}</a>
+			{% else %}
+			<a href="{{site.baseurl}}{{ post.url }}" title="{{ post.title }}" class="highlight {{include.category}}">{{ post.title }} </a>
+			{% endif %}
+		</div>
+		<div class="col-12 col-sm-3">
+			<time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%-d %B" }}</time>
+		</div>
+	</div>
+
+  {% if forloop.last %}
+    </div></div>
+  {% else %}    
+    {% if year != pyear %}
+      </div></div>
+    {% else %}
+    {% endif %}  
+  {% endif %}
+
+  {% assign pyear = year %}
+
+{% endfor %}

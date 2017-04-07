@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
 <html class="no-js" lang="en" >
@@ -21,7 +19,9 @@
 	
 
 	<link rel="stylesheet" type="text/css" href="/css/charcoal2.css">
-
+	<style>
+		body { background-image: url("/img/classy-fabric.png"); }
+	</style>
 	
 	  
 	  <link rel="stylesheet" href="/aboutme.css" media="screen" type="text/css">
@@ -30,6 +30,8 @@
 </head>
 
 <body>
+
+	<div class="top-strip  hidden-xs-down "></div>
 
 	
 	<nav class="navbar navbar-toggleable-sm navbar-light bg-faded hidden-sm-up">
@@ -42,19 +44,19 @@
 	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 	    <ul class="navbar-nav mr-auto">
 	      <li class="nav-item active">
-	        <a class="nav-link" href="#">About</a>
+	        <a class="nav-link" href="/aboutme.html">About</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">Research</a>
+	        <a class="nav-link" href="/research.html">Research</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">Blog</a>
+	        <a class="nav-link" href="/blog.html">Blog</a>
 	      </li>
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">Tutorials</a>
+	        <a class="nav-link" href="/tutorials.html">Tutorials</a>
 	      </li>	      
 	      <li class="nav-item">
-	        <a class="nav-link" href="#">Contact</a>
+	        <a class="nav-link disabled" href="#">Contact</a>
 	      </li>	      
 	    </ul>
 	    <!--
@@ -94,13 +96,13 @@
 				<a href="/aboutme.html"><li class="about active">About</li></a>
 								
 				
-				<li class="research">Research</li>
+				<a href="/research.html"><li class="research">Research</li></a>
 				
 						
-				<li class="blog">Blog</li>						
+				<a href="/blog.html"><li class="blog">Blog</li></a>						
 				
 								
-				<li class="tutorial">Tutorials</li>				
+				<a href="/tutorials.html"><li class="tutorial">Tutorials</li></a>				
 				
 				</ul>
 			</div>
@@ -109,30 +111,25 @@
 					
 
 
+
+<h1> About Me </h1>
+
+<p class="text-justify"> I'm a researcher studying 
+<span class="highlight about">
+robotics, computer vision, and machine learning</span>. As a child I was captivated by visions of sci-fi utopias. Today I'm privileged to live in a time where many of these technologies are coming to fruition.</p>
+
+<p class="text-justify" style="margin-bottom: 0">My primary research interest is in autonomous robotics; in the past I've worked on autonomous ground and underwater vehicles as well as more niche applications like robotic construction and interplanetary exploration. Along the way I've collaborated with a number of labs including those at Stanford University, Jet Propulsion Laboratory (JPL), the University of Maryland, and the National Institute of Standards and Technology (NIST), as well as commercial R&D facilities.  </p>
+
+<hr/>
+
 <div class="row">
 	<div class="col-sm-10 offset-sm-2">
 		<h1> Curriculum Vitae </h1>
 	</div>
 </div>
 <div class="row">
-	<div class="col-sm-2 align-self-center">
-	<div class="circle text-center">About me</div>
-	</div> 
-	
-	<div class="col-sm-10 ">
-		<p class="text-justify"> I'm a researcher studying 
-<span class="highlight about">
-robotics, computer vision, and machine learning</span>. As a child I was captivated by visions of sci-fi utopias. Today I'm privileged to live in a time where many of these technologies are coming to fruition.</p>
-
-		<p class="text-justify">My primary research interest is in autonomous robotics; in the past I've worked on autonomous ground and underwater vehicles as well as more niche applications like robotic construction and interplanetary exploration. Along the way I've collaborated with a number of labs including those at Stanford University, Jet Propulsion Laboratory (JPL), the University of Maryland, and the National Institute of Standards and Technology (NIST), as well as commercial R&D facilities.  </p>
-	</div>
-</div>
-
-<hr/>
-
-<div class="row">
 	<div class="col-sm-2">
-		<div class="circle text-center">Education</div>
+		<div class="circle text-center mt-sm-4 mt-3 mb-4">Education</div>
 	</div> 
 	
 	<div class="col-sm-7 ">
@@ -158,9 +155,9 @@ Univ. of Maryland</span> <span style="font-style: italic;">2004</span></h2>
 	</div>
 
 	<div class="col-sm-3">
-		<div class="row">
+		<div class="row mb-3">
 			<div class="col-6">
-				<ul>
+				<ul class="experience">
 					<li>ROS</li>
 					<li>PCL</li>
 					<li>OpenCV</li>
@@ -174,7 +171,7 @@ Univ. of Maryland</span> <span style="font-style: italic;">2004</span></h2>
 		</div>
 		<div class="row">
 			<div class="col-6">
-				<ul>
+				<ul class="experience">
 					<li>C/C++</li>
 					<li>MATLAB</li>
 					<li>Javascript</li>
@@ -192,7 +189,7 @@ Univ. of Maryland</span> <span style="font-style: italic;">2004</span></h2>
 
 <div class="row">	
 	<div class="col-sm-2">
-		<div class="circle text-center">Experience</div>
+		<div class="circle text-center mt-sm-4 mt-3 mb-4">Experience</div>
 	</div>
 	<div class="col-sm-10">
 		<div class="row">	
@@ -205,12 +202,12 @@ Northrop Grumman - Undersea Systems Innovation Lab</span>
 				</p>
 			</div>
 			<div class="col-sm-3">
-				<img src="https://itaikatz.github.io/img/ngus.jpg"/>  
+				<img src="/img/ngus.jpg"/>  
 			</div>
 		</div>
 		<div class="row">	
 			<div class="col-sm-3">
-				img
+				<img src="/img/iacjs.jpg"/>
 			</div>
 			<div class="col-sm-9">
 				<p>	
@@ -230,12 +227,12 @@ National Institute of Standards and Technology (NIST)
 				</p>	
 			</div>			
 			<div class="col-sm-3">
-				img
+				<img src="/img/forensic3.jpg"/> 
 			</div>
 		</div>
 		<div class="row">	
 			<div class="col-sm-3">
-				img
+				<img src="/img/wsnl.png"/>  
 			</div>
 			<div class="col-sm-9">
 				<p>	</span>Stanford University - Wireless Sensor Networks Lab</span>}</span> 
@@ -251,7 +248,7 @@ National Institute of Standards and Technology (NIST)
 
 <div class="row">	
 	<div class="col-sm-2">
-		<div class="circle text-center">Publications</div>
+		<div class="circle text-center mt-sm-4 mt-3 mb-4">Publications</div>
 	</div>
 	<div class="col-sm-10">
 
@@ -281,10 +278,11 @@ National Institute of Standards and Technology (NIST)
 		<li> K. Saidi, G. Cheok, M. Franaszek, C. Brown, J. Swerdlow, R. Lipman, <span class="itai">I. Katz</span>, M. Golparvar-Fard, P. Goodrum, M. Akula, G. Dadi, B. Ghadimi. "Development and Use of the NIST Intelligent and Automated Construction Job Site Testbed." NIST Technical Note 1726. 2011.</li>
 		<li>G. Cheok, M. Franaszek, <span class="itai">Itai Katz</span>, A. Lytle, K. Saidi; N. Scott. "Assessing Technology Gaps for the Federal Highway Administration Digital Highway Measurement Program." NIST Internal Report 7685. 2010.</li>
 		<li>M. Garvey, <span class="itai">I. Katz</span>, M. Wachs. “4D Interest Maps for Direct Fovea Attention Based Systems.” CS229: Introduction to Machine Learning, December 2006, Stanford, CA.</li>
-		<li><span class="itai">I. Katz</span>, P. Pankhudi. “A Study in Non-linear Ray Tracing”, http://www-graphics.stanford.edu/courses/cs348b-competition/cs348b-05/mirage/index.html , CS348b: Image Synthesis Techinques, June 2005, Stanford CA</li>
+		<li style="word-wrap: break-word;"><span class="itai">I. Katz</span>, P. Pankhudi. “A Study in Non-linear Ray Tracing”, http://www-graphics.stanford.edu/courses/cs348b-competition/cs348b-05/mirage/index.html , CS348b: Image Synthesis Techinques, June 2005, Stanford CA</li>
 		</ol>
 	</div>
 </div>	<!-- row -->
+
 
 	
 

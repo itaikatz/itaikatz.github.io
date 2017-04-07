@@ -1,12 +1,12 @@
 ---
 title: RF_prop_sim
-layout: blog_post
+layout: charcoal2
 category: blog
 ---
 
 RF Propagation Over Varying Terrain
 ==
-<link rel="stylesheet" href="{{site.baseurl}}assets/posts/RF_prop_sim/css/webix.css" type="text/css"> 
+<link rel="stylesheet" href="{{site.baseurl}}/assets/posts/RF_prop_sim/css/webix.css" type="text/css"> 
 <style>
 
 path#CRI {
@@ -91,11 +91,11 @@ div.tooltip {
 
 </style>
 
-<script src="{{site.baseurl}}assets/posts/RF_prop_sim/js/d3.v4.min.js"></script>
-<script src="{{site.baseurl}}assets/posts/RF_prop_sim/js/topojson.v0.min.js"></script>
-<script src="{{site.baseurl}}assets/posts/RF_prop_sim/js/geotiff.min.js"></script>
-<script src="{{site.baseurl}}assets/posts/RF_prop_sim/js/webix.js" type="text/javascript"></script>  
-<script src="{{site.baseurl}}assets/posts/RF_prop_sim/js/skin.js" type="text/javascript"></script>  
+<script src="{{site.baseurl}}/assets/posts/RF_prop_sim/js/d3.v4.min.js"></script>
+<script src="{{site.baseurl}}/assets/posts/RF_prop_sim/js/topojson.v0.min.js"></script>
+<script src="{{site.baseurl}}/assets/posts/RF_prop_sim/js/geotiff.min.js"></script>
+<script src="{{site.baseurl}}/assets/posts/RF_prop_sim/js/webix.js" type="text/javascript"></script>  
+<script src="{{site.baseurl}}/assets/posts/RF_prop_sim/js/skin.js" type="text/javascript"></script>  
 
 <!--
 [introduce problem] 
@@ -106,8 +106,8 @@ div.tooltip {
 <div id="layout"></div>
 <div class="outer" id="outer">
 	<svg class="map">
-		<image class="bg" xlink:href="{{site.baseurl}}assets/posts/RF_prop_sim/hill-relief.jpg" />
-		<image class="fg" xlink:href="{{site.baseurl}}assets/posts/RF_prop_sim/hill-relief.jpg" />
+		<image class="bg" xlink:href="{{site.baseurl}}/assets/posts/RF_prop_sim/hill-relief.jpg" />
+		<image class="fg" xlink:href="{{site.baseurl}}/assets/posts/RF_prop_sim/hill-relief.jpg" />
 	</svg>
 	<canvas class="inner" id="myCanvas"></canvas>
 	<div class="tooltip"></div>
@@ -126,6 +126,6 @@ div.tooltip {
 <div class="tooltip"></div>
 </div>
 -->
-<script src="{{site.baseurl}}assets/posts/RF_prop_sim/rf.js" type="text/javascript"></script>  
-<script src="{{site.baseurl}}assets/posts/RF_prop_sim/GIS_webix.js" type="text/javascript"></script>
+<script src="{{site.baseurl}}/assets/posts/RF_prop_sim/rf.js" type="text/javascript"></script>  
+<script src="{{site.baseurl}}/assets/posts/RF_prop_sim/GIS_webix.js" type="text/javascript"></script>
 

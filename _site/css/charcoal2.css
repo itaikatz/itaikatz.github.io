@@ -1,7 +1,3 @@
-/* 544 px */
-/* 768 px */
-/* 992 px */
-/* 1200 px */
 * {
   margin: 0;
   font-family: 'Roboto';
@@ -11,13 +7,21 @@ html {
   min-height: 100%;
   position: relative;
 }
+.top-strip {
+  border-bottom: solid 1px #363636;
+  width: 100%;
+  height: 40px;
+  background: radial-gradient(black 15%, transparent 16%) 0 0, radial-gradient(black 15%, transparent 16%) 8px 8px, radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%) 0 1px, radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%) 8px 9px;
+  background-color: #131313;
+  background-size: 16px 16px;
+  background-attachment: fixed;
+}
 body {
   background-color: #252525;
   margin-bottom: 60px;
   /* Margin bottom by footer height */
   color: #e0e0e0;
   font-family: 'Indie Flower', Arial, sans-serif;
-  background-image: url("https://www.transparenttextures.com/patterns/classy-fabric.png");
   /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 svg {
@@ -253,27 +257,41 @@ a {
 .sidebar li.about {
   background-color: #0084a9;
 }
+@media (min-width: 48em) {
+  .sidebar li.about:hover {
+    background: radial-gradient(ellipse 150px 100px at right, #00acdc, #0094bd, #0084a9);
+  }
+}
 .sidebar li.research {
   background-color: #7a9d00;
+}
+@media (min-width: 48em) {
+  .sidebar li.research:hover {
+    background: radial-gradient(ellipse 150px 100px at right, #a2d000, #8ab100, #7a9d00);
+  }
 }
 .sidebar li.blog {
   background-color: #df9100;
 }
+@media (min-width: 48em) {
+  .sidebar li.blog:hover {
+    background: radial-gradient(ellipse 150px 100px at right, #ffac13, #f39e00, #df9100);
+  }
+}
 .sidebar li.tutorial {
   background-color: #b23814;
 }
+@media (min-width: 48em) {
+  .sidebar li.tutorial:hover {
+    background: radial-gradient(ellipse 150px 100px at right, #e04619, #c43e16, #b23814);
+  }
+}
 @media (max-width: 48em) {
-  .sidebar li:not(.active).about {
-    background-color: rgba(0, 132, 169, 0);
+  .sidebar li:not(.active) {
+    background-color: transparent;
   }
-  .sidebar li:not(.active).research {
-    background-color: rgba(122, 157, 0, 0);
-  }
-  .sidebar li:not(.active).blog {
-    background-color: rgba(223, 145, 0, 0);
-  }
-  .sidebar li:not(.active).tutorial {
-    background-color: rgba(178, 56, 20, 0);
+  .sidebar li:hover {
+    background-color: none;
   }
 }
 @media (min-width: 48em) {
@@ -299,7 +317,7 @@ a {
   text-decoration: none;
   color: white;
 }
-nav a {
+nav a.navbar-brand {
   font-family: 'Indie Flower', cursive;
   font-size: 1.5rem !important;
   padding: 0 !important;

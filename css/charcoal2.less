@@ -12,15 +12,25 @@ html {
 	position: relative;
 }
 
+.top-strip {
+  border-bottom: solid 1px #363636;
+  width: 100%;
+  height: 40px;
+  background: radial-gradient(black 15%, transparent 16%) 0 0, radial-gradient(black 15%, transparent 16%) 8px 8px, radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%) 0 1px, radial-gradient(rgba(255, 255, 255, 0.1) 15%, transparent 20%) 8px 9px;
+  background-color: #131313;
+  background-size: 16px 16px;
+  background-attachment: fixed;
+}
+
 body {
 	background-color: @bg-color;
   	margin-bottom: 60px;  /* Margin bottom by footer height */
 
     color: @light-gray;	
  	font-family: 'Indie Flower', Arial,sans-serif;
-
 	 // background-color: #262626;
-	 background-image: url("https://www.transparenttextures.com/patterns/classy-fabric.png");
+	 //background-image: url("{{site.baseurl}}/img/classy-fabric.png");
+	 //background-image: url("https://www.transparenttextures.com/patterns/classy-fabric.png");
 	/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 
@@ -195,6 +205,15 @@ a { text-decoration: none; }
 	// width: 100%;
 	//  @media  (min-width: @sm-width) { width: 80%; }
 }
+
+.sidebar-panel-factory(@color) {
+  background-color: @color;
+  	//&:hover { background-color: none; /*border: 2px solid @color; */ }
+  @media  (min-width: @med-width) {
+	&:hover { background: radial-gradient(ellipse 150px 100px at right,lighten(@color, 10%),lighten(@color, 4%), @color); }
+  }
+}
+
 .sidebar {
 	ul { padding: 0; }
 	li {
@@ -206,18 +225,14 @@ a { text-decoration: none; }
 		margin-right: 1%;
 		border-radius: 3px;
 
-		&.about    { background-color: @panel-blue;   }
-		&.research { background-color: @panel-green;  }
-		&.blog     { background-color: @panel-orange; }
-		&.tutorial { background-color: @panel-red;    }	
+		&.about    { .sidebar-panel-factory(@panel-blue);   }
+		&.research    { .sidebar-panel-factory(@panel-green);   }
+		&.blog    { .sidebar-panel-factory(@panel-orange);   }
+		&.tutorial    { .sidebar-panel-factory(@panel-red);   }
 
 		@media  (max-width: @med-width) {
-		&:not(.active) {
-			&.about    { background-color: fadeout(@panel-blue, 100%);    }
-			&.research { background-color: fadeout(@panel-green, 100%);  }
-			&.blog     { background-color: fadeout(@panel-orange, 100%); }
-			&.tutorial { background-color: fadeout(@panel-red, 100%);   }
-		}
+			&:not(.active) { background-color: transparent; }
+			&:hover { background-color: none; }
 		}
 
 		@media  (min-width: @med-width) {
@@ -249,7 +264,7 @@ nav {
   // background: linear-gradient(@bg-color, lighten(#2d2d2d, 20%));
   // background-color: @icon-color;
   // border-bottom: 1px inset #1a1a1a;
-  a {
+  a.navbar-brand {
   	 font-family: 'Indie Flower', cursive;
   	 font-size: 1.5rem !important;
   	 padding: 0 !important;

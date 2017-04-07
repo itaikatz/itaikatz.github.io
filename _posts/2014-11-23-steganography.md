@@ -2,7 +2,7 @@
 title: Steganography
 publish_title: "In plain sight: A survey of steganography techniques (Part I)"
 category: tutorial
-layout: blog_post
+layout: charcoal2
 thumbnail: assets/thumbnails/steg.jpg
 js: steg.js
 ---
@@ -10,7 +10,7 @@ js: steg.js
 In plain sight: A survey of staganography techniques (Part I)
 ==
 
-<img src="{{site.baseurl}}assets/posts/steganography/montage2.jpg" alt="My Image" />
+<img src="{{site.baseurl}}/assets/posts/steganography/montage2.jpg" alt="My Image" />
 
 [note: post in progress!] 
 
@@ -33,13 +33,13 @@ Steganography has a rich and sometimes disturbing history. It was particularly u
         <tbody>
             <tr>
                 <td>
-                 	<img src="{{site.baseurl}}assets/posts/steganography/moRy14.gif" alt="My Image" />
+                 	<img src="{{site.baseurl}}/assets/posts/steganography/moRy14.gif" alt="My Image" />
                 	<div class="caption">		
     	            	American POW Jeremiah Denton blinking in Morse code.
                 	</div>
                </td>
                 <td>
-                	<img src="{{site.baseurl}}assets/posts/steganography/img0273.png" alt="My Image" />                	
+                	<img src="{{site.baseurl}}/assets/posts/steganography/img0273.png" alt="My Image" />                	
                 	<div class="caption">
                 		USS Pueblo POWs flashing a "Hawaiian good luck" sign
  	               	</div>
@@ -70,11 +70,11 @@ LSB insertion is the simplest, earliest watermarking algorithm. It exploits the 
 <div class="row">
 	<div class="medium-6 small-12 columns">		
 		When we see an image on a screen, we see something like this:
-		<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/Eye_of_Horus.svg" />
+		<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/Eye_of_Horus.svg" />
 	</div>
 	<div class="medium-6 small-12 columns ">	
 		but inside the computer the image is represented differently:
-		<img src="{{site.baseurl}}assets/posts/steganography/pixels.svg">
+		<img src="{{site.baseurl}}/assets/posts/steganography/pixels.svg">
 		<!--<img src="your.svg" onerror="this.src='your.png'">-->
 		<!-- <img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/lena_0.jpg" /> -->
 	</div>
@@ -117,15 +117,15 @@ Each of these segments is separated by a single shade. Can you spot the differen
 
 <div class="row" style="display: table-cell; vertical-align: middle;">
 	<div class="small-3 small-offset-1 columns" style="position: relative; top: 50%; transform: translateY(25%);">
-	    <img src="{{site.baseurl}}assets/posts/steganography/lena_0.jpg" alt="My Image" />
+	    <img src="{{site.baseurl}}/assets/posts/steganography/lena_0.jpg" alt="My Image" />
 	    Target image
 	</div>
 	<div class="small-3 columns" style="position: relative; top: 50%; transform: translateY(25%);" >
-	    <img src="{{site.baseurl}}assets/posts/steganography/mandrill_orig.jpg" alt="My Image" />
+	    <img src="{{site.baseurl}}/assets/posts/steganography/mandrill_orig.jpg" alt="My Image" />
 	    Secret image
 	</div>
 	<div class="small-4 columns end">
-	    <img src="{{site.baseurl}}assets/posts/steganography/hidden.jpg" alt="My Image"  style="border-left: 2px solid white;" />
+	    <img src="{{site.baseurl}}/assets/posts/steganography/hidden.jpg" alt="My Image"  style="border-left: 2px solid white;" />
 	    Secret image inserted into target
 	</div>
 </div>
@@ -149,13 +149,13 @@ Now we're not restricted to using the *least* significant bit. If we want to ins
 
 <div class="row" id="lsbSliderDiv" style="position:relative;">
 	<div class="small-3 columns" style="text-align: left;">
-		<img src="{{site.baseurl}}assets/posts/steganography/lena_0.jpg" style="width:75%; margin-bottom:10px;" alt="My Image" id=
+		<img src="{{site.baseurl}}/assets/posts/steganography/lena_0.jpg" style="width:75%; margin-bottom:10px;" alt="My Image" id=
 		"lsbSliderSource" /> <br/>
-		<img src="{{site.baseurl}}assets/posts/steganography/mandrill_orig.jpg" style="width:75%; " alt="My Image" id=
+		<img src="{{site.baseurl}}/assets/posts/steganography/mandrill_orig.jpg" style="width:75%; " alt="My Image" id=
 		"lsbSliderTarget"/>
 	</div>
 	<div class="small-4 columns">
-	    <img src="{{site.baseurl}}assets/posts/steganography/lena_0.jpg" alt="My Image"  id="lsbSliderImage" />
+	    <img src="{{site.baseurl}}/assets/posts/steganography/lena_0.jpg" alt="My Image"  id="lsbSliderImage" />
 
 
 		<div class="range-slider round" data-slider data-options="start: 1; end: 8; initial: 1; display_selector: #sliderOutput3;" id="lsbSlider">
@@ -252,13 +252,13 @@ LSB insertion is one of the simplest techniques and has been known since antiqui
 ### Masking
 Luminance values are modified so as to make a visible pattern on the image. Since the watermark is plainly visible, this is often used in stock photography to discourage unauthorized commercial use of an image. [4] 
 
-<img src="{{site.baseurl}}assets/posts/steganography/mask.jpg" alt="My Image" />
+<img src="{{site.baseurl}}/assets/posts/steganography/mask.jpg" alt="My Image" />
 
 ### Palette Sorting
 Some image formats, such as GIF, have each pixel index into a color palette, which is a small subset of the total number of viewable colors. By intelligently reordering the palette, one can arrange like colors to be near each other in index value. Data is then embedded in a similar manner as LSB insertion. This method is efficient for grayscale images, which have a narrow range of colors.
 A grayscale palette sorted by luminance [4]
 
-<img src="{{site.baseurl}}assets/posts/steganography/palette.jpg" alt="My Image" />
+<img src="{{site.baseurl}}/assets/posts/steganography/palette.jpg" alt="My Image" />
 
 ### Bit-Plane Complexity Segmentation (BPCS)
 BPCS embeds watermark data only in "complex" regions of an image. The resulting watermark is localized on less conspicuous edges and noise-like regions while avoiding regions of flat color. [6]
@@ -314,7 +314,7 @@ PSNR &= 20\log_{10}{\frac{255}{\text{RMSE}}}\\
         <tbody>
             <tr>
                 <td>
-                	<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/lena_0.jpg" />  
+                	<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/lena_0.jpg" />  
                 	<!--<div class="caption">Original image<br><br></div>                 -->
                 	<div class="caption">                	
                 		Original image<br>
@@ -323,7 +323,7 @@ PSNR &= 20\log_{10}{\frac{255}{\text{RMSE}}}\\
                 	</div>
                 </td>
                 <td>
-                	<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/lena_1.jpg" />    
+                	<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/lena_1.jpg" />    
                 	<div class="caption">
                 		1-bit distortion<br>
                 		capacity: 12.5%<br>
@@ -331,7 +331,7 @@ PSNR &= 20\log_{10}{\frac{255}{\text{RMSE}}}\\
                 	</div>
                 </td>
                 <td>
-                	<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/lena_2.jpg" />                    
+                	<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/lena_2.jpg" />                    
                 	<div class="caption">
                 		2-bit distortion<br>
                 		capacity: 25%<br>
@@ -342,7 +342,7 @@ PSNR &= 20\log_{10}{\frac{255}{\text{RMSE}}}\\
 
 			<tr>
                 <td>
-                	<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/lena_3.jpg" />                    
+                	<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/lena_3.jpg" />                    
                 	<div class="caption">
                 		3-bit distortion<br>
 						capacity: 37.5%<br>
@@ -350,7 +350,7 @@ PSNR &= 20\log_{10}{\frac{255}{\text{RMSE}}}\\
                 	</div>
                 </td>
                 <td>
-                	<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/lena_4.jpg" />                   
+                	<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/lena_4.jpg" />                   
                 	<div class="caption">		
     	            	4-bit distortion<br>
 						capacity: 50%<br>
@@ -358,7 +358,7 @@ PSNR &= 20\log_{10}{\frac{255}{\text{RMSE}}}\\
                 	</div>
                 </td>
                 <td>
-                	<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/lena_5.jpg" />                    
+                	<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/lena_5.jpg" />                    
                 	<div class="caption">
                 		5-bit distortion<br>
 						capacity: 62.5%<br>
@@ -369,7 +369,7 @@ PSNR &= 20\log_{10}{\frac{255}{\text{RMSE}}}\\
 
             <tr>
                 <td>
-                	<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/lena_6.jpg" />                    
+                	<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/lena_6.jpg" />                    
                 	<div class="caption">
 						6-bit distortion<br>
 						capacity: 75.0%<br>
@@ -377,7 +377,7 @@ PSNR &= 20\log_{10}{\frac{255}{\text{RMSE}}}\\
                 	</div>
                 </td>
                 <td>
-                	<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/lena_7.jpg" />                    
+                	<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/lena_7.jpg" />                    
                 	<div class="caption">
 						7-bit distortion<br>
 						capacity: 87.5%<br>
@@ -385,7 +385,7 @@ PSNR &= 20\log_{10}{\frac{255}{\text{RMSE}}}\\
                 	</div>
                 </td>
                 <td>
-                	<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/lena_8.jpg" />                    
+                	<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/lena_8.jpg" />                    
                 	<div class="caption">
 						8-bit distortion<br>
 						capacity: 100%<br>
@@ -410,7 +410,7 @@ As an experiment, I tried LSB insertion in the YCbCr color space instead of RGB,
         <tbody>
             <tr>
                 <td>
-                 	<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/lena_4.jpg" />                   
+                 	<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/lena_4.jpg" />                   
                 	<div class="caption">		
     	            	RGB 4-bit distortion<br>
 						capacity: 50%<br>
@@ -418,7 +418,7 @@ As an experiment, I tried LSB insertion in the YCbCr color space instead of RGB,
                 	</div>
                </td>
                 <td>
-                	<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/lena_ycbcr.jpg" />    
+                	<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/lena_ycbcr.jpg" />    
                 	<div class="caption">
                 		YCbCr 4-bit distortion<br>
                 		capacity: 50%<br>
@@ -437,16 +437,16 @@ As an experiment, I tried LSB insertion in the YCbCr color space instead of RGB,
         <tbody>
             <tr>
                 <td>
-                	<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/lena_1.jpg" />                    
+                	<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/lena_1.jpg" />                    
                 </td>
                 <td>
-                	<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/lena_6.jpg" />                    
+                	<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/lena_6.jpg" />                    
                 </td>
                 <td>
-                	<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/lena_7.jpg" />                    
+                	<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/lena_7.jpg" />                    
                 </td>
                 <td>
-                	<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/lena_8.jpg" />
+                	<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/lena_8.jpg" />
                 </td>
             </tr>
         </tbody>
@@ -466,7 +466,7 @@ BPCS attempts to address the shortcomings of LSB insertion by searching an image
 6. The bit-planes are recombined to form an N-bit channel in Gray code
 7. The Gray code is converted back to natural binary 
 
-<img src="{{site.baseurl}}assets/posts/steganography/bpcs_diagram.jpg" alt="My Image" />
+<img src="{{site.baseurl}}/assets/posts/steganography/bpcs_diagram.jpg" alt="My Image" />
 
 The complexity metric is defined as:
 
@@ -481,7 +481,7 @@ In the results below, the BPCS algorithm was run with the threshold $$\alpha=0.3
         <tbody>
             <tr>
                 <td>
-                	<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/house_orig.jpg" />
+                	<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/house_orig.jpg" />
                 	<div class="caption">
       	          		Original image<br>
                 		<br>
@@ -489,7 +489,7 @@ In the results below, the BPCS algorithm was run with the threshold $$\alpha=0.3
             		</div>	       
                 </td>
                 <td>
-                	<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/bpcs_house.jpg" />                    
+                	<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/bpcs_house.jpg" />                    
 	             	<div class="caption">		
 		             	BPCS with alpha=0.3 <br>
 						capacity: 45.0%<br>
@@ -506,7 +506,7 @@ In the results below, the BPCS algorithm was run with the threshold $$\alpha=0.3
 
 ABCDE works in a very similar method as BPCS, but employs a more sophisticated complexity metric. BPCS merely counts the number of bit-flips in each row and column of a given tile, with the assumption that a large number of bit flips indicates a lack of structure. ABCDE instead uses a pair of metrics that look for irregularity in a tile rather than high spatial frequencies. The authors' justification is that certain patterns, while high frequency, would produce unacceptable distortion if a watermark were embedded in them. 
 
-<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/abcde_diagram.jpg" />                   
+<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/abcde_diagram.jpg" />                   
 
 Patterns that are high frequency, but regular [5]
 
@@ -515,13 +515,13 @@ Patterns that are high frequency, but regular [5]
         <tbody>
             <tr>
                 <td>
-                	<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/check_orig.jpg" />
+                	<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/check_orig.jpg" />
                 	<div class="caption">
       	          		A checkerboard pattern                		
             		</div>	       
                 </td>
                 <td>
-                	<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/check_bpcs.jpg" />                    
+                	<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/check_bpcs.jpg" />                    
 	             	<div class="caption">		
 		             	A checkerboard after BPCS watermarking
                 	</div>
@@ -540,7 +540,7 @@ The results shown in the images below are particularly impressive. Despite the w
         <tbody>
             <tr>
                 <td>
-                	<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/mandrill_orig.jpg" />
+                	<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/mandrill_orig.jpg" />
                 	<div class="caption">
       	          		Original image<br>
       	          		<br>
@@ -548,7 +548,7 @@ The results shown in the images below are particularly impressive. Despite the w
             		</div>	       
                 </td>
                 <td>
-                	<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/mandrill_abcde.jpg" />                    
+                	<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/mandrill_abcde.jpg" />                    
 	             	<div class="caption">		
 	             		Image with ABCDE watermarking<br>
 						capacity: 61.0%<br>
@@ -581,7 +581,7 @@ The results below show that this technique has excellent transparancy properties
         <tbody>
             <tr>
                 <td>
-                	<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/peppers_orig.jpg" />
+                	<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/peppers_orig.jpg" />
                 	<div class="caption">
       	          		Original image<br>
       	          		<br>
@@ -589,12 +589,12 @@ The results below show that this technique has excellent transparancy properties
             		</div>	       
                 </td>
                 <td>
-                	<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/spread_peppers.jpg" />                    
+                	<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/spread_peppers.jpg" />                    
 	             	<div class="caption">	
 	             		Image after spread spectrum watermarking.<br>
 						psnr: 35.87	
                 	</div>
-            		<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/spread_error.jpg" />                    
+            		<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/spread_error.jpg" />                    
 	             	<div class="caption">	
 	             		Error image (normalized)<br>						
                 	</div>
@@ -610,16 +610,16 @@ After encoding, the watermark can be detected through a similarity function:
 
 where X is the original watermark and X* is the watermark extracted from output image. Note that to extract the watermark from the image the decoder must have a copy of the original image, and must know which coefficients were used in encoding. The plots compare the similarity values of the the extracted watermark to 100 random watermarks. Element 50 compares the extracted watermark to the genuine watermark The original can be detected easily after shrinking the image. Correct detection after JPEG compression is more difficult.
 
-<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/iadct_resize.jpg" />                    
+<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/iadct_resize.jpg" />                    
 Encoded image after shrinking by 50%
 
-<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/spread_resize_stem2.jpg" />                    
+<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/spread_resize_stem2.jpg" />                    
 Watermark detection from resized image (watermark @ 50)
 
-<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/iadct_jpg.jpg" />                    
+<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/iadct_jpg.jpg" />                    
 Encoded image after JPEG compression with quality = 10
 
-<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/spread_jpeg_stem2.jpg" />                    
+<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/spread_jpeg_stem2.jpg" />                    
 Watermark detection after JPEG compression with quality=10
 
 ### Image Adaptive - Discrete Cosine Transform (IA-DCT)
@@ -630,16 +630,16 @@ IA-DCT extends the spread spectrum method by introducing local adapatability. In
 
 The results look excellent, with no noticeable distortion. The error appears to mirror the image. 
 
-<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/iadct_resize.jpg" />
+<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/iadct_resize.jpg" />
 Encoded image after shrinking by 50%
 
-<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/iadct_resize_stem.jpg" />
+<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/iadct_resize_stem.jpg" />
 Watermark detection from resized image
 
-<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/iadct_jpg.jpg" />
+<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/iadct_jpg.jpg" />
 Encoded image after JPEG compression
 
-<img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/iadct_jpg_stem.jpg" />
+<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/iadct_jpg_stem.jpg" />
 Watermark detection after JPEG compression with quality=10
 
 Conclusion and further research

@@ -10,31 +10,28 @@ h1 {
 
 h2 { font-size: 1.2rem; }
 a { text-decoration: underline; }
-hr { border: 1px solid @panel-blue; }
-
-p {
-	font-size: 1rem;
-	line-height: 1.6;
-}
+hr { border: 1px solid @panel-blue;}
+p {	font-size: 1rem; }
 
 .circle {
 	width: 100px;
 	height: 100px;
 	line-height: 100px;
 	border-radius: 50%;
+	color: white;
 	background-color: @panel-blue;
 
 	&.circle-small {
 		width: 70px;
 		height: 70px;
 		line-height: 70px;
-		// border-radius: 999px;
 	}
 }
 
 ul {
 	padding: 0;
-	li {
+	margin: 0;
+	&.experience li {
 		list-style-type: none;
 		text-align: right;
 	}

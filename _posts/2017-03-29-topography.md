@@ -29,7 +29,7 @@ figcaption {
 </style>
 
 <figure>
-  <img src="{{site.baseurl}}assets/posts/topography/cr_mountain_crop.jpg" />
+  <img src="{{site.baseurl}}/assets/posts/topography/cr_mountain_crop.jpg" />
   <figcaption>Orosí valley, Costa Rica</figcaption>
 </figure>
 
@@ -39,7 +39,7 @@ In this tutorial we'll demonstrate how to convert a [Digital Elevation Model](ht
 
 Here's what a DEM of the earth looks like (white regions represent higher elevation). Note the prominence of the Rockies, Andes, and Himalayan mountain ranges:
 
-<img src="{{site.baseurl}}assets/posts/topography/global_dem.jpg" style="width: 75%; display: block; margin: 0 auto;"/>
+<img src="{{site.baseurl}}/assets/posts/topography/global_dem.jpg" style="width: 75%; display: block; margin: 0 auto;"/>
 
 DEMs have many applications:
 * Estimating potential sites for avalanches or landslides
@@ -75,19 +75,19 @@ The first step is to download the data, which comes in the form of "tiles" of ap
 </style>
 <div id="image_grid">
   <figure id="image_grid_element">
-  <img src="{{site.baseurl}}assets/posts/topography/srtm_19_10_small.jpg"/>
+  <img src="{{site.baseurl}}/assets/posts/topography/srtm_19_10_small.jpg"/>
   <figcaption>srtm_19_10.tif</figcaption>
   </figure>
     <figure id="image_grid_element">
-  <img src="{{site.baseurl}}assets/posts/topography/srtm_20_10_small.jpg"/>
+  <img src="{{site.baseurl}}/assets/posts/topography/srtm_20_10_small.jpg"/>
   <figcaption>srtm_20_10.tif</figcaption>
   </figure>
     <figure id="image_grid_element">
-  <img src="{{site.baseurl}}assets/posts/topography/srtm_19_11_small.jpg"/>
+  <img src="{{site.baseurl}}/assets/posts/topography/srtm_19_11_small.jpg"/>
   <figcaption>srtm_19_11.tif</figcaption>
   </figure>
     <figure id="image_grid_element">
-  <img src="{{site.baseurl}}assets/posts/topography/srtm_20_11_small.jpg"/>
+  <img src="{{site.baseurl}}/assets/posts/topography/srtm_20_11_small.jpg"/>
   <figcaption>srtm_20_11.tif</figcaption>
   </figure>
 </div>
@@ -157,7 +157,7 @@ gdalwarp
 
 The t_srs option sets an albers equal area projection that will center on Costa Rica. The te option defines the extent of the map, using Spatial Reference System (SRS) coordinates. Lastly, the ts option specifies the output image size in pixels. Here's what the merged and projected heightmap looks like:
 
-<img src="{{site.baseurl}}assets/posts/topography/relief.jpg" style="width: 75%; display: block; margin: 0 auto;"/>
+<img src="{{site.baseurl}}/assets/posts/topography/relief.jpg" style="width: 75%; display: block; margin: 0 auto;"/>
 
 ### 2. Create color relief map
 
@@ -204,7 +204,7 @@ Where color_relief.txt contains the following values:
 
 
 <figure>
-<img src="{{site.baseurl}}assets/posts/topography/hill-relief-c.jpg" style="width: 75%; display: block; margin: 0 auto;"/>
+<img src="{{site.baseurl}}/assets/posts/topography/hill-relief-c.jpg" style="width: 75%; display: block; margin: 0 auto;"/>
 <figcaption>Color relief map</figcaption>
 </figure>
 
@@ -222,7 +222,7 @@ gdaldem
 ~~~
 
 <figure>
-<img src="{{site.baseurl}}assets/posts/topography/hill-relief-shaded.jpg" style="width: 75%; display: block; margin: 0 auto;"/>
+<img src="{{site.baseurl}}/assets/posts/topography/hill-relief-shaded.jpg" style="width: 75%; display: block; margin: 0 auto;"/>
 <figcaption>Shaded relief map</figcaption>
 </figure>
 
@@ -237,7 +237,7 @@ hsv_merge.py
 ~~~
 
 <figure>
-<img src="{{site.baseurl}}assets/posts/topography/hill-relief-merged.jpg" style="width: 75%; display: block; margin: 0 auto;"/>
+<img src="{{site.baseurl}}/assets/posts/topography/hill-relief-merged.jpg" style="width: 75%; display: block; margin: 0 auto;"/>
 <figcaption>Merged relief map</figcaption>
 </figure>
 
@@ -257,7 +257,7 @@ topojson -p name=NAME -p name -q 1e4 -o costarica_min_topo.json costarica.json
 
 With a a little D3js magic (the topic of a future tutorial, i.e. "left as an exercise for the reader") we can combine the geographic data with the merged relief map:
 
-<img src="{{site.baseurl}}assets/posts/topography/final.jpg" style="width: 100%; display: block; margin: 0 auto;"/>
+<img src="{{site.baseurl}}/assets/posts/topography/final.jpg" style="width: 100%; display: block; margin: 0 auto;"/>
 
 [Click here]({{site.baseurl}}assets/posts/topography/dem.zip) to download all the files associated with this project. You should be able to load index.html and see an SVG version of the end result. If you have any questions or comments, feel free to send me an email.
 
