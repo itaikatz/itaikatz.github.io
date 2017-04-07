@@ -1,106 +1,54 @@
 ---
-layout: charcoal
-title: Itai Katz
+title: index
+layout: charcoal2
 ---
-<!--
-<a href="docs/ikatz_cv_spr04.doc">CV</a>
--->
 
-<div class="index">
-<div class="row">
+<div class="container-fluid panel-set">
+	<div class="row justify-content-center">
+		<div class="col-6 col-md-3"> 
+			<a href="{{site.baseurl}}/aboutme.html">
+			<div class="nav-panel" id="about">
+				<div class="panel-text">
+					<div class="heading1">About</div>
+					<div class="heading2">Bio & CV</div>    
+				</div>
+				{% include svg/info.svg %}
+			</div>
+			</a>
+		</div>
+		<div class="col-6 col-md-3">
+			<a href="{{site.baseurl}}/research.html">
+			<div class="nav-panel" id="research">
+				<div class="panel-text">
+					<div class="heading1">Research</div>
+					<div class="heading2">Projects</div>    
+				</div>
+				{% include svg/beaker.svg %}
+			</div>
+			</a>
+		</div>
+		<div class="col-6 col-md-3">
+			<a href="{{site.baseurl}}/blog.html">
+			<div class="nav-panel" id="blog">
+				<div class="panel-text">
+					<div class="heading1">Blog</div>
+					<div class="heading2">Writing</div>    
+				</div>
+				{% include svg/book.svg %}
+			</div>
+			</a>
+		</div>
 
-  <a href="aboutme.html">
-  <div class="small-3 columns">
-  <div class="panel2" id="about">
-    <div class="panel-text">
-    <div class="heading1">About</div>
-    <div class="heading2">About me</div>    
-    </div>
-    {% include svg/info.svg %}
-  </div>
-  </div>
-  </a>
-
-  <a href="research.html">
-  <div class="small-3 columns">
-  <div class="panel2" id="research">
-    <div class="panel-text">
-    <div class="heading1">Research</div>
-    <div class="heading2">Projects</div>
-    </div>
-    {% include svg/beaker.svg %}
-  </div>
-  </div>
-  </a>
-
-  <a href="blog.html">
-  <div class="small-3 columns">
-  <div class="panel2" id="blog">
-    <div class="panel-text">
-    <div class="heading1">Blog</div>
-    <div class="heading2">Writing</div>    
-    </div>
-    {% include svg/book.svg %}
-  </div>
-  </div>
-  </a>
-
-  <a href="tutorials.html">
-  <div class="small-3 columns">
-  <div class="panel2" id="tutorials">
-    <div class="panel-text">
-    <div class="heading1">Tutorials</div>
-    <div class="heading2">Teaching</div>    
-    </div>
-    {% include svg/lightbulb.svg %}
-  </div>
-  </div>
-  </a>
-
+		<div class="col-6 col-md-3">
+			<a href="{{site.baseurl}}/tutorials.html">
+			<div class="nav-panel" id="tutorial">
+				<div class="panel-text">
+					<div class="heading1">Tutorials</div>
+					<div class="heading2">Teaching</div>    
+				</div>
+				{% include svg/lightbulb.svg %}
+			</div>
+			</a>
+		</div>		
+	</div>
 </div>
-</div>
-<!--
-
-<div class="panel-set">
-
-  <a href="aboutme.html">
-  <div class="panel-1 panel">
-  
-    <h1>About</h1>
-    <h2>About Me</h2>
-    {% include svg/info.svg %}
-  </div>
-  </a>
-
-  <a href="#">
-  <div class="panel-2 panel">
-  
-  
-   <h1>Research</h1>
-   <h2></h2>
-   {% include svg/beaker.svg %}
-  </div>
-  </a>  
-
-  
-  <a href="#">
-  <div class="panel-3 panel">
-  
-    <h1>Blog</h1>
-    <h2></h2>
-    {% include svg/book.svg %}
-  </div>
-  </a>
-  
-  
-  <a href="#">  
-  <div class="panel-4 panel">
-
-    <h1>Tutorials</h1>
-    <h2></h2>          
-    {% include svg/lightbulb.svg %}
-  </div>
-  </a>
-  
-</div>   <!~~ panel-set ~~>
--->

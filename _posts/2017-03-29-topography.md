@@ -29,7 +29,7 @@ figcaption {
 </style>
 
 <figure>
-  <img src="{{site.baseurl}}/assets/posts/topography/cr_mountain_crop.jpg" />
+  <img src="{{site.baseurl}}/assets/posts/topography/cr_mountain_crop.jpg" style="width: 100%; display: block; margin: 0 auto;" />
   <figcaption>Orosí valley, Costa Rica</figcaption>
 </figure>
 

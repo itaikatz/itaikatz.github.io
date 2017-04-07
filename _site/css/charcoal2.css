@@ -240,7 +240,12 @@ a {
   }
 }
 .content-wrapper {
-  width: 80%;
+  width: 100%;
+}
+@media (min-width: 34em) {
+  .content-wrapper {
+    width: 80%;
+  }
 }
 .sidebar ul {
   padding: 0;
