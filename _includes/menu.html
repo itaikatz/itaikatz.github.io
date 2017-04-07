@@ -1,3 +1,7 @@
+<!-- To highlight some text:
+<span class="highlight {{include.category}}"> My Highlighted Text </span>
+<-->
+
 {% unless site.categories contains {{include.category}} %}
 Coming soon!
 {% endunless %}
@@ -27,9 +31,9 @@ Coming soon!
   		<div class="row">
 		<div class="col-12 col-sm-9">
 			{% if post.publish_title %} 
-			<a href="{{site.baseurl}}{{ post.url }}" title="{{ post.publish_title }}" class="highlight {{include.category}}">{{ post.title }}</a>
+			<a href="{{site.baseurl}}{{ post.url }}" title="{{ post.publish_title }}" class="{{include.category}}">{{ post.title }}</a>
 			{% else %}
-			<a href="{{site.baseurl}}{{ post.url }}" title="{{ post.title }}" class="highlight {{include.category}}">{{ post.title }} </a>
+			<a href="{{site.baseurl}}{{ post.url }}" title="{{ post.title }}" class="{{include.category}}">{{ post.title }} </a>
 			{% endif %}
 		</div>
 		<div class="col-12 col-sm-3">
