@@ -1,0 +1,171 @@
+.nav-bar2 {
+
+  a {
+    text-decoration: none;
+    color: @light-gray;
+  }
+
+  ul {
+    list-style: none;
+    padding:0; 
+    margin:0;
+  }
+  li {
+    vertical-align: middle;
+    text-align: right;
+    margin: 10px 0;    
+    border: 1px solid darken(@light-gray, 30%);
+    line-height: 50px;    
+    padding: 0 20px 0 0;
+    font-size: 20px;
+  }
+
+  .active {
+    line-height: 200px;    
+  }
+
+  .about {
+    @color_: @panel-blue;
+    background-color: @color_;
+    &:hover {
+      background: radial-gradient(ellipse 150px 100px at right,lighten(@color_, 10%),lighten(@color_, 4%), @color_);
+    }
+  }
+  .research {    
+    @color_: @panel-green;
+    background-color: @color_;
+    &:hover {
+      background: radial-gradient(ellipse 150px 100px at right,lighten(@color_, 10%),lighten(@color_, 4%), @color_);
+    }
+  }
+  .blog {
+    @color_: @panel-orange;
+    background-color: @color_;
+    &:hover {
+      background: radial-gradient(ellipse 150px 100px at right,lighten(@color_, 10%),lighten(@color_, 4%), @color_);
+    }
+  }
+  .tutorials {
+    @color_: @panel-red;
+    background-color: @color_;
+    &:hover {
+      background: radial-gradient(ellipse 150px 100px at right,lighten(@color_, 10%),lighten(@color_, 4%), @color_);
+    }
+  }
+
+}
+
+.nav-bar {
+
+
+  
+//   outline: 1px solid #323232;
+ // outline-offset:3px;
+   margin: 5px auto;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  //width: 22.7%;
+  width: 15.7%;
+  float: left;
+
+ a {
+    text-decoration: none;
+  }
+
+  .panel {
+    text-align: center;      
+    width: 100%;    
+    position: relative;
+    display: inline-block;
+    font-size: 20px;
+  }
+
+  .active {
+    height: 200px;
+
+    
+  }
+
+  .inactive {
+    height: 50px;
+
+    
+  }
+
+.panel-1 {
+  .Panel-factory-nav(@panel-blue);
+}
+.panel-2 {
+  .Panel-factory-nav(@panel-green);
+}
+.panel-3 {
+  .Panel-factory-nav(@panel-orange);
+}
+.panel-4 {
+  .Panel-factory-nav(@panel-red);
+}
+ 
+
+  .inactive h1 {
+    line-height: 50px;
+  }
+
+  .active h1 {
+    line-height: 200px;
+  }
+
+    
+    .panel h1 {
+    width: 90%;
+    margin: 0 auto;    
+    font-size: 20px;
+   // position: relative;
+   // top: 25%;
+
+    display: inline-block;
+    vertical-align: middle;
+
+    text-align: right;
+    color: white;
+//    padding-bottom: 15px;
+    border-bottom: none;
+    //border-bottom-style: solid;
+    //border-bottom-width: 1px;
+  }
+
+  //.inactive:hover {          
+    .panel-2:hover, .panel-3:hover, .panel-4:hover {
+      h1:after {
+        float: left;
+        visibility: visible;
+        content: 'Coming soon!';
+        color: @panel-blue;
+      }      
+    }
+
+  .panel a {
+    text-decoration: none;
+  }
+  
+  /*
+.panel-2 {        
+    &:hover {      
+      
+      h2:after {
+        visibility: visible;
+        content: 'Coming soon!';
+        color: @panel-blue;
+        position: absolute;
+        font-size: 15px;
+        top: 50%;
+        text-align: left;
+        margin: 0 auto;
+        background-color: white;
+      }      
+    }
+  h2:after {
+      visibility: hidden;
+      }
+  }
+*/
+}

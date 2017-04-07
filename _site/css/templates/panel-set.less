@@ -1,0 +1,159 @@
+.panel-set {
+  width: 100%;  
+
+  height: 500px;
+  height: 50vh;
+  max-height: 500px;  
+  min-height: 300px;
+  margin: 5px auto;
+  margin-top: 10px;
+  margin-bottom: 25px;
+  max-width: 100%;
+  min-width: 50%;      
+  float: left;
+
+
+// Set panel background colors
+  .panel-1 {
+    .Panel-factory-set(@panel-blue);      
+  }
+
+  .panel-2 {        
+    .Panel-factory-set(@panel-green);
+    
+    &:hover {      
+      
+      h2:after {
+        visibility: visible;
+        content: 'Coming soon!';
+        color: @panel-blue;
+      }      
+    }
+  h2:after {
+      visibility: visible;
+      content: "Projects";      
+      }
+    
+  }
+
+  .panel-3 {      
+    .Panel-factory-set(@panel-orange);
+    
+    &:hover {            
+      h2:after {
+        visibility: visible;
+        content: 'Coming soon!';
+        color: @panel-blue;
+      }      
+    }
+  h2:after {
+      visibility: visible;
+      content: "Writing";      
+      }
+    
+  }
+
+  .panel-4 {      
+    .Panel-factory-set(@panel-red);
+    
+&:hover {            
+      h2:after {
+        visibility: visible;
+        content: 'Coming soon!';
+        color: @panel-blue;
+      }      
+    }
+  h2:after {
+      visibility: visible;
+      content: "Teaching";      
+      }
+
+    
+  }
+
+
+.panel {
+ // text-align: center;  
+  //float: left;
+  display: inline-block;
+
+  width: 22.7%;
+  
+  margin-right: 1%;
+  margin-left: 1%;
+  height: 100%;
+  outline: 1px solid #323232;
+  outline-offset:3px;
+  position: relative;
+  
+
+
+  -webkit-box-shadow: 0px 10px 5px -2px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 10px 5px -2px rgba(0,0,0,0.75);
+  box-shadow: 0px 10px 5px -2px rgba(0,0,0,0.75);   
+
+  //overflow: hidden;
+
+   &:hover {
+    svg {
+      circle { stroke: rgba(255,255,255,0.4); }
+      rect {
+        fill: rgba(255,255,255,0.4); 
+        stroke: rgba(255,255,255,0.4);
+      }
+      path { fill: rgba(255,255,255,0.4); }  
+      }
+
+   }
+
+}
+
+
+
+.panel h1 {
+  position: relative;
+  width: 80%;
+  margin: 0 auto;
+  text-align: center;  
+  font-size: 30px;
+    
+  top: 60%;
+  
+  color: @light-gray;
+  padding-bottom: 15px;    
+  border-bottom-style: solid;
+  border-bottom-width: 1px;  
+  
+}
+
+.panel h2, .panel a {  
+  margin: 0 auto;
+  padding: 0;
+  font-size: 20px;
+  position: relative;
+  top: 62.5%;
+  text-align: center;  
+  color: @light-gray;
+  line-height: 25px;
+}
+
+.panel a {
+  text-decoration: none;
+}
+
+
+.panel svg  {
+  position: absolute;    
+  right: -50px;
+  top: -30px;  
+  // float: right;
+  circle { stroke: rgba(255,255,255,0.2); }        
+  rect { fill: rgba(255,255,255,0.2);
+         stroke: rgba(255,255,255,0.2); }
+  path { fill: rgba(255,255,255,0.2); }
+}
+
+
+}
+
+

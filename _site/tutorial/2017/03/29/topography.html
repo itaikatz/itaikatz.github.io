@@ -1,0 +1,477 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" >
+<!--<html>-->
+
+<head>
+	<meta charset="utf-8">
+	<!-- If you delete this meta tag World War Z will become a reality -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title> Topography </title>
+
+	
+		<link rel="stylesheet" href="/css/font-awesome-4.7.0/css/font-awesome.min.css">
+		<link rel="stylesheet" href="/css/bootstrap/bootstrap.min.css" crossorigin="anonymous">
+		<style>
+		@font-face {
+			font-family: 'Roboto';
+			src: url(/css/fonts/Roboto-Regular.ttf) format("truetype");
+		}
+		@font-face {
+			font-family: 'Indie Flower';
+			src: url(/css/fonts/IndieFlower.ttf) format("truetype");
+		}
+		</style>
+	
+
+	<link rel="stylesheet" type="text/css" href="/css/charcoal2.css">
+
+	
+</head>
+
+<body>
+
+	
+	<nav class="navbar navbar-toggleable-sm navbar-light bg-faded hidden-sm-up">
+	<!-- <nav class="navbar navbar-toggleable-sm navbar-inverse bg-inverse hidden-sm-up"> -->
+	  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+	  <a class="navbar-brand" href="/index3.html">Itai Katz</a>
+
+	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	    <ul class="navbar-nav mr-auto">
+	      <li class="nav-item active">
+	        <a class="nav-link" href="#">About</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="#">Research</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="#">Blog</a>
+	      </li>
+	      <li class="nav-item">
+	        <a class="nav-link" href="#">Tutorials</a>
+	      </li>	      
+	      <li class="nav-item">
+	        <a class="nav-link" href="#">Contact</a>
+	      </li>	      
+	    </ul>
+	    <!--
+	    <form class="form-inline my-2 my-lg-0">
+	      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+	      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+	    </form>
+	    -->
+	  </div>
+	</nav>
+	
+
+	
+
+	
+	<header class="header hidden-xs-down">
+	
+	<div class="container-fluid">
+		<div class="row justify-content-center">
+			<div class="col-sm-6 col-md-8 pr-0">
+				<a href="/index3.html"> <h1>Itai Katz</h1> <h2>Perception for Robotics</h2> </a>					
+			</div>
+			<div class="col-sm-6 col-md-4 text-right align-self-center pl-0">
+				<i class="fa fa-envelope"></i> itai.j.katz@gmail.com
+			</div>
+		</div>
+	</div>
+	</header>
+
+
+	
+ 	<div class="container content-wrapper">
+		<div class="row">
+			<div class="col-12 col-md-2 nav-bar hidden-xs-down sidebar"> 
+				<ul>
+				
+				<a href="/aboutme.html"><li class="about">About</li></a>
+								
+				
+				<li class="research">Research</li>
+				
+						
+				<li class="blog">Blog</li>						
+				
+				
+				<li class="tutorial active">Tutorials</li>
+				
+				</ul>
+			</div>
+			<div class="col-12 col-md-10"> 
+				<div class="main-content">
+					<h1 id="visualizing-digital-elevation-maps">Visualizing Digital Elevation Maps</h1>
+<style>
+figcaption {
+  text-align: center;
+  font-style: italic;
+  font-size: 100%;
+}
+
+.highlighter-rouge, code {
+   background-color: #2b2b2b;
+}
+.highlighter-rouge {
+   border-radius: 5px;
+   padding: 10px;
+   margin-bottom: 30px;
+   -moz-box-shadow:    inset 0 0 10px #161616;
+   -webkit-box-shadow: inset 0 0 10px #161616;
+   box-shadow:         inset 0 0 10px #161616;
+
+}
+</style>
+
+<figure>
+  <img src="https://itaikatz.github.io/assets/posts/topography/cr_mountain_crop.jpg" />
+  <figcaption>Orosí valley, Costa Rica</figcaption>
+</figure>
+
+<p>What is the highest geographic point in your country? The lowest? What if you could answer both questions at a glance?</p>
+
+<p>In this tutorial we’ll demonstrate how to convert a <a href="https://en.wikipedia.org/wiki/Digital_elevation_model">Digital Elevation Model</a> (DEM) into a visualization suitable for use in a website or other application. A DEM is simply a 3D representation of a terrain’s surface. Typically these are used for mapping the Earth’s surface, but the same principle applies to mapping the Moon, other planets, or even microscopic surfaces. You may have encountered a similar concept in computer graphics, where it’s referred to as a <a href="https://en.wikipedia.org/wiki/Heightmap">heightmap</a>.</p>
+
+<p>Here’s what a DEM of the earth looks like (white regions represent higher elevation). Note the prominence of the Rockies, Andes, and Himalayan mountain ranges:</p>
+
+<p><img src="https://itaikatz.github.io/assets/posts/topography/global_dem.jpg" style="width: 75%; display: block; margin: 0 auto;" /></p>
+
+<p>DEMs have many applications:</p>
+<ul>
+  <li>Estimating potential sites for avalanches or landslides</li>
+  <li>Modeling water flow for hydrology</li>
+  <li>Digital flight planning</li>
+  <li>Improving satellite navigation, such as GPS</li>
+  <li>Optimizing position of RF sources (e.g. cell towers)</li>
+</ul>
+
+<p>For this example we’ll use a DEM to create a topographic map of Costa Rica. Costa Rica is an especially interesting example as it contains a variety of surface features ranging from relatively flat plains to rugged peaks.</p>
+
+<p>To begin, we’ll need to collect raw topographical data. Fortunately, NASA has taken care of this for us with the <a href="http://www2.jpl.nasa.gov/srtm/">Shuttle Radar Topography Mission</a> (SRTM), a research effort that collected global elevation data with a resolution of 30 m per pixel.</p>
+
+<h3 id="1-create-a-heightmap">1. Create a heightmap</h3>
+
+<p>The first step is to download the data, which comes in the form of “tiles” of approximately 300,000 km<sup>2</sup>. This data can be downloaded directly from the SRTM website or, more interactively, with the <a href="http://dwtkns.com/srtm/">SRTM Tile Grabber</a>. A complete map of Costa Rica spans four tiles:</p>
+
+<style>
+
+#image_grid {
+  width: 50%; 
+  margin: 0 auto;
+  overflow: hidden;
+}
+#image_grid_element {
+  float: left;
+  width: 48%;
+  padding-bottom: 0;
+  margin: 1%;
+}
+#image_grid_element image {
+  width: 100%
+}
+</style>
+
+<div id="image_grid">
+  <figure id="image_grid_element">
+  <img src="https://itaikatz.github.io/assets/posts/topography/srtm_19_10_small.jpg" />
+  <figcaption>srtm_19_10.tif</figcaption>
+  </figure>
+    <figure id="image_grid_element">
+  <img src="https://itaikatz.github.io/assets/posts/topography/srtm_20_10_small.jpg" />
+  <figcaption>srtm_20_10.tif</figcaption>
+  </figure>
+    <figure id="image_grid_element">
+  <img src="https://itaikatz.github.io/assets/posts/topography/srtm_19_11_small.jpg" />
+  <figcaption>srtm_19_11.tif</figcaption>
+  </figure>
+    <figure id="image_grid_element">
+  <img src="https://itaikatz.github.io/assets/posts/topography/srtm_20_11_small.jpg" />
+  <figcaption>srtm_20_11.tif</figcaption>
+  </figure>
+</div>
+
+<p>To combine them with the correct cartographic projection we’ll use the <em>gdalwarp</em> function, part of the <a href="http://www.gdal.org/">Geospatial Data Abstraction Library</a>, an open-source package for manipulating geospatial data formats.</p>
+
+<!--
+<style>
+#command_table {
+  border: none;
+}
+
+#command_table,
+#command_table tr,
+#command_table tr.even, 
+#command_table tr.alt, 
+#command_table tr:nth-of-type(even) {
+  background-color: inherit;
+}
+
+#command_table td {
+  padding: 0 15px 5px 0;
+  color: white;
+  font-size: 100%;
+}
+#command_table #command {
+    font-family: Consolas, "Liberation Mono", Courier, monospace;
+} 
+
+</style>
+
+<table id="command_table">
+  <tr>
+    <td id="command">gdalwarp</td><td></td>
+  </tr>
+  <tr>
+    <td id="command">&nbsp;&nbsp; -r lanczos \</td><td>Interpolation method</td>
+  </tr>
+  <tr>
+    <td id="command">&nbsp;&nbsp; -te -250000 -156250 250000 156250 \</td><td>Georeferenced extents of output file to be created</td>
+  </tr>
+  <tr>
+    <td id="command">&nbsp;&nbsp; -t_srs "+proj=aea +lat_1=8 +lat_2=11.5 +lat_0=9.7 +lon_0=-84.2 +x_0=0 +y_0=0" \</td><td>Output lat/long</td>
+  </tr>
+  <tr>
+    <td id="command">&nbsp;&nbsp; -ts 960 0 \</td><td>Output dimensions in pixels [0=computed]</td>
+  </tr>
+  <tr>
+    <td id="command">&nbsp;&nbsp; srtm_19_10.tif srtm_20_10.tif srtm_19_11.tif srtm_20_11.tif \</td><td>Source files</td>
+  </tr>
+  <tr>
+    <td id="command">&nbsp;&nbsp; relief.tiff </td><td>Output file</td>
+  </tr>
+</table>
+-->
+
+<div class="highlighter-rouge"><pre class="highlight"><code>gdalwarp
+  -r lanczos
+  -te -250000 -156250 250000 156250
+  -t_srs "+proj=aea +lat_1=8 +lat_2=11.5 +lat_0=9.7 +lon_0=-84.2 +x_0=0 +y_0=0"
+  -ts 960 0
+  srtm_19_10.tif srtm_20_10.tif srtm_19_11.tif srtm_20_11.tif
+  heightmap.tiff
+</code></pre>
+</div>
+
+<p>The t_srs option sets an albers equal area projection that will center on Costa Rica. The te option defines the extent of the map, using Spatial Reference System (SRS) coordinates. Lastly, the ts option specifies the output image size in pixels. Here’s what the merged and projected heightmap looks like:</p>
+
+<p><img src="https://itaikatz.github.io/assets/posts/topography/relief.jpg" style="width: 75%; display: block; margin: 0 auto;" /></p>
+
+<h3 id="2-create-color-relief-map">2. Create color relief map</h3>
+
+<p>Next let’s add some color. We’ll do this with the GDAL utility <em>gdaldem</em> which will combine the heightmap we generated with a list of colors. The colors are defined as a list of [<em>elevation x y z</em>] tuples, which <em>gdaldem</em> will interpolate. We’ll choose green for low elevation and brown for high elevation, but the choice of colors is arbitrary.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>gdaldem
+  color-relief 
+  heightmap.tiff 
+  color_relief.txt 
+  hill-relief-c.tiff
+</code></pre>
+</div>
+
+<p>Where color_relief.txt contains the following values:</p>
+
+<table>
+  <thead>
+  <tr>
+  <td>Elevation (m)</td><td>Red</td><td>Green</td><td>Blue</td>
+  </tr>
+  </thead>
+  <tr>
+    <td>65535</td><td>255</td><td>255</td><td>255</td>
+  </tr>
+  <tr>
+    <td>5800</td><td>254</td><td>254</td><td>254</td>
+  </tr>
+  <tr>
+    <td>3000</td><td>121</td><td>117</td><td>10</td>
+  </tr>
+  <tr>
+    <td>1500</td><td>151</td><td>106</td><td>47</td>
+  </tr>
+  <tr>
+    <td>800</td><td>127</td><td>166</td><td>122</td>
+  </tr>
+  <tr>
+    <td>500</td><td>213</td><td>213</td><td>149</td>
+  </tr>
+  <tr>
+    <td>1</td><td>201</td><td>213</td><td>166</td>
+  </tr>
+</table>
+
+<figure>
+<img src="https://itaikatz.github.io/assets/posts/topography/hill-relief-c.jpg" style="width: 75%; display: block; margin: 0 auto;" />
+<figcaption>Color relief map</figcaption>
+</figure>
+
+<h3 id="3-create-a-shaded-relief-map">3. Create a shaded relief map</h3>
+
+<p>To add a bit more visual interest we can create a shaded relief map that simulates the appearance of light coming from an angle
+simulating light coming from an angle. We turn again to the <em>gdaldem</em> utility, this time with the <span style="font-family: Consolas, 'Liberation Mono', Courier, monospace;">hillshade</span> option.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>gdaldem 
+  hillshade 
+  relief.tiff 
+  hill-relief-shaded.tiff 
+  -z 4 -az 20
+</code></pre>
+</div>
+
+<figure>
+<img src="https://itaikatz.github.io/assets/posts/topography/hill-relief-shaded.jpg" style="width: 75%; display: block; margin: 0 auto;" />
+<figcaption>Shaded relief map</figcaption>
+</figure>
+
+<h3 id="4-merge-shade-and-color">4. Merge shade and color</h3>
+
+<p>Next we’ll combine the color and shaded relief maps with a simple python script (see the end of this tutorial for the code):</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>hsv_merge.py 
+  hill-relief-c.tiff 
+  hill-relief-shaded.tiff 
+  hill-relief-merged.tiff
+</code></pre>
+</div>
+
+<figure>
+<img src="https://itaikatz.github.io/assets/posts/topography/hill-relief-merged.jpg" style="width: 75%; display: block; margin: 0 auto;" />
+<figcaption>Merged relief map</figcaption>
+</figure>
+
+<h3 id="5-add-costa-rica-geographic-data">5. Add costa rica geographic data</h3>
+
+<p>Looking pretty good! As a last step let’s incorporate geographic data so we can clearly see the country’s boundaries. To do this, we’ll use get Costa Rica’s administrative boundaries from <a href="gadm.org">GADM.org</a>, and convert them into a format suitable for use on the web, namely TopoJSON.</p>
+
+<p>For reasons that aren’t terribly interesting we’ll have to first convert from GADL’s shapefile format to GeoJSON and then to TopoJSON using GDAL’s ogr2ogr and <a href="https://github.com/topojson/topojson">Mike Bostock’s topojson</a> utilities, respectively:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>curl -o CRI_adm.zip http://gadm.org/data/shp/CRI_adm.zip
+ogr2ogr -f GeoJSON costarica.json CRI_adm0.shp
+topojson -p name=NAME -p name -q 1e4 -o costarica_min_topo.json costarica.json
+</code></pre>
+</div>
+
+<h2 id="end-result">End result</h2>
+
+<p>With a a little D3js magic (the topic of a future tutorial, i.e. “left as an exercise for the reader”) we can combine the geographic data with the merged relief map:</p>
+
+<p><img src="https://itaikatz.github.io/assets/posts/topography/final.jpg" style="width: 100%; display: block; margin: 0 auto;" /></p>
+
+<p><a href="https://itaikatz.github.io/assets/posts/topography/dem.zip">Click here</a> to download all the files associated with this project. You should be able to load index.html and see an SVG version of the end result. If you have any questions or comments, feel free to send me an email.</p>
+
+<!--
+<style>
+  path#CRI {
+    fill: none;
+    stroke: #000;
+  }
+  image.bg {
+    opacity: 0.2;
+  }
+</style>
+
+<div id="merged-map"></div>
+
+<script src="https://d3js.org/d3.v3.min.js"></script>
+<script src="https://d3js.org/topojson.v0.min.js"></script>
+<script>
+  var width = 960,
+      height = 600;
+
+  var projection = d3.geo.albers()
+    .center([0, 9.7])
+    .rotate([84.2,0])
+    .parallels([8, 11.5])
+    //.scale(10200)
+    .scale(12240)
+    .translate([width / 2, height / 2]);
+
+  var path = d3.geo.path()
+    .projection(projection);
+
+  var svg = d3.select("#merged-map").append("svg")
+    .attr("class", "map")
+    .attr("width", width)
+    .attr("height", height);
+
+  d3.json("https://itaikatz.github.io/assets/posts/topography/costarica_min_topo.txt", function(error, data) {
+    var costarica = topojson.object(data, data.objects.costarica);
+
+    svg.append("image")
+      //.attr("clip-path", "url(#clip)")
+      .attr("xlink:href", "https://itaikatz.github.io/assets/posts/topography/hill-relief.jpg")
+      .attr("width", width)
+      .attr("height", height)
+      .attr("class", "bg");
+
+    svg.selectAll(".cr-subunit")
+      .data(costarica.geometries)
+    .enter().append("path")
+      .attr("id", function(d) { return "CRI"; })
+      .attr("d", path);
+
+    svg.append("clipPath")
+      .attr("id", "clip")
+    .append("use")
+      .attr("xlink:href", "#CRI");
+
+    svg.append("image")
+      .attr("clip-path", "url(#clip)")
+      .attr("xlink:href", "https://itaikatz.github.io/assets/posts/topography/hill-relief.jpg")
+      .attr("width", width)
+      .attr("height", height)
+      .attr("class", "fg");
+  });
+
+  // Script here...
+</script>
+
+-->
+
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+   <footer class="footer">
+      <div class="container-fluid align-self-center mx-auto footer-wrapper">
+	      <div class="row">
+			<div class="col-6 text-left align-self-center pr-0">			
+				Copyright &copy;  
+				<script type="text/javascript">
+				document.write(new Date().getFullYear());
+				</script>
+				Itai Katz
+			</div>
+			<div class="col-6 text-right align-self-center pl-0">			
+				<ul class="list-inline">
+				<li class="list-inline-item"><i class="fa fa-linkedin-square" aria-hidden="true"></i></li>
+				<li class="list-inline-item"><i class="fa fa-github-square" aria-hidden="true"></i></li>
+				<li class="list-inline-item"><i class="fa fa-youtube-square" aria-hidden="true"></i></li>					
+				</ul>
+			</div>
+		  </div>
+      </div>
+    </footer>
+
+
+
+    
+		<!-- Bootstrap (+jQuery) 4.0-alpha-6 (Latest compiled and minified JavaScript) -->
+		<script src="/js/jquery-3.1.1.slim.min.js" crossorigin="anonymous"></script>
+		<script src="/js/tether.min.js" crossorigin="anonymous"></script>
+		<script src="/js/bootstrap/bootstrap.min.js" crossorigin="anonymous"></script>
+	
+
+
+</body>
+</html>
+
+

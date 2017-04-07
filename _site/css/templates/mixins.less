@@ -1,0 +1,39 @@
+.Panel-factory-set(@color, @color2: @color) {
+  background-color: @color;
+  &:hover {
+    background: radial-gradient(ellipse 150px 100px at bottom,lighten(@color2, 15%),lighten(@color2, 4%), @color);
+      /*
+    svg {
+      circle {      
+      stroke: rgba(255,255,255,0.82); 
+      }
+      rect {
+        fill: rgba(255,255,255,0.82); 
+        stroke: rgba(255,255,255,0.82);
+      }
+      path { fill: rgba(255,255,255,0.82); }
+    }       
+    h1 {
+      //border-bottom-color: @color;    
+    }
+    */
+  }
+  
+  h1 {
+    border-bottom-color: lighten(@color, 5%);    
+  }
+  overflow: hidden;
+}
+
+.Panel-factory-nav(@color, @color2: @color) {
+  background-color: @color;
+  &:hover {
+    background: radial-gradient(ellipse 150px 100px at right,lighten(@color2, 15%),lighten(@color2, 4%), @color);
+  }
+  
+  h1 {
+    border-bottom-color: lighten(@color, 5%);    
+  }
+  overflow: hidden;
+}
+
