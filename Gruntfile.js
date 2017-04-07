@@ -32,7 +32,7 @@ module.exports = function(grunt) {
             options: {                          // Universal options
                 //bundleExec: true,
                 //src : '<%= app %>'
-                incremental: true
+                incremental: false
             },
             default: {   
             }
