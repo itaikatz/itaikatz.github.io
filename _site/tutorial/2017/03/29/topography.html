@@ -350,7 +350,7 @@ simulating light coming from an angle. We turn again to the <em>gdaldem</em> uti
 
 <p>Looking pretty good! As a last step let’s incorporate geographic data so we can clearly see the country’s boundaries. To do this, we’ll use get Costa Rica’s administrative boundaries from <a href="gadm.org">GADM.org</a>, and convert them into a format suitable for use on the web, namely TopoJSON.</p>
 
-<p>For reasons that aren’t terribly interesting we’ll have to first convert from GADL’s shapefile format to GeoJSON and then to TopoJSON using GDAL’s ogr2ogr and <a href="https://github.com/topojson/topojson">Mike Bostock’s topojson</a> utilities, respectively:</p>
+<p>For reasons that aren’t terribly interesting we’ll have to first convert from GDAL’s shapefile format to GeoJSON and then to TopoJSON using GDAL’s ogr2ogr and <a href="https://github.com/topojson/topojson">Mike Bostock’s topojson</a> utilities, respectively:</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>curl -o CRI_adm.zip http://gadm.org/data/shp/CRI_adm.zip
 ogr2ogr -f GeoJSON costarica.json CRI_adm0.shp
