@@ -23,6 +23,10 @@
 		body { background-image: url("/img/classy-fabric.png"); }
 	</style>
 	
+	  
+	  <link rel="stylesheet" href="/assets/posts/steganography/steg.css" media="screen" type="text/css">
+	  
+	
 </head>
 
 <body>
@@ -94,17 +98,18 @@
 				
 				<a href="/research.html"><li class="research">Research</li></a>
 				
-						
-				<a href="/blog.html"><li class="blog">Blog</li></a>						
 				
+				<a href="/blog.html"><li class="blog active">Blog</li></a>
 				
-				<a href="/tutorials.html"><li class="tutorial active">Tutorials</li></a>
+								
+				<a href="/tutorials.html"><li class="tutorial">Tutorials</li></a>				
 				
 				</ul>
 			</div>
 			<div class="col-12 col-md-10"> 
 				<div class="main-content">
-					<h1 id="in-plain-sight-a-survey-of-staganography-techniques-part-i">In plain sight: A survey of staganography techniques (Part I)</h1>
+					
+<p>==</p>
 
 <p><img src="/assets/posts/steganography/montage2.jpg" alt="My Image" /></p>
 
@@ -112,20 +117,20 @@
 
 <p>The past decade has seen an information explosion of unprecedented magnitude. The internet and high-density storage media have made data transfer fast and often anonymous. When we want to keep our data a secret there are lots of standard encryption techniques. One of these, AES-128 will take a string of text:</p>
 
-<blockquote>
-  <p>This is the dawning of the age of Aquarius.</p>
-</blockquote>
+<div class="highlighter-rouge"><pre class="highlight"><code>This is the dawning of the age of Aquarius. 
+</code></pre>
+</div>
 
 <p>And convert it into this:</p>
 
-<blockquote>
-  <p>m8ZPh0WFI/9MH6HN2LVnSxhaVDQ8ftO391WjvCxKGbJWf+fztbIqnIVzyXpCaXTJP9PuP7h7bHrjQZQK
-1YthDvbUy41Sap/w79dB41sQDPccJw5DdAIBI/soq3oRY773pWMVCdV0G+tp5x9OGGovLg==</p>
-</blockquote>
+<div class="highlighter-rouge"><pre class="highlight"><code>m8ZPh0WFI/9MH6HN2LVnSxhaVDQ8ftO391WjvCxKGbJWf+fztbIqnIVzyXpCaXTJP9PuP7h7bHrjQZQK
+1YthDvbUy41Sap/w79dB41sQDPccJw5DdAIBI/soq3oRY773pWMVCdV0G+tp5x9OGGovLg==
+</code></pre>
+</div>
 
-<p>This works great for ensuring the security of our data but the obvious problem is that it’s, well, obvious. Anybody who’s worked with encrypted data before can recognize a psuedo-random string like the one above and know that somebody’s passing secrets. What if we could hide our secret in such a way that a third party wouldn’t even know it’s there? This is the concept known as <strong>steganography</strong> from the Greek words <em>steganos</em> and <em>graphein</em>, meaning “concealed writing”.</p>
+<p>This works great for ensuring the security of our data but the obvious problem is that it&#8217;s, well, obvious. Anybody who&#8217;s worked with encrypted data before can recognize a psuedo-random string like the one above and know that somebody&#8217;s passing secrets. What if we could hide our secret in such a way that a third party wouldn&#8217;t even know it&#8217;s there? This is the concept known as <strong>steganography</strong> from the Greek words <em>steganos</em> and <em>graphein</em>, meaning &#8220;concealed writing&#8221;.</p>
 
-<p>Steganography has a rich and sometimes disturbing history. It was particularly useful in wartime, most famously by prisoners of war sending covert messages back to their command. In 1966 American POW Jeremiah Denton blinked the word “T-O-R-T-U-R-E” in Morse code during a televised press conference. Later in 1968, after the crew of the USS Pueblo were held as prisoners by North Korea, they flashed what they claimed is a “Hawaiian good luck” sign during staged propaganda photos (see below).</p>
+<p>Steganography has a rich and sometimes disturbing history. It was particularly useful in wartime, most famously by prisoners of war sending covert messages back to their command. In 1966 American POW Jeremiah Denton blinked the word &#8220;T-O-R-T-U-R-E&#8221; in Morse code during a televised press conference. Later in 1968, after the crew of the USS Pueblo were held as prisoners by North Korea, they flashed what they claimed is a &#8220;Hawaiian good luck&#8221; sign during staged propaganda photos (see below).</p>
 
 <div class="imageTable">
     <table>
@@ -148,7 +153,7 @@
 	</table>
 </div>
 
-<p>Today modern steganography has entered the information age. In the rest of this tutorial we’ll describe several algorithms to digitally hide one message inside another. For simplicity, we’ll conceal one (payload) image inside another (target) image. These techniques can be generalized to different types of data such as text or audio. We’ll conclude with several real-world applications.</p>
+<p>Today modern steganography has entered the information age. In the rest of this tutorial we&#8217;ll describe several algorithms to digitally hide one message inside another. For simplicity, we&#8217;ll conceal one (payload) image inside another (target) image. These techniques can be generalized to different types of data such as text or audio. We&#8217;ll conclude with several real-world applications.</p>
 
 <h2 id="requirements">Requirements</h2>
 <p>The primary goal of an stegonagraphic algorithm is <em>impercebility</em> that is, the payload image should be completely hidden from any casual observer who views the target image. The exact methods defer but in general the idea is to exploit weaknesses in the human visual system. The algorithms implemented here are evaluated with the following considerations:</p>
@@ -159,24 +164,22 @@
   <li>Capacity. The amount of data an algorithm can embed in an image has implications for what sort of data can be hidden.</li>
 </ul>
 
-<p>Let’s begin with the simplest and oldest technique, Least Significant Bit (LSB) Insertion.</p>
+<p>Let&#8217;s begin with the simplest and oldest technique, Least Significant Bit (LSB) Insertion.</p>
 
 <h3 id="least-significant-bit-lsb-insertion">Least Significant Bit (LSB) Insertion</h3>
 
-<p>(This section adapted from a post on Nick Berry’s excellent blog, DataGenetics<sup id="fnref:foot1"><a href="#fn:foot1" class="footnote">1</a></sup>)</p>
+<p>(This section adapted from a post on Nick Berry&#8217;s excellent blog, DataGenetics<sup id="fnref:foot1"><a href="#fn:foot1" class="footnote">1</a></sup>)</p>
 
 <p>LSB insertion is the simplest, earliest watermarking algorithm. It exploits the fact that while typical computer images exhibit a wide range of colors (approximately 16.7 million for a 24-bit image), humans can only distinguish a small fraction of this range.</p>
 
 <div class="row">
-	<div class="medium-6 small-12 columns">		
+	<div class="col-12 col-sm-6">		
 		When we see an image on a screen, we see something like this:
-		<img class="autoResizeImage" src="/assets/posts/steganography/Eye_of_Horus.svg" />
+		<img src="/assets/posts/steganography/Eye_of_Horus.svg" />
 	</div>
-	<div class="medium-6 small-12 columns ">	
+	<div class="col-12 col-sm-6">	
 		but inside the computer the image is represented differently:
 		<img src="/assets/posts/steganography/pixels.svg" />
-		<!--<img src="your.svg" onerror="this.src='your.png'">-->
-		<!-- <img class="autoResizeImage" src="assets/posts/steganography/lena_0.jpg" /> -->
 	</div>
 </div>
 
@@ -213,7 +216,7 @@
 	</div>
 </div>
 
-<p>Each of these segments is separated by a single shade. Can you spot the difference? Although the LSBs (the underlined bits in the example above) are different in each shade, they don’t have much perceptible effect.  Exploiting this limitation allows us to insert secret data into our image. For example, to store a hidden bit of <script type="math/tex">\textbf{1}</script> we set the LSB of a particular byte to one. Similarly, to store a zero we set the LSB of the same byte to zero. Repeating this for each pixel allows us to store an entire secret image inside our target image. Here’s what the result looks like:</p>
+<p>Each of these segments is separated by a single shade. Can you spot the difference? Although the LSBs (the underlined bits in the example above) are different in each shade, they don&#8217;t have much perceptible effect.  Exploiting this limitation allows us to insert secret data into our image. For example, to store a hidden bit of <script type="math/tex">\textbf{1}</script> we set the LSB of a particular byte to one. Similarly, to store a zero we set the LSB of the same byte to zero. Repeating this for each pixel allows us to store an entire secret image inside our target image. Here&#8217;s what the result looks like:</p>
 
 <div class="row" style="display: table-cell; vertical-align: middle;">
 	<div class="small-3 small-offset-1 columns" style="position: relative; top: 50%; transform: translateY(25%);">
@@ -230,7 +233,7 @@
 	</div>
 </div>
 
-<p>Now we’re not restricted to using the <em>least</em> significant bit. If we want to insert a larger secret image a greater portion of the target image can be overwritten with our secret data, using the least <em>two</em> significant bits and so on. This process can be repeated for quite a number of bits before the image begins to degrade pereptually. How many bits can we overwrite in the image below before you start noticing any noise?</p>
+<p>Now we&#8217;re not restricted to using the <em>least</em> significant bit. If we want to insert a larger secret image a greater portion of the target image can be overwritten with our secret data, using the least <em>two</em> significant bits and so on. This process can be repeated for quite a number of bits before the image begins to degrade pereptually. How many bits can we overwrite in the image below before you start noticing any noise?</p>
 
 <!--
 <div class="row"> 
@@ -303,7 +306,7 @@
 
 -->
 
-<p>Despite excellent capacity and ease of implementation, LSB insertion suffers from several problems. First, it treats all parts of the image equally. Localizing the watermark in high-frequency regions would produce a more visually pleasing result. Second, LSB insertion is the least robust of all methods. It does not survive any sort of image manipulation, in particular JPEG compression. This is an example of a “fragile watermark”.</p>
+<p>Despite excellent capacity and ease of implementation, LSB insertion suffers from several problems. First, it treats all parts of the image equally. Localizing the watermark in high-frequency regions would produce a more visually pleasing result. Second, LSB insertion is the least robust of all methods. It does not survive any sort of image manipulation, in particular JPEG compression. This is an example of a &#8220;fragile watermark&#8221;.</p>
 
 <h1 id="notes">NOTES</h1>
 <p>To-Do:</p>
@@ -320,7 +323,7 @@
 
 <h2 id="motivation">Motivation</h2>
 
-<p>Watermarking is not a new phenomenon. For nearly one thousand years, watermarks on paper have been used to identify a particular brand (in the case of publishers) and to discourage conterfeiting (in the case of stamps and currency) [11]. In the modern era, proving authenticity is becoming increasingly important as more of the world’s information is stored as readily transferable bits. Digital watermarking is a process whereby arbitrary information is encoded into an image in such a way that the additional payload is imperceptible to the image observer.</p>
+<p>Watermarking is not a new phenomenon. For nearly one thousand years, watermarks on paper have been used to identify a particular brand (in the case of publishers) and to discourage conterfeiting (in the case of stamps and currency) [11]. In the modern era, proving authenticity is becoming increasingly important as more of the world&#8217;s information is stored as readily transferable bits. Digital watermarking is a process whereby arbitrary information is encoded into an image in such a way that the additional payload is imperceptible to the image observer.</p>
 
 <p>The purpose of this project is to document the development of digital watermarking algorithms through implementations. I am especially interested in how the human visual system can be exploited to increase payload capacity and decrease perceptibility.</p>
 
@@ -344,7 +347,7 @@
   <li>Attaching meta-data that pertains to the image such as a time, date, and location stamp.</li>
 </ul>
 
-<p>Watermarking algorithms fall into two categories. Spatial-domain techniques work with the pixel values directly. Frequency-domain techniques employ various transforms, either local or global [9]. The following describes several popular techniques. (More detailed descriptions of LSB, BPCS, ABCDE, spread spectrum, and IA-DCT are described in the “Methods” section.)</p>
+<p>Watermarking algorithms fall into two categories. Spatial-domain techniques work with the pixel values directly. Frequency-domain techniques employ various transforms, either local or global [9]. The following describes several popular techniques. (More detailed descriptions of LSB, BPCS, ABCDE, spread spectrum, and IA-DCT are described in the &#8220;Methods&#8221; section.)</p>
 
 <h3 id="lsb-insertion">LSB insertion</h3>
 <p>LSB insertion is one of the simplest techniques and has been known since antiquity (~1980s). Given an 8-bit image, the least signicant bits are replaced with meaningful data. Since only the lower-order bits are altered, the resulting color shifts are typically imperceptible. [4]</p>
@@ -361,7 +364,7 @@ A grayscale palette sorted by luminance [4]</p>
 <p><img src="/assets/posts/steganography/palette.jpg" alt="My Image" /></p>
 
 <h3 id="bit-plane-complexity-segmentation-bpcs">Bit-Plane Complexity Segmentation (BPCS)</h3>
-<p>BPCS embeds watermark data only in “complex” regions of an image. The resulting watermark is localized on less conspicuous edges and noise-like regions while avoiding regions of flat color. [6]</p>
+<p>BPCS embeds watermark data only in &#8220;complex&#8221; regions of an image. The resulting watermark is localized on less conspicuous edges and noise-like regions while avoiding regions of flat color. [6]</p>
 
 <h3 id="a-block-complexity-based-data-embedding-abcde">A Block Complexity based Data Embedding (ABCDE)</h3>
 <p>ABCDE extends BPCS by adopting a more sophisticated metric for determining the complexity in an image region. [5]</p>
@@ -370,7 +373,7 @@ A grayscale palette sorted by luminance [4]</p>
 <p>Spread spectrum is a frequency-domain method that takes the DCT transform of the image and adds a series of random values to the high-energy coefficients. These random values form a unique fingerprint that can be used to identify an image. Unlike the previously mentioned methods, spread spectrum does not allow insertion of arbitrary data. [2]</p>
 
 <h3 id="image-adaptive-discrete-cosine-transform-ia-dct">Image Adaptive Discrete Cosine Transform (IA-DCT)</h3>
-<p>IA-DCT extends spread spectrum by accounting for locally varying image features. Instead of a global DCT, as in spread spectrum, IA-DCT separates the image into 8x8 tiles and inserts watermark data with a power proportional to the “complexity” of the tile. [9]</p>
+<p>IA-DCT extends spread spectrum by accounting for locally varying image features. Instead of a global DCT, as in spread spectrum, IA-DCT separates the image into 8x8 tiles and inserts watermark data with a power proportional to the &#8220;complexity&#8221; of the tile. [9]</p>
 
 <p>Steganography is a related field which attempts to attach information covertly such that hidden messages are not only encrypted, but undetected. Steganography differs from watermarking in several key ways. Watermarking only demands that the hidden data is undetectable to the eye; statistical analysis should reveal the presence of a watermark. Steganography assumes the end user is an adversary who may attempt to modify or remove the hidden message, should it be detected. In most applications, the end user can be aware of the presence of a watermark without compromising its usefulness.</p>
 
@@ -380,7 +383,7 @@ A grayscale palette sorted by luminance [4]</p>
 
 <p>LSB is the simplest, earliest watermarking algorithm. For each pixel, the least significant bit is overwritten with one bit of the watermark message. For example:</p>
 
-<p>“the letter A can be hidden in three pixels (assuming no compression). The original raster data for 3 pixels (9 bytes) may be</p>
+<p>&#8220;the letter A can be hidden in three pixels (assuming no compression). The original raster data for 3 pixels (9 bytes) may be</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>(00100111 11101001 11001000)
 (00100111 11001000 11101001)
@@ -396,7 +399,7 @@ A grayscale palette sorted by luminance [4]</p>
 </code></pre>
 </div>
 
-<p>This takes advantage of the human visual system’s inability to pick out very similar colors. Because of the large number of available colors in an uncompressed image, a substitution of adjacent colors will be undetectable.</p>
+<p>This takes advantage of the human visual system&#8217;s inability to pick out very similar colors. Because of the large number of available colors in an uncompressed image, a substitution of adjacent colors will be undetectable.</p>
 
 <p>The images below show the result of LSB insertion on various numbers of lower order bits. The same number of bits were modified for each RGB channel. For the watermark, a string of random bits were used. While the embedded message can take any form, one with a high degree of structure may create artifacts in the final image. For this reason messages should be encoded into an apparently-random string of bits (such as through MIME encoding).</p>
 
@@ -501,11 +504,11 @@ PSNR &= 20\log_{10}{\frac{255}{\text{RMSE}}}\\
 
 <p>(click on the images for a larger version)</p>
 
-<p>LSB insertion works surprisingly well; the first hint of image degradation doesn’t seem to occur until 4-bit distortion, corresponding to a 3.1 MByte watermark for this particular image! This method seems to fail first in regions of flat color, with regions of high spatial frequencies being less affected by the distortion.</p>
+<p>LSB insertion works surprisingly well; the first hint of image degradation doesn&#8217;t seem to occur until 4-bit distortion, corresponding to a 3.1 MByte watermark for this particular image! This method seems to fail first in regions of flat color, with regions of high spatial frequencies being less affected by the distortion.</p>
 
-<p>Despite excellent capacity and ease of implementation, LSB insertion suffers from several problems. First, it treats all parts of the image equally. Localizing the watermark in high-frequency regions would produce a more visually pleasing result. Second, LSB insertion is the least robust of all methods. It does not survive any sort of image manipulation, in particular JPEG compression. This is an example of a “fragile watermark”.</p>
+<p>Despite excellent capacity and ease of implementation, LSB insertion suffers from several problems. First, it treats all parts of the image equally. Localizing the watermark in high-frequency regions would produce a more visually pleasing result. Second, LSB insertion is the least robust of all methods. It does not survive any sort of image manipulation, in particular JPEG compression. This is an example of a &#8220;fragile watermark&#8221;.</p>
 
-<p>As an experiment, I tried LSB insertion in the YCbCr color space instead of RGB, weighting the Cb and Cr channels more heavily than the Y. The YCbCr version is granier than the RGB and exhibits color artifacts throughout the image. Color “banding” seems more apparent, particularly in the shoulder region.</p>
+<p>As an experiment, I tried LSB insertion in the YCbCr color space instead of RGB, weighting the Cb and Cr channels more heavily than the Y. The YCbCr version is granier than the RGB and exhibits color artifacts throughout the image. Color &#8220;banding&#8221; seems more apparent, particularly in the shoulder region.</p>
 
 <div class="imageTable">
     <table>
@@ -608,7 +611,7 @@ PSNR &= 20\log_{10}{\frac{255}{\text{RMSE}}}\\
 
 <h3 id="a-block-complexity-based-data-embedding-abcde-1">A Block Complexity based Data Embedding (ABCDE)</h3>
 
-<p>ABCDE works in a very similar method as BPCS, but employs a more sophisticated complexity metric. BPCS merely counts the number of bit-flips in each row and column of a given tile, with the assumption that a large number of bit flips indicates a lack of structure. ABCDE instead uses a pair of metrics that look for irregularity in a tile rather than high spatial frequencies. The authors’ justification is that certain patterns, while high frequency, would produce unacceptable distortion if a watermark were embedded in them.</p>
+<p>ABCDE works in a very similar method as BPCS, but employs a more sophisticated complexity metric. BPCS merely counts the number of bit-flips in each row and column of a given tile, with the assumption that a large number of bit flips indicates a lack of structure. ABCDE instead uses a pair of metrics that look for irregularity in a tile rather than high spatial frequencies. The authors&#8217; justification is that certain patterns, while high frequency, would produce unacceptable distortion if a watermark were embedded in them.</p>
 
 <p><img class="autoResizeImage" src="/assets/posts/steganography/abcde_diagram.jpg" /></p>
 
@@ -635,7 +638,7 @@ PSNR &= 20\log_{10}{\frac{255}{\text{RMSE}}}\\
     </table>
 </div>
 
-<p>ABCDE replaces BPCS’ <script type="math/tex">\alpha</script>-complexity with two metrics: run-length irregularity and border noisiness. Run-length irregularity searches for patterns amongst a tile’s rows and columns. The checkerboard pattern above, for example, would be rejected by this metric. Border noisiness attempts to find edges in an image between two relatively flat regions of color. Rejecting tiles that lie on boundaries avoids the apparent blurring of edges that can occur with BPCS. [5]</p>
+<p>ABCDE replaces BPCS&#8217; <script type="math/tex">\alpha</script>-complexity with two metrics: run-length irregularity and border noisiness. Run-length irregularity searches for patterns amongst a tile&#8217;s rows and columns. The checkerboard pattern above, for example, would be rejected by this metric. Border noisiness attempts to find edges in an image between two relatively flat regions of color. Rejecting tiles that lie on boundaries avoids the apparent blurring of edges that can occur with BPCS. [5]</p>
 
 <p>The results shown in the images below are particularly impressive. Despite the watermarked image having more than 60% of its image data overwritten, the differences between it and the original image are nearly imperceptible.</p>
 
@@ -680,7 +683,7 @@ PSNR &= 20\log_{10}{\frac{255}{\text{RMSE}}}\\
   <li>Convert the image back to luminance</li>
 </ol>
 
-<p>The results below show that this technique has excellent transparancy properties. Even close inspection shows little degradation in image quality. The few artifacts appear as low frequency “noise”, which is unlikely to be detected without statistical analysis.</p>
+<p>The results below show that this technique has excellent transparancy properties. Even close inspection shows little degradation in image quality. The few artifacts appear as low frequency &#8220;noise&#8221;, which is unlikely to be detected without statistical analysis.</p>
 
 <div class="imageTable">
     <table>
@@ -751,7 +754,7 @@ Encoded image after JPEG compression</p>
 Watermark detection after JPEG compression with quality=10</p>
 
 <h2 id="conclusion-and-further-research">Conclusion and further research</h2>
-<p>This project described the development of digital watermarking techniques from the early methods to the more sophisticated techniques being explored recently. A surprising fact I discovered in the course of this report was that the original, “naive” LSB insertion method provided the same level of transparancy as the frequency-domain methods. Authors of more recent watermarking papers deride spatial-domain methods for being deprecated and lacking robustness. The advantages, however, appear to be a trade off. Frequency methods provide a good deal of robustness but lack the ability to store large amounts of arbitrary data, allowing instead a randomly generated “key”. To authenticate a watermark, these algorithms frequently require some other data, such as the original, unencoded image. As is often the case, the choice of algorithm depends heavily on the application.</p>
+<p>This project described the development of digital watermarking techniques from the early methods to the more sophisticated techniques being explored recently. A surprising fact I discovered in the course of this report was that the original, &#8220;naive&#8221; LSB insertion method provided the same level of transparancy as the frequency-domain methods. Authors of more recent watermarking papers deride spatial-domain methods for being deprecated and lacking robustness. The advantages, however, appear to be a trade off. Frequency methods provide a good deal of robustness but lack the ability to store large amounts of arbitrary data, allowing instead a randomly generated &#8220;key&#8221;. To authenticate a watermark, these algorithms frequently require some other data, such as the original, unencoded image. As is often the case, the choice of algorithm depends heavily on the application.</p>
 
 <p>Most papers I have read approach watermarking from a digital rights or authentication standpoint. These applications of digital watermarking are analagous to the traditional paper watermarks. The unique medium of digital imagery allows for applications that have no such analogue. For example, an audio watermark in an image sequence could be used to sync audio with video. Meta-data could be inserted into an image for database applications, while still allowing backwards compatibility with the JPEG standard. Unique IDs could be embedded into images to analyze the network traffic of a particular group of users.</p>
 

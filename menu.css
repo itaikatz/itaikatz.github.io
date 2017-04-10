@@ -30,15 +30,6 @@
 .main-content hr.tutorial {
   border-color: #b23814;
 }
-.main-content a.about {
-  color: #a9ecff;
-}
-.main-content a.research {
-  color: #e9ff9d;
-}
-.main-content a.blog {
-  color: #fff4df;
-}
-.main-content a.tutorial {
-  color: #f9d6cc;
+.main-content a {
+  color: #e0e0e0;
 }

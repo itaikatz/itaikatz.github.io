@@ -1,13 +1,14 @@
 ---
 title: Steganography
-publish_title: "In plain sight: A survey of steganography techniques (Part I)"
-category: tutorial
+publish_title: "Steganography: Hidden in plain sight (Part I)"
+category: blog
 layout: charcoal2
 thumbnail: assets/thumbnails/steg.jpg
 js: steg.js
+custom_css: assets/posts/steganography/steg.css
 ---
 
-In plain sight: A survey of staganography techniques (Part I)
+{{site.publish_title}}
 ==
 
 <img src="{{site.baseurl}}/assets/posts/steganography/montage2.jpg" alt="My Image" />
@@ -16,13 +17,16 @@ In plain sight: A survey of staganography techniques (Part I)
 
 The past decade has seen an information explosion of unprecedented magnitude. The internet and high-density storage media have made data transfer fast and often anonymous. When we want to keep our data a secret there are lots of standard encryption techniques. One of these, AES-128 will take a string of text:
 
-> This is the dawning of the age of Aquarius. 
+~~~
+This is the dawning of the age of Aquarius. 
+~~~
 
 And convert it into this:
 
-> m8ZPh0WFI/9MH6HN2LVnSxhaVDQ8ftO391WjvCxKGbJWf+fztbIqnIVzyXpCaXTJP9PuP7h7bHrjQZQK
-> 1YthDvbUy41Sap/w79dB41sQDPccJw5DdAIBI/soq3oRY773pWMVCdV0G+tp5x9OGGovLg==
-
+~~~
+m8ZPh0WFI/9MH6HN2LVnSxhaVDQ8ftO391WjvCxKGbJWf+fztbIqnIVzyXpCaXTJP9PuP7h7bHrjQZQK
+1YthDvbUy41Sap/w79dB41sQDPccJw5DdAIBI/soq3oRY773pWMVCdV0G+tp5x9OGGovLg==
+~~~
 
 This works great for ensuring the security of our data but the obvious problem is that it's, well, obvious. Anybody who's worked with encrypted data before can recognize a psuedo-random string like the one above and know that somebody's passing secrets. What if we could hide our secret in such a way that a third party wouldn't even know it's there? This is the concept known as **steganography** from the Greek words *steganos* and *graphein*, meaning "concealed writing".
 
@@ -68,15 +72,13 @@ Let's begin with the simplest and oldest technique, Least Significant Bit (LSB) 
 LSB insertion is the simplest, earliest watermarking algorithm. It exploits the fact that while typical computer images exhibit a wide range of colors (approximately 16.7 million for a 24-bit image), humans can only distinguish a small fraction of this range.
 
 <div class="row">
-	<div class="medium-6 small-12 columns">		
+	<div class="col-12 col-sm-6">		
 		When we see an image on a screen, we see something like this:
-		<img class="autoResizeImage" src="{{site.baseurl}}/assets/posts/steganography/Eye_of_Horus.svg" />
+		<img src="{{site.baseurl}}/assets/posts/steganography/Eye_of_Horus.svg">
 	</div>
-	<div class="medium-6 small-12 columns ">	
+	<div class="col-12 col-sm-6">	
 		but inside the computer the image is represented differently:
 		<img src="{{site.baseurl}}/assets/posts/steganography/pixels.svg">
-		<!--<img src="your.svg" onerror="this.src='your.png'">-->
-		<!-- <img class="autoResizeImage" src="{{site.baseurl}}assets/posts/steganography/lena_0.jpg" /> -->
 	</div>
 </div>	
 

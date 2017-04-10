@@ -25,13 +25,13 @@ Coming soon!
     <div  class="col-1">
         <div class="circle {{include.category}}"> {{ year }}</div>
     </div>
-    <div class="col-11">
+    <div class="col-11 pl-4 pt-4">
   {% endif %} 
 
   		<div class="row">
 		<div class="col-12 col-sm-9">
 			{% if post.publish_title %} 
-			<a href="{{site.baseurl}}{{ post.url }}" title="{{ post.publish_title }}" class="{{include.category}}">{{ post.title }}</a>
+			<a href="{{site.baseurl}}{{ post.url }}" title="{{ post.publish_title }}" class="{{include.category}}">{{ post.publish_title }}</a>
 			{% else %}
 			<a href="{{site.baseurl}}{{ post.url }}" title="{{ post.title }}" class="{{include.category}}">{{ post.title }} </a>
 			{% endif %}

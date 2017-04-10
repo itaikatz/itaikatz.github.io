@@ -23,7 +23,8 @@ module.exports = function(grunt) {
                 //'index2.css' : 'index2.less',
                 'css/charcoal2.css' : 'css/charcoal2.less',
                 'aboutme.css' : 'aboutme.less',
-                'menu.css' : 'menu.less'
+                'menu.css' : 'menu.less',
+                'assets/posts/steganography/steg.css' : 'assets/posts/steganography/steg.less'
 
             }
             }

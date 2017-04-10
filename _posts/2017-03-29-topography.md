@@ -26,6 +26,25 @@ figcaption {
    box-shadow:         inset 0 0 10px #161616;
 
 }
+
+img {
+  width: 100%;
+}
+
+h1 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+h2, h3 {
+  color: #df9100;;
+}
+
+.color-chip {
+  height: 20px; 
+  width: 20px; 
+  border: 1px solid gray;
+}
 </style>
 
 <figure>
@@ -56,41 +75,25 @@ To begin, we'll need to collect raw topographical data. Fortunately, NASA has ta
 
 The first step is to download the data, which comes in the form of "tiles" of approximately 300,000 km<sup>2</sup>. This data can be downloaded directly from the SRTM website or, more interactively, with the [SRTM Tile Grabber](http://dwtkns.com/srtm/). A complete map of Costa Rica spans four tiles:
 
-<style>
-
-#image_grid {
-  width: 50%; 
-  margin: 0 auto;
-  overflow: hidden;
-}
-#image_grid_element {
-  float: left;
-  width: 48%;
-  padding-bottom: 0;
-  margin: 1%;
-}
-#image_grid_element image {
-  width: 100%
-}
-</style>
-<div id="image_grid">
-  <figure id="image_grid_element">
-  <img src="{{site.baseurl}}/assets/posts/topography/srtm_19_10_small.jpg"/>
-  <figcaption>srtm_19_10.tif</figcaption>
-  </figure>
-    <figure id="image_grid_element">
-  <img src="{{site.baseurl}}/assets/posts/topography/srtm_20_10_small.jpg"/>
-  <figcaption>srtm_20_10.tif</figcaption>
-  </figure>
-    <figure id="image_grid_element">
-  <img src="{{site.baseurl}}/assets/posts/topography/srtm_19_11_small.jpg"/>
-  <figcaption>srtm_19_11.tif</figcaption>
-  </figure>
-    <figure id="image_grid_element">
-  <img src="{{site.baseurl}}/assets/posts/topography/srtm_20_11_small.jpg"/>
-  <figcaption>srtm_20_11.tif</figcaption>
-  </figure>
+<figure>
+<div class="row" >    
+  <div  class="col-4 col-md-3 offset-2 offset-md-3">
+    <img src="{{site.baseurl}}/assets/posts/topography/srtm_19_10_small.jpg"/>  
+  </div>
+  <div  class="col-4 col-md-3">  
+    <img src="{{site.baseurl}}/assets/posts/topography/srtm_20_10_small.jpg"/>
+  </div>
 </div>
+<div class="row pt-4">    
+  <div  class="col-4 col-md-3 offset-2 offset-md-3">
+    <img src="{{site.baseurl}}/assets/posts/topography/srtm_19_11_small.jpg"/>  
+  </div>
+  <div  class="col-4 col-md-3 ">  
+    <img src="{{site.baseurl}}/assets/posts/topography/srtm_20_11_small.jpg"/>
+  </div>
+</div>
+<figcaption> Four tiles taken from the SRTM dataset </figcaption>
+</figure>
 
 
 To combine them with the correct cartographic projection we'll use the _gdalwarp_ function, part of the [Geospatial Data Abstraction Library](http://www.gdal.org/), an open-source package for manipulating geospatial data formats.
@@ -173,32 +176,36 @@ gdaldem
 
 Where color_relief.txt contains the following values:
 
-<table>
+<table class="table table-sm table-inverse">
   <thead>
   <tr>
-  <td>Elevation (m)</td><td>Red</td><td>Green</td><td>Blue</td>
+  <td>Elevation (m)</td>
+  <td><span class="hidden-sm-up">R</span><span class="hidden-xs-down">Red</span></td>
+  <td><span class="hidden-sm-up">G</span><span class="hidden-xs-down">Green</span></td>
+  <td><span class="hidden-sm-up">B</span><span class="hidden-xs-down">Blue</span></td>
+  <td></td>
   </tr>
   </thead>
   <tr>
-    <td>65535</td><td>255</td><td>255</td><td>255</td>
+    <td>65535</td><td>255</td><td>255</td><td>255</td><td><div class="color-chip" style="background-color: rgb(255,255,255)"></div></td>
   </tr>
   <tr>
-    <td>5800</td><td>254</td><td>254</td><td>254</td>
+    <td>5800</td><td>254</td><td>254</td><td>254</td><td><div class="color-chip" style="background-color: rgb(254,254,254);"></div></td>
   </tr>
   <tr>
-    <td>3000</td><td>121</td><td>117</td><td>10</td>
+    <td>3000</td><td>121</td><td>117</td><td>10</td><td><div class="color-chip" style="background-color: rgb(121,117,10);"></div></td>
   </tr>
   <tr>
-    <td>1500</td><td>151</td><td>106</td><td>47</td>
+    <td>1500</td><td>151</td><td>106</td><td>47</td><td><div class="color-chip" style="background-color: rgb(151,106,47);"></div></td>
   </tr>
   <tr>
-    <td>800</td><td>127</td><td>166</td><td>122</td>
+    <td>800</td><td>127</td><td>166</td><td>122</td><td><div class="color-chip" style="background-color: rgb(127,166,122);"></div></td>
   </tr>
   <tr>
-    <td>500</td><td>213</td><td>213</td><td>149</td>
+    <td>500</td><td>213</td><td>213</td><td>149</td><td><div class="color-chip" style="background-color: rgb(213,213,149);"></div></td>
   </tr>
   <tr>
-    <td>1</td><td>201</td><td>213</td><td>166</td>
+    <td>1</td><td>201</td><td>213</td><td>166</td><td><div class="color-chip" style="background-color: rgb(201,213,166);"></div></td>
   </tr>
 </table>
 
@@ -245,7 +252,7 @@ hsv_merge.py
 
 Looking pretty good! As a last step let's incorporate geographic data so we can clearly see the country's boundaries. To do this, we'll use get Costa Rica's administrative boundaries from [GADM.org](gadm.org), and convert them into a format suitable for use on the web, namely TopoJSON. 
 
-For reasons that aren't terribly interesting we'll have to first convert from GADL's shapefile format to GeoJSON and then to TopoJSON using GDAL's ogr2ogr and [Mike Bostock's topojson](https://github.com/topojson/topojson) utilities, respectively:
+For reasons that aren't terribly interesting we'll have to first convert from GDAL's shapefile format to GeoJSON and then to TopoJSON using GDAL's ogr2ogr and [Mike Bostock's topojson](https://github.com/topojson/topojson) utilities, respectively:
 
 ~~~
 curl -o CRI_adm.zip http://gadm.org/data/shp/CRI_adm.zip
