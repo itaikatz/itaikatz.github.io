@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "devDependencies": {
     "grunt": "*",
+    "grunt-atomizer": "^3.1.1",
     "grunt-contrib-concat": "*",
     "grunt-contrib-less": "*",
     "grunt-jekyll": "*"

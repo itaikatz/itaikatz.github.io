@@ -35,9 +35,20 @@
 	<style>
 		body { background-image: url("{{site.baseurl}}/img/classy-fabric.png"); }
 	</style>
+
+	{% capture libs %}{{ page.libs | downcase }}{% endcapture %}
+	{% if libs contains 'juxtapose' %}
+		<link rel="stylesheet" href="{{site.baseurl}}/lib/juxtapose/juxtapose.css" type="text/css">
+	{% endif %}
+
+	{% if libs contains 'nouislider' %}
+		<link rel="stylesheet" href="{{site.baseurl}}/lib/nouislider/nouislider.min.css" type="text/css">
+	{% endif %}
+
+
 	{% if page.custom_css %}
 	  {% for stylesheet in page.custom_css %}
-	  <link rel="stylesheet" href="{{site.baseurl}}/{{ stylesheet }}" media="screen" type="text/css">
+	  <link rel="stylesheet" href="{{site.baseurl}}/{{ stylesheet }}" type="text/css">
 	  {% endfor %}
 	{% endif %}
 </head>
@@ -105,7 +116,7 @@
 	{% if page.title == "index" %}
 		{{ content  }}
 	{% else %}
- 	<div class="container content-wrapper">
+ 	<div class="container content-wrapper pb-4">
 		<div class="row">
 			<div class="col-12 col-md-2 nav-bar hidden-xs-down sidebar"> 
 				<ul>
@@ -174,6 +185,32 @@
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 		<script src="https://use.fontawesome.com/02dcac6003.js"></script>
+	{% endif %}
+
+
+	{% if libs contains 'mathjax' %}
+	<script type="text/javascript" async
+  	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML">
+	</script>
+	{% endif %}
+
+	{% if libs contains 'd3' %}
+	<script src="https://d3js.org/d3.v4.min.js"></script>
+	{% endif %}
+
+	{% if libs contains 'juxtapose' %}
+	<script src="{{site.baseurl}}/lib/juxtapose/juxtapose.js"></script>
+	{% endif %}
+
+	{% if libs contains 'nouislider' %}
+	<script src="{{site.baseurl}}/lib/nouislider/nouislider.min.js"></script>
+	{% endif %}
+
+	
+	{% if page.custom_js %}
+	  {% for js in page.custom_js %}
+	  	<script type="text/javascript" src="{{site.baseurl}}/{{ js }}"></script>
+	  {% endfor %}
 	{% endif %}
 
 
