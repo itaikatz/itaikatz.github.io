@@ -75,12 +75,13 @@ div.tooltip {
 <script src="{{site.baseurl}}/assets/posts/RF_prop_sim/js/webix.js" type="text/javascript"></script>  
 <script src="{{site.baseurl}}/assets/posts/RF_prop_sim/js/skin.js" type="text/javascript"></script>  
 
+{% comment %}
 [introduce problem] 
 Suppose you're a cell phone provider and you want to bring service to a new region. One of the most significant costs is the installation of cell towers.
 
 
 [In a previous tutorial]({{ site.baseurl }}{% link _posts/2017-03-29-topography.md %}) we showed how to generate a visualization of a Digital Elevation Model (DEM). In this post we'll use the DEM along with a terrain-based RF model to show how a signal would propagate over varied terrain.
-
+{% endcomment %}
 <div id="layout"></div>
 <div class="outer" id="outer">
 	<svg class="map">
