@@ -24,6 +24,7 @@ module.exports = function(grunt) {
                 'css/charcoal2.css' : 'css/charcoal2.less',
                 'aboutme.css' : 'aboutme.less',
                 'menu.css' : 'menu.less',
+                'index.css' : 'index.less',
                 'assets/posts/steganography/steg.css' : 'assets/posts/steganography/steg.less'
 
             }

@@ -1,54 +1,30 @@
 ---
 title: index
 layout: charcoal2
+custom_css: index.css
+panels:
+- {html: 'aboutme.html', id: 'about', svg: 'info.svg', h1: 'About', h2: 'Bio & CV'}
+- {html: 'research.html', id: 'research', svg: 'beaker.svg', h1: 'Research', h2: 'Projects'}
+- {html: 'blog.html', id: 'blog', svg: 'book.svg', h1: 'Blog', h2: 'Writing'}
+- {html: 'tutorials.html', id: 'tutorial', svg: 'lightbulb.svg', h1: 'Tutorials', h2: 'Teaching'}
 ---
 
 <div class="container-fluid panel-set">
 	<div class="row justify-content-center">
-		<div class="col-6 col-md-3"> 
-			<a href="{{site.baseurl}}/aboutme.html">
-			<div class="nav-panel" id="about">
-				<div class="panel-text">
-					<div class="heading1">About</div>
-					<div class="heading2">Bio & CV</div>    
-				</div>
-				{% include svg/info.svg %}
-			</div>
-			</a>
-		</div>
-		<div class="col-6 col-md-3">
-			<a href="{{site.baseurl}}/research.html">
-			<div class="nav-panel" id="research">
-				<div class="panel-text">
-					<div class="heading1">Research</div>
-					<div class="heading2">Projects</div>    
-				</div>
-				{% include svg/beaker.svg %}
-			</div>
-			</a>
-		</div>
-		<div class="col-6 col-md-3">
-			<a href="{{site.baseurl}}/blog.html">
-			<div class="nav-panel" id="blog">
-				<div class="panel-text">
-					<div class="heading1">Blog</div>
-					<div class="heading2">Writing</div>    
-				</div>
-				{% include svg/book.svg %}
-			</div>
-			</a>
-		</div>
 
-		<div class="col-6 col-md-3">
-			<a href="{{site.baseurl}}/tutorials.html">
-			<div class="nav-panel" id="tutorial">
-				<div class="panel-text">
-					<div class="heading1">Tutorials</div>
-					<div class="heading2">Teaching</div>    
-				</div>
-				{% include svg/lightbulb.svg %}
+	{% for panel in page.panels %}
+	<div class="col-6 col-md-3"> 
+		<a href="{{site.baseurl}}/{{panel.html}}">
+		<div class="nav-panel" id="{{panel.id}}">
+			<div class="nav-panel-bg"></div>
+			<div class="nav-panel-fg"></div>
+			{% include svg/{{panel.svg}} %}
+			<h1>{{panel.h1}}</h1>
+			<h2>{{panel.h2}}</h2>
 			</div>
-			</a>
-		</div>		
+		</a>		
+	</div>
+	{% endfor %}
+
 	</div>
 </div>
