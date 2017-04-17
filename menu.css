@@ -6,18 +6,6 @@
   color: white;
   text-align: center;
 }
-.main-content .circle.about {
-  background-color: #0084a9;
-}
-.main-content .circle.research {
-  background-color: #7a9d00;
-}
-.main-content .circle.blog {
-  background-color: #df9100;
-}
-.main-content .circle.tutorial {
-  background-color: #b23814;
-}
 .main-content hr.about {
   border-color: #0084a9;
 }
@@ -29,6 +17,18 @@
 }
 .main-content hr.tutorial {
   border-color: #b23814;
+}
+.main-content .circle.about {
+  background-color: #0084a9;
+}
+.main-content .circle.research {
+  background-color: #7a9d00;
+}
+.main-content .circle.blog {
+  background-color: #df9100;
+}
+.main-content .circle.tutorial {
+  background-color: #b23814;
 }
 .main-content a {
   color: #e0e0e0;

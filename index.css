@@ -13,7 +13,10 @@
   background: radial-gradient(ellipse 150px 100px at bottom, #00c0f5, #0094bd, #0084a9) no-repeat;
 }
 .main-content #about h1 {
-  border-bottom: 1px solid #0098c3;
+  border-bottom: 1px solid #007090;
+}
+.main-content #about h2 {
+  border-top: 1px solid #0098c3;
 }
 .main-content #research .nav-panel-bg {
   background-color: #7a9d00;
@@ -22,7 +25,10 @@
   background: radial-gradient(ellipse 150px 100px at bottom, #b5ea00, #8ab100, #7a9d00) no-repeat;
 }
 .main-content #research h1 {
-  border-bottom: 1px solid #8eb700;
+  border-bottom: 1px solid #668400;
+}
+.main-content #research h2 {
+  border-top: 1px solid #8eb700;
 }
 .main-content #blog .nav-panel-bg {
   background-color: #df9100;
@@ -31,7 +37,10 @@
   background: radial-gradient(ellipse 150px 100px at bottom, #ffb52d, #f39e00, #df9100) no-repeat;
 }
 .main-content #blog h1 {
-  border-bottom: 1px solid #f9a200;
+  border-bottom: 1px solid #c68000;
+}
+.main-content #blog h2 {
+  border-top: 1px solid #f9a200;
 }
 .main-content #tutorial .nav-panel-bg {
   background-color: #b23814;
@@ -40,7 +49,10 @@
   background: radial-gradient(ellipse 150px 100px at bottom, #e7562b, #c43e16, #b23814) no-repeat;
 }
 .main-content #tutorial h1 {
-  border-bottom: 1px solid #c93f17;
+  border-bottom: 1px solid #9b3111;
+}
+.main-content #tutorial h2 {
+  border-top: 1px solid #c93f17;
 }
 .main-content .nav-panel {
   position: relative;
@@ -66,17 +78,8 @@
 .main-content .nav-panel:hover .nav-panel-fg {
   opacity: 1;
 }
-.main-content .nav-panel:hover svg path {
-  fill: rgba(224, 224, 224, 0.2);
-}
-.main-content .nav-panel:hover svg circle {
-  stroke: rgba(224, 224, 224, 0.2);
-}
-.main-content .nav-panel:hover svg rect {
-  fill: rgba(224, 224, 224, 0.2);
-  stroke: rgba(224, 224, 224, 0.2);
-}
-.main-content .nav-panel-bg {
+.main-content .nav-panel-bg,
+.main-content .nav-panel-fg {
   position: absolute;
   top: 0;
   left: 0;
@@ -84,26 +87,21 @@
   height: 100%;
 }
 .main-content .nav-panel-fg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
   opacity: 0;
   transition: all .2s;
 }
 .main-content svg {
+  fill: #e0e0e0;
+  stroke: #e0e0e0;
+  opacity: 0.1;
+  transition: all .2s;
   position: relative;
   right: -5%;
   top: -25%;
   transform: scale(1.4);
-  stroke: rgba(224, 224, 224, 0.1);
-  fill: rgba(224, 224, 224, 0.1);
 }
-.main-content svg path,
-.main-content svg circle,
-.main-content svg rect {
-  transition: all .2s;
+.main-content svg:hover {
+  opacity: 0.2;
 }
 @media screen and (min-width: 48em) {
   .main-content svg {
@@ -111,46 +109,42 @@
     transform: scale(1.35);
   }
 }
-.main-content h1 {
+.main-content .nav-panel-text {
   position: absolute;
   left: 50%;
-  top: 50%;
   transform: translate(-50%, 0);
+  top: 35%;
   width: 80%;
   color: #e0e0e0;
-  line-height: 1.5;
-  font-size: 2rem;
-  font-size: 4.6vw;
   text-align: center;
+  line-height: 1.5em;
+  text-shadow: 0px 1px 0px #656565;
 }
 @media (min-width: 48em) {
-  .main-content h1 {
+  .main-content .nav-panel-text {
     top: 60%;
   }
 }
+.main-content .nav-panel-text h1,
+.main-content .nav-panel-text h2 {
+  padding: 10px;
+}
+.main-content .nav-panel-text h1 {
+  margin: 0;
+  font-size: 2rem;
+  font-size: 4.6vw;
+}
 @media (min-width: 48em) {
-  .main-content h1 {
+  .main-content .nav-panel-text h1 {
     font-size: 2.3vw;
   }
 }
-.main-content h2 {
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, 0);
-  width: 80%;
-  top: 75%;
-  text-align: center;
-  color: #e0e0e0;
+.main-content .nav-panel-text h2 {
   font-size: 1em;
   font-size: 3.0vw;
 }
 @media (min-width: 48em) {
-  .main-content h2 {
-    top: 80%;
-  }
-}
-@media (min-width: 48em) {
-  .main-content h2 {
+  .main-content .nav-panel-text h2 {
     font-size: 1.6vw;
   }
 }

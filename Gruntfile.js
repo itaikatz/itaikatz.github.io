@@ -39,16 +39,24 @@ module.exports = function(grunt) {
             },
             default: {   
             }
+        }, 
+        atomizer: {
+            files:
+                {
+                    src: ['index.html'],   // ['test/fixtures/*.html'],
+                    dest: 'css/atomic.css'
+                }
         }
     });
 
     // 3. Where we tell Grunt we plan to use this plug-in.
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-less');
+    grunt.loadNpmTasks('grunt-atomizer');
     grunt.loadNpmTasks('grunt-jekyll');
 
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-    grunt.registerTask('default', ['less', 'jekyll']);
+    grunt.registerTask('default', ['less', 'atomizer', 'jekyll']);
     //grunt.registerTask('build', ['less']);
 
 };

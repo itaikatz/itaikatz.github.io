@@ -1,0 +1,33 @@
+.C\(\#ff0000\) {
+  color: #ff0000;
+}
+.H\(100\%\) {
+  height: 100%;
+}
+.T\(0\) {
+  top: 0;
+}
+.Op\(0\) {
+  opacity: 0;
+}
+.Pb\(40px\) {
+  padding-bottom: 40px;
+}
+.Pos\(a\) {
+  position: absolute;
+}
+.Td\(n\) {
+  text-decoration: none;
+}
+.Trsdu\(\.2s\) {
+  transition-duration: .2s;
+}
+.Trsp\(a\) {
+  transition-property: all;
+}
+.W\(100\%\) {
+  width: 100%;
+}
+.W\(80\%\) {
+  width: 80%;
+}

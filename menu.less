@@ -8,10 +8,6 @@
 	border-radius: 50%;
 	color: white;
 	text-align: center;
-	&.about    { background-color: @panel-blue;   }
-	&.research { background-color: @panel-green;  }
-	&.blog     { background-color: @panel-orange; }
-	&.tutorial { background-color: @panel-red;    }
 }
 
 hr {
@@ -20,11 +16,16 @@ hr {
 	&.blog     { border-color: @panel-orange; }
 	&.tutorial { border-color: @panel-red;    }	
 }
+
+.circle {
+	&.about    { background-color: @panel-blue;   }
+	&.research { background-color: @panel-green;  }
+	&.blog     { background-color: @panel-orange; }
+	&.tutorial { background-color: @panel-red;    }	
+}
+
 a {
 	color: @light-gray;
-	// &.about    { color: lighten(@panel-blue, 50% );   }
-	// &.research { color: lighten(@panel-green, 50% );  }
-	// &.blog     { color: lighten(@panel-orange, 50% ); }
-	// &.tutorial { color: lighten(@panel-red, 50% );    }	
 }
+
 } // .main-content

@@ -32,6 +32,8 @@
 	{% endif %}
 
 	<link rel="stylesheet" type="text/css" href="{{site.baseurl}}/css/charcoal2.css">
+	<link rel="stylesheet" type="text/css" href="{{site.baseurl}}/css/atomic.css">
+
 	<style>
 		body { background-image: url("{{site.baseurl}}/img/classy-fabric.png"); }
 	</style>
@@ -105,8 +107,11 @@
 			<div class="col-sm-6 col-md-8 pr-0">
 				<a href="{{site.baseurl}}/index.html"> <h1>Itai Katz</h1> <h2>Perception for Robotics</h2> </a>					
 			</div>
-			<div class="col-sm-6 col-md-4 text-right align-self-center pl-0">
-				{% include svg/envelope.svg %}<!--<i class="fa fa-envelope"></i>--> <span >itai.j.katz@gmail.com</span>
+			<div class="col-sm-6 col-md-4 text-right align-self-center pl-0 contact">
+			<a href="#">
+				{% include svg/envelope.svg %}<!--<i class="fa fa-envelope"></i>--> 
+				<span>itai.j.katz@gmail.com</span>
+			</a>
 			</div>
 		</div>
 	</div>
@@ -160,15 +165,24 @@
 				Copyright &copy;  
 				<script type="text/javascript">
 				document.write(new Date().getFullYear());
+
 				</script>
 				Itai Katz
 			</div>
 
 			<div class="col-6 text-right align-self-center pl-0">			
 				<ul class="list-inline">
-				<li class="list-inline-item" style="margin-right: 10px;">{% include svg/linkedin-square.svg %}</li>
-				<li class="list-inline-item" style="margin-right: 10px;">{% include svg/github-square.svg %}</li>
-				<li class="list-inline-item">{% include svg/youtube-square.svg %}</li>								
+				<li class="list-inline-item" style="margin-right: 10px;">
+				<a href="https://www.linkedin.com/in/itai-katz-378067b" target="_blank">{% include svg/linkedin-square.svg %}</a>
+				</li>
+
+				<li class="list-inline-item" style="margin-right: 10px;">
+				<a href="#">{% include svg/github-square.svg %}</a>
+				</li>
+
+				<li class="list-inline-item">
+				<a href="#">{% include svg/youtube-square.svg %}</a>
+				</li>								
 				<!-- 
 				<li class="list-inline-item"><i class="fa fa-linkedin-square" aria-hidden="true"></i></li>
  				<li class="list-inline-item"><i class="fa fa-github-square" aria-hidden="true"></i></li>

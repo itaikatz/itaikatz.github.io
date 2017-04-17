@@ -19,8 +19,38 @@ panels:
 			<div class="nav-panel-bg"></div>
 			<div class="nav-panel-fg"></div>
 			{% include svg/{{panel.svg}} %}
-			<h1>{{panel.h1}}</h1>
-			<h2>{{panel.h2}}</h2>
+			<div class="nav-panel-text">
+				<h1>{{panel.h1}}</h1>
+				<!-- <hr> -->
+				<h2>{{panel.h2}}</h2>
+			</div>
+		</div>
+		</a>		
+	</div>
+	{% endfor %}
+
+	</div>
+</div>
+
+
+
+
+{% comment %}  <!-- Atomic way -->
+
+<div class="container-fluid panel-set W(80%) Pb(40px)">
+	<div class="row justify-content-center">
+
+	{% for panel in page.panels %}
+	<div class="col-6 col-md-3"> 
+		<a href="{{site.baseurl}}/{{panel.html}}" class="Td(n)">
+		<div class="nav-panel" id="{{panel.id}}">
+			{% capture panel-common %} Pos(a) T(0) L(0) W(100%) H(100%) {% endcapture %}
+			<div class="nav-panel-bg {{panel-common}}"></div>
+			<div class="nav-panel-fg {{panel-common}} Op(0) Trsdu(.2s) Trsp(a)"></div>
+			{% include svg/{{panel.svg}} %}
+			{% capture header-common %} C(#ff0000) {% endcapture %}
+			<h1 class="{{header-common}}">{{panel.h1}}</h1>
+			<h2 class="{{header-common}}">{{panel.h2}}</h2>
 			</div>
 		</a>		
 	</div>
@@ -28,3 +58,5 @@ panels:
 
 	</div>
 </div>
+
+{% endcomment %}

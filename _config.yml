@@ -1,4 +1,10 @@
 work_offline: true
+colors: {light-gray: '#e0e0e0', dark-gray: '#656565', red: '#ff0000'}
+  # - light-gray: '#e0e0e0'
+  # - dark-gray: '#656565'
+  # - bg-color: '#252525'
+  # - icon-color: '#9f9f9f'
+
 
 # Name of your blog (this will show up at the top of your page and in the RSS feed)
 name: Itai Katz
