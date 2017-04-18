@@ -4,6 +4,9 @@
 $(document).ready(function() {
 
 var options1 = {
+	chart: {
+//		backgroundColor: '#252525',
+	},
 	xAxis: {
 		title: {
 			text: 'Year of prize'

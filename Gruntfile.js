@@ -7,7 +7,7 @@ module.exports = function(grunt) {
 
         less: { 
             options: {
-                //paths: ["css/pages"]
+                paths: ['css/', 'assets/posts/'],
                 cleancss: true // minify CSS?
             },
             
@@ -21,10 +21,11 @@ module.exports = function(grunt) {
 
                 //'css/charcoal.css': 'css/charcoal.less',
                 //'index2.css' : 'index2.less',
+                
                 'css/charcoal2.css' : 'css/charcoal2.less',
-                'aboutme.css' : 'aboutme.less',
-                'menu.css' : 'menu.less',
-                'index.css' : 'index.less',
+                'css/aboutme.css' : 'css/aboutme.less',
+                'css/menu.css' : 'css/menu.less',
+                'css/index.css' : 'css/index.less',
                 'assets/posts/steganography/steg.css' : 'assets/posts/steganography/steg.less',
                 'assets/posts/nobel/nobel.css' : 'assets/posts/nobel/nobel.less'
 
