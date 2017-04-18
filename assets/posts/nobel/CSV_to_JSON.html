@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
+<html class="no-js" lang="en" >
+<!--<html>-->
+
+<head>
+</head>
+
+<body>
+<script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/4.2.0/papaparse.min.js"></script>
+<script>
+
+function saveText(text, filename){
+  var a = document.createElement('a');
+  a.setAttribute('href', 'data:text/plain;charset=utf-u,'+encodeURIComponent(text));
+  a.setAttribute('download', filename);
+  a.click()
+}
+
+// Load CSV data
+$.ajax({
+  url: 'nobel_data.csv',
+  dataType: 'text',
+}).done(successFunction);
+
+// Convert CSV to JSON
+function successFunction(csvData) {
+Papa.parse(csvData, {
+	header: true,
+	complete: function(results) {
+		console.log(results);
+		saveText( JSON.stringify(results), "nobel_data.json" );
+	}
+});
+}
+
+</script>
+</body>
+
+</html>

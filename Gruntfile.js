@@ -25,7 +25,8 @@ module.exports = function(grunt) {
                 'aboutme.css' : 'aboutme.less',
                 'menu.css' : 'menu.less',
                 'index.css' : 'index.less',
-                'assets/posts/steganography/steg.css' : 'assets/posts/steganography/steg.less'
+                'assets/posts/steganography/steg.css' : 'assets/posts/steganography/steg.less',
+                'assets/posts/nobel/nobel.css' : 'assets/posts/nobel/nobel.less'
 
             }
             }

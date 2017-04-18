@@ -223,6 +223,14 @@
 	<script src="{{site.baseurl}}/lib/nouislider/nouislider.min.js"></script>
 	{% endif %}
 
+	{% if libs contains 'jquery' %}
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+	{% endif %}
+
+	{% if libs contains 'highcharts' %}
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	{% endif %}
+
 	
 	{% if page.custom_js %}
 	  {% for js in page.custom_js %}
