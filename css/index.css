@@ -78,6 +78,9 @@
 .main-content .nav-panel:hover .nav-panel-fg {
   opacity: 1;
 }
+.main-content .nav-panel:hover svg {
+  opacity: 0.2;
+}
 .main-content .nav-panel-bg,
 .main-content .nav-panel-fg {
   position: absolute;
@@ -99,9 +102,6 @@
   right: -5%;
   top: -25%;
   transform: scale(1.4);
-}
-.main-content svg:hover {
-  opacity: 0.2;
 }
 @media screen and (min-width: 48em) {
   .main-content svg {

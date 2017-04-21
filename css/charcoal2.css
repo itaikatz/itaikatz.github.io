@@ -129,10 +129,13 @@ body {
   padding: 0;
 }
 .sidebar li {
+  transition: all .99s;
+  position: relative;
   display: inline-block;
   list-style-type: none;
   border: 1px solid rgba(147, 147, 147, 0.7);
   text-align: center;
+  text-shadow: 0px 1px 0px #656565;
   width: 23%;
   margin-right: 1%;
   border-radius: 3px;
@@ -181,9 +184,9 @@ body {
   .sidebar li {
     color: white;
     display: block;
+    margin-right: 1%;
     text-align: right;
     width: 100%;
-    margin-right: 0;
     margin-bottom: 10px;
     font-size: 1.5em;
     font-size: 1.7vw;

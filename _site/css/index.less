@@ -44,7 +44,10 @@ a { text-decoration: none; color: white; }
 		margin-bottom: 0;
 	}
 
-	&:hover { .nav-panel-fg { opacity: 1 } }
+	&:hover { 
+		.nav-panel-fg { opacity: 1 } 
+		svg { opacity: 0.2 }
+	}
 }
 
 .nav-panel-bg, .nav-panel-fg {
@@ -64,10 +67,6 @@ svg {
 	fill: rgb(224,224,224);
 	stroke: rgb(224,224,224);
 	opacity: 0.1;    
-	&:hover {
-		opacity: 0.2;
-	}
-
 	transition: all .2s;
 	position: relative;    
 	right: -5%;

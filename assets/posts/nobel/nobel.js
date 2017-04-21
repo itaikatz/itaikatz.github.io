@@ -55,7 +55,7 @@ var options2 = {
         }
     },
     title: {
-        text: 'Nobel laureates: age at discovery'
+        text: 'Nobel laureates: age at discovery'
     },
     credits: { enabled: false },
     tooltip: { formatter: function() {return this.point.name } },
@@ -91,7 +91,7 @@ var options3 = {
         }
     },
     title: {
-        text: 'Nobel laureates: delay between discovery and prize (years)'
+        text: 'Nobel laureates: time between discovery and prize (years)'
     },
     credits: { enabled: false },
     tooltip: { formatter: function() {return this.point.name } },

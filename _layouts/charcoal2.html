@@ -139,26 +139,23 @@
 		<div class="row">
 			<div class="col-12 col-md-2 nav-bar hidden-xs-down sidebar"> 
 				<ul>
-				{% if page.category == 'about' %}
-				<a href="{{site.baseurl}}/aboutme.html"><li class="about active">About</li></a>
-				{% else %}
-				<a href="{{site.baseurl}}/aboutme.html"><li class="about">About</li></a>
-				{% endif %}				
-				{% if page.category == 'research' %}
-				<a href="{{site.baseurl}}/research.html"><li class="research active">Research</li></a>
-				{% else %}
-				<a href="{{site.baseurl}}/research.html"><li class="research">Research</li></a>
-				{% endif %}
-				{% if page.category == 'blog' %}
-				<a href="{{site.baseurl}}/blog.html"><li class="blog active">Blog</li></a>
-				{% else %}		
-				<a href="{{site.baseurl}}/blog.html"><li class="blog">Blog</li></a>						
-				{% endif %}
-				{% if page.category == 'tutorial' %}
-				<a href="{{site.baseurl}}/tutorials.html"><li class="tutorial active">Tutorials</li></a>
-				{% else %}				
-				<a href="{{site.baseurl}}/tutorials.html"><li class="tutorial">Tutorials</li></a>				
-				{% endif %}
+
+				<a href="{{site.baseurl}}/aboutme.html">
+				<li class="about {% if page.category == 'about' %}active{% endif %}">About</li>
+				</a>
+
+				<a href="{{site.baseurl}}/research.html">
+				<li class="research {% if page.category == 'research' %}active{% endif %}">Research</li>
+				</a>			
+
+				<a href="{{site.baseurl}}/blog.html">
+				<li class="blog {% if page.category == 'blog' %}active{% endif %}">Blog</li>
+				</a>						
+
+				<a href="{{site.baseurl}}/tutorials.html">
+				<li class="tutorial {% if page.category == 'tutorial' %}active{% endif %}">Tutorials</li>
+				</a>	
+				
 				</ul>
 			</div>
 			<div class="col-12 col-md-10"> 
