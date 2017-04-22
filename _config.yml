@@ -5,6 +5,18 @@ colors: {light-gray: '#e0e0e0', dark-gray: '#656565', red: '#ff0000'}
   # - bg-color: '#252525'
   # - icon-color: '#9f9f9f'
 
+# OFFLINE [leave blank] (using local sources e.g., for offline editing)  
+baseurl:                            
+#ONLINE (using CDNs) Otherwise rely on local sources]
+#baseurl: https://itaikatz.github.io 
+
+
+lib_list:
+  - {id: 'highcharts', js: 'https://code.highcharts.com/highcharts.js'}
+  - {id: 'd3', js: 'https://d3js.org/d3.v4.min.js'}
+  - {id: 'mathjax', js: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'}
+  - {id: 'juxtapose', js: '/lib/juxtapose/juxtapose.js'}
+  - {id: 'nouislider', js: '/lib/nouislider/nouislider.min.js'}
 
 # Name of your blog (this will show up at the top of your page and in the RSS feed)
 name: Itai Katz
@@ -26,10 +38,6 @@ author: Itai Katz
 # Note - if you enable this, and attempt to view your site locally you have to use the baseurl in your local path.
 # Example, you must use http://localhost:4000/path/to/blog
 
-# OFFLINE [leave blank] (using local sources e.g., for offline editing)  
-baseurl:                            
-#ONLINE (using CDNs) Otherwise rely on local sources]
-#baseurl: https://itaikatz.github.io 
 
 
 # The URL of your actual domain. This will be used to make absolute links in the RSS feed.

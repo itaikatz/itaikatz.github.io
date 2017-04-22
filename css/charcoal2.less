@@ -45,6 +45,7 @@ body {
 	ul {
 		margin: 0;	
 		li {
+			margin-left: 10px;
 			padding-top: 5px;
 			padding-bottom: 5px;
 			font-size: 2rem;
@@ -126,14 +127,84 @@ body {
 .sidebar-panel-factory(@color) {
   background-color: @color;
   @media  (min-width: @med-width) {
-	&:hover { 
-		background: radial-gradient(ellipse 150px 100px at right,lighten(@color, 10%),lighten(@color, 4%), @color); 		
-	}
+		&:before &:hover {
+			background: radial-gradient(ellipse 150px 100px at right,lighten(@color, 10%),lighten(@color, 4%), @color); 				
+			opacity: 1;
+		}
   }
 }
 
+.gradient-animation( @color, @transTime) {
+	background-size: 100%;
+//	background-image: linear-gradient(@start, @end);
+background-color: @color;
+	position: relative;
+	z-index: 100;
+	&:before {
+		//background-image: linear-gradient(@end, @start);
+			background: radial-gradient(ellipse 150px 100px at right,lighten(@color, 10%),lighten(@color, 4%), @color); 				
+//		background-color: @end;
+		content: '';
+		display: block;
+		height: 100%;
+		position: absolute;
+		top: 0; left: 0;
+		opacity: 0;
+		width: 100%;
+		z-index: -100;
+		transition: opacity @transTime;
+	}
+	&:hover {
+		&:before {
+			opacity: 1;
+		}
+	}
+}
+
 .sidebar {
-	ul { padding: 0; }
+	ul { padding: 0; list-style-type: none; }
+
+	li {
+		display: inline-block;
+		width: 23%;
+		border: 1px solid fadeout(#939393, 30%);
+		text-align: center;
+		text-shadow: 0px 1px 0px @dark-gray;
+		margin-right: 1%;
+		border-radius: 3px;
+
+		@transTime: .2s;
+		&.about    { .gradient-animation( @panel-blue, @transTime);   }
+		&.research { .gradient-animation( @panel-green, @transTime);   }
+		&.blog     { .gradient-animation( @panel-orange, @transTime);   }
+		&.tutorial { .gradient-animation( @panel-red, @transTime);   }
+
+		@media  (max-width: @med-width) {
+			&:not(.active) { 
+				background-color: transparent;
+			}
+		}		
+
+		@media  (min-width: @med-width) {
+			color: white;
+			display: block;
+			margin-right: 1%;
+			text-align: right;
+			width: 100%;
+			margin-bottom: 10px;
+			font-size: 1.5em;
+			font-size: 1.7vw;
+			padding-right: 10%;
+			padding-bottom: 10%;
+			padding-top: 10%;			
+			&.active {
+				padding-bottom: 60%;
+				padding-top: 60%;	
+			}
+		}
+
+	}
+/*
 	li {
 		transition: all .99s;
 		position: relative;
@@ -162,7 +233,6 @@ body {
 			margin-right: 1%;
 			text-align: right;
 			width: 100%;
-//			margin-right: 0;
 			margin-bottom: 10px;
 			font-size: 1.5em;
 			font-size: 1.7vw;
@@ -176,6 +246,7 @@ body {
 		}
 
  	}
+ 	*/
 	a {
   		text-decoration: none;
   		color: white;

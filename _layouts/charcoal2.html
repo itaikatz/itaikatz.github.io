@@ -1,3 +1,15 @@
+---
+navbar:
+- {html: 'aboutme.html', id: 'about', label: 'About'}
+- {html: 'research.html', id: 'research', label: 'Research'}
+- {html: 'blog.html', id: 'blog', label: 'Blog'}
+- {html: 'tutorials.html', id: 'tutorial', label: 'Tutorials'}
+footer-icons:
+- {html: 'https://www.linkedin.com/in/itai-katz-378067b', svg: 'svg/linkedin-square.svg'}
+- {html: '#', svg: 'svg/github-square.svg'}
+- {html: '#', svg: 'svg/youtube-square.svg'}
+---
+
 <!DOCTYPE html>
 <!--[if IE 9]><html class="lt-ie10" lang="en" > <![endif]-->
 <html class="no-js" lang="en" >
@@ -81,21 +93,16 @@
 
 	  <div class="collapse navbar-collapse" id="navbarSupportedContent">
 	    <ul class="navbar-nav mr-auto">
-	      <li class="nav-item active">
-	        <a class="nav-link" href="{{site.baseurl}}/aboutme.html">About</a>
+
+		  {% for panel in layout.navbar %}
+	      <li class="nav-item {% if page.category == panel.id %}active{% endif %}">
+	        <a class="nav-link" href="{{site.baseurl}}/{{panel.html}}">{{panel.label}}</a>
 	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="{{site.baseurl}}/research.html">Research</a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="{{site.baseurl}}/blog.html">Blog</a>
-	      </li>
-	      <li class="nav-item">
-	        <a class="nav-link" href="{{site.baseurl}}/tutorials.html">Tutorials</a>
-	      </li>	      
+		  {% endfor %}
+
 	      <li class="nav-item">
 	        <a class="nav-link disabled" href="#">Contact</a>
-	      </li>	      
+	      </li> 
 	    </ul>
 	    <!--
 	    <form class="form-inline my-2 my-lg-0">
@@ -121,7 +128,7 @@
 			</div>
 			<div class="col-sm-6 col-md-4 text-right align-self-center pl-0 contact">
 			<a href="#">
-				{% include svg/envelope.svg %}<!--<i class="fa fa-envelope"></i>--> 
+				{% include svg/envelope.svg %}
 				<span>itai.j.katz@gmail.com</span>
 			</a>
 			</div>
@@ -140,22 +147,12 @@
 			<div class="col-12 col-md-2 nav-bar hidden-xs-down sidebar"> 
 				<ul>
 
-				<a href="{{site.baseurl}}/aboutme.html">
-				<li class="about {% if page.category == 'about' %}active{% endif %}">About</li>
+				{% for panel in layout.navbar %}
+				<a href="{{site.baseurl}}/{{panel.html}}">
+				<li class="{{panel.id}} {% if page.category == panel.id %}active{% endif %}">{{panel.label}}</li>
 				</a>
+				{% endfor %}
 
-				<a href="{{site.baseurl}}/research.html">
-				<li class="research {% if page.category == 'research' %}active{% endif %}">Research</li>
-				</a>			
-
-				<a href="{{site.baseurl}}/blog.html">
-				<li class="blog {% if page.category == 'blog' %}active{% endif %}">Blog</li>
-				</a>						
-
-				<a href="{{site.baseurl}}/tutorials.html">
-				<li class="tutorial {% if page.category == 'tutorial' %}active{% endif %}">Tutorials</li>
-				</a>	
-				
 				</ul>
 			</div>
 			<div class="col-12 col-md-10"> 
@@ -181,17 +178,13 @@
 
 			<div class="col-6 text-right align-self-center pl-0">			
 				<ul class="list-inline">
-					<li class="list-inline-item" style="margin-right: 10px;">
-					<a href="https://www.linkedin.com/in/itai-katz-378067b" target="_blank">{% include svg/linkedin-square.svg %}</a>
-					</li>
 
-					<li class="list-inline-item" style="margin-right: 10px;">
-					<a href="#">{% include svg/github-square.svg %}</a>
-					</li>
+					{% for icon in layout.footer-icons %}
+					<li class="list-inline-item">					
+					<a href="{{icon.html}}" target="_blank">{% include {{icon.svg}} %}</a>
+					</li>					
+					{% endfor %}
 
-					<li class="list-inline-item">
-					<a href="#">{% include svg/youtube-square.svg %}</a>
-					</li>								
 				</ul>
 			</div>
 		  </div>
@@ -207,12 +200,14 @@
 		<script src="{{site.baseurl}}/js/bootstrap/bootstrap.min.js" crossorigin="anonymous"></script>
 	{% else %}
 		<!-- Bootstrap (+jQuery) 4.0-alpha-6 (Latest compiled and minified JavaScript) -->
-		<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+		<!-- <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script> -->
+		<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
 		<!-- <script src="https://use.fontawesome.com/02dcac6003.js"></script> -->
 	{% endif %}
 
+{% comment %}
 
 	{% if libs contains 'mathjax' %}
 	<script type="text/javascript" async
@@ -232,6 +227,7 @@
 	<script src="{{site.baseurl}}/lib/nouislider/nouislider.min.js"></script>
 	{% endif %}
 
+
 	{% if libs contains 'jquery' %}
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
 	{% endif %}
@@ -239,8 +235,14 @@
 	{% if libs contains 'highcharts' %}
 	<script src="https://code.highcharts.com/highcharts.js"></script>
 	{% endif %}
-
+{% endcomment %}
 	
+	{% for lib in site.lib_list %}
+		{% if libs contains lib.id %}
+			<script src="{{lib.js}}"></script>
+		{% endif %}
+	{% endfor %}
+
 	{% if page.custom_js %}
 	  {% for js in page.custom_js %}
 	  	<script type="text/javascript" src="{{site.baseurl}}/{{ js }}"></script>
