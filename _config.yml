@@ -1,4 +1,4 @@
-work_offline: true
+work_offline: false
 colors: {light-gray: '#e0e0e0', dark-gray: '#656565', red: '#ff0000'}
   # - light-gray: '#e0e0e0'
   # - dark-gray: '#656565'
@@ -15,8 +15,9 @@ lib_list:
   - {id: 'highcharts', js: 'https://code.highcharts.com/highcharts.js'}
   - {id: 'd3', js: 'https://d3js.org/d3.v4.min.js'}
   - {id: 'mathjax', js: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'}
-  - {id: 'juxtapose', js: '/lib/juxtapose/juxtapose.js'}
-  - {id: 'nouislider', js: '/lib/nouislider/nouislider.min.js'}
+  - {id: 'juxtapose', js: '/lib/juxtapose/juxtapose.js', css: '/lib/juxtapose/juxtapose.css'}
+  - {id: 'nouislider', js: '/lib/nouislider/nouislider.min.js', css: '/lib/nouislider/nouislider.min.css'}
+
 
 # Name of your blog (this will show up at the top of your page and in the RSS feed)
 name: Itai Katz

@@ -51,6 +51,16 @@ footer-icons:
 	</style>
 
 	{% capture libs %}{{ page.libs | downcase }}{% endcapture %}
+
+	{% for lib in site.lib_list %}
+		{% if libs contains lib.id %}
+		{% if lib.css %}
+			<link rel="stylesheet" href="{{lib.css}}" type="text/css">
+		{% endif %}
+		{% endif %}
+	{% endfor %}
+
+{% comment %}
 	{% if libs contains 'juxtapose' %}
 		<link rel="stylesheet" href="{{site.baseurl}}/lib/juxtapose/juxtapose.css" type="text/css">
 	{% endif %}
@@ -58,7 +68,7 @@ footer-icons:
 	{% if libs contains 'nouislider' %}
 		<link rel="stylesheet" href="{{site.baseurl}}/lib/nouislider/nouislider.min.css" type="text/css">
 	{% endif %}
-
+{% endcomment %}
 
 	{% if page.custom_css %}
 	  {% for stylesheet in page.custom_css %}
@@ -66,7 +76,7 @@ footer-icons:
 	  {% endfor %}
 	{% endif %}
 
-<script>
+<script> 
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
   (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
   m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
@@ -207,36 +217,6 @@ footer-icons:
 		<!-- <script src="https://use.fontawesome.com/02dcac6003.js"></script> -->
 	{% endif %}
 
-{% comment %}
-
-	{% if libs contains 'mathjax' %}
-	<script type="text/javascript" async
-  	src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML">
-	</script>
-	{% endif %}
-
-	{% if libs contains 'd3' %}
-	<script src="https://d3js.org/d3.v4.min.js"></script>
-	{% endif %}
-
-	{% if libs contains 'juxtapose' %}
-	<script src="{{site.baseurl}}/lib/juxtapose/juxtapose.js"></script>
-	{% endif %}
-
-	{% if libs contains 'nouislider' %}
-	<script src="{{site.baseurl}}/lib/nouislider/nouislider.min.js"></script>
-	{% endif %}
-
-
-	{% if libs contains 'jquery' %}
-	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
-	{% endif %}
-
-	{% if libs contains 'highcharts' %}
-	<script src="https://code.highcharts.com/highcharts.js"></script>
-	{% endif %}
-{% endcomment %}
-	
 	{% for lib in site.lib_list %}
 		{% if libs contains lib.id %}
 			<script src="{{lib.js}}"></script>
