@@ -48,6 +48,9 @@ body {
 .footer ul {
   margin: 0;
 }
+.footer ul li:first-child {
+  margin-left: 0;
+}
 .footer ul li {
   margin-left: 10px;
   padding-top: 5px;

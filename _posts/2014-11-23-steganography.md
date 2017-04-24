@@ -3,7 +3,7 @@ title: Steganography
 publish_title: "Steganography: Hidden in plain sight"
 category: blog
 layout: charcoal2
-thumbnail: assets/thumbnails/steg.jpg
+thumbnail: assets/posts/steganography/thumbnail.jpg
 custom_js: assets/posts/steganography/steg.js
 custom_css: assets/posts/steganography/steg.css
 libs:

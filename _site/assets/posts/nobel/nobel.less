@@ -1,6 +1,13 @@
 @import "css/templates/site_variables.less";
 
 .main-content {
+
+color: #f0e7d5;
+a {
+    color: #ffcc00;  
+    &:hover { color: #ffeb9b; }
+}
+
 #container {
 	min-width: 310px;
 	max-width: 800px;
@@ -17,7 +24,8 @@ h1 {
 }
 
 blockquote {
-  background: lighten(@bg-color, 3%);
+//  background: lighten(@bg-color, 3%);
+  background: transparent;
   border-left: 10px solid @panel-orange;
   margin: 1.5em 0px;
   padding: 0.5em 10px;

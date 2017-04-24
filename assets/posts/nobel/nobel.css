@@ -1,3 +1,12 @@
+.main-content {
+  color: #f0e7d5;
+}
+.main-content a {
+  color: #ffcc00;
+}
+.main-content a:hover {
+  color: #ffeb9b;
+}
 .main-content #container {
   min-width: 310px;
   max-width: 800px;
@@ -11,7 +20,7 @@
   width: 100%;
 }
 .main-content blockquote {
-  background: #2d2d2d;
+  background: transparent;
   border-left: 10px solid #df9100;
   margin: 1.5em 0px;
   padding: 0.5em 10px;

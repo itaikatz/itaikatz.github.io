@@ -60,16 +60,6 @@ footer-icons:
 		{% endif %}
 	{% endfor %}
 
-{% comment %}
-	{% if libs contains 'juxtapose' %}
-		<link rel="stylesheet" href="{{site.baseurl}}/lib/juxtapose/juxtapose.css" type="text/css">
-	{% endif %}
-
-	{% if libs contains 'nouislider' %}
-		<link rel="stylesheet" href="{{site.baseurl}}/lib/nouislider/nouislider.min.css" type="text/css">
-	{% endif %}
-{% endcomment %}
-
 	{% if page.custom_css %}
 	  {% for stylesheet in page.custom_css %}
 	  <link rel="stylesheet" href="{{site.baseurl}}/{{ stylesheet }}" type="text/css">

@@ -1,7 +1,9 @@
 ---
 title: RF_prop_sim
+publish_title: RF Propagation Over Varying Terrain
 layout: charcoal2
-category: blog
+category: tutorial
+thumbnail: assets/posts/RF_prop_sim/thumbnail.jpg
 ---
 
 RF Propagation Over Varying Terrain

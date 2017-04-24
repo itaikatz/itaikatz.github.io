@@ -6,68 +6,33 @@
 Coming soon!
 {% endunless %}
 
+<div class="row">
+
 {% for post in site.categories[{{include.category}}] %}
 
-
-  <div class="row">
-    <div class="col-12 col-sm-9">
-      {% if post.publish_title %} 
-      <a href="{{site.baseurl}}{{ post.url }}" title="{{ post.publish_title }}" class="{{include.category}}">{{ post.publish_title }}</a>
-      {% else %}
-      <a href="{{site.baseurl}}{{ post.url }}" title="{{ post.title }}" class="{{include.category}}">{{ post.title }} </a>
-      {% endif %}
+<div class="col-6 col-md-4">
+<a href="{{site.baseurl}}{{ post.url }}" title="{{ post.publish_title }}">
+<div class="caption">
+    <img class="caption__media" src="{{site.baseurl}}/{{post.thumbnail}}" />
+    <div class="caption__overlay">
+        <h1 class="caption__overlay__title">{{ post.publish_title }}</h1>
+        <p class="caption__overlay__content">{{post.date}}</p>
     </div>
-    <div class="col-12 col-sm-3">
-      <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%-d %B" }}</time>
-    </div>
-  </div>
+</div>
+</a>
+</div>
 
-  {% comment %}
-
-	{% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}  
-
-	{% unless forloop.first %}
-	{% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
-	{% capture pyear %}{{ post.previous.date | date: '%Y' }}{% endcapture %}
-	{% endunless %}
-
-
-  {% if year != nyear %}
-    {% unless forloop.first %}
-      <hr class="{{include.category}}">
-    {% endunless %} 
-     
-    <div class="row" >    
-    <div  class="col-1">
-        <div class="circle {{include.category}}"> {{ year }}</div>
-    </div>
-    <div class="col-11 pl-4 pt-4">
-  {% endif %} 
-
-  		<div class="row">
-		<div class="col-12 col-sm-9">
-			{% if post.publish_title %} 
-			<a href="{{site.baseurl}}{{ post.url }}" title="{{ post.publish_title }}" class="{{include.category}}">{{ post.publish_title }}</a>
-			{% else %}
-			<a href="{{site.baseurl}}{{ post.url }}" title="{{ post.title }}" class="{{include.category}}">{{ post.title }} </a>
-			{% endif %}
-		</div>
-		<div class="col-12 col-sm-3">
-			<time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: "%-d %B" }}</time>
-		</div>
-	</div>
-
-  {% if forloop.last %}
-    </div></div>
-  {% else %}    
-    {% if year != pyear %}
-      </div></div>
-    {% else %}
-    {% endif %}  
-  {% endif %}
-
-  {% assign pyear = year %}
-
-
-  {% endcomment %}
+{% comment %}
+    <div class="col-6 col-med-6">
+      <a href="{{site.baseurl}}/{{ post.url }}" title="{{ post.publish_title }}" class="{{include.category}} caption">
+      <img class="caption__media" src="{{site.baseurl}}/assets/posts/steganography/lena.jpg" />
+      <div class="caption__overlay">
+          <h1 class="caption__overlay__title">{{post.publish_title}}</h1>
+          <!-- <p class="caption__overlay__content">Lorem ipsum doler sit dui amet.</p> -->
+      </div>
+      </a>
+    </div>  
+{% endcomment %}
 {% endfor %}
+
+</div>
