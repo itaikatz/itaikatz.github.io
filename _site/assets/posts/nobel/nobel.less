@@ -5,7 +5,7 @@
 color: #f0e7d5;
 a {
     color: #ffcc00;  
-    &:hover { color: #ffeb9b; }
+    &:hover { color: #ffeb9b; text-decoration: none;}
 }
 
 #container {
@@ -17,6 +17,8 @@ a {
 
 h1 {
 	margin: 16px 0;
+	text-align: center;
+	color: rgb(232, 232, 232);
 }
 
 .banner {
@@ -26,7 +28,7 @@ h1 {
 blockquote {
 //  background: lighten(@bg-color, 3%);
   background: transparent;
-  border-left: 10px solid @panel-orange;
+  border-left: 3px solid @panel-orange;
   margin: 1.5em 0px;
   padding: 0.5em 10px;
   quotes: "\201C""\201D""\2018""\2019";
@@ -36,7 +38,7 @@ blockquote {
 	font-family: Georgia, serif;
 	font-size: 1.5rem;
 	line-height: 1.2;
-	color: @light-gray;
+	// color: @light-gray;
 	text-align: justify;
 	}
 }

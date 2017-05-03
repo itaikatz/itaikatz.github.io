@@ -1,5 +1,44 @@
 $(document).ready(function() {
 
+var avg_age_disc = {
+	chart: {
+//		backgroundColor: '#252525',
+	},
+	xAxis: {
+		title: {
+			text: 'Year of prize'
+		}	
+    },
+    yAxis: {
+        min: 0,
+        max: 60,
+        tickInterval: 10,
+        title: { 
+        	text: 'Age (years)' 
+        }
+    },
+    title: {
+        text: 'Nobel laureates: Age at peak scientific discovery'
+    },
+    credits: { enabled: false },
+    tooltip: { enabled: false },
+    legend: {enabled: false },
+    plotOptions: {
+        series: {
+            pointStart: 1900,
+            pointInterval: 10
+        }
+    },
+	series: [
+		{
+			data: [38.97, 35.11, 37.52, 37.47, 40.56, 36.78, 41.22, 43.11, 38.00, 36.56, 42.32]
+			//type: 'scatter',
+			//marker: { radius: 4, lineWidth: 1, lineColor: 'rgba(255,255,255,0.7)', symbol: 'circle', fillColor: 'rgba(0, 132, 169, 0.7)'},
+			//tooltip: { enabled: false } //, formatter: function() {return this.y} }
+		}
+	]
+}
+
 var options1 = {
 	chart: {
 //		backgroundColor: '#252525',
@@ -11,6 +50,7 @@ var options1 = {
     },
     yAxis: {
         min: 0,
+        tickInterval: 10,
         title: { 
         	text: 'Age (years)' 
         }
@@ -47,6 +87,7 @@ var options2 = {
     },
     yAxis: {
         min: 0,
+        tickInterval: 10,
         title: { 
         	text: 'Age (years)' 
         }
@@ -83,6 +124,7 @@ var options3 = {
     },
     yAxis: {
         min: 0,
+        tickInterval: 10,
         title: { 
         	text: 'years' 
         }
@@ -169,6 +211,9 @@ var options3 = {
 	options3.series[2].data = delay[2];
 	options3.series[2].name = 'Medicine';
 
+//	avg_age_disc.series[0].data = [{'x': '1910', 'y':'20'}, {'x':'1920', 'y':'40'}, {'x':'1930', 'y':'50'}];
+
+	Highcharts.chart('avg-age-of-discovery', avg_age_disc);	
 	Highcharts.chart('container1', options1);
 	Highcharts.chart('container2', options2);
 	Highcharts.chart('container3', options3);		
