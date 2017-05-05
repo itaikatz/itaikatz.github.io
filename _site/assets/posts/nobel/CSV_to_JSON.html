@@ -23,7 +23,7 @@ function saveText(text, filename){
 
 // Load CSV data
 $.ajax({
-  url: 'nobel_data.csv',
+  url: 'nobel_data2.csv',
   dataType: 'text',
 }).done(successFunction);
 
@@ -33,7 +33,7 @@ Papa.parse(csvData, {
 	header: true,
 	complete: function(results) {
 		console.log(results);
-		saveText( JSON.stringify(results), "nobel_data.json" );
+		saveText( JSON.stringify(results), "nobel_data2.json" );
 	}
 });
 }

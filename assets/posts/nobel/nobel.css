@@ -22,6 +22,19 @@
 .main-content .banner {
   width: 100%;
 }
+@media (min-width: 48em) {
+  .main-content .nobel-chart {
+    margin: 0 auto;
+    width: 80%;
+  }
+}
+.main-content .highcharts-tooltip span {
+  height: auto !important;
+  width: 140px !important;
+  max-width: 140px !important;
+  overflow: auto !important;
+  white-space: normal !important;
+}
 .main-content blockquote {
   background: transparent;
   border-left: 3px solid #df9100;

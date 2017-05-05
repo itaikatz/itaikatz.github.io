@@ -1,168 +1,243 @@
 $(document).ready(function() {
+var optionsDefault = {  
+	chart: { 
+		/* backgroundColor: '#252525', */ 
+		//height: null,
+		spacingTop: 30,
+	},
+	title: {
+		text: 'Nobel Laureates:',
+		style: {
+			'font-size': '18px',	
+			'color': '#666666'	
+		}
+	},
+	subtitle: {
+		style: {
+			'font-size': '24px',
+			'color': '#333333'				
+		},
+		y: 40 
+	},
+	xAxis: { 
+		labels: {
+			y: 25
+		} 
+	},
+	yAxis: {
+		min: 0,
+		max: 90,
+		tickInterval: 10,
+		gridLineWidth: 0,
+		title: {  
+				style: {
+				 	'font-size' : '18px'
+				 }
+		},
+	},
+    credits: { enabled: false },
+    responsive: {
+    	rules: [{
+    		condition: {
+    			maxWidth: 544
+    		},
+    		chartOptions: {
+    			chart: {
+					//height: '100%'
+    			},
+    			yAxis: {
+    				max: 80,
+    				tickInterval: 20
+    			}
+    		}
+    	}]
+    }
+
+}
+Highcharts.setOptions(optionsDefault)
 
 var avg_age_disc = {
-	chart: {
-//		backgroundColor: '#252525',
-	},
-	xAxis: {
-		title: {
-			text: 'Year of prize'
-		}	
-    },
-    yAxis: {
-        min: 0,
-        max: 60,
-        tickInterval: 10,
-        title: { 
-        	text: 'Age (years)' 
-        }
-    },
-    title: {
-        text: 'Nobel laureates: Age at peak scientific discovery'
-    },
-    credits: { enabled: false },
-    tooltip: { enabled: false },
     legend: {enabled: false },
-    plotOptions: {
-        series: {
-            pointStart: 1900,
-            pointInterval: 10
-        }
+    subtitle: { text: 'Average age at peak scientific discovery' },
+    yAxis: {
+    	title: { text: 'Age' }
     },
-	series: [
+ 	series: [
 		{
-			data: [38.97, 35.11, 37.52, 37.47, 40.56, 36.78, 41.22, 43.11, 38.00, 36.56, 42.32]
-			//type: 'scatter',
-			//marker: { radius: 4, lineWidth: 1, lineColor: 'rgba(255,255,255,0.7)', symbol: 'circle', fillColor: 'rgba(0, 132, 169, 0.7)'},
-			//tooltip: { enabled: false } //, formatter: function() {return this.y} }
+			name: 'Age',
+			data: [{'x': 1900, 'y': 39.0,
+						marker: {fillColor: '#df9100'},
+				   		dataLabels: {enabled:true, y:-10, color:'#df9100'}
+				   	}, 
+				   {'x': 1910, 'y': 35.0}, 
+				   {'x': 1920, 'y': 37.5}, 
+				   {'x': 1930, 'y': 37.5}, 
+				   {'x': 1940, 'y': 40.6}, 
+				   {'x': 1950, 'y': 36.8},
+				   {'x': 1960, 'y': 41.2},
+				   {'x': 1970, 'y': 43.1},
+				   {'x': 1980, 'y': 38.0},
+				   {'x': 1990, 'y': 36.6},
+				   {'x': 2000, 'y': 42.3, 
+				   		marker: {fillColor: '#7a9d00'},
+				   		dataLabels: {enabled:true, y:-10, color:'#7a9d00'}
+				   	}] 
 		}
 	]
 }
 
-var options1 = {
-	chart: {
-//		backgroundColor: '#252525',
+var avg_years_delay = {
+    legend: {enabled: false },
+    subtitle: { text: 'Average delay between discovery and prize' },
+    yAxis: {
+    	title: { text: 'Years' },
+    	max: 30,
+    },
+ 	series: [
+		{
+			name: 'Delay (years)',
+			data: [{'x': 1900, 'y': 13.0,
+						marker: {fillColor: '#df9100'},
+				   		dataLabels: {enabled:true, y:-10, color:'#df9100'}
+				   	}, 
+				   {'x': 1910, 'y': 12.4}, 
+				   {'x': 1920, 'y': 12.9}, 
+				   {'x': 1930, 'y': 10.4}, 
+				   {'x': 1940, 'y': 10.6}, 
+				   {'x': 1950, 'y': 13.2},
+				   {'x': 1960, 'y': 16.5},
+				   {'x': 1970, 'y': 17.0},
+				   {'x': 1980, 'y': 18.9},
+				   {'x': 1990, 'y': 22.2},
+				   {'x': 2000, 'y': 23.2, 
+				   		marker: {fillColor: '#7a9d00'},
+				   		dataLabels: {enabled:true, y:-10, color:'#7a9d00'}
+				   	}] 
+		}
+	]
+}
+
+var avg_num_winners = {
+    legend: {enabled: false },
+    subtitle: { text: 'Average number of winners (per field)' },
+    yAxis: {
+    	title: { text: 'Years' },
+    	max: 3,
+    	min: 1,
+		tickInterval: 1
+
+    },
+ 	series: [
+		{
+			name: 'Delay (years)',
+			data: [{'x': 1900, 'y': 1.2,
+						marker: {fillColor: '#df9100'},
+				   		dataLabels: {enabled:true, y:-10, color:'#df9100'}
+				   	}, 
+				   {'x': 1910, 'y': 1.1}, 
+				   {'x': 1920, 'y': 1.2}, 
+				   {'x': 1930, 'y': 1.4}, 
+				   {'x': 1940, 'y': 1.4}, 
+				   {'x': 1950, 'y': 1.8},
+				   {'x': 1960, 'y': 1.9},
+				   {'x': 1970, 'y': 2.1},
+				   {'x': 1980, 'y': 2.2},
+				   {'x': 1990, 'y': 2.0},
+				   {'x': 2000, 'y': 2.6, 
+				   		marker: {fillColor: '#7a9d00'},
+				   		dataLabels: {enabled:true, y:-10, color:'#7a9d00'}
+				   	}] 
+		}
+	]
+}
+
+var individual_age_disc = {
+    subtitle: {
+         text: 'Age at peak scientific discovery'
+    },
+	tooltip: { 
+		useHTML: true,
+		formatter: function() {return "<b>" + this.point.name + '</b><br/>' + this.point.rationale } 
 	},
-	xAxis: {
-		title: {
-			text: 'Year of prize'
-		}	
-    },
     yAxis: {
-        min: 0,
-        tickInterval: 10,
-        title: { 
-        	text: 'Age (years)' 
-        }
-    },
-    title: {
-        text: 'Nobel laureates: age at highest degree'
-    },
-    credits: { enabled: false },
-    tooltip: { formatter: function() {return this.point.name } },
+    	title: { text: 'Number of winners' },
+    	max: 60
+    },	
+    xAxis: {
+    	title: { text: 'Year of award' }
+    },    
 	series: [
 		{
+			name: 'Chemistry',
+			data: [],
 			type: 'scatter',
-			marker: { radius: 4, lineWidth: 1, lineColor: 'rgba(255,255,255,0.7)', symbol: 'circle', fillColor: 'rgba(0, 132, 169, 0.7)'},
-			tooltip: { enabled: false } //, formatter: function() {return this.y} }
+			color: 'rgba(0, 132, 169, 0.7)',
+			marker: { radius: 4, lineWidth: 1, lineColor: 'rgba(255,255,255,0.7)', symbol: 'circle',},
+			//tooltip: { enabled: false } //, formatter: function() {return this.y} }
 		},
 		{	
+			name: 'Physics',
+			data: [],
 			type: 'scatter',
-			marker: { radius: 4, lineWidth: 1, lineColor: 'rgba(255,255,255,0.7)', symbol: 'circle', fillColor: 'rgba(122, 157, 0, 0.7)' },
+			color: 'rgba(122, 157, 0, 0.7)',
+			marker: { radius: 4, lineWidth: 1, lineColor: 'rgba(255,255,255,0.7)', symbol: 'circle' },
 			tooltip: { enabled: false }
 		},
 		{
+			name: 'Medicine',
+			data: [],
 			type: 'scatter',
-			marker: { radius: 4, lineWidth: 1, lineColor: 'rgba(255,255,255,0.7)', symbol: 'circle', fillColor: 'rgba(178, 56, 20, 0.7)' },
+			color: 'rgba(178, 56, 20, 0.7)',
+			marker: { radius: 4, lineWidth: 1, lineColor: 'rgba(255,255,255,0.7)', symbol: 'circle' },
 			tooltip: { enabled: false }
 		}
 	]
 }
 
-var options2 = {
-	xAxis: {
-		title: {
-			text: 'Year of prize'
-		}	
+var individual_years_delay = {
+    subtitle: {
+         text: 'Years between discovery and prize'
     },
     yAxis: {
-        min: 0,
-        tickInterval: 10,
-        title: { 
-        	text: 'Age (years)' 
-        }
-    },
-    title: {
-        text: 'Nobel laureates: age at discovery'
-    },
-    credits: { enabled: false },
-    tooltip: { formatter: function() {return this.point.name } },
+    	title: { text: 'Years' },
+    	max: 60
+    },    
+    xAxis: {
+    	title: { text: 'Year of award' }
+    },    
+	tooltip: { 
+		useHTML: true,
+		formatter: function() {return "<b>" + this.point.name + '</b><br/>' + this.point.rationale } 
+	},
 	series: [
 		{
+			name: 'Chemistry',
+			data: [],
 			type: 'scatter',
-			marker: { radius: 4, lineWidth: 1, lineColor: 'rgba(255,255,255,0.7)', symbol: 'circle', fillColor: 'rgba(0, 132, 169, 0.7)'},
-			tooltip: { enabled: false } //, formatter: function() {return this.y} }
+			color: 'rgba(0, 132, 169, 0.7)',
+			marker: { radius: 4, lineWidth: 1, lineColor: 'rgba(255,255,255,0.7)', symbol: 'circle',},
+			//tooltip: { enabled: false } //, formatter: function() {return this.y} }
 		},
 		{	
+			name: 'Physics',
+			data: [],
 			type: 'scatter',
-			marker: { radius: 4, lineWidth: 1, lineColor: 'rgba(255,255,255,0.7)', symbol: 'circle', fillColor: 'rgba(122, 157, 0, 0.7)' },
+			color: 'rgba(122, 157, 0, 0.7)',
+			marker: { radius: 4, lineWidth: 1, lineColor: 'rgba(255,255,255,0.7)', symbol: 'circle' },
 			tooltip: { enabled: false }
 		},
 		{
+			name: 'Medicine',
+			data: [],
 			type: 'scatter',
-			marker: { radius: 4, lineWidth: 1, lineColor: 'rgba(255,255,255,0.7)', symbol: 'circle', fillColor: 'rgba(178, 56, 20, 0.7)' },
+			color: 'rgba(178, 56, 20, 0.7)',
+			marker: { radius: 4, lineWidth: 1, lineColor: 'rgba(255,255,255,0.7)', symbol: 'circle' },
 			tooltip: { enabled: false }
 		}
 	]
 }
 
-var options3 = {
-	xAxis: {
-		title: {
-			text: 'Year of prize'
-		}	
-    },
-    yAxis: {
-        min: 0,
-        tickInterval: 10,
-        title: { 
-        	text: 'years' 
-        }
-    },
-    title: {
-        text: 'Nobel laureates: time between discovery and prize (years)'
-    },
-    credits: { enabled: false },
-    tooltip: { formatter: function() {return this.point.name } },
-	series: [
-		{
-			type: 'scatter',
-			marker: { radius: 4, lineWidth: 1, lineColor: 'rgba(255,255,255,0.7)', symbol: 'circle', fillColor: 'rgba(0, 132, 169, 0.7)'},
-			tooltip: { enabled: false } //, formatter: function() {return this.y} }
-		},
-		{	
-			type: 'scatter',
-			marker: { radius: 4, lineWidth: 1, lineColor: 'rgba(255,255,255,0.7)', symbol: 'circle', fillColor: 'rgba(122, 157, 0, 0.7)' },
-			tooltip: { enabled: false }
-		},
-		{
-			type: 'scatter',
-			marker: { radius: 4, lineWidth: 1, lineColor: 'rgba(255,255,255,0.7)', symbol: 'circle', fillColor: 'rgba(178, 56, 20, 0.7)' },
-			tooltip: { enabled: false }
-		}
-	]
-}
-  
-  $.getJSON('/assets/posts/nobel/nobel_data.json', function (data) {	
-//$.getJSON('assets/posts/nobel/nobel_data.json', function (data) {
-	var degree = [];
-	var discovery = [];
-	var delay = [];
-	for( i=0; i < 3; i++ ) {
-		degree[i] = [];
-		discovery[i] = [];
-		delay[i] = [];
-	}
+  $.getJSON('/assets/posts/nobel/nobel_data2.json', function (data) {	
 	$.each(data.data, function(i, el) {
 
 		// Age of highest degree
@@ -177,46 +252,14 @@ var options3 = {
 					idx = 2;
 			break;
 		}
-		degree[idx].push({'x': parseFloat(el.year_prize), 'y': parseFloat(el.age_highdegree), 'name': el.name})
-		discovery[idx].push({'x': parseFloat(el.year_prize), 'y': parseFloat(el.year_research_mid)-parseFloat(el.year_birth), 'name': el.name})		
-		//discovery[idx].push({'x': parseFloat(el.year_prize), 'y': parseFloat(el.year_research_mid)-parseFloat(el.year_birth), 'name': el.name})
-		delay[idx].push({'x': parseFloat(el.year_prize), 'y': parseFloat(el.year_prize)-parseFloat(el.year_research_mid), 'name': el.name})		
-
+		individual_age_disc.series[idx].data.push({'x': parseFloat(el.year_prize), 'y': parseFloat(el.year_research_mid)-parseFloat(el.year_birth), 'name': el.name, 'rationale': el.rationale})		
+		individual_years_delay.series[idx].data.push({'x': parseFloat(el.year_prize), 'y': parseFloat(el.year_prize)-parseFloat(el.year_research_mid), 'name': el.name, 'rationale': el.rationale})	
 	});
-	console.log(degree)
-	options1.series[0].data = degree[0];
-	options1.series[0].name = 'Chemistry';
-
-	options1.series[1].data = degree[1];
-	options1.series[1].name = 'Physics';
-
-	options1.series[2].data = degree[2];
-	options1.series[2].name = 'Medicine';
-
-	options2.series[0].data = discovery[0];
-	options2.series[0].name = 'Chemistry';
-
-	options2.series[1].data = discovery[1];
-	options2.series[1].name = 'Physics';
-
-	options2.series[2].data = discovery[2];
-	options2.series[2].name = 'Medicine';
-
-	options3.series[0].data = delay[0];
-	options3.series[0].name = 'Chemistry';
-
-	options3.series[1].data = delay[1];
-	options3.series[1].name = 'Physics';
-
-	options3.series[2].data = delay[2];
-	options3.series[2].name = 'Medicine';
-
-//	avg_age_disc.series[0].data = [{'x': '1910', 'y':'20'}, {'x':'1920', 'y':'40'}, {'x':'1930', 'y':'50'}];
-
 	Highcharts.chart('avg-age-of-discovery', avg_age_disc);	
-	Highcharts.chart('container1', options1);
-	Highcharts.chart('container2', options2);
-	Highcharts.chart('container3', options3);		
+	Highcharts.chart('individual-age-of-discovery', individual_age_disc);
+	Highcharts.chart('avg-years-of-delay', avg_years_delay);	
+	Highcharts.chart('individual-years-of-delay', individual_years_delay);
+	Highcharts.chart('avg-num-winners', avg_num_winners);		
 });
 });
 

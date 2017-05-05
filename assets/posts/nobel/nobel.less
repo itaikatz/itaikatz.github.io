@@ -25,6 +25,23 @@ h1 {
  width: 100%;
 }
 
+.nobel-chart {
+	//max-height: 300vh;
+	@media (min-width: @med-width ) { 
+		//max-height: 200vh;
+		margin: 0 auto;
+		width: 80%;
+	}
+}
+
+.highcharts-tooltip span {
+    height:auto !important;
+    width:140px !important;
+    max-width:140px !important;
+    overflow:auto !important;
+    white-space:normal !important; 
+}
+
 blockquote {
 //  background: lighten(@bg-color, 3%);
   background: transparent;
