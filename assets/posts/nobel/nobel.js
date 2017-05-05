@@ -39,7 +39,7 @@ var optionsDefault = {
 		},
 	},
     credits: { enabled: false },
-    responsive: {
+  /*  responsive: {
     	rules: [{
     		condition: {
     			maxWidth: 544
@@ -55,7 +55,7 @@ var optionsDefault = {
     		}
     	}]
     }
-
+*/
 }
 Highcharts.setOptions(optionsDefault)
 
