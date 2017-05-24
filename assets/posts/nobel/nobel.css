@@ -50,3 +50,6 @@
   line-height: 1.2;
   text-align: justify;
 }
+.main-content .w100 {
+  width: 100%;
+}

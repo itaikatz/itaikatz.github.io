@@ -132,7 +132,7 @@ var avg_num_winners = {
     },
  	series: [
 		{
-			name: 'Delay (years)',
+			name: 'Avg # laureates',
 			data: [{'x': 1900, 'y': 1.2,
 						marker: {fillColor: '#df9100'},
 				   		dataLabels: {enabled:true, y:-10, color:'#df9100'}
