@@ -1,0 +1,151 @@
+@import "css/templates/site_variables.less";
+
+.main-content {
+
+.banner {
+ width: 100%;
+}
+
+a {
+    color: #ffcc00;  
+    &:hover { color: #ffeb9b; text-decoration: none;}
+}
+
+table {
+  width: 100%;
+  @media (min-width: @med-width ) { width: 50%; }
+
+  margin: 0 auto;
+  margin-bottom: 20px;
+  th {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid @panel-orange;
+    font-size: 1.3rem;
+    text-align: center;
+  }
+  td {  
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    border-bottom: 1px solid fadeout(@panel-orange, 90%);
+  }
+  tr:hover td {
+    color: lighten(@panel-orange, 30%);
+  }
+}
+
+h1 {
+  margin: 16px 0;
+  text-align: center;
+  color: rgb(232, 232, 232);
+}
+
+blockquote {
+//  background: lighten(@bg-color, 3%);
+  background: transparent;
+  border-left: 3px solid @panel-orange;
+  margin: 1.5em 0px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+  p {
+  	margin-left: 10px;
+  	margin-right: 30px;
+	font-family: Georgia, serif;
+	font-size: 1.5rem;
+	line-height: 1.2;
+	// color: @light-gray;
+	text-align: left;
+	}
+}
+
+figure {
+  img {
+    display: block;
+    margin: auto;
+  }
+  figcaption {
+    text-align: center
+  }
+}
+
+#madison {
+    @media (min-width: @med-width ) { 
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+  }
+}
+
+.accordion-toggle:after {
+    font-family: 'FontAwesome';
+    content: "\f078";    
+    float: right;
+}
+.accordion-opened .accordion-toggle:after {    
+    content: "\f054";    
+}
+
+.sidebar-box {
+  max-height: 120px;
+  position: relative;
+  overflow: hidden;
+}
+.sidebar-box .read-more { 
+  position: absolute; 
+  bottom: 0; 
+  left: 0;
+  width: 100%; 
+  text-align: center;
+  margin: 0; padding: 30px 0; 
+
+  // background: linear-gradient(to right, transparent, mistyrose),
+  //     url("https://mdn.mozillademos.org/files/15525/critters.png");
+  
+  /* "transparent" only works here because == rgba(0,0,0,0) */
+  background-image:
+  linear-gradient(to bottom, @dark-gray, @bg-color),
+   url("{{site.baseurl}}/img/classy-fabric.png");
+  // background-image: linear-gradient(to bottom, transparent, @bg-color);
+  
+}
+
+.panel-group {
+  // background-color:  linear-gradient(to bottom, @dark-gray, transparent);
+  background-color: @dark-gray;
+  border-radius: 5px;
+  border: 0.5px solid @icon-color;
+  .panel {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  a {
+    color: #e0e0e0;
+    text-decoration: none;
+  }
+}
+.panel-teaser {
+  position: relative;
+}
+.panel-fade {
+   position: absolute; 
+  bottom: 0; 
+  left: 0;
+  width: 100%; 
+  height: 100%;
+  // height: 100%;
+     // background-image: url("{{site.baseurl}}/img/classy-fabric.png"), 
+     // linear-gradient(to bottom, transparent, @dark-gray);
+     background-image: linear-gradient(to bottom, transparent, @dark-gray);
+     // background-image: none;
+  // background-image: linear-gradient(to bottom, transparent, @bg-color);
+}
+// #madison-video {
+// @media (max-width: @sm-width ) { 
+//   position: relative;
+//   top: 50%;
+//   transform: translateY(-50%);
+//  }
+// }
+
+}

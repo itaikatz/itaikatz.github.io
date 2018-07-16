@@ -27,7 +27,8 @@ module.exports = function(grunt) {
                 'css/menu.css' : 'css/menu.less',
                 'css/index.css' : 'css/index.less',
                 'assets/posts/steganography/steg.css' : 'assets/posts/steganography/steg.less',
-                'assets/posts/nobel/nobel.css' : 'assets/posts/nobel/nobel.less'
+                'assets/posts/nobel/nobel.css' : 'assets/posts/nobel/nobel.less',
+                'assets/posts/names/names.css' : 'assets/posts/names/names.less'
 
             }
             }
