@@ -20,6 +20,11 @@ footer-icons:
 	<!-- If you delete this meta tag World War Z will become a reality -->
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+	{% if page.og_image %}
+	<meta name="image" property="og:image" content="{{site.baseurl}}/{{page.og_image}}">
+	{% endif %}
+
+
 	<title> {{ page.title }} </title>
 
 	{% if site.work_offline  %}
