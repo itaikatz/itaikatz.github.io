@@ -263,11 +263,131 @@ topojson -p name=NAME -p name -q 1e4 -o costarica_min_topo.json costarica.json
 
 ## End result
 
-With a a little D3js magic (the topic of a future tutorial, i.e. "left as an exercise for the reader") we can combine the geographic data with the merged relief map:
+With a a little D3js magic (i.e., "left as an exercise for the reader") we can combine the geographic data with the merged relief map. Feel free to send me an email with any questions or comments.
+
 
 <img src="{{site.baseurl}}/assets/posts/topography/final.jpg" style="width: 100%; display: block; margin: 0 auto;"/>
 
-[Click here]({{site.baseurl}}assets/posts/topography/dem.zip) to download all the files associated with this project. You should be able to load index.html and see an SVG version of the end result. If you have any questions or comments, feel free to send me an email.
+<!--
+[Click here]({{site.baseurl}}/topography/dem.zip) to download all the files associated with this project. You should be able to load index.html and see an SVG version of the end result.
+-->
+
+
+<link rel="stylesheet" href="{{site.baseurl}}/assets/posts/RF_prop_sim/css/webix.css" type="text/css"> 
+<style>
+
+path#CRI {
+    fill: none;
+    stroke: #000;
+  }
+  image.bg {
+    opacity: 0.2;
+  }
+div.tooltip {   
+  border-radius: 8px 8px 8px 0;    
+  font: 20px sans-serif; 
+  width:100px;
+  background: #3498db;
+  color: white;
+  text-align: center;
+  position: relative;
+  height: 28px;    
+  line-height: 28px;
+  pointer-events: none;        
+  padding: 4px;        
+  border: 0;
+  display: inline;
+}
+
+  circle.active {
+    fill: blue;
+  }
+
+  circle.cursor {
+    fill: none;
+    stroke: blue;
+    stroke-width: 4px;
+    opacity: 0.5;
+  }
+
+  svg .map {
+    position: absolute;
+  }
+  canvas {
+    position: absolute;
+    pointer-events:none;
+  }
+
+  #ui {
+    width:1000px; height:1000px; margin:20px;  
+    position: relative;
+  }
+
+  #layout {
+    /*height: 1000px;*/
+    /*width: 1400px;*/
+    margin: 0 auto;
+  }
+
+#outer{
+    /*width:1000px; height:400px;*/
+    position: relative;
+  }
+
+</style>
+
+<script src="{{site.baseurl}}/assets/posts/RF_prop_sim/js/d3.v4.min.js"></script>
+<script src="{{site.baseurl}}/assets/posts/RF_prop_sim/js/topojson.v0.min.js"></script>
+<script src="{{site.baseurl}}/assets/posts/RF_prop_sim/js/geotiff.min.js"></script>
+<script src="{{site.baseurl}}/assets/posts/RF_prop_sim/js/webix.js" type="text/javascript"></script>  
+<script src="{{site.baseurl}}/assets/posts/RF_prop_sim/js/skin.js" type="text/javascript"></script>  
+
+
+### BONUS: Simulating RF Propagation
+
+Now that we have our DEM, what do we do with it? One application where knowledge of terrain is important is in radiofrequency (RF) propagation. 
+
+Suppose you're a cell phone provider and you want to bring service to a new region. One of the most significant costs is the installation of cell towers. Too many towers gets expensive, but too few towers may result in spotty or unreliable service. How many towers do you put up, and where?
+
+Recall that cell phone signals are heavily attenuated by terrain. We can imagine a simple radio propagation model where the signal is attenuated by some constant factor per meter of terrain traversed. Thus a tower located on a mountain top would have a broad coverage area relative to a tower placed in a valley.
+
+In the simulation below, try clicking on various points on the map to place virtual cell phone towers. Notice how the signal is affected by surrounding terrain features. Can you think of a way to optimize tower placement to minimize their numbers?
+
+{% comment %}
+[introduce problem] 
+Suppose you're a cell phone provider and you want to bring service to a new region. One of the most significant costs is the installation of cell towers.
+
+
+[In a previous tutorial]({{ site.baseurl }}{% link _posts/2017-03-29-topography.md %}) we showed how to generate a visualization of a Digital Elevation Model (DEM). In this post we'll use the DEM along with a terrain-based RF model to show how a signal would propagate over varied terrain.
+{% endcomment %}
+<div id="layout"></div>
+<div class="outer" id="outer">
+  <svg class="map">
+    <image class="bg" xlink:href="{{site.baseurl}}/assets/posts/RF_prop_sim/hill-relief.jpg" />
+    <image class="fg" xlink:href="{{site.baseurl}}/assets/posts/RF_prop_sim/hill-relief.jpg" />
+  </svg>
+  <canvas class="inner" id="myCanvas"></canvas>
+  <div class="tooltip"></div>
+</div>
+
+<!--
+
+<div id="layout" style="width:50%"></div>
+<div id="ui"></div>
+<div id="outer">
+<svg class="map">
+<image class="bg" xlink:href="{{site.baseurl}}assets/posts/RF_prop_sim/hill-relief.jpg" />
+<image class="fg" xlink:href="{{site.baseurl}}assets/posts/RF_prop_sim/hill-relief.jpg" />
+</svg>
+<canvas class="inner" id="myCanvas" width="960" height="600"></canvas>
+<div class="tooltip"></div>
+</div>
+-->
+<script src="{{site.baseurl}}/assets/posts/RF_prop_sim/rf.js" type="text/javascript"></script>  
+<script src="{{site.baseurl}}/assets/posts/RF_prop_sim/GIS_webix.js" type="text/javascript"></script>
+
+
+
 
 <!--
 <style>

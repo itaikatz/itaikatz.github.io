@@ -4,6 +4,7 @@ publish_title: RF Propagation Over Varying Terrain
 layout: charcoal2
 category: tutorial
 thumbnail: assets/posts/RF_prop_sim/thumbnail.jpg
+published: false
 ---
 
 RF Propagation Over Varying Terrain

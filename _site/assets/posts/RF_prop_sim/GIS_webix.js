@@ -14,7 +14,7 @@ window.onload = function() {
 		   			// type: "clean",
 		   			rows: [
 		   			               
-
+/*
 						{ header:"Propagation Model", //height:150, 
 						  body: {
 						  	type: "template", 
@@ -28,7 +28,7 @@ window.onload = function() {
 						  	]
 						  } 
 						},
-
+*/
 		   				{ header: "RF Sources", height: 330, 
 		   				  body: {
 		   				  	view:"datatable", id:"datatable", select:false, scroll: 'y',
@@ -79,11 +79,12 @@ window.onload = function() {
 	  .style("height", "600px")
 	  .style("position", "relative");
 
-	//gis = new GIS("outer", updateTableFunc, 
-	//	           "costarica_min_topo.txt", "relief.tiff");
-	 gis = new GIS("outer", updateTableFunc,
-	 	  		  "https://crossorigin.me/https://itaikatz.github.io/assets/posts/RF_prop_sim/costarica_min_topo.txt",
-	 	  		  "https://crossorigin.me/https://itaikatz.github.io/assets/posts/RF_prop_sim/relief.tiff");
+	gis = new GIS("outer", updateTableFunc, 
+		           "/assets/posts/RF_prop_sim/costarica_min_topo.txt", "/assets/posts/RF_prop_sim/relief.tiff");
+
+	 // gis = new GIS("outer", updateTableFunc,
+	 // 	  		  "https://crossorigin.me/https://itaikatz.github.io/assets/posts/RF_prop_sim/costarica_min_topo.txt",
+	 // 	  		  "https://crossorigin.me/https://itaikatz.github.io/assets/posts/RF_prop_sim/relief.tiff");
 
 
 	$$("propModel").attachEvent("onChange", function(newv, oldv){

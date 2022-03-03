@@ -124,7 +124,8 @@ footer-icons:
 	<div class="container-fluid">
 		<div class="row justify-content-center">
 			<div class="col-sm-6 col-md-8 pr-0">
-				<a href="{{site.baseurl}}/index.html"> <h1>Itai Katz</h1> <h2>Perception for Robotics</h2> </a>					
+				<!-- <a href="{{site.baseurl}}/index.html"> <h1>Itai Katz</h1> <h2>Perception for Robotics</h2> </a>					 -->
+				<a href="{{site.baseurl}}/index.html"> <h1>Itai Katz</h1> <h2>Design for thinking machines</h2> </a>
 			</div>
 			<div class="col-sm-6 col-md-4 text-right align-self-center pl-0 contact">
 			<a href="#">
@@ -157,7 +158,14 @@ footer-icons:
 			</div>
 			<div class="col-12 col-md-10"> 
 				<div class="main-content">
-					{{ content }}
+					{{ content }}	
+
+					{% if page.collection == "posts" %}
+					<div class="post-signature">
+					<hr/>
+					Want to learn more? Join our meetup group! <a href="https://www.meetup.com/Bethesda-Data-Science-Networking-Meetup/">Bethesda Data Science Meetup</a>
+					</div>
+					{% endif %}
 				</div>
 			</div>
 		</div>

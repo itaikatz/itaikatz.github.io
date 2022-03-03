@@ -53,9 +53,22 @@ markdown: kramdown
 
 # Makes pretty (descriptive) permalinks. See Jekyll docs for alternatives.
 # permalink: pretty
+permalink: /:title:output_ext
+
+# Override global permalink for blog posts
+collections:
+  posts:
+    output: true
+    permalink: /posts/:title:output_ext
+
 
 # How many articles do you wish to appear on the front page:
 # paginate: 3
 
 # Exclude metadata and development time dependencies (like Grunt plugins)
 exclude: [README.markdown, package.json, Gruntfile.js, node_modules, .gitignore, template.html, attic]
+
+# Parse LESS (css) files
+#plugins:
+#  - jekyll-less
+#gems: ['jekyll-less']

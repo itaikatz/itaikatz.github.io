@@ -152,15 +152,26 @@ var avg_num_winners = {
 }
 
 var individual_age_disc = {
+	plotOptions: {
+	    series: {
+	        states: {
+	            inactive: {
+	                opacity: 1
+	            }
+	        }
+	    }
+	},
+
     subtitle: {
          text: 'Age at peak scientific discovery'
     },
+
 	tooltip: { 
 		useHTML: true,
-		formatter: function() {return "<b>" + this.point.name + '</b><br/>' + this.point.rationale } 
+		formatter: function() {return "<b>" + this.point.name + '</b><br/>Age: ' + this.point.y + '<br/><br/>' + this.point.rationale } 
 	},
     yAxis: {
-    	title: { text: 'Number of winners' },
+    	title: { text: 'Age' },
     	max: 60
     },	
     xAxis: {
@@ -172,7 +183,9 @@ var individual_age_disc = {
 			data: [],
 			type: 'scatter',
 			color: 'rgba(0, 132, 169, 0.7)',
-			marker: { radius: 4, lineWidth: 1, lineColor: 'rgba(255,255,255,0.7)', symbol: 'circle',},
+			marker: { radius: 4, lineWidth: 1, lineColor: 'rgba(255,255,255,0.7)', symbol: 'circle'},
+			states: { hover: {enabled: false }},
+	
 			//tooltip: { enabled: false } //, formatter: function() {return this.y} }
 		},
 		{	
@@ -195,6 +208,17 @@ var individual_age_disc = {
 }
 
 var individual_years_delay = {
+	plotOptions: {
+	    series: {
+	        states: {
+	            inactive: {
+	                opacity: 1
+	            }
+	        }
+	    }
+	},
+
+
     subtitle: {
          text: 'Years between discovery and prize'
     },
@@ -207,7 +231,8 @@ var individual_years_delay = {
     },    
 	tooltip: { 
 		useHTML: true,
-		formatter: function() {return "<b>" + this.point.name + '</b><br/>' + this.point.rationale } 
+		formatter: function() {return "<b>" + this.point.name + '</b><br/>Delay: ' + this.point.y + ' years<br/><br/>' + this.point.rationale } 
+		// formatter: function() {return "<b>" + this.point.name + '</b><br/>' + this.point.rationale } 
 	},
 	series: [
 		{
@@ -260,6 +285,7 @@ var individual_years_delay = {
 	Highcharts.chart('avg-years-of-delay', avg_years_delay);	
 	Highcharts.chart('individual-years-of-delay', individual_years_delay);
 	Highcharts.chart('avg-num-winners', avg_num_winners);		
+
 });
 });
 

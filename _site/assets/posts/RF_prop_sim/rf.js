@@ -144,6 +144,7 @@ function GIS(div_class, updateTableFunc, path_file, relief_file ) {
     	});
 
     	svg.on("click", function() {
+        console.log('clicked')
 	        var x = d3.mouse(this)[0],
           	    y = d3.mouse(this)[1];
 	        var xScaled = Math.round((1.0/scale) * x),
