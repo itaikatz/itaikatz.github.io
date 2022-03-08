@@ -112,6 +112,27 @@ var optionsDefault = {
     			},
     			title: {  text: "Prevalence (%)" }
     		},
+
+			responsive: {
+		        rules: [{
+		            condition: {
+		                maxWidth: 300
+		            },
+		            chartOptions: {
+		                yAxis: {
+		                    labels: {
+		                        align: 'left',
+		                        x: 0,
+		                        y: -5
+		                    },
+		                    title: {
+		                        text: null
+		                    }
+		                },
+		            }
+		        }]
+			}
+
 		};
 		if (sex=='M') {
 			options.series[0].color = '#7cb5ec';
@@ -165,6 +186,26 @@ var optionsDefault = {
 	    	
     			//max: 0.1
     		},
+			responsive: {
+		        rules: [{
+		            condition: {
+		                maxWidth: 300
+		            },
+		            chartOptions: {
+		                yAxis: {
+		                    labels: {
+		                        align: 'left',
+		                        x: 0,
+		                        y: -5
+		                    },
+		                    title: {
+		                        text: null
+		                    }
+		                },
+		            }
+		        }]
+			}
+
 		};
 
 		$.each(mData, function(x, y) { 
@@ -338,7 +379,7 @@ var optionsDefault = {
 				} else {
 					root = $("#female-single")
 				}
-				root.append('<div class="col-6 col-md-3"> <div class="names-chart" id="' + name + '"></div> </div>');
+				root.append('<div class="col-6 col-md-3 mb-4"> <div class="names-chart" id="' + name + '"></div> </div>');
 				var options = buildSingleNameChart(name, sex, singleNameData[name][sex]);
 				Highcharts.chart(name, options);
 			}
