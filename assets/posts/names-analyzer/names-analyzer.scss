@@ -1,0 +1,53 @@
+---
+---
+@import "site_variables";
+
+.chart {
+	margin-bottom: 10px;
+}
+.guess {
+	visibility: hidden;
+
+	#gender1 {
+		font-weight: bold;
+	}
+	#gender2 {
+		font-weight: bold;
+		cursor: pointer
+	}
+}
+.no-name {
+	visibility: hidden;
+	color: #ff8484;
+}
+
+.iface {
+	display: flex;
+	flex-direction: row;
+	
+	@media (max-width: $med-width) {
+    	flex-direction: column;
+	}
+
+}
+.no-name {
+	margin-left: 20px;
+	@media (max-width: $med-width) {
+		margin: 0;
+	}
+}
+
+.line-charts {
+	display: flex;
+	flex-direction: row;
+	gap: 10px;
+	
+
+	div {
+		flex-basis: 50%;	
+	}	
+	@media (max-width: $med-width) {
+    	flex-direction: column;
+	}
+
+}

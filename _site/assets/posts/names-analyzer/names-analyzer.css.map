@@ -1,0 +1,14 @@
+{
+	"version": 3,
+	"file": "names-analyzer.css",
+	"sources": [
+		"names-analyzer.scss",
+		"_sass/site_variables.scss"
+	],
+	"sourcesContent": [
+		"@import \"site_variables\";\n\n.chart {\n\tmargin-bottom: 10px;\n}\n.guess {\n\tvisibility: hidden;\n\n\t#gender1 {\n\t\tfont-weight: bold;\n\t}\n\t#gender2 {\n\t\tfont-weight: bold;\n\t\tcursor: pointer\n\t}\n}\n.no-name {\n\tvisibility: hidden;\n\tcolor: #ff8484;\n}\n\n.iface {\n\tdisplay: flex;\n\tflex-direction: row;\n\t\n\t@media (max-width: $med-width) {\n    \tflex-direction: column;\n\t}\n\n}\n.no-name {\n\tmargin-left: 20px;\n\t@media (max-width: $med-width) {\n\t\tmargin: 0;\n\t}\n}\n\n.line-charts {\n\tdisplay: flex;\n\tflex-direction: row;\n\tgap: 10px;\n\t\n\n\tdiv {\n\t\tflex-basis: 50%;\t\n\t}\t\n\t@media (max-width: $med-width) {\n    \tflex-direction: column;\n\t}\n\n}",
+		"// Colors\r\n$light-gray:\t  #e0e0e0;\r\n$dark-gray: \t  #656565;\r\n$bg-color:\t  \t  #252525;\r\n$icon-color:      #9f9f9f;\r\n\r\n$panel-blue:\t  #0084a9;\r\n$panel-green:     #7a9d00;\r\n$panel-orange:    #df9100;\r\n$panel-red:       #b23814;\r\n\r\n// Media Breakpoints\r\n$sm-width:  34em;  // 544 px \r\n$med-width: 48em;  // 768 px \r\n$lg-width:  62em;  // 992 px \r\n$xl-width:  75em;  // 1200 px\r\n"
+	],
+	"names": [],
+	"mappings": "AAEA,AAAA,MAAM,CAAC,EACN,aAAa,EAAE,IAAI,GACnB;;AACD,AAAA,MAAM,CAAC,EACN,UAAU,EAAE,MAAM,GASlB;;AAVD,AAGC,MAHK,CAGL,QAAQ,CAAC,EACR,WAAW,EAAE,IAAI,GACjB;;AALF,AAMC,MANK,CAML,QAAQ,CAAC,EACR,WAAW,EAAE,IAAI,EACjB,MAAM,EAAE,OACT,GAAC;;AAEF,AAAA,QAAQ,CAAC,EACR,UAAU,EAAE,MAAM,EAClB,KAAK,EAAE,OAAO,GACd;;AAED,AAAA,MAAM,CAAC,EACN,OAAO,EAAE,IAAI,EACb,cAAc,EAAE,GAAG,GAMnB;;AAJA,MAAM,kBAJP,GAAA,AAAA,MAAM,CAAC,EAKF,cAAc,EAAE,MAAM,GAG1B,EAAA;;AACD,AAAA,QAAQ,CAAC,EACR,WAAW,EAAE,IAAI,GAIjB;;AAHA,MAAM,kBAFP,GAAA,AAAA,QAAQ,CAAC,EAGP,MAAM,EAAE,CAAC,GAEV,EAAA;;AAED,AAAA,YAAY,CAAC,EACZ,OAAO,EAAE,IAAI,EACb,cAAc,EAAE,GAAG,EACnB,GAAG,EAAE,IAAI,GAUT;;AAbD,AAMC,YANW,CAMX,GAAG,CAAC,EACH,UAAU,EAAE,GAAG,GACf;;AACD,MAAM,kBATP,GAAA,AAAA,YAAY,CAAC,EAUR,cAAc,EAAE,MAAM,GAG1B,EAAA"
+}

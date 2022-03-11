@@ -1,0 +1,25 @@
+.chart { margin-bottom: 10px; }
+
+.guess { visibility: hidden; }
+
+.guess #gender1 { font-weight: bold; }
+
+.guess #gender2 { font-weight: bold; cursor: pointer; }
+
+.no-name { visibility: hidden; color: #ff8484; }
+
+.iface { display: flex; flex-direction: row; }
+
+@media (max-width: 48em) { .iface { flex-direction: column; } }
+
+.no-name { margin-left: 20px; }
+
+@media (max-width: 48em) { .no-name { margin: 0; } }
+
+.line-charts { display: flex; flex-direction: row; gap: 10px; }
+
+.line-charts div { flex-basis: 50%; }
+
+@media (max-width: 48em) { .line-charts { flex-direction: column; } }
+
+/*# sourceMappingURL=names-analyzer.css.map */

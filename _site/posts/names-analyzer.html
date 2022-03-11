@@ -11,7 +11,7 @@
 	
 
 
-	<title> Itai Katz: Blog </title>
+	<title> Names-analyzer </title>
 
 	
 		<!-- Bootstrap 4.0-alpha-6 CSS -->
@@ -32,6 +32,8 @@
 
 	
 		
+		
+		
 	
 		
 	
@@ -44,7 +46,7 @@
 
 	
 	  
-	  <link rel="stylesheet" href="/css/menu.css" type="text/css">
+	  <link rel="stylesheet" href="/assets/posts/names-analyzer/names-analyzer.css" type="text/css">
 	  
 	
 
@@ -81,11 +83,11 @@
 	        <a class="nav-link" href="/aboutme.html">About</a>
 	      </li>
 		  
-	      <li class="nav-item active">
+	      <li class="nav-item ">
 	        <a class="nav-link" href="/research.html">Research</a>
 	      </li>
 		  
-	      <li class="nav-item ">
+	      <li class="nav-item active">
 	        <a class="nav-link" href="/blog.html">Blog</a>
 	      </li>
 		  
@@ -147,11 +149,11 @@
 				</a>
 				
 				<a href="/research.html">
-				<li class="research active">Research</li>
+				<li class="research ">Research</li>
 				</a>
 				
 				<a href="/blog.html">
-				<li class="blog ">Blog</li>
+				<li class="blog active">Blog</li>
 				</a>
 				
 				<a href="/tutorials.html">
@@ -163,9 +165,32 @@
 			</div>
 			<div class="col-12 col-md-10"> 
 				<div class="main-content">
-					Please see my research site at <a href="https://www.appliedphotons.com"><span class="highlight research">Applied Photons</span></a>.
+					<div class="iface">
+	<div>
+		<label for="name">Name</label>
+		<input type="name" id="name" class="name-input" placeholder="Enter a name" />
+		<input type="submit" value="Submit" class="submit-btn" />
+	</div>
+	<div>
+		<div class="no-name">Error: <b><span id="name"></span></b> is not in the database</div>
+	</div>
+</div>
+
+<div class="guess">We guessed <span id="guess-name"></span> is a <span id="gender1"></span>'s name. Did you mean a <span id="gender2"></span>?</div>
+
+<div class="line-charts">
+	<div class="chart" id="prevalence"></div>
+	<div class="chart" id="age"></div>
+</div>
+<div class="chart" id="rank"></div>
+
 	
 
+					
+					<div class="post-signature">
+					<hr/>
+					Want to learn more? Join our meetup group! <a href="https://www.meetup.com/Bethesda-Data-Science-Networking-Meetup/">Bethesda Data Science Meetup</a>
+					</div>
 					
 				</div>
 			</div>
@@ -236,6 +261,8 @@
 
 	
 		
+			<script src="https://code.highcharts.com/highcharts.js"></script>
+		
 	
 		
 	
@@ -246,6 +273,12 @@
 		
 	
 
+	
+	  
+	  	<script type="text/javascript" src="/assets/posts/names-analyzer/names-analyzer.js"></script>
+	  
+	  	<script type="text/javascript" src="/assets/posts/names-analyzer/lodash.min.js"></script>
+	  
 	
 
 

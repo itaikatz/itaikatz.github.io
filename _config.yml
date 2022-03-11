@@ -66,7 +66,7 @@ collections:
 # paginate: 3
 
 # Exclude metadata and development time dependencies (like Grunt plugins)
-exclude: [README.markdown, package.json, Gruntfile.js, node_modules, .gitignore, template.html, attic]
+exclude: [README.markdown, package.json, Gruntfile.js, node_modules, .gitignore, template.html, attic, .jekyll-cache]
 
 # Parse LESS (css) files
 #plugins:

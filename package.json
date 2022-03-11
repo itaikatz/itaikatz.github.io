@@ -7,5 +7,9 @@
     "grunt-contrib-concat": "*",
     "grunt-contrib-less": "*",
     "grunt-jekyll": "*"
+  },
+  "dependencies": {
+    "react-digraph": "^8.0.0-beta.7",
+    "react-dom": "^17.0.2"
   }
 }
