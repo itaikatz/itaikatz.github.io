@@ -10,13 +10,17 @@ baseurl:
 #ONLINE (using CDNs) Otherwise rely on local sources]
 #baseurl: https://itaikatz.github.io 
 
+  # - {id: 'highmaps', js: 'https://code.highcharts.com/maps/highmaps.js'}
 
 lib_list:
   - {id: 'highcharts', js: 'https://code.highcharts.com/highcharts.js'}
+  - {id: 'highcharts-annotations', js: 'https://code.highcharts.com/modules/annotations.js'}
+  - {id: 'highmaps', js: 'https://code.highcharts.com/maps/modules/map.js'}
   - {id: 'd3', js: 'https://d3js.org/d3.v4.min.js'}
   - {id: 'mathjax', js: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'}
   - {id: 'juxtapose', js: '/lib/juxtapose/juxtapose.js', css: '/lib/juxtapose/juxtapose.css'}
   - {id: 'nouislider', js: '/lib/nouislider/nouislider.min.js', css: '/lib/nouislider/nouislider.min.css'}
+  - {id: 'autocomplete', js: '/lib/autoComplete/autoComplete.min.js', css: '/lib/autoComplete/autoComplete.css'}
 
 
 # Name of your blog (this will show up at the top of your page and in the RSS feed)

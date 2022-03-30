@@ -1,25 +1,57 @@
 .chart { margin-bottom: 10px; }
 
-.guess { visibility: hidden; }
-
-.guess #gender1 { font-weight: bold; }
-
-.guess #gender2 { font-weight: bold; cursor: pointer; }
-
-.no-name { visibility: hidden; color: #ff8484; }
-
-.iface { display: flex; flex-direction: row; }
+.iface { display: flex; flex-direction: row; gap: 10px; }
 
 @media (max-width: 48em) { .iface { flex-direction: column; } }
 
-.no-name { margin-left: 20px; }
+.iface .input { display: flex; justify-content: flex-end; }
 
-@media (max-width: 48em) { .no-name { margin: 0; } }
+.iface > div { flex-basis: 50%; }
 
-.line-charts { display: flex; flex-direction: row; gap: 10px; }
+.line-charts, .aux-charts { display: flex; flex-direction: row; gap: 10px; }
 
-.line-charts div { flex-basis: 50%; }
+.line-charts div, .aux-charts div { flex-basis: 50%; }
 
-@media (max-width: 48em) { .line-charts { flex-direction: column; } }
+@media (max-width: 48em) { .line-charts, .aux-charts { flex-direction: column; } }
+
+.slider { display: none; width: 100%; }
+
+mark { padding: 0; }
+
+.male { color: #7cb5ec; }
+
+.male mark { color: #57adff; }
+
+.female { color: #e19e81; }
+
+.female mark { color: #ff8651; }
+
+.autoComplete_wrapper > ul > li { transition: none !important; }
+
+.autoComplete_wrapper > ul > li[male]:hover { background-color: #7cb5ec33; }
+
+.autoComplete_wrapper > ul > li[female]:hover { background-color: #e19e8133; }
+
+.toggle input { position: absolute; box-sizing: border-box; height: 0; width: 0; font-size: inherit; margin: 0; border: none; z-index: 1; cursor: pointer; -moz-appearance: none; -webkit-appearance: none; }
+
+.toggle input:focus { outline: none; }
+
+.toggle input[disabled='m']:before { filter: opacity(0.3); }
+
+.toggle input[disabled='f']:after { filter: opacity(0.3); }
+
+.toggle input:before, .toggle input:after { display: block; position: absolute; z-index: 1; height: 2.0em; width: 2.0em; background-size: 1.5em; background-repeat: no-repeat; content: ""; top: 0.5em; filter: opacity(1); }
+
+.toggle input:before { background-image: url("man_crop.png"); left: 0.75em; }
+
+.toggle input:after { background-image: url("woman_crop.png"); left: 3.25em; }
+
+.toggle label { width: 5.5em; height: 3em; border-radius: 3em; background-color: #dedede; position: relative; box-sizing: border-box; cursor: pointer; }
+
+.toggle label[disabled] { cursor: not-allowed; }
+
+.toggle label:before { content: ""; display: block; position: absolute; width: 3em; height: 3em; top: 0em; left: 0; border-radius: 2em; background: #fff; transition: 0.3s ease; box-shadow: 0 0.2em 0.45em rgba(0, 0, 0, 0.1); z-index: 0; background-color: #7cb5ec; border: 0.2em solid #517699; }
+
+.toggle input:checked + label:before { transform: translateX(2.5em); background-color: #fab79a; border: 0.2em solid #99705e; }
 
 /*# sourceMappingURL=names-analyzer.css.map */

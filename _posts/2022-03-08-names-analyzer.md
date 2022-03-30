@@ -8,25 +8,34 @@ custom_js: [assets/posts/names-analyzer/names-analyzer.js, assets/posts/names-an
 custom_css: assets/posts/names-analyzer/names-analyzer.css
 libs:
 - highcharts
+- highcharts-annotations
+- highmaps
+- autocomplete
 hidden: true
 ---
-
+<!-- 
+<img class="banner" src="{{site.baseurl}}/assets/posts/names-analyzer/hero.png">
+ -->
 <div class="iface">
-	<div>
-		<label for="name">Name</label>
-		<input type="name" id="name" class="name-input" placeholder="Enter a name" />
-		<input type="submit" value="Submit" class="submit-btn" />
+	<div class='input'>
+		<input type="name" id="name" class="name-input" spellcheck="false" placeholder="Enter a name" autocomplete="off"/>
 	</div>
-	<div>
-		<div class='no-name'>Error: <b><span id='name'></span></b> is not in the database</div>
+	<div class="toggle"> 
+	  <input id="sex" type="checkbox"/>
+	  <label for="sex"></label>
 	</div>
 </div>
 
-<div class='guess'>We guessed <span id='guess-name'></span> is a <span id='gender1'></span>'s name. Did you mean a <span id='gender2'></span>?</div>
 
 <div class='line-charts'>
 	<div class="chart" id="prevalence"></div>
 	<div class="chart" id="age"></div>
 </div>
-<div class="chart" id="rank"></div>
 
+<div class='aux-charts'>
+	<div>
+		<input class="slider" id='map-slider' type="range" min="1910" max="2020" value="2020">
+		<div class='chart' id='map'></div>
+	</div>
+	<div class="chart" id="rank"></div>
+</div>
