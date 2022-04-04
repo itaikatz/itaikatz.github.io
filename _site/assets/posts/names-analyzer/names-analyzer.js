@@ -414,7 +414,7 @@ class MapChart {
 		this.chart.series[0].setData(normalized, true, {duration: 50});
 		this.chart.update({
 			 subtitle: {
-		    	text: '% Births in ' + year,
+		    	text: '% Births in <b>' + year + '</b>',
 		    }
 		})
 		if (moveSlider==true) {
@@ -443,6 +443,7 @@ class MapChart {
 class Page {
 
 constructor() {
+
 	this.rankChart = undefined
 	this.nameChart = undefined
 	this.ageChart = undefined
@@ -715,7 +716,7 @@ constructor() {
 		that.rankChart.update(name, sex)
 		that.nameChart.update(name, series, sex)
 		that.ageChart.update(name, series, sex)
-		// that.mapChart.update(name, sex)
+		that.mapChart.update(name, sex)
 
 
 		curr_name = name // Update global

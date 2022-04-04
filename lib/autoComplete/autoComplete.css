@@ -3,6 +3,7 @@
   position: relative;
 }
 
+.iface input,
 .autoComplete_wrapper > input {
   height: 3rem;
   width: 370px;
@@ -122,6 +123,7 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .iface input,
   .autoComplete_wrapper > input {
     width: 18rem;
   }

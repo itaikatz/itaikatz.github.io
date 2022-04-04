@@ -1,4 +1,6 @@
-.chart { margin-bottom: 10px; }
+.main-content h1 { margin: 16px 0; text-align: center; }
+
+.chart { margin-bottom: 10px; min-height: 200px; background-color: white; }
 
 .iface { display: flex; flex-direction: row; gap: 10px; }
 
@@ -8,6 +10,7 @@
 
 .iface > div { flex-basis: 50%; }
 
+/* .iface input { width: 370px; } @media only screen and (max-width: 600px) { .iface > .input { width: 18rem; } } */
 .line-charts, .aux-charts { display: flex; flex-direction: row; gap: 10px; }
 
 .line-charts div, .aux-charts div { flex-basis: 50%; }
