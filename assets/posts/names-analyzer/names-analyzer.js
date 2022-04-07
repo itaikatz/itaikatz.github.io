@@ -103,9 +103,9 @@ class RankChart {
 		this.active = idx
 		this.chart.series[0].data[idx].graphic.toFront()
 		this.chart.series[0].data[idx].update({
-			color: 'red', 
+			color: this.sex=='f' ? 'red' : 'blue', 
 			borderWidth: 1, 
-			borderColor: 'red', 
+			borderColor: this.sex=='f' ? 'red' : 'blue', 
 			labelRank: 0, 
 			dataLabels: {
 				enabled:true,
@@ -499,7 +499,7 @@ constructor() {
 		let that = this
 		autoCompleteJS = new autoComplete({ 
 		 	selector: "#name",
-		 	placeHolder: 'Enter a name',
+		 	placeHolder: 'Enter name',
 			data: {
 				src: names,
 				keys: ['name'],
@@ -553,6 +553,8 @@ constructor() {
 						let {name, sex} = evt.detail.selection.value
 						that.update(name, sex)
 						$(".name-input").val(capitalize(name))
+						// $(".name-input").val(capitalize(name))
+						$(document.activeElement).filter(':input:focus').blur();
 					},
 					focus() {
 						const inputValue = autoCompleteJS.input.value;
