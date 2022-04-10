@@ -295,13 +295,18 @@ mark {
 			left: 0;
 			border-radius: 2em;
 			background: #fff;
-			transition: 0.3s ease;
+			transition: 0.2s ease;
 			box-shadow: 0 0.2em 0.45em rgba(0, 0, 0, 0.1);
 			z-index: 0;
 			background-color: rgb(124, 181, 236);
+			// border: 1px solid rgb(124, 181, 236);
+
+			// background-color: white;
+
+			border: 0.2em solid #517699;
+
 			// background-color: rgba(124, 181, 236,0.2);
 			// border: 0.2em solid rgb(124, 181, 236);
-			border: 0.2em solid #517699;
 			// backdrop-filter: invert(100%);
 			// backdrop-filter: invert(100%)  brightness(150%);
 		}
@@ -312,8 +317,16 @@ mark {
 			// border: 0.2em solid rgb(250, 183, 154);
 			background-color: rgb(250, 183, 154);
 			border: 0.2em solid #99705e;
+			// border: 1px solid rgb(250, 183, 154);
 			// backdrop-filter: invert(100%)  hue-rotate(191deg) brightness(150%);
 		}
 	}
-
+	// &:checked:hover + label:before {
+	// 	border: 1px solid black;
+	// 	box-shadow: 0 0 2px 3px rgb(250, 183, 154);
+	// }
+	// &:hover label:before {
+	// 	border: 1px solid black;
+	// 	box-shadow: 0 0 2px 3px rgb(124, 181, 236);
+	// }
 }

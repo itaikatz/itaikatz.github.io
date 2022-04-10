@@ -79,7 +79,7 @@ mark { padding: 0; }
 
 .toggle label[disabled] { cursor: not-allowed; background-color: #e5e5f7; background: repeating-linear-gradient(45deg, #E5B5B8, #E5B5B8 1.5px, #dedede 1.5px, #dedede 5px); }
 
-.toggle label:before { content: ""; display: block; position: absolute; width: 3em; height: 3em; top: 0em; left: 0; border-radius: 2em; background: #fff; transition: 0.3s ease; box-shadow: 0 0.2em 0.45em rgba(0, 0, 0, 0.1); z-index: 0; background-color: #7cb5ec; border: 0.2em solid #517699; }
+.toggle label:before { content: ""; display: block; position: absolute; width: 3em; height: 3em; top: 0em; left: 0; border-radius: 2em; background: #fff; transition: 0.2s ease; box-shadow: 0 0.2em 0.45em rgba(0, 0, 0, 0.1); z-index: 0; background-color: #7cb5ec; border: 0.2em solid #517699; }
 
 .toggle input:checked + label:before { transform: translateX(2.5em); background-color: #fab79a; border: 0.2em solid #99705e; }
 
