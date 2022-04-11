@@ -5,6 +5,35 @@ import scipy.optimize as opt
 import matplotlib.pyplot as plt
 from scipy.interpolate import UnivariateSpline
 
+
+states = ['MA', 'WA', 'CA', 'OR', 'WI', 'ME', 'MI', 'NV', 'NM', 'CO', 'WY', 'KS', 'NE', 'OK', 'MO', 'IL', 'IN', 'VT', 'AR', 'TX', 'RI', 'AL', 'MS', 'NC', 'VA', 'IA', 'MD', 'DE', 'PA', 'NJ', 'NY', 'ID', 'SD', 'CT', 'NH', 'KY', 'OH', 'TN', 'WV', 'DC', 'LA', 'FL', 'GA', 'SC', 'MN', 'MT', 'ND', 'AZ', 'UT', 'HI', 'AK']
+files = [state+'.txt' for state in states]
+path = 'namesbystate\\'
+
+male_births = [0]*len(states)
+female_births = [0]*len(states)
+
+k=0
+for i, file in enumerate(files):
+	print(k)
+	k=k+1
+	with open(path+files[i]) as f:
+		lines = f.readlines()
+		male_births[i] = sum([int(line.split(',')[4]) for line in lines if line.split(',')[1]=='M'])
+		female_births[i] = sum([int(line.split(',')[4]) for line in lines if line.split(',')[1]=='F'])
+
+with open('male_state_total.json', 'w') as f:
+	json_object = json.dumps(male_births)
+	f.write(json_object)	   
+with open('female_state_total.json', 'w') as f:
+	json_object = json.dumps(female_births)
+	f.write(json_object)	   
+exit(0)
+
+
+
+
+
 # Data from:
 # https://www.census.gov/data/tables/time-series/dec/popchange-data-text.html
 def getNationalBirthRate():
@@ -51,9 +80,3 @@ with open('state_births.dat', 'wb') as f:
 	f.write(data)	    
 
 
-# xs = np.linspace(1910, 2020, 100)
-
-# fig, ax = plt.subplots(1, 1, figsize=(6, 4))
-# ax.plot(x, y, 'o')
-# ax.plot(xs, spl(xs), 'g', lw=3)
-# plt.show()

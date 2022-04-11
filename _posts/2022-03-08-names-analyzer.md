@@ -1,9 +1,9 @@
 ---
 title: Names-analyzer
-publish_title: "Placeholder title"
+publish_title: "Explorable Names"
 category: blog
 layout: charcoal2
-thumbnail: assets/posts/names-analyzer/thumbnail.jpg
+thumbnail: assets/posts/names-analyzer/thumbnail.png
 custom_js: [assets/posts/names-analyzer/names-analyzer.js, assets/posts/names-analyzer/lodash.min.js]
 custom_css: assets/posts/names-analyzer/names-analyzer.css
 libs:
@@ -11,7 +11,7 @@ libs:
 - highcharts-annotations
 - highmaps
 - autocomplete
-hidden: true
+hidden: false
 ---
 
 <!-- <img class="banner" src="{{site.baseurl}}/assets/posts/names-analyzer/hero.png"> --> 
@@ -27,19 +27,6 @@ Explorable Names
 	<span>Explorable</span>
 	<span>Names</span>
 </div>
-
-<!--
-### Instructions: 
-This tool helps users explore how names change in popularity over time and geographic regions. To start, enter a name and select male/female (if applicable). Below, you’ll see four charts: 
-
-1. Prevalence (national): percentage of babies born _per year_ with the selected name 
-2. Age: The number of individuals at each age
-3. Prevalence (per state) percentage of babies born _per state_ with the selected name 
-4. Ranking: The relative rank of the selected name amongst the top 1000
-
-Try hovering over (or tapping on) the charts for more information. Note: for performance reasons, only the top 1000 male and female names are in the database. 
--->
-
 
 <div class="modal fade" id="instructionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -95,12 +82,113 @@ Try hovering over (or tapping on) the charts for more information. Note: for per
 	<div class="chart" id="rank"></div>
 </div>
 
+<br/>
+[In a previous post]({{site.baseurl}}/posts/name.html) I analyzed the Social Security Administration's (SSA) name dataset to determine what infomation could be obtained from just a person's first name. It was interesting to discover examples of how pop culture and historical events shaped the evolution of particular names. In this follow-up I expanded that post into an interactive application. Type in a name to get started. The four panels illustrate how the submitted name's popularity compares over time, geographic region, and to other names. Tap on the help button for more information.
+
 ### How does it work?
 
-### Neat things to try
-<!-- 
-<figure>
-<img src="https://images.unsplash.com/photo-1549740425-5e9ed4d8cd34?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXwzOTU0NTB8fGVufDB8fHw%3D&w=1000&q=80" alt="Trulli" style="width:100%">
-<figcaption align = "center"><b>Fig.1 - 4K Mountains Wallpaper</b></figcaption>
-</figure>
- -->
+The application combines three datasets:
+<ol>
+	<li>The original name dataset referenced in the previous blog post. This data lists the number of individuals born with any given name, for the years 1910-2020.</li>
+	<li>An expanded dataset that breaks down the first dataset by state.</li>
+	<li>US actuarial tables, from which I derived survival curves. This let me compute the number of individuals alive with a given name from any birth year (for the 'Age' panel)</li>
+</ol>
+
+### Observations
+
+One interesting outcome we can derive is the most _prominent_ name for each state. If we were to look at the most popular names for each state, they would likely all be similar (in recent years: 'Noah' and 'Emma'). In contrast, prominence looks at how unique a name is for a given state, irrespective of its overall popularity. You can think of a state's most promiment name as the one that best distinguishes it from the rest of the country.
+
+<div class="text-center">
+  <h3>Most Promiment Name (Per State)</h3>
+</div>
+
+<div class="row my-4">
+<div class="col-6 col-md-3">
+<table>
+	<tr>
+		<th>State</th>
+		<th>Male</th>
+		<th>Female</th>
+	</tr>
+	{% for val in site.data.names.prominence limit:13 %}
+	<tr>
+		<td>{{val.state}}</td>
+		<td>{{val.male | capitalize}}</td>
+		<td>{{val.female | capitalize}}</td>
+	</tr>
+	{% endfor %}
+</table>
+</div>
+<div class="col-6 col-md-3">
+<table>
+	<tr>
+		<th>State</th>
+		<th>Male</th>
+		<th>Female</th>
+	</tr>
+	{% for val in site.data.names.prominence limit:13 offset:13 %}
+	<tr>
+		<td>{{val.state}}</td>
+		<td>{{val.male | capitalize}}</td>
+		<td>{{val.female | capitalize}}</td>
+	</tr>
+	{% endfor %}
+</table>
+</div>
+<div class="col-6 col-md-3">
+<table>
+	<tr>
+		<th>State</th>
+		<th>Male</th>
+		<th>Female</th>
+	</tr>
+	{% for val in site.data.names.prominence limit:13 offset:26 %}
+	<tr>
+		<td>{{val.state}}</td>
+		<td>{{val.male | capitalize}}</td>
+		<td>{{val.female | capitalize}}</td>
+	</tr>
+	{% endfor %}
+</table>
+</div>
+<div class="col-6 col-md-3 order-md-1">
+<table>
+	<tr>
+		<th>State</th>
+		<th>Male</th>
+		<th>Female</th>
+	</tr>
+	{% for val in site.data.names.prominence offset:39 %}
+	<tr>
+		<td>{{val.state}}</td>
+		<td>{{val.male | capitalize}}</td>
+		<td>{{val.female | capitalize}}</td>
+	</tr>
+	{% endfor %}
+</table>
+
+</div>
+</div>
+
+Some of these promiment names relate to a state's natural environment, such as 'Aspen' in Colorado, or 'Orion' and 'Aurora' in Alaska. Others prominences are associated with a state's demographics: New York has 'Chaim' and 'Chaya' oweing to their large Orthodox Jewish population. Similarly, Michigan ('Hassan') and Texas ('Santos') have names corresponding to their Muslim and Hispanic populations, respectively.
+
+### Limitations
+
+<ul>
+	<li> Only the top 1000 male and female names (as measured from 2000-2020) are considered due to performance constraints. As this website is being served statically, keeping download sizes small were a challenge in developing this application. For comparison, there are approximately 250,000 unique names in the name database, half of which have fewer than five individuals.</li>
+	<li> As the names come from the SSA, the dataset only covers names of individuals born in the US</li>
+	<li> For privacy reasons, any names with fewer than five individuals in a given year are omitted. This means that if you have a particularly obscure name, you might not see any births registered in your birth year (assuming it's in the dataset at all)</li>
+</ul>
+
+<div class="row my-4 justify-content-center">
+<div class="col-12 col-md-8 offset-md-2">
+
+<div class="embed-responsive embed-responsive-4by3">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/6D95k6xJ4Ho" frameborder="0"></iframe>
+</div>
+<figcaption align = "center">Perhaps one day I too will enjoy a novelty miniature license plate. To paraphrase a friend of mine with an equally obscure name: I dream of the day I enter a gift shop, spin that rotating stand, and see those magical four letters...
+</figcaption>
+
+</div>
+</div>
+

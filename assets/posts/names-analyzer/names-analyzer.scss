@@ -330,3 +330,43 @@ mark {
 	// 	box-shadow: 0 0 2px 3px rgb(124, 181, 236);
 	// }
 }
+
+table {
+	th {
+		background-color: lightgray;
+		color: black;		
+		padding: 10px;
+	}
+	th:nth-child(1) {
+		text-align: center;
+	}
+	td {
+		// border: 1px solid #dddfe1;
+		padding: 8px;
+	}
+	td:nth-child(1) {  
+		// background-color: lightgray;
+		// color: darkgray;
+		text-align: center
+	}
+	td:nth-child(2) {
+		color: #7cb5ec;
+	}
+	td:nth-child(3) {
+		color: #e19e81;
+	}
+
+	tr {
+		background-color: #444;
+		border-top: 1px solid #222;
+		border-bottom: 1px solid #222;
+	}
+	@media (max-width: $med-width) {
+		font-size: 12px;
+		th,td {
+			padding: 2px;
+		}
+	}
+}
+
+

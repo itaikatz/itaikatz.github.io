@@ -5,7 +5,7 @@ let path = '/assets/posts/names-analyzer/'
 m_color = '#7cb5ec'
 f_color = '#e19e81'
 us_births = undefined
-state_births = undefined
+// state_births = undefined
 autoCompleteJS = undefined
 g_page = undefined // global pointer to Page instance
 curr_year = undefined
@@ -329,7 +329,7 @@ class AgeChart extends LineChart {
 			mouseOutFunc: _options.mouseout,
 			xAxisTitle: 'Years Old',
 			xRange: [0, num_years-1],
-			yAxisTitle: 'Count',
+			yAxisTitle: 'Number of people',
 			tooltipFormatter: tooltipFormatter,
 			dataUpdater: dataUpdater
 		})
@@ -349,14 +349,13 @@ class AgeChart extends LineChart {
 }
 
 class MapChart {
-	static start_year = 1910
 
 	constructor(options) {
-		let {id, slider_id, onslide, topology, year} = options
-		this.data = undefined
-		this.slider = document.getElementById(slider_id);
-		this.onslide = onslide
-		this.max_val = 0
+		let {id, slider_id, onslide, topology, year, m_data, f_data, m_total, f_total} = options
+		this.m_data = m_data
+		this.f_data = f_data
+		this.m_total = m_total
+		this.f_total = f_total
 
     	this.chart = Highcharts.mapChart(id, {
 		    chart: {
@@ -367,8 +366,8 @@ class MapChart {
       		credits: { enabled: false },      	
       		legend: { enabled: false },	
 			colorAxis: {
-				// min: 1,
-				// max: 1500,
+				// min: 0,
+				// max: 1,
 				type: 'linear',
 				minColor: '#EEEEFF',
 				maxColor: '#000022',
@@ -389,7 +388,7 @@ class MapChart {
 		    	// text: undefined
 		    },
 		    subtitle: {
-		    	// text: '% Births in ' + curr_year,
+		    	text: '% Births (1910-2020)',
 		    	floating: true
 		    },
 	    	tooltip: { 
@@ -400,43 +399,53 @@ class MapChart {
 			},
 		})
 
-    	let that = this
-		
-		this.slider.addEventListener("input", function(event) {
-			onslide(this.value)
-		})
 	}
 
-	setYear(year, moveSlider=true) {
-		let data_view = new Int16Array(this.data, 51*(year-MapChart.start_year)*2, 51);		
-		let births_view = new Int32Array(state_births, 51*(year-MapChart.start_year)*4, 51);
-		let normalized = new Float32Array(births_view).map((births, i) => 100 * data_view[i] / (births / 2.0)) // divide by 2.0 because assuming births are split equally betwene boys/girls
-		this.chart.series[0].setData(normalized, true, {duration: 50});
-		this.chart.update({
-			 subtitle: {
-		    	text: '% Births in <b>' + year + '</b>',
-		    }
-		})
-		if (moveSlider==true) {
-			this.slider.value = year	
-		}		
-	}
+	// setYear(year, moveSlider=true) {
+	// 	let data_view = new Int16Array(this.data, 51*(year-MapChart.start_year)*2, 51);		
+	// 	let births_view = new Int32Array(state_births, 51*(year-MapChart.start_year)*4, 51);
+	// 	let normalized = new Float32Array(births_view).map((births, i) => 100 * data_view[i] / (births / 2.0)) // divide by 2.0 because assuming births are split equally betwene boys/girls
+	// 	this.chart.series[0].setData(normalized, true, {duration: 50});
+	// 	this.chart.update({
+	// 		 subtitle: {
+	// 	    	text: '% Births in <b>' + year + '</b>',
+	// 	    }
+	// 	})
+	// 	if (moveSlider==true) {
+	// 		this.slider.value = year	
+	// 	}		
+	// }
 
 	update(name, sex) {
-		let filename = name + (sex=='f' ? '_f':'m') +'.dat'
-		let fetchReq1 = fetch(path+filename).then((res) => res.arrayBuffer());
+		console.log('in update')
+		let data = sex=='f' ? this.f_data[name] : this.m_data[name]
+		let total = sex=='f' ? this.f_total : this.m_total
+		let normalized = data.map((d,i) => 100*d/total[i])
+		console.log(data)
+		console.log(total)
+		console.log(normalized)
+		// let births_view = new Int32Array(state_births, 51*(year-MapChart.start_year)*4, 51);
+		// let normalized = new Float32Array(births_view).map((births, i) => 100 * data_view[i] / (births / 2.0)) // divide by 2.0 because assuming births are split equally betwene boys/girls
 
-		Promise.all([fetchReq1])
-		.then((val) => {
-			this.data = val[0]
-			this.chart.update({
-				colorAxis: {
-					min: 0,
-					max: 2.0
-				}
-			})
-			this.setYear(this.slider.value, false)
-		})
+		this.chart.series[0].setData(normalized, true)
+		// this.chart.series[0].setData(normalized, true, {duration: 50});
+
+
+		// let filename = name + (sex=='f' ? '_f':'m') +'.dat'
+		// let fetchReq1 = fetch(path+filename).then((res) => res.arrayBuffer());
+
+
+		// Promise.all([fetchReq1])
+		// .then((val) => {
+		// 	this.data = val[0]
+		// 	this.chart.update({
+		// 		colorAxis: {
+		// 			min: 0,
+		// 			max: 2.0
+		// 		}
+		// 	})
+		// 	// this.setYear(this.slider.value, false)
+		// })
 	}
 }
 
@@ -470,8 +479,13 @@ constructor() {
 	let fetchReq5 = fetch(path+'male_rank.json').then((res) => res.json());
 	let fetchReq6 = fetch(path+'male_data.dat').then((res) => res.arrayBuffer());
 	let fetchReq7 = fetch(path+'us_births.json').then((res) => res.json());
+	
+	// map data
 	let fetchReq8 = fetch(path+'us-all.topo.json').then((res) => res.json());
-	let fetchReq9 = fetch(path+'state_births.dat').then((res) => res.arrayBuffer());
+	let fetchReq9 = fetch(path+'male_state_total.json').then((res) => res.json());
+	let fetchReq10 = fetch(path+'female_state_total.json').then((res) => res.json());
+	let fetchReq11 = fetch(path+'male_state_data.json').then((res) => res.json());
+	let fetchReq12 = fetch(path+'female_state_data.json').then((res) => res.json());
 
 	Promise.all([pageLoad])
 	.then(() => {
@@ -598,16 +612,23 @@ constructor() {
 		console.log(file + ' failed to load');
 	})
 
-	Promise.all([pageLoad, fetchReq8, fetchReq9])
+	Promise.all([pageLoad, fetchReq8, fetchReq9, fetchReq10, fetchReq11, fetchReq12])
 	.then(val => {
 		let topology = val[1]
-		state_births = val[2]
+		let male_state_total = val[2]
+		let female_state_total = val[3]
+		let male_state_data = val[4]
+		let female_state_data = val[5]
 
 		this.mapChart = new MapChart({id: 'map',
 									  slider_id: 'map-slider',
 									  onslide: this.mouseover,
 									  topology: topology,
-									  year: 2020
+									  year: 2020,
+									  m_data: male_state_data,
+									  f_data: female_state_data,
+									  m_total: male_state_total,
+									  f_total: female_state_total
 									})
 
 	})
@@ -624,7 +645,7 @@ constructor() {
 
 		g_page.nameChart.setYear(year-start_year)
 		g_page.ageChart.setYear(-1*year + start_year + num_years - 1)
-		g_page.mapChart.setYear(year)		
+		// g_page.mapChart.setYear(year)		
 	}
 
 	mouseout() {

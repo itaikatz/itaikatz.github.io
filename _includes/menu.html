@@ -11,7 +11,7 @@ Coming soon!
 {% for post in site.categories[{{include.category}}] %}
 
   {% if post.hidden == null or post.hidden == false %}
-    <div class="col-6 col-md-4">
+    <div class="col-6 col-md-4 mb-4">
     <a href="{{site.baseurl}}{{ post.url }}" title="{{ post.publish_title }}">
     <div class="caption">
         <img class="caption__media" src="{{site.baseurl}}/{{post.thumbnail}}" />

@@ -193,18 +193,6 @@ Explorable Names
 	<span>Names</span>
 </div>
 
-<!--
-### Instructions: 
-This tool helps users explore how names change in popularity over time and geographic regions. To start, enter a name and select male/female (if applicable). Below, you’ll see four charts: 
-
-1. Prevalence (national): percentage of babies born _per year_ with the selected name 
-2. Age: The number of individuals at each age
-3. Prevalence (per state) percentage of babies born _per state_ with the selected name 
-4. Ranking: The relative rank of the selected name amongst the top 1000
-
-Try hovering over (or tapping on) the charts for more information. Note: for performance reasons, only the top 1000 male and female names are in the database. 
--->
-
 <div class="modal fade" id="instructionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -257,15 +245,398 @@ Try hovering over (or tapping on) the charts for more information. Note: for per
 	<div class="chart" id="rank"></div>
 </div>
 
+<p><br />
+<a href="/posts/name.html">In a previous post</a> I analyzed the Social Security Administration’s (SSA) name dataset to determine what infomation could be obtained from just a person’s first name. It was interesting to discover examples of how pop culture and historical events shaped the evolution of particular names. In this follow-up I expanded that post into an interactive application. Type in a name to get started. The four panels illustrate how the submitted name’s popularity compares over time, geographic region, and to other names. Tap on the help button for more information.</p>
+
 <h3 id="how-does-it-work">How does it work?</h3>
 
-<h3 id="neat-things-to-try">Neat things to try</h3>
-<!-- 
-<figure>
-<img src="https://images.unsplash.com/photo-1549740425-5e9ed4d8cd34?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxjb2xsZWN0aW9uLXBhZ2V8MXwzOTU0NTB8fGVufDB8fHw%3D&w=1000&q=80" alt="Trulli" style="width:100%">
-<figcaption align = "center"><b>Fig.1 - 4K Mountains Wallpaper</b></figcaption>
-</figure>
- -->
+<p>The application combines three datasets:</p>
+<ol>
+	<li>The original name dataset referenced in the previous blog post. This data lists the number of individuals born with any given name, for the years 1910-2020.</li>
+	<li>An expanded dataset that breaks down the first dataset by state.</li>
+	<li>US actuarial tables, from which I derived survival curves. This let me compute the number of individuals alive with a given name from any birth year (for the 'Age' panel)</li>
+</ol>
+
+<h3 id="observations">Observations</h3>
+
+<p>One interesting outcome we can derive is the most <em>prominent</em> name for each state. If we were to look at the most popular names for each state, they would likely all be similar (in recent years: ‘Noah’ and ‘Emma’). In contrast, prominence looks at how unique a name is for a given state, irrespective of its overall popularity. You can think of a state’s most promiment name as the one that best distinguishes it from the rest of the country.</p>
+
+<div class="text-center">
+  <h3>Most Promiment Name (Per State)</h3>
+</div>
+
+<div class="row my-4">
+<div class="col-6 col-md-3">
+<table>
+	<tr>
+		<th>State</th>
+		<th>Male</th>
+		<th>Female</th>
+	</tr>
+	
+	<tr>
+		<td>AK</td>
+		<td>Orion</td>
+		<td>Aurora</td>
+	</tr>
+	
+	<tr>
+		<td>AL</td>
+		<td>Willie</td>
+		<td>Mattie</td>
+	</tr>
+	
+	<tr>
+		<td>AR</td>
+		<td>Billy</td>
+		<td>Jewel</td>
+	</tr>
+	
+	<tr>
+		<td>AZ</td>
+		<td>Tatum</td>
+		<td>Reyna</td>
+	</tr>
+	
+	<tr>
+		<td>CA</td>
+		<td>Salvador</td>
+		<td>Mayra</td>
+	</tr>
+	
+	<tr>
+		<td>CO</td>
+		<td>Bridger</td>
+		<td>Aspen</td>
+	</tr>
+	
+	<tr>
+		<td>CT</td>
+		<td>Salvatore</td>
+		<td>Giuliana</td>
+	</tr>
+	
+	<tr>
+		<td>DC</td>
+		<td>Davon</td>
+		<td>India</td>
+	</tr>
+	
+	<tr>
+		<td>DE</td>
+		<td>Nasir</td>
+		<td>Aniyah</td>
+	</tr>
+	
+	<tr>
+		<td>FL</td>
+		<td>Giancarlo</td>
+		<td>Anabella</td>
+	</tr>
+	
+	<tr>
+		<td>GA</td>
+		<td>Willie</td>
+		<td>Ansley</td>
+	</tr>
+	
+	<tr>
+		<td>HI</td>
+		<td>Keanu</td>
+		<td>Malia</td>
+	</tr>
+	
+	<tr>
+		<td>IA</td>
+		<td>Darwin</td>
+		<td>Jolene</td>
+	</tr>
+	
+</table>
+</div>
+<div class="col-6 col-md-3">
+<table>
+	<tr>
+		<th>State</th>
+		<th>Male</th>
+		<th>Female</th>
+	</tr>
+	
+	<tr>
+		<td>ID</td>
+		<td>Bridger</td>
+		<td>Oakley</td>
+	</tr>
+	
+	<tr>
+		<td>IL</td>
+		<td>Anton</td>
+		<td>Angeline</td>
+	</tr>
+	
+	<tr>
+		<td>IN</td>
+		<td>Rex</td>
+		<td>Gracelynn</td>
+	</tr>
+	
+	<tr>
+		<td>KS</td>
+		<td>Kale</td>
+		<td>Jolene</td>
+	</tr>
+	
+	<tr>
+		<td>KY</td>
+		<td>Denver</td>
+		<td>Briley</td>
+	</tr>
+	
+	<tr>
+		<td>LA</td>
+		<td>Lionel</td>
+		<td>Demi</td>
+	</tr>
+	
+	<tr>
+		<td>MA</td>
+		<td>Seamus</td>
+		<td>Maeve</td>
+	</tr>
+	
+	<tr>
+		<td>MD</td>
+		<td>Davon</td>
+		<td>Amirah</td>
+	</tr>
+	
+	<tr>
+		<td>ME</td>
+		<td>Marcel</td>
+		<td>Juliette</td>
+	</tr>
+	
+	<tr>
+		<td>MI</td>
+		<td>Hassan</td>
+		<td>Joslyn</td>
+	</tr>
+	
+	<tr>
+		<td>MN</td>
+		<td>Anders</td>
+		<td>Maren</td>
+	</tr>
+	
+	<tr>
+		<td>MO</td>
+		<td>Kolten</td>
+		<td>Willa</td>
+	</tr>
+	
+	<tr>
+		<td>MS</td>
+		<td>Willie</td>
+		<td>Jakayla</td>
+	</tr>
+	
+</table>
+</div>
+<div class="col-6 col-md-3">
+<table>
+	<tr>
+		<th>State</th>
+		<th>Male</th>
+		<th>Female</th>
+	</tr>
+	
+	<tr>
+		<td>MT</td>
+		<td>Bridger</td>
+		<td>Aspen</td>
+	</tr>
+	
+	<tr>
+		<td>NC</td>
+		<td>Turner</td>
+		<td>Annie</td>
+	</tr>
+	
+	<tr>
+		<td>ND</td>
+		<td>Anton</td>
+		<td>Tenley</td>
+	</tr>
+	
+	<tr>
+		<td>NE</td>
+		<td>Briggs</td>
+		<td>Joslyn</td>
+	</tr>
+	
+	<tr>
+		<td>NH</td>
+		<td>Roland</td>
+		<td>Maeve</td>
+	</tr>
+	
+	<tr>
+		<td>NJ</td>
+		<td>Yehuda</td>
+		<td>Chana</td>
+	</tr>
+	
+	<tr>
+		<td>NM</td>
+		<td>Santana</td>
+		<td>Adelina</td>
+	</tr>
+	
+	<tr>
+		<td>NV</td>
+		<td>Nixon</td>
+		<td>Litzy</td>
+	</tr>
+	
+	<tr>
+		<td>NY</td>
+		<td>Chaim</td>
+		<td>Chaya</td>
+	</tr>
+	
+	<tr>
+		<td>OH</td>
+		<td>Denver</td>
+		<td>Halle</td>
+	</tr>
+	
+	<tr>
+		<td>OK</td>
+		<td>Cale</td>
+		<td>Charley</td>
+	</tr>
+	
+	<tr>
+		<td>OR</td>
+		<td>Soren</td>
+		<td>Juniper</td>
+	</tr>
+	
+	<tr>
+		<td>PA</td>
+		<td>Francis</td>
+		<td>Angeline</td>
+	</tr>
+	
+</table>
+</div>
+<div class="col-6 col-md-3 order-md-1">
+<table>
+	<tr>
+		<th>State</th>
+		<th>Male</th>
+		<th>Female</th>
+	</tr>
+	
+	<tr>
+		<td>RI</td>
+		<td>Marcel</td>
+		<td>Michaela</td>
+	</tr>
+	
+	<tr>
+		<td>SC</td>
+		<td>Willie</td>
+		<td>Hattie</td>
+	</tr>
+	
+	<tr>
+		<td>SD</td>
+		<td>Briggs</td>
+		<td>Tenley</td>
+	</tr>
+	
+	<tr>
+		<td>TN</td>
+		<td>Houston</td>
+		<td>Briley</td>
+	</tr>
+	
+	<tr>
+		<td>TX</td>
+		<td>Santos</td>
+		<td>Guadalupe</td>
+	</tr>
+	
+	<tr>
+		<td>UT</td>
+		<td>Bridger</td>
+		<td>Oakley</td>
+	</tr>
+	
+	<tr>
+		<td>VA</td>
+		<td>Ryland</td>
+		<td>Emory</td>
+	</tr>
+	
+	<tr>
+		<td>VT</td>
+		<td>Marcel</td>
+		<td>Juniper</td>
+	</tr>
+	
+	<tr>
+		<td>WA</td>
+		<td>Soren</td>
+		<td>Juniper</td>
+	</tr>
+	
+	<tr>
+		<td>WI</td>
+		<td>Anton</td>
+		<td>Angeline</td>
+	</tr>
+	
+	<tr>
+		<td>WV</td>
+		<td>Denver</td>
+		<td>Willa</td>
+	</tr>
+	
+	<tr>
+		<td>WY</td>
+		<td>Bridger</td>
+		<td>Aspen</td>
+	</tr>
+	
+</table>
+
+</div>
+</div>
+
+<p>Some of these promiment names relate to a state’s natural environment, such as ‘Aspen’ in Colorado, or ‘Orion’ and ‘Aurora’ in Alaska. Others prominences are associated with a state’s demographics: New York has ‘Chaim’ and ‘Chaya’ oweing to their large Orthodox Jewish population. Similarly, Michigan (‘Hassan’) and Texas (‘Santos’) have names corresponding to their Muslim and Hispanic populations, respectively.</p>
+
+<h3 id="limitations">Limitations</h3>
+
+<ul>
+	<li> Only the top 1000 male and female names (as measured from 2000-2020) are considered due to performance constraints. As this website is being served statically, keeping download sizes small were a challenge in developing this application. For comparison, there are approximately 250,000 unique names in the name database, half of which have fewer than five individuals.</li>
+	<li> As the names come from the SSA, the dataset only covers names of individuals born in the US</li>
+	<li> For privacy reasons, any names with fewer than five individuals in a given year are omitted. This means that if you have a particularly obscure name, you might not see any births registered in your birth year (assuming it's in the dataset at all)</li>
+</ul>
+
+<div class="row my-4 justify-content-center">
+<div class="col-12 col-md-8 offset-md-2">
+
+<div class="embed-responsive embed-responsive-4by3">
+  <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/6D95k6xJ4Ho" frameborder="0"></iframe>
+</div>
+<figcaption align="center">Perhaps one day I too will enjoy a novelty miniature license plate. To paraphrase a friend of mine with an equally obscure name: I dream of the day I enter a gift shop, spin that rotating stand, and see those magical four letters...
+</figcaption>
+
+</div>
+</div>
+
 	
 
 					
