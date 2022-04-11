@@ -6,6 +6,7 @@ layout: charcoal2
 thumbnail: assets/posts/names-analyzer/thumbnail.png
 custom_js: [assets/posts/names-analyzer/names-analyzer.js, assets/posts/names-analyzer/lodash.min.js]
 custom_css: assets/posts/names-analyzer/names-analyzer.css
+og_image: assets/posts/names-analyzer/opengraph_screenshot.png
 libs:
 - highcharts
 - highcharts-annotations
