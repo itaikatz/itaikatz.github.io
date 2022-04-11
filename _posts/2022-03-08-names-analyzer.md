@@ -96,10 +96,10 @@ The application combines three datasets:
 
 ### Observations
 
-One interesting outcome we can derive is the most _prominent_ name for each state. If we were to look at the most popular names for each state, they would likely all be similar (in recent years: 'Noah' and 'Emma'). In contrast, prominence looks at how unique a name is for a given state, irrespective of its overall popularity. You can think of a state's most promiment name as the one that best distinguishes it from the rest of the country.
+One interesting outcome we can derive is the most _prominent_ name for each state. If we were to look at the most popular names for each state, they would likely all be similar (in recent years: 'Noah' and 'Emma'). In contrast, prominence looks at how unique a name is for a given state, irrespective of its overall popularity. You can think of a state's most prominent name as the one that best distinguishes it from the rest of the country.
 
 <div class="text-center">
-  <h3>Most Promiment Name (Per State)</h3>
+  <h3>Most Prominent Name (Per State)</h3>
 </div>
 
 <div class="row my-4">
