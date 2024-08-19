@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload to API</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        #response {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+        .dz-message {
+            text-align: center;
+            font-size: 1.2em;
+            margin: 2em 0;
+        }
+        #loading-message {
+            display: none;
+            color: #0066cc;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>In/Out Venue Classification</h1>
+    <p>[Note: Server takes about a minute to spin up. Will spin down after a few minutes of idle.]</p>
+    <div id="dropzone" class="dropzone"></div>
+    <div id="loading-message"></div>
+    <div id="response"></div>
+
+    <script>
+        Dropzone.options.dropzone = {            
+            url: "https://t6wsltng85.execute-api.us-east-1.amazonaws.com/itai-stage-1/predict",
+            acceptedFiles: "image/jpeg",
+            method: "post",
+            maxFilesize: 10, // MB            
+            timeout: 30000, // 30 seconds, slightly higher than API Gateway's timeout
+            dictDefaultMessage: "Drop files here or click to upload",            
+            retryChunks: true,
+            retryChunksLimit: 3,
+            init: function() {
+                var loadingMessage = document.getElementById("loading-message");
+                var responseDiv = document.getElementById("response");
+                var loadingTimer;
+                var retryCount = 0;
+                var maxRetries = 3;         
+                loadingMessage.style.display = "none";      
+
+                this.on("sending", function(file, xhr, formData) {
+                    // Log the time of the request
+                    var date = new Date();
+                    var timestamp = date.getTime();
+                    console.log("Request timestamp: " + timestamp);
+
+                    xhr.setRequestHeader("Content-Type", "image/jpeg");   
+                    
+                    responseDiv.innerHTML = "";   
+                    
+                      // Set a timer to show the loading message after 5 seconds
+                      loadingTimer = setTimeout(function() {
+                        loadingMessage.style.display = "block";
+                        loadingMessage.innerHTML = "The server is spinning up. The initial request may take a few minutes. Please wait...";
+                    }, 5000);
+
+                });
+                this.on("success", function(file, response) {
+                    // document.getElementById("response").innerHTML = "<h3>Response:</h3><pre>" + JSON.stringify(response, null, 2) + "</pre>";
+                    // console.log(response)
+                    clearTimeout(loadingTimer);
+                    responseDiv.innerHTML = "<h3>Response:</h3><pre>" + JSON.stringify(response, null, 2) + "</pre>";
+                    console.log(response);
+                    loadingMessage.style.display = "none";      
+                });
+                this.on("error", function(file, errorMessage, xhr) {
+                    clearTimeout(loadingTimer);
+                    if (xhr && xhr.status === 504) {                        
+                        var date = new Date();
+                        var timestamp = date.getTime();
+                        console.log("Retry: " + timestamp);
+
+
+                        loadingMessage.style.display = "block";
+                        loadingMessage.innerHTML = "The server is spinning up. Please wait, retrying...";
+                        console.log("504 (timeout) detected. Retrying upload.");
+                        
+                        if (retryCount < maxRetries) {
+                            retryCount++;
+                            console.log('Retry count: ' + retryCount);
+                            this.processFile(file); // Retry the file upload
+                        } else {
+                            loadingMessage.style.display = "none";
+                            responseDiv.innerHTML = "<h3>Error:</h3><pre>Maximum retry attempts reached. Please try again later.</pre>";
+                            console.log("Maximum retry attempts reached.");
+                        }
+                    } else {
+                        loadingMessage.style.display = "none";
+                        responseDiv.innerHTML = "<h3>Error:</h3><pre>" + errorMessage + "</pre>";
+                        console.log(errorMessage);
+                    }
+                });
+
+            }
+        };
+    </script>
+</body>
+</html>
