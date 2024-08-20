@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upload to API</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.9.3/min/dropzone.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        #response {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+        .dz-message {
+            text-align: center;
+            font-size: 1.2em;
+            margin: 2em 0;
+        }
+        #loading-message {
+            display: none;
+            color: #0066cc;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        #imageContainer {
+            position: relative;
+            display: inline-block;
+        }
+        .face-box {
+            position: absolute;
+            border: 2px solid red;
+        }
+        .face-label {
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: rgba(255, 0, 0, 0.7);
+            color: white;
+            padding: 4px 5px; /* Increased padding */
+            font-size: 12px; /* Increased font size */
+            font-weight: bold;
+            white-space: nowrap; /* Prevent label from wrapping */
+    </style>
+</head>
+<body>
+    <h1>Face Analysis</h1>
+    <p>Upload an image containing one or more faces to get a demographic/feature analysis</p>
+    <div id="dropzone" class="dropzone"></div>
+    <div id="loading-message"></div>
+    <div id="imageContainer"></div>
+    <div id="response"></div>
+    <!-- <button id="sendButton">Send Request</button> -->
+    <!-- <div id="response"></div> -->
+
+    <script>
+
+        Dropzone.options.dropzone = {
+            url: "https://fn5fjuhrkcql6tf3psovbi3tg40gxazk.lambda-url.us-east-1.on.aws/",
+            acceptedFiles: "image/jpeg, image/png",
+            method: "post",
+            maxFilesize: 10, // MB
+            timeout: 30000, // 30 seconds
+            dictDefaultMessage: "Drop files here or click to upload",
+            autoProcessQueue: false, // Prevent Dropzone from uploading immediately
+            init: function() {
+                var myDropzone = this;
+                var loadingMessage = document.getElementById("loading-message");
+                var responseDiv = document.getElementById("response");
+
+                this.on("addedfile", function(file) {
+                    var reader = new FileReader();
+                    reader.onload = function(event) {
+                        var base64String = event.target.result.split(',')[1];
+                        var jsonData = JSON.stringify({ 
+                            image: base64String,
+                            filename: file.name
+                        });
+
+                        fetch(myDropzone.options.url, {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json',
+                            },
+                            body: jsonData
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            displayFormattedResponse(data);                            
+                            console.log(data);
+                            drawFaceBoxes(file, data);
+                            loadingMessage.style.display = "none";
+                            
+                            // Mark the file as processed
+                            myDropzone.emit("success", file);
+                            myDropzone.emit("complete", file);
+                        })
+                        .catch(error => {
+                            loadingMessage.style.display = "none";
+                            responseDiv.innerHTML = "<h3>Error:</h3><pre>" + error.message + "</pre>";
+                            console.log(error);
+
+                            // Mark the file as failed
+                           myDropzone.emit("error", file, error.message);
+
+                        });
+                    };
+                    reader.readAsDataURL(file);
+                });
+              
+                function displayFormattedResponse(data) {
+                    var formattedHtml = "<h3>Response:</h3>";
+                    var keysToExclude = ['PersonLabel', 'BoundingBox', 'Landmarks'];
+
+                    function formatValue(value) {
+                        if (typeof value === 'number') {
+                            return value.toFixed(2);
+                        } else if (typeof value === 'boolean') {
+                            return value.toString();
+                        } else if (value === null || value === undefined) {
+                            return 'N/A';
+                        } else {
+                            return value;
+                        }
+                    }
+
+                    data.forEach((person, index) => {
+                        formattedHtml += `<h4>Person ${index + 1}</h4>`;
+                        formattedHtml += "<ul>";
+                        for (let [key, value] of Object.entries(person)) {
+                            if (!keysToExclude.includes(key)) {
+                                if (key === 'Emotions') {
+                                    formattedHtml += `<li><strong>${key}:</strong><ul>`;
+                                    value.forEach(emotion => {
+                                        formattedHtml += `<li>${emotion.Type}: ${formatValue(emotion.Confidence)}%</li>`;
+                                    });
+                                    formattedHtml += "</ul></li>";
+                                } else if (Array.isArray(value)) {
+                                    formattedHtml += `<li><strong>${key}:</strong><ul>`;
+                                    value.forEach((item, i) => {
+                                        formattedHtml += `<li>Item ${i + 1}: ${formatValue(item)}</li>`;
+                                    });
+                                    formattedHtml += "</ul></li>";
+                                } else if (typeof value === 'object' && value !== null) {
+                                    formattedHtml += `<li><strong>${key}:</strong><ul>`;
+                                    for (let [subKey, subValue] of Object.entries(value)) {
+                                        formattedHtml += `<li><strong>${subKey}:</strong> ${formatValue(subValue)}</li>`;
+                                    }
+                                    formattedHtml += "</ul></li>";
+                                } else {
+                                    formattedHtml += `<li><strong>${key}:</strong> ${formatValue(value)}</li>`;
+                                }
+                            }
+                        }
+                        formattedHtml += "</ul>";
+                    });
+                    responseDiv.innerHTML = formattedHtml;
+                }
+
+
+                function drawFaceBoxes(file, faceData) {
+                    var img = new Image();
+                    img.onload = function() {
+                        imageContainer.innerHTML = '';
+                        imageContainer.appendChild(img);
+
+                        faceData.forEach((face, index) => {
+                            var box = document.createElement('div');
+                            box.className = 'face-box';
+                            var left = face.BoundingBox.Left * img.width;
+                            var top = face.BoundingBox.Top * img.height;
+                            var width = face.BoundingBox.Width * img.width;
+                            var height = face.BoundingBox.Height * img.height;
+                            
+                            box.style.left = left + 'px';
+                            box.style.top = top + 'px';
+                            box.style.width = width + 'px';
+                            box.style.height = height + 'px';
+                            
+                            var label = document.createElement('div');
+                            label.className = 'face-label';
+                            label.textContent = face.PersonLabel || `Person ${index + 1}`;
+                            
+                            // Adjust label position if it overflows the top of the image
+                            if (top < parseInt(getComputedStyle(label).height)) {
+                                label.style.top = '0';
+                            } else {
+                                label.style.top = '-' + getComputedStyle(label).height;
+                            }
+                            
+                            box.appendChild(label);
+                            imageContainer.appendChild(box);
+                        });
+                    };
+                    img.src = URL.createObjectURL(file);
+                }
+            }
+        };        
+
+    </script>
+</body>
+</html>
